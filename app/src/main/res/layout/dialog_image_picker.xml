@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingEnd="@dimen/_10sdp"
+    android:paddingStart="@dimen/_10sdp">
+
+    <RelativeLayout
+        android:elevation="@dimen/_2sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_marginVertical="@dimen/_4sdp"
+        android:layout_marginHorizontal="@dimen/_2sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_180sdp"
+        android:orientation="vertical"
+        android:background="@drawable/card_bg_round_15_transparent">
+
+
+      <LinearLayout
+          android:layout_centerHorizontal="true"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:gravity="center"
+          android:weightSum="2">
+
+          <LinearLayout
+              android:layout_marginEnd="@dimen/_22sdp"
+              android:id="@+id/tabCamera"
+              android:background="@drawable/dr_ractengle_solid_ripple_effect"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:orientation="vertical">
+
+              <ImageView
+                  android:layout_width="@dimen/_80sdp"
+                  android:layout_height="@dimen/_80sdp"
+                  android:layout_gravity="center_vertical"
+                  android:src="@drawable/ic_camera_new"
+                  app:tint="@color/appColor"
+                  android:padding="@dimen/_24sdp"
+                  android:background="@drawable/rounded_stroke_primary" />
+
+
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:fontFamily="@font/glacial_regular"
+                  android:text="@string/camera"
+                  android:gravity="center"
+                  android:layout_marginTop="@dimen/_6sdp"
+                  android:textColor="@color/black"
+                  android:textSize="@dimen/_17sdp" />
+
+          </LinearLayout>
+
+
+          <LinearLayout
+              android:layout_marginStart="@dimen/_22sdp"
+              android:id="@+id/tabGallery"
+              android:background="@drawable/dr_ractengle_solid_ripple_effect"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:orientation="vertical">
+
+              <ImageView
+                  android:layout_width="@dimen/_80sdp"
+                  android:layout_height="@dimen/_80sdp"
+                  android:layout_gravity="center_vertical"
+                  android:src="@drawable/ic_gallery_new"
+                  app:tint="@color/appColor"
+                  android:padding="@dimen/_24sdp"
+                  android:background="@drawable/rounded_stroke_primary" />
+
+
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:fontFamily="@font/glacial_regular"
+                  android:text="@string/gallery"
+                  android:gravity="center"
+                  android:layout_marginTop="@dimen/_6sdp"
+                  android:textColor="@color/black"
+                  android:textSize="@dimen/_17sdp" />
+
+          </LinearLayout>
+
+      </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

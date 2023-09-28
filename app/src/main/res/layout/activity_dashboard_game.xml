@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundWhite"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:background="@drawable/ractengle_gradian_bottom_round_edge"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_15sdp"
+        android:elevation="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp">
+
+            <LinearLayout
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/tabOuterEnd"
+                android:gravity="start|center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_26sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:src="@drawable/arrow_back_white"
+                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                    android:padding="@dimen/_4sdp"
+                    android:id="@+id/backbtn"
+                    app:tint="@color/white" />
+
+
+                <TextView
+                    android:id="@+id/tvMenuTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@string/dashboard"
+                    android:gravity="start|center_vertical"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/white"
+                    android:maxLines="2"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/glacial_bold" />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/tabOuterEnd"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="end|center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/tabWalletAmount"
+                    android:gravity="start|center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:src="@drawable/ic_wallet_new"
+                        android:layout_gravity="center"
+                        app:tint="@color/white" />
+
+
+                    <TextView
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:id="@+id/tvWalletCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="0000"
+                        android:gravity="start|center_vertical"
+                        android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp"
+                        android:fontFamily="@font/glacial_regular" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fragment_layout_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!-- Center Home Button as FloatingActionButton -->
+
+</LinearLayout>

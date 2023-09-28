@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg_gray"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/text_20"
+        android:background="@drawable/gamesitems_bg"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp"
+        android:paddingRight="15dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlTop"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tvMessage1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_30"
+                    android:layout_marginRight="@dimen/space_30"
+                    android:fontFamily="@font/semibold"
+                    android:textAlignment="center"
+                    android:textColor="@color/new_colorAccent"
+                    android:textSize="@dimen/text_20"
+                    android:visibility="gone" />
+
+
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/separator"
+                          />
+
+                        <TextView
+                            android:id="@+id/txtTitle1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:textAlignment="center"
+                            android:textColor="@color/new_colorAccent"
+                            android:textSize="@dimen/text_18"
+                            android:fontFamily="@font/semibold"
+                           />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtTitle1"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvDescription1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:textAlignment="center"
+                                android:textColor="@color/text_gray"
+                                android:textSize="@dimen/text_14"
+
+                                android:fontFamily="@font/regular" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+
+
+                    <RelativeLayout
+                        android:id="@+id/rlCall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/separator"
+                            android:visibility="visible" />
+
+                        <LinearLayout
+                            android:padding="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                          >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/whatsapp" />
+
+                            <TextView
+                                android:id="@+id/tvContact"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                               android:layout_marginLeft="10dp"
+                                android:gravity="center_vertical"
+
+                                android:textAlignment="center"
+                                android:textColor="@color/new_colorAccent"
+                                android:textSize="@dimen/text_18"
+                                android:text="**********"
+                                android:fontFamily="@font/semibolditalic" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/separator"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/txtTitle2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_margin="12dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/new_colorAccent"
+
+                            android:textSize="@dimen/text_18"
+                           android:fontFamily="@font/semibold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtTitle2"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvDescription2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                              android:fontFamily="@font/regular"
+                                android:textAlignment="center"
+                                android:textColor="@color/text_gray"
+                                android:textSize="@dimen/text_14"
+                                />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/separator"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/txtTitle3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_margin="12dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/new_colorAccent"
+
+                            android:textSize="@dimen/text_18"
+                            android:fontFamily="@font/semibold"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtTitle3"
+                            android:layout_marginBottom="12dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvDescription3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                               android:fontFamily="@font/regular"
+                                android:textAlignment="center"
+                                android:textColor="@color/text_gray"
+                                android:textSize="@dimen/text_14"
+                               />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

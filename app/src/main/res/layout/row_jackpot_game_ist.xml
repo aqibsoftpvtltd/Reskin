@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/tabSelection"
+        android:background="@drawable/dr_ractengle_less_round_ripple_effect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_8sdp">
+
+        <RelativeLayout
+            android:id="@+id/tabInnerSelection"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_180sdp"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            android:layout_marginVertical="@dimen/_4sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:background="@drawable/card_bg_round_15_transparent"
+            android:elevation="@dimen/_2sdp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|start"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="@dimen/_75sdp"
+                    android:layout_height="@dimen/_75sdp"
+                    android:background="@drawable/ractengle_solid_round_edge_light_gray">
+
+                    <TextView
+                        android:id="@+id/tvProviderName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:fontFamily="@font/glacial_bold"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/_4sdp"
+                        android:text="@string/_10_00_am"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15sdp" />
+
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:id="@+id/tvGameResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/glacial_bold"
+                    android:gravity="center"
+                    android:text="@string/time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+
+                <FrameLayout
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/tabPlayGame"
+                    android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+                    android:layout_width="@dimen/_95sdp"
+                    android:layout_height="@dimen/_28sdp">
+
+                    <RelativeLayout
+                        android:layout_gravity="center"
+                        android:id="@+id/tabInnerPlayGame"
+                        android:background="@drawable/ractengle_gradian_round_edge"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ivPlayGame"
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/ic_play_round"
+                            android:padding="@dimen/_2sdp"
+                            android:background="@drawable/round_white"
+                            app:tint="@color/appColorLight" />
+
+                        <TextView
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/ivPlayGame"
+                            android:id="@+id/tvPlayGame"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/glacial_regular"
+                            android:text="@string/play_game"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                    </RelativeLayout>
+                </FrameLayout>
+
+
+                <TextView
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:id="@+id/tvBettingStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/glacial_regular"
+                    android:gravity="center"
+                    android:text="@string/time"
+                    android:textColor="@color/grayColor"
+                    android:textSize="@dimen/_11sdp" />
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
+</layout>

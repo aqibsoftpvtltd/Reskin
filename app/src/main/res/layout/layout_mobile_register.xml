@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/topView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_95sdp"
+            android:includeFontPadding="false"
+            android:text="@string/enter_phone_number"
+            android:gravity="start|center_vertical"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:background="@drawable/welcome_txt"
+            android:textSize="@dimen/_19sdp"
+            android:fontFamily="@font/glacial_bold" />
+
+
+    </LinearLayout>
+
+
+
+   <!-- <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tabMobileNumber"
+        android:layout_below="@+id/topView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_33sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_mobile_number"
+        app:boxStrokeColor="@color/appColor"
+        app:hintTextColor="@color/grayColor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMobileNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textColorHint="@color/grayColor"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/glacial_regular"/>
+
+    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <LinearLayout
+        android:id="@+id/tabMobileNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_180sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:orientation="vertical">
+
+        <com.hbb20.CountryCodePicker
+            app:ccp_defaultNameCode="IND"
+            android:id="@+id/spinnerCountryCode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_58sdp"
+            app:ccp_autoDetectCountry="false"
+            app:ccp_showFlag="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            app:ccp_textGravity="LEFT"
+            app:ccp_useFlagEmoji="true"
+            app:ccpDialog_showFlag="true"
+            app:ccp_showNameCode="false"
+            app:ccp_showFullName="true"
+            app:ccpDialog_keyboardAutoPopup="false"
+            android:background="@drawable/country_code_top_background">
+        </com.hbb20.CountryCodePicker>
+
+        <!-- Country Code Dropdown -->
+
+        <!-- Phone Number EditText -->
+        <EditText
+            android:id="@+id/etMobileNumber"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_58sdp"
+            android:hint="Phone Number"
+            android:padding="@dimen/_10sdp"
+            android:inputType="phone"
+            android:textColorHint="@color/grayColor"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textSize="@dimen/_15sdp"
+            android:background="@drawable/phone_num_background"
+            android:textColor="@color/black"
+            android:fontFamily="@font/glacial_regular" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/privacy_policy_img"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_12sdp"
+        android:includeFontPadding="false"
+        android:text="@string/enter_phone_number"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:layout_below="@id/tabMobileNumber"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/privacy_aggrement_img"
+        android:textSize="@dimen/_19sdp"
+        android:fontFamily="@font/glacial_bold" />
+
+
+    <FrameLayout
+        android:layout_below="@+id/tabMobileNumber"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tabSendOTP"
+        android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/tvSendOTP"
+            android:background="@drawable/continue_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </TextView>
+    </FrameLayout>
+
+</RelativeLayout>

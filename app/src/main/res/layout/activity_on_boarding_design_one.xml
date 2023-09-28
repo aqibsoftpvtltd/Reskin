@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <LinearLayout
+        android:id="@+id/layoutDots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+     android:layout_above="@id/btnNext"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/dot1"
+            android:layout_width="28dp"
+            android:layout_height="10dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/active_dot" />
+
+        <ImageView
+            android:id="@+id/dot2"
+            android:layout_width="28dp"
+            android:layout_height="10dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/inactive_dot" />
+
+        <ImageView
+            android:id="@+id/dot3"
+            android:layout_width="28dp"
+            android:layout_height="10dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/inactive_dot" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnSkip"
+        android:layout_width="69dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_alignEnd="@id/btnNext"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/skip_purple_btn" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="@dimen/_285sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/next_btn"
+        android:layout_marginBottom="@dimen/_40sdp" />
+
+</RelativeLayout>

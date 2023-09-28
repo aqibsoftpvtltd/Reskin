@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_20sdp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/less_round_edge_ractengle_white"
+            android:elevation="@dimen/_3sdp"
+            android:paddingVertical="@dimen/_12sdp"
+            android:orientation="vertical">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/tv_gamename"
+                        android:layout_margin="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/glacial_bold"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Game Information"
+                        android:textColor="@color/new_colorAccent"
+                        android:textSize="@dimen/text_18" />
+
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:shrinkColumns="2">
+
+                        <TableRow
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_column="1"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/glacial_bold"
+                                android:padding="5dp"
+                                android:text="Open Result Time"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_14" />
+
+                            <TextView
+                                android:id="@+id/tv_openresulttime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_column="2"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/glacial_regular"
+                                android:padding="5dp"
+
+
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_14" />
+                        </TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/separator" />
+
+                        <TableRow
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_column="1"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/glacial_bold"
+                                android:padding="5dp"
+                                android:text="Close Result Time"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_14" />
+
+                            <TextView
+                                android:id="@+id/tv_closeresulttime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_column="2"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/glacial_regular"
+                                android:padding="5dp"
+
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_14" />
+                        </TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/separator" />
+
+                        <TableRow
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_column="1"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/glacial_bold"
+                                android:padding="5dp"
+                                android:text="Open Bid last time"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_14" />
+
+                            <TextView
+                                android:id="@+id/tv_oblt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_column="2"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/glacial_regular"
+                                android:padding="5dp"
+
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_14" />
+                        </TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/separator" />
+
+                        <TableRow
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_column="1"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/glacial_bold"
+
+                                android:padding="5dp"
+                                android:text="Close bid Last time"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_14" />
+
+                            <TextView
+                                android:id="@+id/tv_cblt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_column="2"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/glacial_regular"
+                                android:padding="5dp"
+
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_14" />
+
+                        </TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/separator" />
+                    </TableLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_ok"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/ractengle_gradian_round_edge"
+                        android:fontFamily="@font/glacial_bold"
+                        android:minWidth="150dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="@string/ok"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_16" />
+
+
+                </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:padding="@dimen/_8sdp"
+                android:layout_margin="@dimen/_8sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/close_dialog" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+android {
+  compileSdkVersion 33
+
+  compileOptions {
+    sourceCompatibility "1.8"
+    targetCompatibility "1.8"
+  }
+
+  defaultConfig {
+    minSdkVersion 15
+  }
+  packagingOptions{
+    exclude 'META-INF/rxjava.properties'
+  }
+  resourcePrefix 'emoji_'
+    buildToolsVersion '33.0.0'
+}
+
+dependencies {
+  api "androidx.appcompat:appcompat:1.1.0"
+  api "androidx.cardview:cardview:1.0.0"
+
+  testImplementation 'junit:junit:4.13-beta-3'
+  testImplementation 'org.assertj:assertj-core:2.9.1'
+  testImplementation 'org.robolectric:robolectric:4.3.1'
+  testImplementation 'com.pushtorefresh.java-private-constructor-checker:checker:1.2.0'
+  androidTestAnnotationProcessor "com.google.auto.service:auto-service:1.0-rc4"
+}

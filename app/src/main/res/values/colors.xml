@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#9d0b0b</color>
+    <!--<color name="colorPrimaryDark">#FFB90C</color>-->
+    <color name="colorAccent">#6AB848</color>
+    <color name="btnColor">#329E36</color>
+    <color name="white">#ffffff</color>
+    <color name="lightYellow">#F8E3B1</color>
+    <color name="color_green">#07A50D</color>
+    <color name="textPrimary">#F5353535</color>
+    <color name="colorOrange">#E78D39</color>
+    <color name="orange">#EC6F49</color>
+
+    <color name="orange_new">#FD6B22</color>
+
+
+
+    <color name="colorRedMsg">#A33F37</color>
+    <color name="colorGreenMsg">#348338</color>
+
+    <color name="gray_a">#242323</color>
+    <color name="gray_b">#555452</color>
+    <color name="gray_c">#6F6D6A</color>
+    <color name="gray_d">#92908D</color>
+    <color name="gray_e">#B3B0AD</color>
+    <color name="gray_f">#B8B7B6</color>
+    <color name="gray_light">#F5F0EFEF</color>
+    <color name="light_white">#fff</color>
+    <color name="black">#000000</color>
+    <color name="dark_black">#F5353535</color>
+    <color name="color_blue">#08579B</color>
+
+    <!--<color name="spots_dialog_color">#ff0099cc</color>-->
+    <color name="spots_dialog_color">#6AB848</color>
+    <color name="light_black">#ffffff</color>
+    <color name="colorDivider">#C7C6C6</color>
+
+
+    <color name="blue">#FF375BF1</color>
+    <color name="yellow">#D6BE5F</color>
+
+    <color name="colorE">#c4c4c4</color>
+    <color name="replyBackground">#DADADA</color>
+
+    //new color codes
+    <color name="new_colorPrimary">#362D2D</color>
+    <color name="new_colorPrimaryDark">#362D2D</color>
+    <color name="new_colorAccent">#362D2D</color>
+    <color name="new_colorAccent2">#61A0FF</color>
+    <color name="new_color_hint">#3F4962</color>
+    <color name="page_bg_gray">#F5F5F5</color>
+    <color name="text_gray">#3C3A3A</color>
+    <color name="separator">#404D4D4D</color>
+    <color name="text_bottom">#888888</color>
+    <color name="spotlightBackground">#CB000000</color>
+
+    <color name="teleblue">#078FFA</color>
+    <color name="lightestGrey">#4DD3D3D3</color>
+    <color name="appColor">#EC8D31</color>
+    <color name="appColorLight">#EC9E24</color>
+    <color name="grayColor">#888888</color>
+
+    <color name="diceBlue">#165FB6</color>
+    <color name="diceGreen">#46B834</color>
+    <color name="panaBlack">#46B834</color>
+    <color name="panaYellow">#EC9828</color>
+    <color name="spBlue">#0792FF</color>
+    <color name="dpRed">#FF225E</color>
+    <color name="groupRed">#FF1F1F</color>
+    <color name="spdptpGreen">#000000</color>
+    <color name="triplePurple">#6C2AEE</color>
+    <color name="choicePana">#A5A5A5</color>
+
+
+
+    //Latest Theme
+    <color name="primaryMain">#362D2D</color>
+    <color name="backgroundWhite">#FFFFFF</color>
+    <color name="textWhite">#FFFFFF</color>
+    <color name="textSecondary">#707070</color>
+    <color name="borderGray">#707070</color>
+    <color name="textHint">#A1A1A1</color>
+    <color name="red">#FF1F1F</color>
+    <color name="green">#059E00</color>
+    <color name="greenButton">#43AD2F</color>
+    <color name="greenLight">#8043AD2F</color>
+    <color name="redDark">#CE0000</color>
+    <color name="maroon">#AC2E2E</color>
+    <color name="greenDark">#2EAC69</color>
+    <color name="switchColor">#69CCC1</color>
+</resources>

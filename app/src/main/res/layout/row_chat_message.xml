@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llContainerOutgoingMessages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="8dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="@dimen/cardview_default_elevation"
+            android:background="@drawable/shape_outcoming_message"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:minWidth="100dp"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/reply_layout"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/reply_layout_bg"
+                android:minWidth="200dp"
+                android:padding="8dp"
+                android:elevation="2dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txtQuotedUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/regular"
+                    android:text="Admin"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txtQuotedMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtQuotedUsername"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/regular"
+                    android:maxLines="2"
+                    android:text="Hi hello how are you"
+                    android:textColor="@color/text_gray"
+                    android:textSize="10sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlImageContainer"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:visibility="gone">
+
+                <com.vanniktech.emoji.EmojiTextView
+                    android:id="@+id/tvImgMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:autoLink="web"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_vertical"
+
+                    android:text="Message"
+                    android:textColor="@color/white"
+                    android:textColorLink="#253CB8"
+                    android:textSize="@dimen/text_14"
+                    app:emojiSize="26sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:indeterminateTint="@color/white" />
+
+                <ImageView
+                    android:id="@+id/ivChatFile"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_below="@id/tvImgMessage"
+                    android:background="@drawable/shape_bg_image"
+                    android:scaleType="fitCenter"
+                    android:transitionName="robot"
+
+                    android:visibility="visible" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlMediaView"
+                android:layout_width="260dp"
+                android:layout_height="55dp"
+                android:padding="8dp"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:id="@+id/rlMediaAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ivPlayPauseMedia"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerVertical="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/icf_play_button"
+                        android:visibility="visible"
+                        app:tint="@color/white" />
+
+
+                </RelativeLayout>
+
+                <SeekBar
+                    android:id="@+id/sbMediaProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="4dp"
+                    android:layout_toRightOf="@+id/rlMediaAction"
+                    android:progressTint="@color/white"
+                    android:thumbTint="@color/white" />
+
+
+                <RelativeLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sbMediaProgress">
+
+                    <TextView
+                        android:id="@+id/tvMediaProgressTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="56dp"
+                        android:fontFamily="@font/regular"
+                        android:text="00:08"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <com.vanniktech.emoji.EmojiTextView
+                android:id="@+id/tvMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:autoLink="web"
+                android:fontFamily="@font/regular"
+                android:gravity="center_vertical"
+
+                android:text="Message"
+                android:textColor="@color/white"
+                android:textColorLink="#253CB8"
+
+                android:textSize="@dimen/text_14"
+                app:emojiSize="26sp" />
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right">
+
+            <TextView
+                android:id="@+id/tvMessageTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/regular"
+                android:gravity="center_vertical"
+                android:text="12:43 PM"
+
+                android:textSize="10sp" />
+
+            <ImageView
+                android:id="@+id/ivMessageStatus"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_toRightOf="@+id/tvMessageTime"
+                android:src="@drawable/icf_double_tick_indicator" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:elevation="3dp"
+        android:id="@+id/llContainerIncomingMessages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="60dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/cardview_default_elevation"
+                android:background="@drawable/shape_incoming_message"
+                android:minWidth="100dp"
+
+                android:orientation="vertical"
+
+                >
+
+                <RelativeLayout
+                    android:elevation="@dimen/cardview_default_elevation"
+                    android:id="@+id/reply_layout_in"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/reply_layout_bg"
+
+                    android:minWidth="200dp"
+                    android:padding="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/txtQuotedUsername_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:fontFamily="@font/regular"
+                        android:text="Admin"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/text_12"
+                        android:textStyle="bold"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/txtQuotedMsg_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtQuotedUsername_in"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/regular"
+                        android:maxLines="2"
+                        android:text="Hi hello how are you"
+                        android:textColor="#0B2F5B"
+                        android:textSize="@dimen/text_10" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlInChatImageContainer"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:visibility="gone">
+
+                    <com.vanniktech.emoji.EmojiTextView
+                        android:id="@+id/tvInImgMessage"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:autoLink="web"
+                        android:fontFamily="@font/regular"
+                        android:gravity="center_vertical"
+                        android:text="Message"
+                        android:textColor="#0B2F5B"
+                        android:textColorLink="#253CB8"
+                        android:textSize="@dimen/text_14"
+                        android:visibility="visible"
+                        app:emojiSize="26sp" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarIn"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true" />
+
+                    <ImageView
+                        android:id="@+id/ivInChatFile"
+                        android:layout_width="280dp"
+                        android:layout_height="280dp"
+                        android:layout_below="@id/tvInImgMessage"
+                        android:background="@drawable/shape_bg_image"
+                        android:scaleType="fitCenter"
+                        android:transitionName="robot"
+                        android:visibility="visible" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlInMediaView"
+                    android:layout_width="260dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="8dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+
+
+                    >
+
+                    <RelativeLayout
+                        android:id="@+id/rlInMediaAction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ivInPlayPauseMedia"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="@drawable/icf_play_button"
+                            android:visibility="visible" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlInImageNotDownloaded"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:id="@+id/progressInImageDownloaded"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_centerInParent="true" />
+
+                            <ImageView
+                                android:id="@+id/ivInImageDownloaded"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:padding="10dp"
+                                android:src="@drawable/ic_file_download" />
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <SeekBar
+                        android:id="@+id/sbInMediaProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="4dp"
+                        android:layout_toRightOf="@+id/rlInMediaAction"
+                        android:progressTint="@color/colorPrimary"
+                        android:thumbTint="@color/colorPrimary" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sbInMediaProgress">
+
+                        <TextView
+                            android:id="@+id/tvInMediaProgressTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="56dp"
+                            android:fontFamily="@font/regular"
+                            android:text="00:00"
+                            android:textColor="#0B2F5B"
+                            android:textSize="@dimen/text_10" />
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <com.vanniktech.emoji.EmojiTextView
+                    android:id="@+id/tvInMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:autoLink="web"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_vertical"
+                    android:text="Message"
+                    android:textColor="#0B2F5B"
+                    android:textColorLink="#253CB8"
+                    android:textSize="@dimen/text_14"
+
+
+                    app:emojiSize="26sp" />
+
+                <RelativeLayout
+                    android:id="@+id/rlInChatVideoContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:visibility="gone"
+
+                    >
+
+                    <com.vanniktech.emoji.EmojiTextView
+                        android:id="@+id/tvInVideoMessage"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:autoLink="web"
+                        android:fontFamily="@font/semibold"
+                        android:gravity="center_vertical"
+                        android:text="Message"
+                        android:textColor="#0B2F5B"
+                        android:textColorLink="#253CB8"
+                        android:textSize="@dimen/text_14"
+                        android:visibility="visible"
+                        app:emojiSize="26sp" />
+
+                    <ImageView
+                        android:id="@+id/video_placeholder"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvInVideoMessage"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/video_placeholder"
+                        android:transitionName="robot"
+                        android:visibility="visible" />
+
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/tvInMessageDeleted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:autoLink="web"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_vertical"
+                    android:text="This message was deleted "
+                    android:textColor="#0B2F5B"
+                    android:textSize="@dimen/text_14"
+                    android:textStyle="italic"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right">
+
+                <TextView
+                    android:id="@+id/tvInMessageTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_vertical|end"
+
+                    android:text="12:43 PM"
+                    android:textSize="@dimen/text_10" />
+
+                <ImageView
+                    android:id="@+id/ivMessStatusTick"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_toRightOf="@+id/tvInMessageTime"
+                    android:src="@drawable/icf_double_tick_indicator"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

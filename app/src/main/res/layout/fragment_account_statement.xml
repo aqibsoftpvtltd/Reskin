@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg_gray"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/text_20"
+        android:background="@drawable/gamesitems_bg"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/ll_loading1"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:id="@+id/tvMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/space_30"
+                android:layout_marginRight="@dimen/space_30"
+                android:elevation="5dp"
+                android:fontFamily="@font/regular"
+                android:text="No data found"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_20"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/rvAccountStatement"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="10"
+                tools:listitem="@layout/row_transaction_statement" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_loading1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#80000000"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_15">
+
+            <com.rhl.avprogress.AVLoadingIndicatorView
+                android:id="@+id/progress_loader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                app:indicatorName="BallPulseIndicator" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="30dp"
+                android:layout_height="@dimen/space_30"
+                android:visibility="gone"
+
+                />
+
+            <TextView
+                android:id="@+id/txt_loading1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Loading..."
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_14"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/ractengle_gradian_round_edge"
+            android:fontFamily="@font/semibold"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18"
+            android:visibility="visible" />
+    </LinearLayout>
+</RelativeLayout>

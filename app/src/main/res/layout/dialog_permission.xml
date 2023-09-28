@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <RelativeLayout
+        android:background="@drawable/dashboard_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/text_20"
+        android:orientation="vertical">
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/viewPagerIndicatorIconsLayout"
+            android:layout_marginBottom="10dp" />
+
+        <LinearLayout
+            android:id="@+id/viewPagerIndicatorIconsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_allow"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/firstDotImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/current_position_icon" />
+
+            <ImageView
+                android:id="@+id/secondDotImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:contentDescription="@null"
+                android:src="@drawable/disable_position_icon" />
+
+            <ImageView
+                android:id="@+id/thirdDotImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:contentDescription="@null"
+                android:src="@drawable/disable_position_icon" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_allow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ractengle_gradian_round_edge"
+            android:fontFamily="@font/semibold"
+            android:text="Allow Permissions"
+            android:textAllCaps="false"
+            android:layout_margin="3dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18" />
+
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close"
+            android:fontFamily="@font/regular"
+            android:textSize="@dimen/text_18"
+            android:padding="10dp"
+            android:textColor="@color/new_colorAccent" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

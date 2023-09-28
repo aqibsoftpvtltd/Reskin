@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundWhite"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/tabSelection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            android:layout_marginVertical="@dimen/_4sdp"
+            android:elevation="@dimen/_2sdp"
+            android:gravity="center"
+            android:weightSum="4"
+            android:orientation="horizontal">
+
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="@dimen/_50sdp">
+
+
+                <TextView
+                    android:id="@+id/tvDigits"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_24sdp"
+                    android:fontFamily="@font/glacial_regular"
+                    android:gravity="center"
+                    android:text="03"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_24sdp"
+                    android:fontFamily="@font/glacial_regular"
+                    android:gravity="center"
+                    android:text="@string/bid"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="@dimen/_50sdp">
+
+
+                <TextView
+                    android:id="@+id/tvPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_24sdp"
+                    android:fontFamily="@font/glacial_regular"
+                    android:gravity="center"
+                    android:text="03"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_24sdp"
+                    android:fontFamily="@font/glacial_regular"
+                    android:gravity="center"
+                    android:text="@string/point"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="@dimen/_50sdp">
+
+
+                <TextView
+                    android:id="@+id/tvGameType"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_24sdp"
+                    android:fontFamily="@font/glacial_regular"
+                    android:gravity="center"
+                    android:text="03"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_24sdp"
+                    android:fontFamily="@font/glacial_regular"
+                    android:gravity="center"
+                    android:text="@string/game_type"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="@dimen/_50sdp">
+
+
+                <ImageView
+                    android:id="@+id/btnDelete"
+                    android:layout_width="@dimen/_26sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:src="@drawable/ic_cross"
+                    android:padding="@dimen/_8sdp"
+                    android:background="@drawable/rounded_solid_red"
+                    />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</layout>

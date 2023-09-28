@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="25dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="35dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_color_primary_20"
+
+        tools:ignore="UselessParent">
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/semibold"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="Select Payment Mode"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18" />
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/iv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/close_dialog"
+            android:padding="10dp"
+            app:tint="@color/white"
+
+            />
+    </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+           android:padding="15dp">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/rb_upi">
+            <RadioButton
+                android:id="@+id/rb_upi"
+                style="?selectableItemBackgroundBorderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/semibold"
+
+                android:text="UPI"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/text_16"
+                android:textStyle="normal"
+                tools:ignore="RtlSymmetry"
+                android:padding="10dp"
+                android:background="@drawable/rounded_black_stroke"
+                android:drawableRight="@drawable/new_upi"/>
+
+            <RadioButton
+             android:layout_marginTop="10dp"
+                android:id="@+id/rb_netbanking"
+                style="?selectableItemBackgroundBorderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/semibold"
+
+              android:padding="10dp"
+                android:text="Net Banking"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/text_16"
+                android:textStyle="normal"
+                tools:ignore="RtlSymmetry"
+                android:background="@drawable/rounded_black_stroke"
+                android:drawableRight="@drawable/new_netbanking"/>
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

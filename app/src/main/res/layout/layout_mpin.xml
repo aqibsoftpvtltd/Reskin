@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="start|center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="@string/mpin_registration"
+            android:textAllCaps="true"
+            android:gravity="start|center_vertical"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_19sdp"
+            android:fontFamily="@font/glacial_bold" />
+
+
+        <TextView
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="@string/provide_a_four_digit_numeric_mpin_to_protect_your_account_against_unauthorized_access"
+            android:gravity="start|center_vertical"
+            android:textAlignment="viewStart"
+            android:textColor="@color/grayColor"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/glacial_regular" />
+
+
+    </LinearLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tabMpin"
+        android:layout_marginTop="@dimen/_33sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/mpin"
+        app:boxStrokeColor="@color/appColor"
+        app:hintTextColor="@color/grayColor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMpin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textColorHint="@color/grayColor"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/glacial_regular"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tabConfirmMpin"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/confirm_mpin"
+        app:boxStrokeColor="@color/appColor"
+        app:hintTextColor="@color/grayColor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etConfirmMpin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textColorHint="@color/grayColor"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/glacial_regular"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <FrameLayout
+        android:id="@+id/tabContinueMPIN"
+        android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+        android:layout_marginTop="@dimen/_120sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp">
+
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:id="@+id/tabInnerContinueMPIN"
+            android:background="@drawable/ractengle_gradian_round_edge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/tvContinueMPIN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/glacial_regular"
+                android:text="@string/continue_"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <ImageView
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/_37sdp"
+                android:layout_height="@dimen/_37sdp"
+                android:src="@drawable/ic_arrow_round"
+                android:padding="@dimen/_5sdp"
+                android:background="@drawable/round_white"
+                app:tint="@color/appColorLight"
+                />
+
+        </RelativeLayout>
+    </FrameLayout>
+
+
+</LinearLayout>

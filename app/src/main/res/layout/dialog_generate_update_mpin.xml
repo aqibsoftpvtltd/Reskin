@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/cvAddFund"
+        android:background="@drawable/dr_ractengle_less_round_ripple_effect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <RelativeLayout
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            android:layout_marginVertical="@dimen/_4sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_15sdp"
+            android:background="@drawable/card_bg_round_15_transparent"
+            android:elevation="@dimen/_2sdp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_42sdp"
+                    android:fontFamily="@font/glacial_bold"
+                    android:gravity="center"
+                    android:text="@string/generate_mpin"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_17sdp" />
+
+                <LinearLayout
+                    android:id="@+id/rlOtp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tabOTP"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_mobile_number"
+                        app:boxStrokeColor="@color/appColor"
+                        app:hintTextColor="@color/grayColor">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etOTP"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:textColorHint="@color/grayColor"
+                            android:includeFontPadding="false"
+                            android:singleLine="true"
+                            android:textSize="@dimen/_15sdp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/glacial_regular"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <TextView
+                        android:id="@+id/tvRequestOtp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:fontFamily="@font/glacial_bold"
+                        android:gravity="center"
+                        android:layout_gravity="end|center_vertical"
+                        android:text="@string/request_otp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13sdp" />
+                </LinearLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tabOldMpin"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_old_mpin"
+                    app:boxStrokeColor="@color/appColor"
+                    app:hintTextColor="@color/grayColor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOldMpin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberPassword"
+                        android:maxLength="4"
+                        android:textColorHint="@color/grayColor"
+                        android:includeFontPadding="false"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_15sdp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/glacial_regular"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tabEnterMpin"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_mpin"
+                    app:boxStrokeColor="@color/appColor"
+                    app:hintTextColor="@color/grayColor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEnterMpin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberPassword"
+                        android:maxLength="4"
+                        android:textColorHint="@color/grayColor"
+                        android:includeFontPadding="false"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_15sdp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/glacial_regular"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tabConfirmMpin"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/confirm_mpin"
+                    app:boxStrokeColor="@color/appColor"
+                    app:hintTextColor="@color/grayColor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etConfirmMpin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberPassword"
+                        android:maxLength="4"
+                        android:textColorHint="@color/grayColor"
+                        android:includeFontPadding="false"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_15sdp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/glacial_regular"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/tabGenerate"
+                    android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+                    android:layout_marginTop="@dimen/_22sdp"
+                    android:layout_marginBottom="@dimen/_22sdp"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_36sdp">
+
+                    <RelativeLayout
+                        android:layout_gravity="center"
+                        android:id="@+id/tabInnerGenerate"
+                        android:background="@drawable/ractengle_gradian_round_edge"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <TextView
+                            android:id="@+id/tvGenerate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/glacial_regular"
+                            android:text="@string/generate"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+
+
+                    </RelativeLayout>
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

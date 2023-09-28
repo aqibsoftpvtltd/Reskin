@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_user_name"
+        android:title="Profile"/>
+    <item
+        android:id="@+id/nav_bidhistory"
+        android:icon="@drawable/ic_ks_history"
+        android:title="Bid History"/>
+    <item android:title=""/>
+    <item
+        android:id="@+id/nav_funds"
+        android:icon="@drawable/ic_wallet"
+        android:title="Funds"/>
+    <item
+        android:id="@+id/nav_support"
+        android:icon="@drawable/ic_support"
+        android:title="Support"/>
+</menu>

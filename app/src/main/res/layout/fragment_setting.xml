@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/page_bg_gray"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/text_20"
+        android:background="@drawable/gamesitems_bg"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp"
+        android:paddingRight="15dp">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_16"
+                android:text="@string/login_setting"
+                android:fontFamily="@font/semibold"
+                android:textColor="@color/new_colorAccent"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioGroup
+                android:id="@+id/rgLoginPreference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <RadioButton
+                    android:id="@+id/rbLoginUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_with_username_password"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_16"
+             android:fontFamily="@font/regular"
+                 />
+                <View
+                    android:layout_marginTop="8dp"
+
+                    android:background="@color/separator"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+                <RadioButton
+                    android:id="@+id/rbLoginMpin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+
+                    android:text="@string/login_with_mpin"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_16"
+                  android:fontFamily="@font/regular"
+                    tools:targetApi="lollipop" />
+            </RadioGroup>
+            <View
+                android:background="@color/separator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_16"
+                android:fontFamily="@font/semibold"
+                android:text="@string/notification_setting"
+                android:textColor="@color/new_colorAccent"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchMainNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/main_notification"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/text_16" />
+                <View
+                    android:background="@color/separator"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchGameNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/game_notification"
+
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/text_16" />
+                <View
+                    android:background="@color/separator"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchStarlineNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/starline_notification"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/text_16" />
+                <View
+                    android:background="@color/separator"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchJackpotNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/andar_bahar_jackpot_notification"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/text_16" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+</LinearLayout>
+
+</RelativeLayout>

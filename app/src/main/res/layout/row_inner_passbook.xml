@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ProgressBar android:id="@+id/loading_spinner"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_margin="@dimen/space_30"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+
+            android:id="@+id/contentNoData"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_black_stroke"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="150dp"
+               android:gravity="center"
+               android:fontFamily="@font/semibold"
+               android:textColor="@color/new_colorAccent"
+               android:text=" ☹️ Old Data is Not Available ☹️"/>
+        </LinearLayout>
+    <LinearLayout
+android:visibility="gone"
+       android:id="@+id/content_bank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_black_stroke"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="2">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Account Holder Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvAccountHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:fontFamily="@font/regular"
+                    android:freezesText="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:padding="5dp"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="xxxxxxxxxx"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Bank Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvBank"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:padding="5dp"
+                    android:text="xxxxxxxxx"
+                    android:textColor="@color/text_gray"
+
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Account No."
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvAccountNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/regular"
+                    android:padding="5dp"
+                    android:paddingRight="15dp"
+                    android:text="xxxxxxxxxx"
+
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+        
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="IFSC Code"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvIFSC"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:fontFamily="@font/regular"
+                    android:padding="5dp"
+
+                    android:text="xxxxxxxxxx"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Date/Time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvdatetime"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:fontFamily="@font/regular"
+                    android:padding="5dp"
+
+                    android:text="xxxxxxxxxx"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Status"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvstatus"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:fontFamily="@font/regular"
+                    android:padding="5dp"
+
+                    android:text="xxxxxxxxxx"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="5dp"
+                android:fontFamily="@font/regular"
+                android:drawableLeft="@drawable/check_mark"
+                android:drawablePadding="15dp"
+                android:text="Verified bank details"
+                android:textColor="@color/green"
+                android:textSize="@dimen/text_12" />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+android:visibility="gone"
+        android:id="@+id/contentBidPlaced"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_black_stroke"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="2">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Type"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvBidPlacedType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:fontFamily="@font/regular"
+                    android:freezesText="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:padding="5dp"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="xxxxxxxxxx"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Game Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvBidPlacedGameName"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:padding="5dp"
+                    android:text="xxxxxxxxx"
+                    android:textColor="@color/text_gray"
+
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Provider Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvBidPlacedProviderName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/regular"
+                    android:padding="5dp"
+                    android:paddingRight="15dp"
+                    android:text="xxxxxxxxxx"
+
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Date/Time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvBidPlacedDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/regular"
+                    android:padding="5dp"
+                    android:paddingRight="15dp"
+                    android:text=""
+
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Played For"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvBidPlacedPlayedFor"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:fontFamily="@font/regular"
+                    android:padding="5dp"
+
+                    android:text="xxxxxxxxxx"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:fontFamily="@font/semibold"
+
+                    android:padding="5dp"
+                    android:text="Status"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_10" />
+
+                <TextView
+                    android:id="@+id/tvBidPlacedStatus"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:fontFamily="@font/regular"
+                    android:padding="5dp"
+
+                    android:text="xxxxxxxxxx"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_10" />
+            </TableRow>
+
+
+
+        </TableLayout>
+    </LinearLayout>
+
+        <LinearLayout
+android:visibility="gone"
+            android:id="@+id/contentBidWon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_black_stroke"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="2">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Type"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvBidWonType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:fontFamily="@font/regular"
+                        android:freezesText="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:padding="5dp"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="xxxxxxxxxx"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Game Name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvBidWonGameName"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:padding="5dp"
+                        android:text="xxxxxxxxx"
+                        android:textColor="@color/text_gray"
+
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Provider Name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvBidWonProviderName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/regular"
+                        android:padding="5dp"
+                        android:paddingRight="15dp"
+                        android:text="xxxxxxxxxx"
+
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Date/Time"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvBidWonDateTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/regular"
+                        android:padding="5dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Played For"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvBidWonPlayedFor"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:fontFamily="@font/regular"
+                        android:padding="5dp"
+
+                        android:text="xxxxxxxxxx"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Win Ratio"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvBidWonWinRatio"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:fontFamily="@font/regular"
+                        android:padding="5dp"
+
+                        android:text="xxxxxxxxxx"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Bid Amount"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvBidWonBidAmount"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:fontFamily="@font/regular"
+                        android:padding="5dp"
+
+                        android:text="xxxxxxxxxx"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Status"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvBidWonStatus"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:fontFamily="@font/regular"
+                        android:padding="5dp"
+
+                        android:text="xxxxxxxxxx"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+
+
+            </TableLayout>
+        </LinearLayout>
+
+        <LinearLayout
+android:visibility="gone"
+            android:id="@+id/contentCredit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_black_stroke"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="2">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Fund mode"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvCreditFundMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:fontFamily="@font/regular"
+                        android:freezesText="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:padding="5dp"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="xxxxxxxxxx"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Transaction Amount"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvCreditAmount"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:padding="5dp"
+                        android:text="xxxxxxxxx"
+                        android:textColor="@color/text_gray"
+
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Transaction Id"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvCreditTransId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/regular"
+                        android:padding="5dp"
+                        android:paddingRight="15dp"
+                        android:text="xxxxxxxxxx"
+
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Date/Time"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvCreditDateTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/regular"
+                        android:padding="5dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="@font/semibold"
+
+                        android:padding="5dp"
+                        android:text="Status"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_10" />
+
+                    <TextView
+                        android:id="@+id/tvCreditStatus"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:fontFamily="@font/regular"
+                        android:padding="5dp"
+
+                        android:text="xxxxxxxxxx"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/text_10" />
+                </TableRow>
+
+
+
+            </TableLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

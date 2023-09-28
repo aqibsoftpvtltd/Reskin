@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundWhite"
+    android:fillViewport="true"
+    android:isScrollContainer="true"
+    tools:context=".ui.login_signup_pages.fragments.CreateProfileFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:isScrollContainer="true"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="@dimen/_42sdp">
+
+                <ImageView
+                    android:id="@+id/ivMainBack"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:src="@drawable/ic_arrow_back"
+                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                    android:padding="@dimen/_6sdp"
+                    app:tint="@color/grayColor" />
+
+            </RelativeLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp">
+
+                    <include
+                        android:id="@+id/llForm"
+                        layout="@layout/layout_register_form"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/llMoblie"
+                        layout="@layout/layout_mobile_register" />
+
+                    <include
+                        android:id="@+id/llOtp"
+                        layout="@layout/layout_otp_register"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/llMpin"
+                        layout="@layout/layout_mpin"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:id="@+id/txt_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Already Have An Account?\nClick Here To Login"
+                    android:textSize="@dimen/text_18"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</FrameLayout>
+
+
+
+

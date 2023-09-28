@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <RelativeLayout
+           android:id="@+id/tabSelection"
+           android:background="@drawable/dr_ractengle_solid_ripple_effect"
+           android:layout_marginTop="@dimen/_12sdp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:paddingHorizontal="@dimen/_12sdp">
+
+
+           <LinearLayout
+               android:layout_toStartOf="@+id/endItems"
+               android:layout_alignParentStart="true"
+               android:layout_centerVertical="true"
+               android:layout_width="wrap_content"
+               android:orientation="vertical"
+               android:layout_height="wrap_content"
+               android:gravity="start|center_vertical">
+
+               <TextView
+                   android:id="@+id/tv_date"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/glacial_bold"
+                   android:includeFontPadding="false"
+                   android:text="10/10/2020"
+                   android:textColor="@color/black"
+                   android:textSize="@dimen/_15sdp" />
+
+
+               <TextView
+                   android:layout_marginTop="@dimen/_2sdp"
+                   android:id="@+id/tv_day"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:includeFontPadding="false"
+                   android:fontFamily="@font/glacial_regular"
+                   android:text="Monday"
+                   android:textColor="@color/text_gray"
+                   android:textSize="@dimen/_13sdp" />
+
+           </LinearLayout>
+
+
+           <LinearLayout
+               android:id="@+id/endItems"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:layout_alignParentEnd="true"
+               android:layout_centerVertical="true">
+
+               <TextView
+                   android:id="@+id/tv_status"
+                   android:minWidth="@dimen/_100sdp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:includeFontPadding="false"
+                   android:fontFamily="@font/glacial_regular"
+                   android:text="Bet Closed"
+                   android:textColor="@color/text_gray"
+                   android:textSize="@dimen/_15sdp" />
+
+
+
+               <ImageView
+                   android:visibility="invisible"
+                   android:id="@+id/ivStatus"
+                   android:layout_width="@dimen/_14sdp"
+                   android:layout_height="@dimen/_14sdp"
+                   android:src="@drawable/ic_success_check"
+                   />
+
+           </LinearLayout>
+
+
+       </RelativeLayout>
+
+   </LinearLayout>
+</layout>

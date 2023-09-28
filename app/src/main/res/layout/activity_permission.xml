@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:background="@color/backgroundWhite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.PermissionA">
+
+
+        <RelativeLayout
+            android:id="@+id/tabTop"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                android:padding="@dimen/_6sdp"
+                app:tint="@color/grayColor" />
+
+        </RelativeLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tabTop"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_60sdp"
+                    android:layout_marginHorizontal="@dimen/_22sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="start|center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="@string/allow_access"
+                        android:gravity="start|center_vertical"
+                        android:textAllCaps="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_19sdp"
+                        android:fontFamily="@font/glacial_bold" />
+
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="@string/we_need_following_access"
+                        android:gravity="start|center_vertical"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/grayColor"
+                        android:textSize="@dimen/_13sdp"
+                        android:fontFamily="@font/glacial_regular" />
+
+
+                </LinearLayout>
+
+
+
+
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/tabMice"
+                    android:layout_marginHorizontal="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_22sdp"
+                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_65sdp">
+
+
+                    <ImageView
+                        android:id="@+id/ivMice"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="@dimen/_38sdp"
+                        android:layout_height="@dimen/_38sdp"
+                        android:src="@drawable/ic_mice_prm"
+                        android:padding="@dimen/_10sdp"
+                        android:background="@drawable/ractengle_stroke_round_edge_primary"
+                        app:tint="@color/appColorLight"
+                        />
+
+
+                    <LinearLayout
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/ivMice"
+                        android:layout_toStartOf="@+id/ivMiceSelection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="start|center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/record_permission"
+                            android:gravity="start|center_vertical"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp"
+                            android:fontFamily="@font/glacial_bold" />
+
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/record_permission_description"
+                            android:gravity="start|center_vertical"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/grayColor"
+                            android:textSize="@dimen/_10sdp"
+                            android:fontFamily="@font/glacial_regular" />
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/ivMiceSelection"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:src="@drawable/ic_ractengle_unselected"
+                        />
+
+
+                    <View
+                        android:alpha="0.5"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_toEndOf="@+id/ivMice"
+                        android:layout_toStartOf="@+id/ivMiceSelection"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grayColor"/>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tabCallPermission"
+                    android:layout_marginHorizontal="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_65sdp">
+
+
+                    <ImageView
+                        android:id="@+id/ivCallPermission"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="@dimen/_38sdp"
+                        android:layout_height="@dimen/_38sdp"
+                        android:src="@drawable/ic_phonecall_prm"
+                        android:padding="@dimen/_11sdp"
+                        android:background="@drawable/ractengle_stroke_round_edge_primary"
+                        app:tint="@color/appColorLight"
+                        />
+
+
+                    <LinearLayout
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/ivCallPermission"
+                        android:layout_toStartOf="@+id/ivCallPermissionSelection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="start|center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/call_permission"
+                            android:gravity="start|center_vertical"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp"
+                            android:fontFamily="@font/glacial_bold" />
+
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/call_permission_description"
+                            android:gravity="start|center_vertical"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/grayColor"
+                            android:textSize="@dimen/_10sdp"
+                            android:fontFamily="@font/glacial_regular" />
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/ivCallPermissionSelection"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:src="@drawable/ic_ractengle_unselected"
+                        />
+
+
+                    <View
+                        android:alpha="0.5"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_toEndOf="@+id/ivCallPermission"
+                        android:layout_toStartOf="@+id/ivCallPermissionSelection"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grayColor"/>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tabStoragePermission"
+                    android:layout_marginHorizontal="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_65sdp">
+
+
+                    <ImageView
+                        android:id="@+id/ivStoragePermission"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="@dimen/_38sdp"
+                        android:layout_height="@dimen/_38sdp"
+                        android:src="@drawable/ic_storage_prm"
+                        android:padding="@dimen/_11sdp"
+                        android:background="@drawable/ractengle_stroke_round_edge_primary"
+                        app:tint="@color/appColorLight"
+                        />
+
+
+                    <LinearLayout
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/ivStoragePermission"
+                        android:layout_toStartOf="@+id/ivStoragePermissionSelection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="start|center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/storage_permission"
+                            android:gravity="start|center_vertical"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp"
+                            android:fontFamily="@font/glacial_bold" />
+
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/storage_permission_description"
+                            android:gravity="start|center_vertical"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/grayColor"
+                            android:textSize="@dimen/_10sdp"
+                            android:fontFamily="@font/glacial_regular" />
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/ivStoragePermissionSelection"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:src="@drawable/ic_ractengle_unselected"
+                        />
+
+
+                    <View
+                        android:alpha="0.5"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_toEndOf="@+id/ivStoragePermission"
+                        android:layout_toStartOf="@+id/ivStoragePermissionSelection"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grayColor"/>
+
+
+                </RelativeLayout>
+
+
+
+                <FrameLayout
+                    android:id="@+id/tabAllowAccess"
+                    android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+                    android:layout_marginTop="@dimen/_33sdp"
+                    android:layout_marginHorizontal="@dimen/_22sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+
+                    <RelativeLayout
+                        android:layout_gravity="center"
+                        android:id="@+id/tabInnerAllowAccess"
+                        android:background="@drawable/ractengle_gradian_round_edge"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <TextView
+                            android:id="@+id/tvAllowAccess"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/glacial_regular"
+                            android:text="@string/allow_access"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <ImageView
+                            android:layout_marginEnd="@dimen/_2sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_width="@dimen/_36sdp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:src="@drawable/ic_arrow_round"
+                            android:padding="@dimen/_5sdp"
+                            android:background="@drawable/round_white"
+                            app:tint="@color/appColorLight"
+                            />
+
+                    </RelativeLayout>
+                </FrameLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+
+        </RelativeLayout>
+
+</layout>

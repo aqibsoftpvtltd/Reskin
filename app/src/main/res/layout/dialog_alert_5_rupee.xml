@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="25dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="35dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        tools:igwnore="UselessParent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:padding="12dp"
+    android:gravity="center"
+    android:background="@drawable/background_color_primary_20"
+    android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textStyle="normal"
+            android:gravity="center"
+
+            android:text="Alert"
+            android:drawableLeft="@drawable/emergency"
+            android:drawableRight="@drawable/emergency"
+            android:drawablePadding="15dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18" />
+</LinearLayout>
+
+
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/five_rupees"/>
+
+        <TextView
+            android:padding="@dimen/space_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="₹ 5.0 will be chargeable for changing account number"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"
+            android:textStyle="normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_15">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/btn_ok"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ractengle_gradian_round_edge"
+                android:fontFamily="@font/regular"
+                android:text="Proceed"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_14" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/regular"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_pink_stroke"
+                android:text="Cancel"
+                android:textColor="@color/new_colorAccent"
+                android:textSize="@dimen/text_14"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

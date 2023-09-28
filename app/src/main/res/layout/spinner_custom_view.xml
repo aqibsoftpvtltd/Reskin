@@ -1,0 +1,28 @@
+<!-- custom_spinner_layout.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <!-- Display the selected country code -->
+    <TextView
+        android:id="@+id/textCountryCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@android:color/black"
+        android:text="Select Country Code" />
+
+    <!-- Dropdown arrow icon -->
+    <ImageView
+        android:id="@+id/dropdownIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_8sdp"
+        android:src="@drawable/arrow_dropdown"
+        android:contentDescription="@null"
+        android:layout_gravity="center_vertical" />
+</LinearLayout>

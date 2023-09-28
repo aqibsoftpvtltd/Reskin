@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".ui.fragment.PersmissionThreeFragment">
+
+    <ImageView
+        android:id="@+id/notificationAlertsImageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@null"
+        android:src="@drawable/new_p_three" />
+
+    <TextView
+        android:id="@+id/notificationAlertsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notificationAlertsImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/semibold"
+        android:text="Record Permission"
+        android:textColor="@color/primaryMain"
+        android:textSize="@dimen/text_35" />
+
+    <TextView
+        android:id="@+id/notificationAlertsSubTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notificationAlertsTextView"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/regular"
+        android:gravity="center"
+        android:text="This permission is required for Sending Audio Messages to Brand Name Customer Support."
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/text_18" />
+</RelativeLayout>

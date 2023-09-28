@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundWhite"
+    android:orientation="vertical"
+    tools:context=".ui.activity.FundsActivity">
+
+
+    <LinearLayout
+        android:background="@drawable/ractengle_gradian_bottom_round_edge"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_15sdp"
+        android:elevation="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp">
+
+            <LinearLayout
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:gravity="start|center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_26sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:src="@drawable/arrow_back_white"
+                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                    android:padding="@dimen/_4sdp"
+                    android:onClick="onBackClick"
+                    app:tint="@color/white" />
+
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@string/funds"
+                    android:gravity="start|center_vertical"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/glacial_bold" />
+
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/tabNote"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:gravity="start|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/glacial_bold"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="top|start"
+                android:text="@string/note_"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:id="@+id/tvNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/glacial_regular"
+                android:gravity="start|center_vertical"
+                android:text=""
+                android:textAlignment="viewStart"
+                android:textColor="@color/grayColor"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:textSize="@dimen/_11sdp" />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/tabTelegram"
+            android:background="@drawable/dr_ractengle_less_round_ripple_effect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:paddingHorizontal="@dimen/_15sdp">
+
+            <RelativeLayout
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_12sdp"
+                android:background="@drawable/card_bg_round_15_transparent"
+                android:elevation="@dimen/_2sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|start"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:gravity="start|center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/glacial_bold"
+                            android:gravity="start|center_vertical"
+                            android:layout_gravity="top|start"
+                            android:text="@string/for_withdraw_related_querys"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/glacial_bold"
+                            android:gravity="start|center_vertical"
+                            android:layout_gravity="top|start"
+                            android:text="@string/telegram_us_"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/teleblue"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:textSize="@dimen/_11sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:id="@+id/tabTalegramID"
+                        android:gravity="start|center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_42sdp"
+                            android:layout_height="@dimen/_42sdp"
+                            android:src="@drawable/ic_telegram"
+                            android:padding="@dimen/_7sdp"
+                            android:background="@drawable/ractengle_stroke_round_edge_teleblue"
+                            />
+
+                        <TextView
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/telegram_id"
+                            android:gravity="start|center_vertical"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_19sdp"
+                            android:fontFamily="@font/glacial_bold" />
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/tabSelection"
+            android:background="@drawable/dr_ractengle_less_round_ripple_effect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_15sdp">
+
+            <RelativeLayout
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_12sdp"
+                android:background="@drawable/card_bg_round_15_transparent"
+                android:elevation="@dimen/_2sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_22sdp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvSubTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/glacial_bold"
+                            android:gravity="start|center_vertical"
+                            android:text="@string/add_fund_request"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_17sdp" />
+
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:id="@+id/tabWalletAmount"
+                            android:gravity="start|center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/_22sdp"
+                                android:layout_height="@dimen/_22sdp"
+                                android:src="@drawable/ic_wallet"
+                                android:layout_gravity="center"
+                                />
+
+
+                            <TextView
+                                android:id="@+id/tvWalletAmount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/glacial_bold"
+                                android:gravity="start|center_vertical"
+                                android:text="₹0"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/black"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:textSize="@dimen/_17sdp" />
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_38sdp"
+                                android:paddingHorizontal="@dimen/_12sdp"
+                                android:layout_marginHorizontal="@dimen/_2sdp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@drawable/card_bg_round_15_transparent"
+                                android:elevation="@dimen/_2sdp"
+                                android:orientation="vertical">
+
+                                <EditText
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:id="@+id/etRequestPoints"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@null"
+                                    android:inputType="number"
+                                    android:maxLength="5"
+                                    android:hint="@string/enter_withdraw_points"
+                                    android:textColorHint="@color/grayColor"
+                                    android:includeFontPadding="false"
+                                    android:singleLine="true"
+                                    android:textSize="@dimen/_13sdp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/glacial_regular"/>
+
+
+                                <ImageView
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_width="@dimen/_18sdp"
+                                    android:layout_height="@dimen/_18sdp"
+                                    android:src="@drawable/ic_currency_sign"
+                                    />
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+                        <FrameLayout
+                            android:id="@+id/tabSendRequest"
+                            android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+                            android:layout_marginTop="@dimen/_22sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_37sdp">
+
+                            <RelativeLayout
+                                android:layout_gravity="center"
+                                android:id="@+id/tabInnerSendRequest"
+                                android:background="@drawable/ractengle_gradian_round_edge"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+
+                                <TextView
+                                    android:id="@+id/tvSendRequest"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:fontFamily="@font/glacial_regular"
+                                    android:text="@string/send_request"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_15sdp" />
+
+                                <ImageView
+                                    android:layout_marginEnd="@dimen/_2sdp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_width="@dimen/_34sdp"
+                                    android:layout_height="@dimen/_34sdp"
+                                    android:src="@drawable/ic_arrow_round"
+                                    android:padding="@dimen/_5sdp"
+                                    android:background="@drawable/round_white"
+                                    app:tint="@color/appColorLight"
+                                    />
+
+                            </RelativeLayout>
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/tabHistoryFund"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/llbottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvFundRequestes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:overScrollMode="never"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/row_fund_requestes" />
+
+
+                <TextView
+                    android:id="@+id/tvMessage2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/glacial_bold"
+                    android:text="@string/no_data_found"
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/llbottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_loading2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#80000000"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_8sdp">
+
+                    <com.rhl.avprogress.AVLoadingIndicatorView
+                        android:id="@+id/progress_loader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        app:indicatorName="BallPulseIndicator" />
+
+
+                </LinearLayout>
+
+
+                <FrameLayout
+                    android:layout_marginBottom="@dimen/_22sdp"
+                    android:id="@+id/tabNext"
+                    android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+                    android:layout_marginTop="@dimen/_22sdp"
+                    android:layout_marginHorizontal="@dimen/_22sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+
+                    <RelativeLayout
+                        android:layout_gravity="center"
+                        android:id="@+id/tabInnerNext"
+                        android:background="@drawable/ractengle_gradian_round_edge"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <TextView
+                            android:id="@+id/tvNext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/glacial_regular"
+                            android:text="@string/next"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_17sdp" />
+
+                        <ImageView
+                            android:layout_marginEnd="@dimen/_2sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_width="@dimen/_37sdp"
+                            android:layout_height="@dimen/_37sdp"
+                            android:src="@drawable/ic_arrow_round"
+                            android:padding="@dimen/_5sdp"
+                            android:background="@drawable/round_white"
+                            app:tint="@color/appColorLight"
+                            />
+
+                    </RelativeLayout>
+                </FrameLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_20sdp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/less_round_edge_ractengle_white"
+            android:elevation="@dimen/_3sdp"
+            android:paddingVertical="@dimen/_12sdp"
+            android:orientation="vertical">
+
+
+        <LinearLayout
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_12sdp"
+                android:orientation="vertical">
+
+
+
+                <ImageView
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/alert" />
+
+                <TextView
+                    android:id="@+id/tv_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:fontFamily="@font/glacial_bold"
+                    android:gravity="center"
+                    android:text="No UPI App Found\nPlease Download Google-Pay app to continue"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="@dimen/text_16" />
+
+
+                <LinearLayout
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:background="@drawable/ractengle_gradian_round_edge"
+                        android:id="@+id/gpay"
+                        android:layout_margin="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:elevation="@dimen/cardview_default_elevation"
+                        android:drawableLeft="@drawable/gpay"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/glacial_bold"
+                        android:textSize="@dimen/text_16"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="Click Here to download" />
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/paytm"
+                        android:layout_margin="10dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/paytm" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:padding="@dimen/_8sdp"
+                android:layout_margin="@dimen/_8sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/close_dialog" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

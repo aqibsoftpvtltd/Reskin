@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_20"
+            android:background="@drawable/background_white_bottom_cornor"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                android:src="@drawable/app_logo" />
+
+            <EditText
+                android:id="@+id/et_fund"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_15"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:hint="Enter Fund Amount"
+                android:inputType="number"
+                android:maxLength="5"
+                android:padding="10dp"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/text_16" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/btnOk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:layout_marginBottom="@dimen/space_20"
+                android:background="@drawable/ractengle_gradian_round_edge"
+
+                android:fontFamily="@font/semibold"
+                android:paddingLeft="@dimen/space_30"
+                android:paddingRight="@dimen/space_30"
+                android:singleLine="true"
+                android:text="Add Fund"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

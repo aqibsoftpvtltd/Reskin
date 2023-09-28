@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="15dp"
+
+
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/tv_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/semibold"
+            android:text="Set Filter"
+            android:textColor="@color/new_colorAccent"
+            android:textSize="@dimen/text_18" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.rhl.avprogress.AVLoadingIndicatorView
+                android:id="@+id/progress_loader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                app:indicatorName="BallPulseIndicator" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_gameType"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="By Game Type"
+                    android:fontFamily="@font/semibold"
+                    android:textColor="@color/black"/>
+                <RelativeLayout
+                    android:id="@+id/rl_open"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/open_checkbox"
+                        android:layout_centerVertical="true"
+                        android:buttonTint="@color/new_colorAccent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_centerVertical="true"
+
+                        android:text="Open"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/open_checkbox"
+                        android:fontFamily="@font/regular"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+
+                    <View
+                        android:layout_marginTop="3dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/separator"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_close"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/close_checkbox"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:buttonTint="@color/new_colorAccent"
+
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_centerVertical="true"
+
+                        android:text="Close"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/close_checkbox"
+                        android:fontFamily="@font/regular"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+
+
+                </RelativeLayout>
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="By Winning Status"
+                    android:fontFamily="@font/semibold"
+                    android:textColor="@color/black"/>
+                <RelativeLayout
+                    android:id="@+id/rl_win"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/win_checkbox"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:buttonTint="@color/new_colorAccent"
+
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_centerVertical="true"
+
+                        android:text="Win"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/win_checkbox"
+                        android:fontFamily="@font/regular"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+
+                    <View
+                        android:layout_marginTop="3dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/separator"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_loss"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/loss_checkbox"
+                        android:buttonTint="@color/new_colorAccent"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_centerVertical="true"
+
+                        android:text="Loss"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/loss_checkbox"
+                        android:fontFamily="@font/regular"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+
+                    <View
+                        android:layout_marginTop="3dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/separator"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pending"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/pending_checkbox"
+                        android:layout_centerVertical="true"
+                        android:buttonTint="@color/new_colorAccent"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_centerVertical="true"
+
+                        android:text="Pending"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/pending_checkbox"
+                        android:fontFamily="@font/regular"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="By Games"
+                    android:fontFamily="@font/semibold"
+                    android:textColor="@color/black"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_filterlist"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/row_filter_list" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_pink_stroke"
+                android:fontFamily="@font/semibold"
+                android:text="Cancel"
+                android:textAllCaps="true"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/new_colorAccent"
+                android:textSize="@dimen/text_16" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_submit_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ractengle_gradian_round_edge"
+                android:fontFamily="@font/semibold"
+                android:text="Submit"
+                android:textAllCaps="true"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+    </LinearLayout>
+</LinearLayout>

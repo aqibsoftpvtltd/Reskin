@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundWhite"
+    android:orientation="vertical"
+    tools:context=".ui.activity.GameListFromDashboardActivity">
+
+    <LinearLayout
+        android:background="@drawable/ractengle_gradian_bottom_round_edge"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_15sdp"
+        android:elevation="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp">
+
+            <LinearLayout
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:gravity="start|center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_26sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:src="@drawable/arrow_back_white"
+                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                    android:padding="@dimen/_4sdp"
+                    android:onClick="onBackClick"
+                    app:tint="@color/white" />
+
+
+                <TextView
+                    android:id="@+id/tv_dashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@string/dashboard"
+                    android:gravity="start|center_vertical"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/glacial_bold" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/_22sdp"
+        android:background="@drawable/gamesitems_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGameDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:spanCount="2"
+            tools:itemCount="17"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/game_dashboard_item_view" />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

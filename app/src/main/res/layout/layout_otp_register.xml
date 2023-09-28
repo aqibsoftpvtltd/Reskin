@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="start|center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="@string/enter_otp_number"
+            android:textAllCaps="true"
+            android:gravity="start|center_vertical"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_19sdp"
+            android:fontFamily="@font/glacial_bold" />
+
+
+        <TextView
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="@string/a_verification_code_has_been_sent_to_you_mobile_please_check_and_enter_otp"
+            android:gravity="start|center_vertical"
+            android:textAlignment="viewStart"
+            android:textColor="@color/grayColor"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/glacial_regular" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_33sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <com.chaos.view.PinView
+            style="@style/PinWidget.PinView"
+            android:id="@+id/etOTP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:longClickable="true"
+            android:itemBackground="@color/white"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_17sdp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/glacial_bold"
+            app:cursorColor="@color/black"
+            app:cursorWidth="@dimen/_1sdp"
+            android:inputType="numberSigned"
+            android:state_selected="true"
+            app:hideLineWhenFilled="false"
+            app:itemCount="6"
+            app:lineWidth="@dimen/_4sdp"
+            app:itemSpacing="@dimen/_8sdp"
+            app:itemHeight="@dimen/_45sdp"
+            app:itemWidth="@dimen/_36sdp"
+            app:lineColor="@color/grayColor"
+            app:viewType="line" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvResendOTP"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_8sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:text="@string/resend_otp"
+        android:gravity="start|center_vertical"
+        android:textAlignment="viewStart"
+        android:textColor="@color/grayColor"
+        android:background="@drawable/dr_ractengle_solid_ripple_effect"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold"
+        android:fontFamily="@font/glacial_regular" />
+
+
+    <FrameLayout
+        android:id="@+id/tabOTPContinue"
+        android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+        android:layout_marginTop="@dimen/_110sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp">
+
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:id="@+id/tabInnerOTPContinue"
+            android:background="@drawable/ractengle_gradian_round_edge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/tvOTPContinue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/glacial_regular"
+                android:text="@string/continue_"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <ImageView
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/_37sdp"
+                android:layout_height="@dimen/_37sdp"
+                android:src="@drawable/ic_arrow_round"
+                android:padding="@dimen/_5sdp"
+                android:background="@drawable/round_white"
+                app:tint="@color/appColorLight"
+                />
+
+        </RelativeLayout>
+    </FrameLayout>
+
+
+</LinearLayout>
