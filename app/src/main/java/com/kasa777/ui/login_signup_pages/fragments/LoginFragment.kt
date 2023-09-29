@@ -89,7 +89,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 forgotPassword()
             }
 
-            R.id.btnForgotUsername -> {
+            R.id.forgotPassword -> {
                 val intent = Intent(
                     context,
                     ForgetUserNameActivity::class.java

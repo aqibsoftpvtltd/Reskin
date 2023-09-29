@@ -58,6 +58,7 @@ class MpinLoginFragment : Fragment(), View.OnClickListener {
         bindProgressButton(tvMpinSignIn)
         tabMpinSignIn.setOnClickListener(this)
         tabUsernameLogin.setOnClickListener(this)
+
         tvMpinSignIn.attachTextChangeAnimator()
 
 

@@ -62,7 +62,7 @@ class ForgotPasswordOtpVerifyActivity : AppCompatActivity(), View.OnClickListene
 
 
         if (from == "forgotMpin" || from == "forgotMpinLoginTime") {
-            tvTitle.text=getString(R.string.forgot_mpin_)
+            tvTitle.text="Reset MPIN"
             val params = LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
@@ -71,7 +71,7 @@ class ForgotPasswordOtpVerifyActivity : AppCompatActivity(), View.OnClickListene
             changefor = 2
             mobile = intent.getStringExtra("mobileNumber").toString()
         } else {
-            tvTitle.text=getString(R.string.forgot_password)
+            tvTitle.text="Reset Password"
             changefor = 1
             mobile = intent.getStringExtra("mobileNumber").toString()
         }

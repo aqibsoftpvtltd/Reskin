@@ -37,6 +37,11 @@
 
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,8 +68,8 @@
                 android:gravity="start|center_vertical"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_26sdp"
-                android:fontFamily="@font/glacial_bold" />
+                android:textSize="@dimen/_32sdp"
+                android:fontFamily="@font/dmsansbold" />
 
 
 
@@ -83,8 +88,8 @@
             android:textAlignment="viewStart"
             android:layout_marginTop="@dimen/_10sdp"
             android:textColor="@color/grayColor"
-            android:textSize="@dimen/_22sdp"
-            android:fontFamily="@font/glacial_regular" />
+            android:textSize="@dimen/_20sdp"
+            android:fontFamily="@font/dmsansregular" />
 
 
 
@@ -92,26 +97,33 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_64sdp"
-            android:background="@drawable/user_name_background"
+            android:layout_height="@dimen/_55sdp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            android:hint="Full Name"
+            app:placeholderTextColor="@color/appColor"
             app:boxStrokeColor="@color/appColor"
-            app:hintTextColor="@color/grayColor">
+            app:hintTextColor="@color/appColor">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etUserName"
+                android:id="@+id/etFirstName"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="text"
                 android:layout_gravity="start|center"
                 android:gravity="center|start"
-                android:paddingLeft="@dimen/_10sdp"
+
                 android:textColorHint="@color/grayColor"
                 android:includeFontPadding="false"
                 android:singleLine="true"
-                android:background="@android:color/transparent"
+
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/glacial_regular"/>
+                android:fontFamily="@font/dmsansregular"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,26 +133,33 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_64sdp"
-            android:background="@drawable/full_name_background"
+            android:layout_height="@dimen/_55sdp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            android:hint="@string/username"
+            app:placeholderTextColor="@color/appColor"
             app:boxStrokeColor="@color/appColor"
-            app:hintTextColor="@color/grayColor">
+            app:hintTextColor="@color/appColor">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etFirstName"
+
+                android:id="@+id/etUserName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textCapWords"
                 android:layout_gravity="start|center"
                 android:gravity="center|start"
-                android:paddingLeft="@dimen/_10sdp"
+
                 android:textColorHint="@color/grayColor"
                 android:includeFontPadding="false"
                 android:singleLine="true"
-                android:background="@android:color/transparent"
+
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/glacial_regular"/>
+                android:fontFamily="@font/dmsansregular"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,7 +185,7 @@
                 android:singleLine="true"
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/glacial_regular"/>
+                android:fontFamily="@font/dmsansregular"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -174,10 +193,16 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_64sdp"
-            android:background="@drawable/password_background"
+            android:layout_height="@dimen/_55sdp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            android:hint="@string/password"
+            app:placeholderTextColor="@color/appColor"
             app:boxStrokeColor="@color/appColor"
-            app:hintTextColor="@color/grayColor">
+            app:hintTextColor="@color/appColor">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etUserPassword"
@@ -186,14 +211,14 @@
                 android:inputType="textPassword"
                 android:layout_gravity="start|center"
                 android:gravity="center|start"
-                android:paddingLeft="@dimen/_10sdp"
+
                 android:textColorHint="@color/grayColor"
                 android:includeFontPadding="false"
                 android:singleLine="true"
-                android:background="@android:color/transparent"
+
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/glacial_regular"/>
+                android:fontFamily="@font/dmsansregular"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -202,10 +227,16 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_64sdp"
-            android:background="@drawable/confirm_password"
+            android:layout_height="@dimen/_55sdp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            android:hint="@string/confirm_password"
+            app:placeholderTextColor="@color/appColor"
             app:boxStrokeColor="@color/appColor"
-            app:hintTextColor="@color/grayColor">
+            app:hintTextColor="@color/appColor">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etConfirmPassword"
@@ -214,14 +245,14 @@
                 android:inputType="textPassword"
                 android:layout_gravity="start|center"
                 android:gravity="center|start"
-                android:paddingLeft="@dimen/_10sdp"
+
                 android:textColorHint="@color/grayColor"
                 android:includeFontPadding="false"
                 android:singleLine="true"
-                android:background="@android:color/transparent"
+
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/glacial_regular"/>
+                android:fontFamily="@font/dmsansregular"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -251,7 +282,7 @@
                 android:singleLine="true"
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/glacial_regular"/>
+                android:fontFamily="@font/dmsansregular"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -278,7 +309,7 @@
                 android:singleLine="true"
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/glacial_regular"/>
+                android:fontFamily="@font/dmsansregular"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -304,7 +335,7 @@
                 android:singleLine="true"
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/glacial_regular"/>
+                android:fontFamily="@font/dmsansregular"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -328,7 +359,7 @@
                 android:text="@string/by_creating_text"
                 android:textSize="@dimen/_12sdp"
                 android:padding="@dimen/_5sdp"
-                android:fontFamily="@font/glacial_regular"
+                android:fontFamily="@font/dmsansregular"
                 android:textColor="@color/grayColor" />
 
 
@@ -387,7 +418,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/grayColor"
                 android:textSize="@dimen/_13sdp"
-                android:fontFamily="@font/glacial_regular" />
+                android:fontFamily="@font/dmsansregular" />
 
 
             <TextView
@@ -408,7 +439,7 @@
     </LinearLayout>
 
 
-
+    </ScrollView>
 
 
 </LinearLayout>

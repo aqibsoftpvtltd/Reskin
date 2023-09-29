@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scCp"
@@ -11,194 +11,161 @@
     android:orientation="vertical"
     tools:context=".ui.activity.ChangeMpinActivity">
 
+    <LinearLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:orientation="horizontal"
+        android:layout_gravity="start"
+        android:gravity="start">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/bck_arrow"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_gravity="center|center_horizontal"
+            android:gravity="center|center_horizontal"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/glacial_bold" />
+
+
+
+
+    </LinearLayout>
 
     <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_40sdp"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_42sdp">
 
-            <ImageView
-                android:id="@+id/ivBack"
-                android:layout_marginEnd="@dimen/_2sdp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_width="@dimen/_36sdp"
-                android:layout_height="@dimen/_36sdp"
-                android:src="@drawable/ic_arrow_back"
-                android:background="@drawable/dr_ractengle_solid_ripple_effect"
-                android:padding="@dimen/_6sdp"
-                app:tint="@color/grayColor" />
-
-        </RelativeLayout>
-
-
-        <LinearLayout
-            android:layout_marginTop="@dimen/_90sdp"
+        <TextView
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:includeFontPadding="false"
+            android:text="Set new MPIN"
+            android:gravity="start|center_vertical"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_28sdp"
+            android:fontFamily="@font/dmsansbold" />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="start|center_vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
-                android:text="@string/change_mpin"
-                android:gravity="start|center_vertical"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_19sdp"
-                android:fontFamily="@font/glacial_bold" />
+                android:text="Create strong and secured\nnew MPIN."
 
-
-            <TextView
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:text="@string/provide_a_four_digit_numeric_mpin_to_protect_your_account_against_unauthorized_access"
                 android:gravity="start|center_vertical"
                 android:textAlignment="viewStart"
                 android:textColor="@color/grayColor"
-                android:textSize="@dimen/_13sdp"
-                android:fontFamily="@font/glacial_regular" />
+
+                android:textSize="@dimen/_19sdp"
+                android:fontFamily="@font/dmsansregular" />
+
+
 
 
         </LinearLayout>
 
 
-
-        <TextView
-            android:layout_marginTop="@dimen/_33sdp"
-            android:layout_marginHorizontal="@dimen/_22sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:includeFontPadding="false"
-            android:text="@string/new_mpin"
-            android:textAllCaps="true"
-            android:layout_gravity="center_horizontal"
-            android:gravity="start|center_vertical"
-            android:textAlignment="viewStart"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_13sdp"
-            android:fontFamily="@font/glacial_bold" />
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tabMpin"
-            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_33sdp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_marginHorizontal="@dimen/_22sdp"
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:orientation="vertical">
+            android:layout_height="@dimen/_55sdp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            android:hint="@string/enter_mpin"
+            app:placeholderTextColor="@color/appColor"
+            app:boxStrokeColor="@color/appColor"
+            app:hintTextColor="@color/appColor">
 
-
-            <com.chaos.view.PinView
-                style="@style/PinWidget.PinView"
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEnterPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:longClickable="true"
-                android:itemBackground="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="numberPassword"
+
+                android:textColorHint="@color/grayColor"
+                android:includeFontPadding="false"
+                android:singleLine="true"
+                android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_19sdp"
-                android:focusable="true"
-                android:text=""
-                android:focusableInTouchMode="true"
-                android:fontFamily="@font/glacial_regular"
-                app:cursorColor="@color/black"
-                app:cursorWidth="@dimen/_1sdp"
-                android:inputType="numberSigned"
-                android:state_selected="true"
-                app:hideLineWhenFilled="false"
-                app:itemCount="4"
-                app:lineWidth="@dimen/_2sdp"
-                app:itemSpacing="@dimen/_12sdp"
-                app:itemHeight="@dimen/_40sdp"
-                app:itemWidth="@dimen/_50sdp"
-                app:itemRadius="@dimen/_4sdp"
-                app:lineColor="@color/grayColor"
-                app:viewType="rectangle" />
+                android:fontFamily="@font/dmsansregular"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-        </LinearLayout>
-
-
-        <TextView
-            android:layout_marginTop="@dimen/_22sdp"
-            android:layout_marginHorizontal="@dimen/_22sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:includeFontPadding="false"
-            android:text="@string/confirm_new_mpin"
-            android:textAllCaps="true"
-            android:layout_gravity="center_horizontal"
-            android:gravity="start|center_vertical"
-            android:textAlignment="viewStart"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_13sdp"
-            android:fontFamily="@font/glacial_bold" />
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tabConfirmMpin"
-            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginHorizontal="@dimen/_22sdp"
-            android:gravity="center"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:orientation="vertical">
+            android:layout_height="@dimen/_55sdp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            android:hint="@string/confirm_mpin"
+            app:boxStrokeColor="@color/appColor"
+            app:hintTextColor="@color/grayColor">
 
-
-            <com.chaos.view.PinView
-                style="@style/PinWidget.PinView"
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etConfirmMpin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:longClickable="true"
-                android:itemBackground="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="numberPassword"
+                android:textColorHint="@color/grayColor"
+                android:includeFontPadding="false"
+                android:singleLine="true"
+                android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_19sdp"
-                android:focusable="true"
-                android:text=""
-                android:focusableInTouchMode="true"
-                android:fontFamily="@font/glacial_regular"
-                app:cursorColor="@color/black"
-                app:cursorWidth="@dimen/_1sdp"
-                android:inputType="numberSigned"
-                android:state_selected="true"
-                app:hideLineWhenFilled="false"
-                app:itemCount="4"
-                app:lineWidth="@dimen/_2sdp"
-                app:itemSpacing="@dimen/_12sdp"
-                app:itemHeight="@dimen/_40sdp"
-                app:itemWidth="@dimen/_50sdp"
-                app:itemRadius="@dimen/_4sdp"
-                app:lineColor="@color/grayColor"
-                app:viewType="rectangle" />
+                android:fontFamily="@font/dmsansregular"/>
 
-
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
 
         <FrameLayout
             android:id="@+id/tabChangePassword"
             android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
-            android:layout_marginTop="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_22sdp"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp">
+            android:layout_height="@dimen/_45sdp">
 
             <RelativeLayout
                 android:layout_gravity="center"
-                android:id="@+id/tabInnerChangePassword"
-                android:background="@drawable/ractengle_gradian_round_edge"
+                android:id="@+id/tabInnerLogin"
+                android:background="@drawable/orange_button_bg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -208,32 +175,243 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/glacial_regular"
-                    android:text="@string/change_mpin"
-                    android:textAllCaps="true"
+                    android:fontFamily="@font/dmsansbold"
+                    android:text="Save MPIN"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_15sdp" />
+                    android:textSize="@dimen/_12sdp" />
 
-                <ImageView
-                    android:layout_marginEnd="@dimen/_2sdp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_width="@dimen/_37sdp"
-                    android:layout_height="@dimen/_37sdp"
-                    android:src="@drawable/ic_arrow_round"
-                    android:padding="@dimen/_5sdp"
-                    android:background="@drawable/round_white"
-                    app:tint="@color/appColorLight"
-                    />
 
             </RelativeLayout>
         </FrameLayout>
 
 
 
+
     </LinearLayout>
 
 
-</ScrollView>
+    <!-- <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+
+         <RelativeLayout
+             android:paddingHorizontal="@dimen/_15sdp"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/_42sdp">
+
+             <ImageView
+                 android:id="@+id/ivBack"
+                 android:layout_marginEnd="@dimen/_2sdp"
+                 android:layout_alignParentStart="true"
+                 android:layout_centerVertical="true"
+                 android:layout_width="@dimen/_36sdp"
+                 android:layout_height="@dimen/_36sdp"
+                 android:src="@drawable/ic_arrow_back"
+                 android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                 android:padding="@dimen/_6sdp"
+                 app:tint="@color/grayColor" />
+
+         </RelativeLayout>
+
+
+         <LinearLayout
+             android:layout_marginTop="@dimen/_90sdp"
+             android:layout_marginHorizontal="@dimen/_22sdp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:gravity="start|center_vertical">
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:includeFontPadding="false"
+                 android:text="@string/change_mpin"
+                 android:gravity="start|center_vertical"
+                 android:textAlignment="viewStart"
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_19sdp"
+                 android:fontFamily="@font/glacial_bold" />
+
+
+             <TextView
+                 android:layout_marginTop="@dimen/_12sdp"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:includeFontPadding="false"
+                 android:text="@string/provide_a_four_digit_numeric_mpin_to_protect_your_account_against_unauthorized_access"
+                 android:gravity="start|center_vertical"
+                 android:textAlignment="viewStart"
+                 android:textColor="@color/grayColor"
+                 android:textSize="@dimen/_13sdp"
+                 android:fontFamily="@font/glacial_regular" />
+
+
+         </LinearLayout>
+
+
+
+         <TextView
+             android:layout_marginTop="@dimen/_33sdp"
+             android:layout_marginHorizontal="@dimen/_22sdp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:includeFontPadding="false"
+             android:text="@string/new_mpin"
+             android:textAllCaps="true"
+             android:layout_gravity="center_horizontal"
+             android:gravity="start|center_vertical"
+             android:textAlignment="viewStart"
+             android:textColor="@color/black"
+             android:textSize="@dimen/_13sdp"
+             android:fontFamily="@font/glacial_bold" />
+         <LinearLayout
+             android:id="@+id/tabMpin"
+             android:layout_marginTop="@dimen/_8sdp"
+             android:layout_marginHorizontal="@dimen/_22sdp"
+             android:gravity="center"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/_45sdp"
+             android:orientation="vertical">
+
+
+             <com.chaos.view.PinView
+                 style="@style/PinWidget.PinView"
+                 android:id="@+id/etEnterPassword"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:cursorVisible="true"
+                 android:longClickable="true"
+                 android:itemBackground="@color/white"
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_19sdp"
+                 android:focusable="true"
+                 android:text=""
+                 android:focusableInTouchMode="true"
+                 android:fontFamily="@font/glacial_regular"
+                 app:cursorColor="@color/black"
+                 app:cursorWidth="@dimen/_1sdp"
+                 android:inputType="numberSigned"
+                 android:state_selected="true"
+                 app:hideLineWhenFilled="false"
+                 app:itemCount="4"
+                 app:lineWidth="@dimen/_2sdp"
+                 app:itemSpacing="@dimen/_12sdp"
+                 app:itemHeight="@dimen/_40sdp"
+                 app:itemWidth="@dimen/_50sdp"
+                 app:itemRadius="@dimen/_4sdp"
+                 app:lineColor="@color/grayColor"
+                 app:viewType="rectangle" />
+
+
+         </LinearLayout>
+
+
+         <TextView
+             android:layout_marginTop="@dimen/_22sdp"
+             android:layout_marginHorizontal="@dimen/_22sdp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:includeFontPadding="false"
+             android:text="@string/confirm_new_mpin"
+             android:textAllCaps="true"
+             android:layout_gravity="center_horizontal"
+             android:gravity="start|center_vertical"
+             android:textAlignment="viewStart"
+             android:textColor="@color/black"
+             android:textSize="@dimen/_13sdp"
+             android:fontFamily="@font/glacial_bold" />
+         <LinearLayout
+             android:id="@+id/tabConfirmMpin"
+             android:layout_marginTop="@dimen/_8sdp"
+             android:layout_marginHorizontal="@dimen/_22sdp"
+             android:gravity="center"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/_45sdp"
+             android:orientation="vertical">
+
+
+             <com.chaos.view.PinView
+                 style="@style/PinWidget.PinView"
+                 android:id="@+id/etConfirmMpin"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:cursorVisible="true"
+                 android:longClickable="true"
+                 android:itemBackground="@color/white"
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_19sdp"
+                 android:focusable="true"
+                 android:text=""
+                 android:focusableInTouchMode="true"
+                 android:fontFamily="@font/glacial_regular"
+                 app:cursorColor="@color/black"
+                 app:cursorWidth="@dimen/_1sdp"
+                 android:inputType="numberSigned"
+                 android:state_selected="true"
+                 app:hideLineWhenFilled="false"
+                 app:itemCount="4"
+                 app:lineWidth="@dimen/_2sdp"
+                 app:itemSpacing="@dimen/_12sdp"
+                 app:itemHeight="@dimen/_40sdp"
+                 app:itemWidth="@dimen/_50sdp"
+                 app:itemRadius="@dimen/_4sdp"
+                 app:lineColor="@color/grayColor"
+                 app:viewType="rectangle" />
+
+
+         </LinearLayout>
+
+
+
+         <FrameLayout
+             android:id="@+id/tabChangePassword"
+             android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+             android:layout_marginTop="@dimen/_60sdp"
+             android:layout_marginHorizontal="@dimen/_22sdp"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/_40sdp">
+
+             <RelativeLayout
+                 android:layout_gravity="center"
+                 android:id="@+id/tabInnerChangePassword"
+                 android:background="@drawable/ractengle_gradian_round_edge"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+
+
+                 <TextView
+                     android:id="@+id/tvChangePassword"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_centerInParent="true"
+                     android:fontFamily="@font/glacial_regular"
+                     android:text="@string/change_mpin"
+                     android:textAllCaps="true"
+                     android:textColor="@color/white"
+                     android:textSize="@dimen/_15sdp" />
+
+                 <ImageView
+                     android:layout_marginEnd="@dimen/_2sdp"
+                     android:layout_alignParentEnd="true"
+                     android:layout_centerVertical="true"
+                     android:layout_width="@dimen/_37sdp"
+                     android:layout_height="@dimen/_37sdp"
+                     android:src="@drawable/ic_arrow_round"
+                     android:padding="@dimen/_5sdp"
+                     android:background="@drawable/round_white"
+                     app:tint="@color/appColorLight"
+                     />
+
+             </RelativeLayout>
+         </FrameLayout>
+
+
+
+     </LinearLayout>
+ -->
+
+</LinearLayout>
 
 

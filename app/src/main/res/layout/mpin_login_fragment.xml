@@ -36,7 +36,7 @@
         </RelativeLayout>
 
 
-        <LinearLayout
+       <!-- <LinearLayout
             android:layout_marginTop="@dimen/_90sdp"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_width="match_parent"
@@ -188,6 +188,234 @@
             </RelativeLayout>
         </FrameLayout>
 
+-->
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_marginHorizontal="@dimen/_22sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="MPIN Login"
+                android:gravity="start|center_vertical"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_32sdp"
+                android:fontFamily="@font/dmsansbold" />
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_6sdp"
+                android:layout_marginHorizontal="@dimen/_22sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start|center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="Welcome back, you’ve\nbeeen missed!"
+
+                    android:gravity="start|center_vertical"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/grayColor"
+
+                    android:textSize="@dimen/_19sdp"
+                    android:fontFamily="@font/dmsansregular" />
+
+
+
+
+            </LinearLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/_33sdp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginHorizontal="@dimen/_22sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_55sdp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusTopStart="20dp"
+                android:hint="@string/enter_mpin"
+                app:placeholderTextColor="@color/appColor"
+                app:boxStrokeColor="@color/appColor"
+                app:hintTextColor="@color/appColor">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUserMpin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+
+                    android:textColorHint="@color/grayColor"
+                    android:includeFontPadding="false"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/dmsansregular"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+            <FrameLayout
+                android:id="@+id/tabMpinSignIn"
+                android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+                android:layout_marginTop="@dimen/_22sdp"
+                android:layout_marginHorizontal="@dimen/_22sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp">
+
+                <RelativeLayout
+                    android:layout_gravity="center"
+                    android:id="@+id/tabInnerLogin"
+                    android:background="@drawable/orange_button_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:id="@+id/tvMpinSignIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/dmsansbold"
+                        android:text="@string/login"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                </RelativeLayout>
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginHorizontal="@dimen/_22sdp">
+                <CheckBox
+                    android:id="@+id/rememberMe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remember Me"
+
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:fontFamily="@font/dmsansbold"
+                    android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/forgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forgot MPIN?"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:fontFamily="@font/dmsansbold"
+                    android:textColor="@color/appColor" />
+
+            </LinearLayout>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OR"
+                android:layout_marginVertical="@dimen/_15sdp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/_12sdp"
+
+                android:fontFamily="@font/dmsansbold"
+                android:textColor="@color/grayColor" />
+
+            <FrameLayout
+                android:id="@+id/tvUsernameLogin"
+                android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+
+                android:layout_marginHorizontal="@dimen/_22sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp">
+
+                <RelativeLayout
+
+                    android:layout_gravity="center"
+                    android:id="@+id/tabUsernameLogin"
+                    android:background="@drawable/grey_button_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/dmsansbold"
+
+                        android:text="Continue with Username"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                </RelativeLayout>
+            </FrameLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/tabSignup"
+                android:background="@drawable/dr_ractengle_solid_ripple_effect"
+                android:paddingVertical="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginHorizontal="@dimen/_22sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="Don't have an account ?"
+                    android:gravity="start|center_vertical"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/grayColor"
+                    android:textSize="@dimen/_11sdp"
+                    android:fontFamily="@font/dmsansmedium" />
+
+
+                <TextView
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@string/signup"
+                    android:gravity="start|center_vertical"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/appColor"
+                    android:textSize="@dimen/_11sdp"
+                    android:fontFamily="@font/dmsansbold" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
