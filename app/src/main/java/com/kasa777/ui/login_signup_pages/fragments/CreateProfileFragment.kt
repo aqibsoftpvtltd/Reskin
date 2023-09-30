@@ -15,12 +15,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.github.razir.progressbutton.attachTextChangeAnimator
 import com.github.razir.progressbutton.bindProgressButton
 import com.google.gson.Gson
 import com.kasa777.R
+import com.kasa777.chat.ChatConstants
 import com.kasa777.constant.Constant
 import com.kasa777.modal.logindetails.new_device_old_account.GetOldDeviceDetails
 import com.kasa777.retrofit_provider.AuthHeaderRetrofitService
@@ -72,6 +74,7 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
     private var otpId = ""
     private var uMobileNumber = ""
     private var firebaseToken = ""
+    private lateinit var countDownTimer: CountDownTimer
 
     //    var mCredentialsApiClient: GoogleApiClient? = null
 //    private val RC_HINT = 2
@@ -83,6 +86,7 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         rootView = inflater.inflate(R.layout.fragment_signup_pages, container, false)
+
         return rootView
     }
 
@@ -125,7 +129,7 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
             override fun afterTextChanged(p0: Editable?) {}
         })
 
-
+      //  timer()
 //        ## "Welcome"
 //        ## "India's best Satta Matka Application Welcomes You!!!"
         flipView("mobile", llMoblie, true)
@@ -156,6 +160,37 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
         }
 
 
+    }
+
+    private fun timer()
+    {
+        // Set the initial time (00:50) in milliseconds
+        val initialTimeMillis: Long = 50 * 1000
+
+        countDownTimer = object : CountDownTimer(initialTimeMillis, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                // Convert milliseconds to minutes and seconds
+                val seconds = millisUntilFinished / 1000
+                val minutes = seconds / 60
+                val remainingSeconds = seconds % 60
+
+                // Format the time as "mm:ss"
+                val time = String.format("%02d:%02d", minutes, remainingSeconds)
+
+                // Update the TextView with the remaining time
+                timer_time.text = time
+            }
+
+            override fun onFinish() {
+                // When the countdown reaches 00:00, perform your action here
+                timer_time.text = "00:00"
+                // Call your method for OTP resend
+                resendOtp()
+            }
+        }
+
+        // Start the countdown timer
+        countDownTimer.start()
     }
 
     fun flipView(id: String, layout: View, initial: Boolean) {
@@ -203,10 +238,15 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
 //                            ## Html.fromHtml("Verification code has been sent to your mobile number <b>+91$uMobile</b>. please check and enter OTP.")
                     flipView("otp", llOtp, false)
                     initUserMobileContact()
+
+                    number.setText("("+spinnerCountryCode.selectedCountryCodeWithPlus+") "+uMobile)
                 }
             }
             R.id.tabSendOTP->{
                 uMobile = etMobileNumber.text.toString()
+
+                //countrycode = spinnerCountryCode.selectedCountryCode
+
 
                 if (uMobile.isEmpty()) {
                     Alerts.show(mContext, "Your Mobile should not be empty!")
@@ -226,9 +266,10 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
                     }
                     strlayout.equals("done") -> {
                         submitUser()
-
+                        countDownTimer.cancel()
                     }
                 }
+
             }
             R.id.tabContinueSignup->{
                 initUserBasicContact()
@@ -256,15 +297,29 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
                         R.id.frameLogin, LoginFragment(), Constant.LoginFragment
                     ).commit()
             }
+            R.id.bck_btn -> {
+                val intent = Intent(mContext, LoginSignUpActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
+                requireActivity().overridePendingTransition(0,0)
+                requireActivity().finish()
+            }
         }
 
     }
 
-
+   /*  fun onBackPressed()
+    {
+        val intent = Intent(context, LoginSignUpActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(intent)
+        requireActivity().overridePendingTransition(0,0)
+        requireActivity().finish()
+    }*/
     private fun checkForMobileNumber(uMobile: String) {
         val deviceId = Helper(context).deviceId;
         val jsonObject = JSONObject()
-        jsonObject.put("mobile", "+91" + uMobile)
+        jsonObject.put("mobile", spinnerCountryCode.selectedCountryCodeWithPlus+uMobile)
         jsonObject.put("deviceId", deviceId)
         val body = RequestBody.create(
             "application/json; charset=utf-8".toMediaTypeOrNull(), (jsonObject).toString()
@@ -378,9 +433,9 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
             uFirstName.isEmpty() -> Alerts.showSnack(
                 etUserName, "Your First Name should not be empty!"
             )
-            uLastName.isEmpty() -> Alerts.showSnack(
+           /* uLastName.isEmpty() -> Alerts.showSnack(
                 etLastName, "Your Last Name should not be empty!"
-            )
+            )*/
             uAge.isEmpty() -> Alerts.showSnack(etUserName, "Your Age should not be empty!")
             uCity.isEmpty() -> Alerts.showSnack(etUserName, "Your City should not be empty!")
             uPinCode.isEmpty() -> Alerts.showSnack(etUserName, "Your Pin Code should not be empty!")
@@ -447,14 +502,16 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initUserMobileContact() {
         uMobile = etMobileNumber.text.toString()
+       // number.setText("("+spinnerCountryCode.selectedCountryCodeWithPlus+") "+uMobile)
         when {
             uMobile.isEmpty() -> Alerts.show(mContext, "Your Mobile should not be empty!")
             uMobile.length < 10 -> Alerts.show(mContext, "You entered a wrong Mobile Number!")
             cd!!.isNetworkAvailable -> {
                 val jsonObject = JSONObject()
-                jsonObject.put("mobile", "+91$uMobile")
+                jsonObject.put("mobile", spinnerCountryCode.selectedCountryCodeWithPlus+uMobile)
                 jsonObject.put("reqType", true)
                 val body = RequestBody.create(
                     "application/json; charset=utf-8".toMediaTypeOrNull(), (jsonObject).toString()
@@ -467,22 +524,38 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
                             try {
                                 val responseObject = JSONObject(response.string())
                                 Log.e("OnResponse : hello", responseObject.toString())
-                                otpId = responseObject.getJSONObject("data").getString("id")
-                                if (responseObject.getInt("status") == 1) {
-                                    Alerts.show(
-                                        mContext,
-                                        "OTP successfully sent to your entered Mobile Number +91$uMobile"
-                                    )
-                                    uMobileNumber = "+91$uMobile"
-                                    flipView("otp", llOtp, false)
-//                                    ## "Fetching OTP"
-                                    otpTimerStart()
-                                    strlayout = "done"
-                                    tvOTPContinue.text = requireActivity().getString(R.string.submit)
 
-                                } else {
+                                if(responseObject.getInt("status") == 0)
+                                {
                                     Alerts.show(mContext, responseObject.getString("message"))
                                 }
+                                else
+                                {
+                                    otpId = responseObject.getJSONObject("data").getString("id")
+
+                                    if (responseObject.getInt("status") == 1) {
+                                        Alerts.show(
+                                            mContext,
+                                            "OTP successfully sent to your entered Mobile Number"+spinnerCountryCode.selectedCountryCodeWithPlus+uMobile
+                                        )
+
+                                        uMobileNumber = spinnerCountryCode.selectedCountryCodeWithPlus+uMobile
+
+
+                                        flipView("otp", llOtp, false)
+//                                    ## "Fetching OTP"
+                                        //otpTimerStart()
+                                        strlayout = "done"
+                                        tvOTPContinue.text = requireActivity().getString(R.string.submit)
+
+                                        timer()
+
+                                    } else {
+                                        Alerts.show(mContext, responseObject.getString("message"))
+                                    }
+                                }
+
+
                             } catch (e: Exception) {
                                 Log.e("sendOtp error", e.toString())
                                 Alerts.show(mContext, e.toString())
@@ -515,11 +588,20 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
                             val response = result!!.body() as ResponseBody
                             try {
                                 val responseObject = JSONObject(response.string())
-                                if (responseObject.getInt("status") == 1) {
-                                    Alerts.show(
-                                        mContext, "OTP successfully sent to your Mobile Number"
-                                    )
-                                    otpTimerStart()
+
+                                if(responseObject.getInt("status") == 0)
+                                {
+                                    Alerts.show(mContext, responseObject.getString("message"))
+                                }
+                                else {
+
+                                    if (responseObject.getInt("status") == 1) {
+                                        Alerts.show(
+                                            mContext, "OTP successfully sent to your Mobile Number"
+                                        )
+
+                                        timer()
+                                    }
                                 }
                             } catch (e: Exception) {
                                 Log.e("sendOtp error", e.toString())
@@ -665,7 +747,7 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
             userObject.put("mpin", uMpin + Helper(context).deviceId)
             userObject.put("password", uPass)
             userObject.put("username", uName)
-            userObject.put("mobile", "+91$uMobile")
+            userObject.put("mobile", spinnerCountryCode.selectedCountryCodeWithPlus+uMobile)
             userObject.put("firebaseId", firebaseToken)
             userObject.put("deviceName", deviceName)
             userObject.put("deviceId", deviceId)
