@@ -33,6 +33,7 @@
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="match_parent"
                 android:padding="@dimen/_5sdp"
+                android:onClick="onBackClick"
                 android:src="@drawable/bck_arrow"/>
 
 
@@ -63,7 +64,7 @@
             android:gravity="start|center_vertical"
             android:textAlignment="viewStart"
             android:textColor="@color/black"
-            android:textSize="@dimen/_32sdp"
+            android:textSize="@dimen/_28sdp"
             android:fontFamily="@font/dmsansbold" />
 
         <LinearLayout
@@ -94,7 +95,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="@dimen/_33sdp"
+            android:layout_marginTop="@dimen/_43sdp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_width="match_parent"
@@ -130,7 +131,7 @@
         <FrameLayout
             android:id="@+id/tabLogin"
             android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
-            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_40sdp"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp">

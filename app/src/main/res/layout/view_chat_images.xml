@@ -13,7 +13,7 @@
         android:layout_height="@dimen/space_30"
         />
 
-    <com.kasa777.utils.view.PinchImageView
+    <com.kasa77.utils.view.PinchImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

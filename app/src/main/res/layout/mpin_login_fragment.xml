@@ -221,7 +221,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
-                    android:text="Welcome back, you’ve\nbeeen missed!"
+                    android:text="Welcome back, you’ve\nbeen missed!"
 
                     android:gravity="start|center_vertical"
                     android:textAlignment="viewStart"

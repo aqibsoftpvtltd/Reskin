@@ -32,7 +32,6 @@
                 android:layout_height="@dimen/_42sdp">
 
                 <ImageView
-                    android:id="@+id/ivMainBack"
                     android:layout_marginEnd="@dimen/_2sdp"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"

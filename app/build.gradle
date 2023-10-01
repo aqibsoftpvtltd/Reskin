@@ -6,7 +6,7 @@ android {
     compileSdkVersion 33
     buildToolsVersion '33.0.2'
     defaultConfig {
-        applicationId "com.kasa777"
+        applicationId "com.kasa77"
         minSdkVersion 21
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 33
@@ -17,7 +17,12 @@ android {
         archivesBaseName = "Brand_Name-${new Date().format('dd-MM-yyyy-HH-mm')}"
         vectorDrawables.useSupportLibrary = true
     }
+
+
     buildTypes {
+       /* debug {
+            applicationIdSuffix ".debug"
+        }*/
         release {
          /*   useProguard true*/
             debuggable false

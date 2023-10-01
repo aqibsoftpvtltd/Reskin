@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.kasa777">
+    package="com.kasa77">
 
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -28,7 +28,7 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
-        android:name=".chat.ChatApplication"
+        android:name="com.kasa77.chat.ChatApplication"
         android:allowBackup="true"
         android:debuggable="false"
         android:hardwareAccelerated="true"
@@ -42,86 +42,86 @@
         tools:ignore="GoogleAppIndexingWarning,HardcodedDebugMode"
         tools:targetApi="q">
         <activity
-            android:name=".ui.activity.FundsActivity"
+            android:name="com.kasa77.ui.activity.FundsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activity.SumitIdeaActivity"
+            android:name="com.kasa77.ui.activity.SumitIdeaActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.AccountStatementActivity"
+            android:name="com.kasa77.ui.activity.AccountStatementActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.BankDetailActivity"
+            android:name="com.kasa77.ui.activity.BankDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.PassbookActivity"
+            android:name="com.kasa77.ui.activity.PassbookActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".chat.ui.VideoPlayerActivity"
+            android:name="com.kasa77.chat.ui.VideoPlayerActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.NetBankingActivity"
+            android:name="com.kasa77.ui.activity.NetBankingActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.PermissionA"
+            android:name="com.kasa77.ui.activity.PermissionA"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.ForgetUserNameActivity"
+            android:name="com.kasa77.ui.activity.ForgetUserNameActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".chat.ui.ViewImagesActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.FullScreen"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.SubmitOtpUdpateDeviceActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.HowToPlayActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.MpinPasswordChangedSuccessfullyActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity
-            android:name=".chat.ui.FullScreenImageActivity"
+            android:name="com.kasa77.chat.ui.ViewImagesActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.FullScreen"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.YoutubePlayActivity"
+            android:name="com.kasa77.ui.activity.SubmitOtpUdpateDeviceActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.onboarding.OnboardingActivity"
+            android:name="com.kasa77.ui.activity.HowToPlayActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.kasa77.ui.activity.MpinPasswordChangedSuccessfullyActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.kasa77.chat.ui.FullScreenImageActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FullScreen"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.kasa77.ui.YoutubePlayActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.kasa77.ui.onboarding.OnboardingActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeFullSCreen"
@@ -134,37 +134,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.ChangePasswordActivity"
+            android:name="com.kasa77.ui.activity.ChangePasswordActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.JackpotDashBoardActivity"
+            android:name="com.kasa77.ui.activity.JackpotDashBoardActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.StarLineGameListActivity"
+            android:name="com.kasa77.ui.activity.StarLineGameListActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.StarlineGameActivity"
+            android:name="com.kasa77.ui.activity.StarlineGameActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.StarlineDashboardActivity"
+            android:name="com.kasa77.ui.activity.StarlineDashboardActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.GameListFromDashboardActivity"
+            android:name="com.kasa77.ui.activity.GameListFromDashboardActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".chat.ui.ChatBoardActivity"
+            android:name="com.kasa77.chat.ui.ChatBoardActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
@@ -174,51 +174,51 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />-->
         <activity
-            android:name=".ui.NavigationMainActivity"
+            android:name="com.kasa77.ui.NavigationMainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".utils.BaseActivity"
+            android:name="com.kasa77.utils.BaseActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.JackpotGameActivity"
+            android:name="com.kasa77.ui.activity.JackpotGameActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.JackpotGameListActivity"
+            android:name="com.kasa77.ui.activity.JackpotGameListActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.MainGameFromListActivity"
+            android:name="com.kasa77.ui.activity.MainGameFromListActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.BidsHistoryActivity"
+            android:name="com.kasa77.ui.activity.BidsHistoryActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.ForgotPasswordOtpVerifyActivity"
+            android:name="com.kasa77.ui.activity.ForgotPasswordOtpVerifyActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.activity.ChangeMpinActivity"
+            android:name="com.kasa77.ui.activity.ChangeMpinActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.login_signup_pages.LoginSignUpActivity"
+            android:name="com.kasa77.ui.login_signup_pages.LoginSignUpActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateVisible" />
         <activity
-            android:name=".utils.GameBaseActivity"
+            android:name="com.kasa77.utils.GameBaseActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <!--
@@ -237,7 +237,7 @@
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_launcher_foreground" />
 
-        <service android:name=".utils.MyFirebaseMessagingService"
+        <service android:name="com.kasa77.utils.MyFirebaseMessagingService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -246,7 +246,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.kasa777.provider"
+            android:authorities="com.kasa77.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

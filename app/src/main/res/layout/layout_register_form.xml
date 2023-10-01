@@ -15,7 +15,7 @@
         android:gravity="start">
 
         <ImageView
-            android:id="@+id/bck_btn"
+            android:id="@+id/ivMainBack"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_80sdp"
@@ -357,8 +357,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/by_creating_text"
-                android:textSize="@dimen/_12sdp"
-                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_11sdp"
+                android:padding="@dimen/_2sdp"
                 android:fontFamily="@font/dmsansregular"
                 android:textColor="@color/grayColor" />
 
@@ -368,9 +368,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/terms_and_condition_text"
                 android:textAlignment="viewStart"
-                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginStart="@dimen/_27sdp"
                 android:textColor="@color/orange_new"
-                android:textSize="@dimen/_12sdp"
+                android:textSize="@dimen/_11sdp"
                 android:fontFamily="@font/glacial_bold" />
 
         </LinearLayout>

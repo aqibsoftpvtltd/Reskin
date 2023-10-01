@@ -51,7 +51,7 @@
                 android:gravity="start">
 
                 <ImageView
-                    android:id="@+id/bck_btn"
+                    android:id="@+id/bck_btn_login"
                     android:layout_width="@dimen/_35sdp"
                     android:layout_height="match_parent"
                     android:padding="@dimen/_5sdp"
@@ -107,7 +107,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:includeFontPadding="false"
-                        android:text="Welcome back, you’ve\nbeeen missed!"
+                        android:text="Welcome back, you’ve\nbeen missed!"
 
                         android:gravity="start|center_vertical"
                         android:textAlignment="viewStart"
@@ -198,7 +198,7 @@
                         android:fontFamily="@font/dmsansbold"
                         android:textColor="@color/black" />
                     <TextView
-                        android:id="@+id/forgotPassword"
+                        android:id="@+id/forgotPasswordnew"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Forgot Password?"
