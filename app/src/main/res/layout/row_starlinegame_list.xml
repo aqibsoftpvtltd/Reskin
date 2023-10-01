@@ -17,6 +17,7 @@
             android:paddingHorizontal="@dimen/_15sdp">
 
             <RelativeLayout
+                android:id="@+id/starline_list_bck"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_width="match_parent"
@@ -24,7 +25,7 @@
                 android:layout_marginHorizontal="@dimen/_2sdp"
                 android:layout_marginVertical="@dimen/_4sdp"
                 android:paddingHorizontal="@dimen/_15sdp"
-                android:background="@drawable/card_bg_round_15_transparent"
+                android:background="@drawable/white_background"
                 android:elevation="@dimen/_2sdp"
                 android:orientation="vertical">
 
@@ -49,7 +50,7 @@
                             android:id="@+id/tvBidTime"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/glacial_bold"
+                            android:fontFamily="@font/dmsansbold"
                             android:gravity="start|center_vertical"
                             android:text="@string/_10_00_am"
                             android:textAlignment="viewStart"
@@ -61,7 +62,7 @@
                             android:id="@+id/tvBidResult"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/glacial_bold"
+                            android:fontFamily="@font/dmsansbold"
                             android:gravity="start|center_vertical"
                             android:text="175-562"
                             android:textAlignment="viewStart"
@@ -78,11 +79,11 @@
                         android:id="@+id/tvBattingStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="start|center_vertical"
                         android:text="@string/time"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/grayColor"
+                        android:textColor="@color/starline_textcolor_blck"
                         android:textSize="@dimen/_9sdp" />
 
                 </LinearLayout>
@@ -92,10 +93,11 @@
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
                     android:id="@+id/tabPlayGame"
-                    android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
-                    android:layout_width="@dimen/_105sdp"
-                    android:layout_height="@dimen/_28sdp">
+                    android:background="@drawable/play_btn"
+                    android:layout_width="@dimen/_42sdp"
+                    android:layout_height="@dimen/_42sdp">
 
+<!--
                     <RelativeLayout
                         android:layout_gravity="center"
                         android:id="@+id/tabInnerPlayGame"
@@ -130,6 +132,7 @@
 
 
                     </RelativeLayout>
+-->
                 </FrameLayout>
 
 

@@ -30,6 +30,15 @@
     <color name="dark_black">#F5353535</color>
     <color name="color_blue">#08579B</color>
 
+    <color name="purple">#9747FF</color>
+
+
+    <color name="starline_textcolor_pink">#FF3975</color>
+    <color name="starline_textcolor_blck">#1B1D21</color>
+    <color name="starline_textcolor_red">#FF0000</color>
+
+
+
     <!--<color name="spots_dialog_color">#ff0099cc</color>-->
     <color name="spots_dialog_color">#6AB848</color>
     <color name="light_black">#ffffff</color>
@@ -60,7 +69,7 @@
     <color name="appColorLight">#EC9E24</color>
     <color name="grayColor">#888888</color>
 
-    <color name="diceBlue">#165FB6</color>
+    <color name="diceBlue">#2299DD</color>
     <color name="diceGreen">#46B834</color>
     <color name="panaBlack">#46B834</color>
     <color name="panaYellow">#EC9828</color>
