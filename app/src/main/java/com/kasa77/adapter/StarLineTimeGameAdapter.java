@@ -42,7 +42,9 @@ public class StarLineTimeGameAdapter extends RecyclerView.Adapter<StarLineTimeGa
         holder.binding.tvBidTime.setText(resultData.providerName);
         holder.binding.tvBidResult.setText(resultData.providerResult);
         holder.binding.tvBattingStatus.setText(resultData.displayText);
-        if(resultData.displayText.contains("Betting Is Closed For Today")){
+
+        if(resultData.openBidTime.equals("") || resultData.closeBidTime.equals("") || resultData.displayText.contains("Betting Is Closed For Today")){
+
             holder.binding.starlineListBck.setBackgroundResource(R.drawable.white_background);
           //  holder.binding.ivPlayGame.setColorFilter(ContextCompat.getColor(holder.binding.getRoot().getContext(), R.color.gray_f), PorterDuff.Mode.MULTIPLY);
         }
@@ -74,7 +76,7 @@ public class StarLineTimeGameAdapter extends RecyclerView.Adapter<StarLineTimeGa
 
 
         holder.binding.tabPlayGame.setOnClickListener(v -> {
-            if (resultData.displayText.contains("Betting Is Closed For Today")) {
+            if (resultData.openBidTime.equals("") || resultData.closeBidTime.equals("") || resultData.displayText.contains("Betting Is Closed For Today")) {
                 Alerts.AlertDialogWarning(holder.binding.getRoot().getContext(), resultData.displayText);
             } else {
                 holder.binding.getRoot().getContext().startActivity(new Intent(holder.binding.getRoot().getContext(), StarLineGameListActivity.class).putExtra("PROVIDER", resultList.get(position)));
@@ -82,7 +84,7 @@ public class StarLineTimeGameAdapter extends RecyclerView.Adapter<StarLineTimeGa
         });
 
         holder.binding.tabSelection.setOnClickListener(v -> {
-            if (resultData.displayText.contains("Betting Is Closed For Today")) {
+            if (resultData.openBidTime.equals("") || resultData.closeBidTime.equals("") || resultData.displayText.contains("Betting Is Closed For Today")) {
                 Alerts.AlertDialogWarning(holder.binding.getRoot().getContext(), resultData.displayText);
             } else {
                 holder.binding.getRoot().getContext().startActivity(new Intent(holder.binding.getRoot().getContext(), StarLineGameListActivity.class).putExtra("PROVIDER", resultList.get(position)));

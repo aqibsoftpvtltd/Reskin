@@ -136,15 +136,15 @@
             android:orientation="horizontal">
 
             <TextView
-                android:minWidth="@dimen/_70sdp"
+                android:minWidth="@dimen/_40sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/glacial_regular"
+                android:fontFamily="@font/dmsansbold"
                 android:gravity="start|center_vertical"
                 android:text="@string/jodi_"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_14sdp" />
 
             <TextView
                 android:layout_marginStart="@dimen/_4sdp"
@@ -152,12 +152,12 @@
                 android:id="@+id/jodiDAta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/glacial_bold"
+                android:fontFamily="@font/dmsansbold"
                 android:gravity="start|center_vertical"
                 android:text="1-100"
                 android:textAlignment="viewStart"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_11sdp" />
+                android:textColor="@color/jackpot_textcolor_green"
+                android:textSize="@dimen/_14sdp" />
 
         </LinearLayout>
 
@@ -179,6 +179,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="true"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             tools:listitem="@layout/row_jackpot_game_ist" />

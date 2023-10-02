@@ -14,88 +14,109 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical"
-        android:paddingHorizontal="@dimen/_8sdp">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/tabInnerSelection"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_180sdp"
+            android:layout_height="@dimen/_155sdp"
             android:layout_marginHorizontal="@dimen/_2sdp"
             android:layout_marginVertical="@dimen/_4sdp"
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:background="@drawable/card_bg_round_15_transparent"
+            android:paddingHorizontal="@dimen/_3sdp"
             android:elevation="@dimen/_2sdp"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/outer_background"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical|start"
+
+                android:background="@drawable/white_jackport_rectangle_background"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="@dimen/_75sdp"
-                    android:layout_height="@dimen/_75sdp"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/ractengle_solid_round_edge_light_gray">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:src="@drawable/clock_icon" /> <!-- Replace with your image resource -->
 
                     <TextView
                         android:id="@+id/tvProviderName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/_4sdp"
                         android:layout_marginTop="@dimen/_4sdp"
-                        android:fontFamily="@font/glacial_bold"
+                        android:layout_toEndOf="@id/imageView"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="center"
-                        android:paddingHorizontal="@dimen/_4sdp"
                         android:text="@string/_10_00_am"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_15sdp" />
+                        android:textSize="@dimen/_10sdp" />
+
 
 
                 </RelativeLayout>
 
 
                 <TextView
-                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
                     android:id="@+id/tvGameResult"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/glacial_bold"
+                    android:fontFamily="@font/dmsansbold"
                     android:gravity="center"
                     android:text="@string/time"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_15sdp" />
+                    android:textSize="@dimen/_20sdp" />
+
+                <TextView
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:id="@+id/tvBettingStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dmsansbold"
+                    android:gravity="center"
+                    android:text="@string/time"
+                    android:textColor="@color/grayColor"
+                    android:textSize="@dimen/_9sdp" />
+
 
 
                 <FrameLayout
                     android:layout_marginTop="@dimen/_6sdp"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/tabPlayGame"
-                    android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
-                    android:layout_width="@dimen/_95sdp"
-                    android:layout_height="@dimen/_28sdp">
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_32sdp">
 
                     <RelativeLayout
                         android:layout_gravity="center"
                         android:id="@+id/tabInnerPlayGame"
-                        android:background="@drawable/ractengle_gradian_round_edge"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:background="@drawable/play_now_btn"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_32sdp">
 
-                        <ImageView
+                     <!--   <ImageView
                             android:id="@+id/ivPlayGame"
                             android:layout_marginStart="@dimen/_2sdp"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
                             android:layout_width="@dimen/_25sdp"
                             android:layout_height="@dimen/_25sdp"
-                            android:src="@drawable/ic_play_round"
+                            android:src="@drawable/play_now_btn"
                             android:padding="@dimen/_2sdp"
                             android:background="@drawable/round_white"
                             app:tint="@color/appColorLight" />
@@ -111,23 +132,13 @@
                             android:text="@string/play_game"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10sdp" />
+                            android:textSize="@dimen/_10sdp" />-->
 
 
                     </RelativeLayout>
                 </FrameLayout>
 
 
-                <TextView
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:id="@+id/tvBettingStatus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/glacial_regular"
-                    android:gravity="center"
-                    android:text="@string/time"
-                    android:textColor="@color/grayColor"
-                    android:textSize="@dimen/_11sdp" />
 
             </LinearLayout>
 

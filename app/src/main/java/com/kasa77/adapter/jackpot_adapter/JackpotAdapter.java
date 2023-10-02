@@ -51,18 +51,31 @@ public class JackpotAdapter extends RecyclerView.Adapter<JackpotAdapter.ViewHold
         }
 
 
-        if (resultData.displayText.contains("Betting Is Running Now")) {
-            holder.binding.tabInnerSelection.setAlpha(1f);
+        if (resultData.displayText.contains("Betting Is Running Now"))
+        {
+           /*// holder.binding.tabInnerSelection.setAlpha(1f);
             holder.binding.tabPlayGame.setVisibility(View.VISIBLE);
-            if (resultData.resultStatus == 0) {
+            if (resultData.resultStatus == 0)
+            {
                 holder.binding.tabPlayGame.setVisibility(View.VISIBLE);
-            } else {
-                holder.binding.tabInnerSelection.setAlpha(0.5f);
-                holder.binding.tabPlayGame.setVisibility(View.GONE);
             }
-        } else {
-            holder.binding.tabPlayGame.setVisibility(View.GONE);
-            holder.binding.tabInnerSelection.setAlpha(0.5f);
+            else
+            {
+                //holder.binding.tabInnerSelection.setAlpha(0.5f);
+                //holder.binding.tabPlayGame.setVisibility(View.GONE);
+                holder.binding.tabPlayGame.setAlpha(0.5f);
+
+            }*/
+            holder.binding.tabPlayGame.setAlpha(1f);
+            holder.binding.outerBackground.setBackgroundResource(R.drawable.green_outer_jackport);
+
+        }
+        else
+        {
+            //holder.binding.tabPlayGame.setVisibility(View.GONE);
+            //holder.binding.tabInnerSelection.setAlpha(0.5f);
+            holder.binding.tabPlayGame.setAlpha(0.5f);
+            holder.binding.outerBackground.setBackgroundResource(R.drawable.white_jackport_rectangle_background);
         }
 
 
@@ -73,7 +86,7 @@ public class JackpotAdapter extends RecyclerView.Adapter<JackpotAdapter.ViewHold
         });
 
         holder.binding.tabSelection.setOnClickListener(v -> {
-            if (resultData.displayText.contains("Betting Is Closed For Today")) {
+            if (resultData.openBidTime.equals("") || resultData.closeBidTime.equals("") || resultData.displayText.contains("Betting Is Closed For Today")) {
                 Alerts.AlertDialogWarning(holder.binding.getRoot().getContext(), resultData.displayText);
             } else {
                 if (holder.binding.tabPlayGame.getVisibility() == View.VISIBLE) {
