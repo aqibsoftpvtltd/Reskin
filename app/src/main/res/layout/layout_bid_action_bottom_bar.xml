@@ -2,23 +2,25 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/appColor"
+
     android:gravity="center"
     android:id="@+id/tabBottom"
     android:layout_centerHorizontal="true"
     android:layout_alignParentBottom="true"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+
     android:orientation="vertical">
 
     <LinearLayout
-        android:weightSum="5"
+        android:weightSum="2.5"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp">
+
+        android:layout_height="wrap_content">
 
 
        <LinearLayout
-           android:layout_weight="3"
+           android:layout_weight="2"
            android:layout_width="0dp"
            android:background="@color/backgroundWhite"
            android:layout_height="match_parent">
@@ -26,60 +28,62 @@
            <LinearLayout
                android:layout_width="0dp"
                android:layout_weight="1"
-               android:orientation="vertical"
+               android:orientation="horizontal"
                android:gravity="center"
                android:layout_height="@dimen/_50sdp">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/glacial_bold"
+                   android:gravity="center"
+                   android:text="@string/bids"
+                   android:includeFontPadding="false"
+                   android:textColor="@color/black"
+                   android:textSize="@dimen/_11sdp" />
 
 
                <TextView
                    android:id="@+id/tvTotalBids"
-                   android:layout_width="match_parent"
-                   android:layout_height="@dimen/_24sdp"
-                   android:fontFamily="@font/glacial_bold"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/dmsansbold"
                    android:gravity="center"
                    android:text="0"
                    android:includeFontPadding="false"
-                   android:textColor="@color/black"
-                   android:textSize="@dimen/_15sdp" />
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="@dimen/_24sdp"
-                   android:fontFamily="@font/glacial_regular"
-                   android:gravity="center"
-                   android:text="@string/total_bids"
-                   android:includeFontPadding="false"
-                   android:textColor="@color/black"
-                   android:textSize="@dimen/_12sdp" />
+                   android:textColor="@color/closeColor"
+                   android:layout_marginLeft="@dimen/_2sdp"
+                   android:textSize="@dimen/_11sdp" />
 
            </LinearLayout>
 
            <LinearLayout
                android:layout_width="0dp"
                android:layout_weight="1"
-               android:orientation="vertical"
-               android:gravity="center"
+               android:orientation="horizontal"
+               android:gravity="center|start"
                android:layout_height="@dimen/_50sdp">
-
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/dmsansbold"
+                   android:gravity="center"
+                   android:text="@string/points_"
+                   android:includeFontPadding="false"
+                   android:textColor="@color/black"
+                   android:textSize="@dimen/_11sdp" />
 
                <TextView
                    android:id="@+id/tvTotalPoints"
-                   android:layout_width="match_parent"
-                   android:layout_height="@dimen/_24sdp"
-                   android:fontFamily="@font/glacial_bold"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/dmsansbold"
                    android:gravity="center"
                    android:text="0"
                    android:includeFontPadding="false"
-                   android:textColor="@color/black"
-                   android:textSize="@dimen/_15sdp" />
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="@dimen/_24sdp"
-                   android:fontFamily="@font/glacial_regular"
-                   android:gravity="center"
-                   android:text="@string/total_points"
-                   android:includeFontPadding="false"
-                   android:textColor="@color/black"
-                   android:textSize="@dimen/_12sdp" />
+                   android:textColor="@color/closeColor"
+                   android:layout_marginLeft="@dimen/_2sdp"
+                   android:textSize="@dimen/_11sdp" />
+
 
            </LinearLayout>
 
@@ -87,28 +91,29 @@
 
        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_height="@dimen/_50sdp">
 
-
-            <TextView
-                android:id="@+id/tvFinalSubmit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/glacial_regular"
-                android:gravity="center"
-                android:background="@drawable/dr_ractengle_solid_ripple_effect"
-                android:text="@string/submit"
-                android:includeFontPadding="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15sdp" />
-
-        </LinearLayout>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/orange_button"
+        android:layout_height="wrap_content">
 
+
+        <TextView
+            android:id="@+id/tvFinalSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/dmsansbold"
+            android:gravity="center"
+            android:background="@drawable/dr_ractengle_solid_ripple_effect"
+            android:text="@string/submit"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />
+
+    </LinearLayout>
 </LinearLayout>
