@@ -50,7 +50,7 @@ public class GameDashboardAdapter extends RecyclerView.Adapter<GameDashboardAdap
 
       //  holder.binding.tvGameDashboard.setText(""+item.getName());
        // holder.binding.tvGameDashboard.setImageDrawable(ContextCompat.getDrawable(holder.binding.getRoot().getContext(),item.getDrawable()));
-        holder.binding.tvGameDashboard.setBackground(ContextCompat.getDrawable(holder.binding.getRoot().getContext(),item.getBackground()));
+        holder.binding.tvGameDashboard.setBackground(ContextCompat.getDrawable(holder.binding.getRoot().getContext(),item.getDrawable()));
 
         holder.bind(listener,position);
     }
