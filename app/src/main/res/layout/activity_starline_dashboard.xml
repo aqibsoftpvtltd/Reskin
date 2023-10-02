@@ -151,11 +151,11 @@
                         android:minWidth="@dimen/_70sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="start|center_vertical"
                         android:text="@string/single_pana_"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/grayColor"
+                        android:textColor="@color/starline_textcolor_blck"
                         android:textSize="@dimen/_12sdp" />
 
                     <TextView
@@ -164,11 +164,11 @@
                         android:id="@+id/tvSinglePanna"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/glacial_bold"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="start|center_vertical"
                         android:text="1-100"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/black"
+                        android:textColor="@color/starline_textcolor_pink"
                         android:textSize="@dimen/_11sdp" />
 
                 </LinearLayout>
@@ -184,11 +184,11 @@
                         android:minWidth="@dimen/_70sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="start|center_vertical"
                         android:text="@string/triple_pana_"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/grayColor"
+                        android:textColor="@color/starline_textcolor_blck"
                         android:textSize="@dimen/_12sdp" />
 
                     <TextView
@@ -197,11 +197,11 @@
                         android:id="@+id/tvTriplePana"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/glacial_bold"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="start|center_vertical"
                         android:text="1-100"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/black"
+                        android:textColor="@color/starline_textcolor_pink"
                         android:textSize="@dimen/_11sdp" />
 
                 </LinearLayout>
@@ -235,11 +235,11 @@
                         android:minWidth="@dimen/_70sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="start|center_vertical"
                         android:text="@string/double_pana_"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/grayColor"
+                        android:textColor="@color/starline_textcolor_blck"
                         android:textSize="@dimen/_12sdp" />
 
                     <TextView
@@ -248,11 +248,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_4sdp"
-                        android:fontFamily="@font/glacial_bold"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="start|center_vertical"
                         android:text="1-100"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/black"
+                        android:textColor="@color/starline_textcolor_pink"
                         android:textSize="@dimen/_11sdp" />
 
                 </LinearLayout>
@@ -268,11 +268,11 @@
                         android:minWidth="@dimen/_70sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="start|center_vertical"
                         android:text="@string/single_digit_"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/grayColor"
+                        android:textColor="@color/starline_textcolor_blck"
                         android:textSize="@dimen/_12sdp" />
 
                     <TextView
@@ -281,11 +281,11 @@
                         android:id="@+id/tvSingleDigit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/glacial_bold"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="start|center_vertical"
                         android:text="1-100"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/black"
+                        android:textColor="@color/starline_textcolor_pink"
                         android:textSize="@dimen/_11sdp" />
 
                 </LinearLayout>
@@ -310,6 +310,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:baselineAligned="false"
+            android:background="@drawable/space_shape_line"
             android:scrollbars="none"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/row_starlinegame_list" />

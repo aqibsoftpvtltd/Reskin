@@ -9,10 +9,10 @@ public class GameDashboardModel implements Serializable {
     public GameDashboardModel() {
     }
 
-    public GameDashboardModel(String name, int background, int drawable) {
+    public GameDashboardModel(String name, int background/*, int drawable*/) {
         this.name = name;
         this.background = background;
-        this.drawable = drawable;
+        /*this.drawable = drawable;*/
     }
 
     public String getName() {
@@ -31,11 +31,11 @@ public class GameDashboardModel implements Serializable {
         this.background = background;
     }
 
-    public int getDrawable() {
+   /* public int getDrawable() {
         return drawable;
     }
 
     public void setDrawable(int drawable) {
         this.drawable = drawable;
-    }
+    }*/
 }

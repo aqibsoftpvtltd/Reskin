@@ -251,6 +251,8 @@
     <string name="open_bids_">Open Bids:</string>
     <string name="close_bids_">Close Bids:</string>
     <string name="starline_dashboard">Starline Dashboard</string>
+    <string name="starline_morning_sridevi_dashboard_text">Morning Sridevi Dashboard</string>
+
     <string name="view_histroy">View history</string>
     <string name="single_pana_">Single Pana:</string>
     <string name="triple_pana_">Triple Pana:</string>

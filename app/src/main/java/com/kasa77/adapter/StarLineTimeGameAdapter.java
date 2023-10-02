@@ -43,17 +43,17 @@ public class StarLineTimeGameAdapter extends RecyclerView.Adapter<StarLineTimeGa
         holder.binding.tvBidResult.setText(resultData.providerResult);
         holder.binding.tvBattingStatus.setText(resultData.displayText);
         if(resultData.displayText.contains("Betting Is Closed For Today")){
-            holder.binding.tabInnerPlayGame.setBackgroundResource(R.drawable.ractengle_gradian_round_edge_disabled);
-            holder.binding.ivPlayGame.setColorFilter(ContextCompat.getColor(holder.binding.getRoot().getContext(), R.color.gray_f), PorterDuff.Mode.MULTIPLY);
+            holder.binding.starlineListBck.setBackgroundResource(R.drawable.white_background);
+          //  holder.binding.ivPlayGame.setColorFilter(ContextCompat.getColor(holder.binding.getRoot().getContext(), R.color.gray_f), PorterDuff.Mode.MULTIPLY);
         }
         else{
-            holder.binding.tabInnerPlayGame.setBackgroundResource(R.drawable.ractengle_gradian_round_edge);
-            holder.binding.ivPlayGame.setColorFilter(ContextCompat.getColor(holder.binding.getRoot().getContext(), R.color.appColorLight),PorterDuff.Mode.MULTIPLY);
+            holder.binding.starlineListBck.setBackgroundResource(R.drawable.pink_background);
+           // holder.binding.ivPlayGame.setColorFilter(ContextCompat.getColor(holder.binding.getRoot().getContext(), R.color.appColorLight),PorterDuff.Mode.MULTIPLY);
         }
         try {
             holder.binding.tvBattingStatus.setTextColor(Color.parseColor(resultData.colorCode));
         } catch (Exception e) {
-            holder.binding.tvBattingStatus.setTextColor(ContextCompat.getColor(holder.binding.getRoot().getContext(),R.color.grayColor));
+            holder.binding.tvBattingStatus.setTextColor(ContextCompat.getColor(holder.binding.getRoot().getContext(),R.color.starline_textcolor_red));
         }
 
 

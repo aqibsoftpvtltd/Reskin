@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kasa77.R
 import com.kasa77.adapter.GameDashboardAdapter
@@ -14,6 +15,8 @@ import com.kasa77.ui.fragment.startline_game_fragment.modal.Result
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game_list.rvGameDashboard
 import kotlinx.android.synthetic.main.activity_starline_game_list.*
+import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.toolbar.view.*
 
 class StarLineGameListActivity : BaseActivity() {
 
@@ -30,6 +33,17 @@ class StarLineGameListActivity : BaseActivity() {
 
         setupAdapter()
         val backBtn: ImageView = findViewById(R.id.backbtn)
+
+        val toolbar = findViewById<View>(R.id.toolbar)
+
+        toolbar.toolbarTitle.text ="Starline"
+        toolbar.backBtn.visibility=View.GONE
+        toolbar.navBtn.visibility=View.VISIBLE
+
+        toolbar.notificationCount.visibility = View.GONE
+
+        toolbar.cart.setBackgroundResource(R.drawable.wallet_icon)
+
 
         backBtn.setOnClickListener {
             onBackPressed()
@@ -57,14 +71,14 @@ class StarLineGameListActivity : BaseActivity() {
 
     private fun genrateList() {
         gameList.clear()
-        gameList.add(GameDashboardModel(GameTypeNames.SingleDigit,R.drawable.ractengle_stroke_round_edge_diceblue,R.drawable.ic_single_dice))
-        gameList.add(GameDashboardModel(GameTypeNames.SinglePana,R.drawable.ractengle_stroke_round_edge_panagreen,R.drawable.ic_single_pana))
-        gameList.add(GameDashboardModel(GameTypeNames.SP_DP_TP,R.drawable.ractengle_stroke_round_edge_spdptpblack,R.drawable.ic_sp_dp_tp))
-        gameList.add(GameDashboardModel(GameTypeNames.SPMOTOR,R.drawable.ractengle_stroke_round_edge_spblue,R.drawable.ic_sp_motor))
-        gameList.add(GameDashboardModel(GameTypeNames.DoublePana,R.drawable.ractengle_stroke_round_edge_panayellow,R.drawable.ic_double_pana))
-        gameList.add(GameDashboardModel(GameTypeNames.TriplePana,R.drawable.ractengle_stroke_round_edge_triplepurple,R.drawable.ic_triple))
-        gameList.add(GameDashboardModel(GameTypeNames.DPMOTOR,R.drawable.ractengle_stroke_round_edge_dpred,R.drawable.ic_dp_motor))
-        gameList.add(GameDashboardModel(GameTypeNames.TWO_DIGIT_PANEL,R.drawable.ractengle_stroke_round_edge_spblue,R.drawable.ic_pannel))
+        gameList.add(GameDashboardModel(GameTypeNames.SingleDigit,R.drawable.single_digit_back))
+        gameList.add(GameDashboardModel(GameTypeNames.SinglePana,R.drawable.single_pana_back))
+        gameList.add(GameDashboardModel(GameTypeNames.SP_DP_TP,R.drawable.sp_dp_back))
+        gameList.add(GameDashboardModel(GameTypeNames.SPMOTOR,R.drawable.sp_motor_back))
+        gameList.add(GameDashboardModel(GameTypeNames.DoublePana,R.drawable.double_pana_back))
+        gameList.add(GameDashboardModel(GameTypeNames.TriplePana,R.drawable.triple_pana_back))
+        gameList.add(GameDashboardModel(GameTypeNames.DPMOTOR,R.drawable.dp_motor_back))
+        gameList.add(GameDashboardModel(GameTypeNames.TWO_DIGIT_PANEL,R.drawable.two_digit_back))
 
     }
 

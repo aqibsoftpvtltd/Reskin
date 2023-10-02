@@ -9,60 +9,52 @@
     tools:context=".ui.activity.StarLineGameListActivity">
 
 
-    <LinearLayout
-        android:background="@drawable/ractengle_gradian_bottom_round_edge"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/_15sdp"
-        android:elevation="@dimen/_2sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
+    <include
+        android:id="@+id/toobar"
+        layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:paddingHorizontal="@dimen/_15sdp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/_42sdp">
 
-        <RelativeLayout
-            android:paddingHorizontal="@dimen/_15sdp"
+        <LinearLayout
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:gravity="start|center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_42sdp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_marginEnd="@dimen/_2sdp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:gravity="start|center_vertical"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:src="@drawable/bck_arrow"
+                android:padding="@dimen/_4sdp"
+                android:id="@+id/backbtn"
+                app:tint="@color/starline_textcolor_blck" />
+
+
+            <TextView
+                android:id="@+id/tv_dashboard"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="@dimen/_26sdp"
-                    android:layout_height="@dimen/_26sdp"
-                    android:src="@drawable/arrow_back_white"
-                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
-                    android:padding="@dimen/_4sdp"
-                    android:id="@+id/backbtn"
-                    app:tint="@color/white" />
+                android:includeFontPadding="false"
+                android:text="@string/starline_morning_sridevi_dashboard_text"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:textAlignment="center"
+                android:layout_gravity="center|center_horizontal"
+                android:textColor="@color/starline_textcolor_blck"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/dmsansbold" />
 
 
-                <TextView
-                    android:id="@+id/tv_dashboard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:includeFontPadding="false"
-                    android:text="@string/starline_dashboard"
-                    android:gravity="start|center_vertical"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_15sdp"
-                    android:fontFamily="@font/glacial_bold" />
+        </LinearLayout>
 
 
-            </LinearLayout>
+    </RelativeLayout>
 
-
-        </RelativeLayout>
-
-
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_marginTop="@dimen/_4sdp"
@@ -80,6 +72,7 @@
             android:layout_height="wrap_content"
             android:scrollbars="none"
             app:spanCount="2"
+            android:background="@drawable/space_shape_line"
             tools:itemCount="17"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/game_dashboard_item_view" />

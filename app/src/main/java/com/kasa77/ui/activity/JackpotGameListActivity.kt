@@ -56,10 +56,10 @@ class JackpotGameListActivity : BaseActivity() {
 
     private fun genrateList() {
         gameList.clear()
-        gameList.add(GameDashboardModel(GameTypeNames.JodiJackpot,R.drawable.ractengle_stroke_round_edge_dicegreen,R.drawable.ic_double_dice))
-        gameList.add(GameDashboardModel(GameTypeNames.RedBracketJackpot,R.drawable.ractengle_stroke_round_edge_groupred,R.drawable.ic_red_bracket))
-        gameList.add(GameDashboardModel(GameTypeNames.DigitBasedJackpot,R.drawable.ractengle_stroke_round_edge_panayellow,R.drawable.ic_odd_even))
-        gameList.add(GameDashboardModel(GameTypeNames.GroupJackpot,R.drawable.ractengle_stroke_round_edge_groupred,R.drawable.ic_group_jodi))
+        gameList.add(GameDashboardModel(GameTypeNames.JodiJackpot,R.drawable.ractengle_stroke_round_edge_dicegreen/*,R.drawable.ic_double_dice*/))
+        gameList.add(GameDashboardModel(GameTypeNames.RedBracketJackpot,R.drawable.ractengle_stroke_round_edge_groupred/*,R.drawable.ic_red_bracket*/))
+        gameList.add(GameDashboardModel(GameTypeNames.DigitBasedJackpot,R.drawable.ractengle_stroke_round_edge_panayellow/*,R.drawable.ic_odd_even*/))
+        gameList.add(GameDashboardModel(GameTypeNames.GroupJackpot,R.drawable.ractengle_stroke_round_edge_groupred/*,R.drawable.ic_group_jodi*/))
     }
 
     private fun openActivity(from: String?) {
