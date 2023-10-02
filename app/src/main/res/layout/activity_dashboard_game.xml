@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundWhite"
+    android:background="@color/secondaryColor"
     android:orientation="vertical">
 
+<include layout="@layout/toolbar">
 
+</include>
     <LinearLayout
         android:background="@drawable/ractengle_gradian_bottom_round_edge"
         android:orientation="vertical"
         android:paddingBottom="@dimen/_15sdp"
         android:elevation="@dimen/_2sdp"
         android:layout_marginBottom="@dimen/_8sdp"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

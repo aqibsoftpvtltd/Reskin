@@ -41,6 +41,12 @@ public class BidListToSubmitAdapter extends RecyclerView.Adapter<BidListToSubmit
         holder.tvDigits.setText(bidItems.get(position).getDigits());
         holder.tvPoints.setText(bidItems.get(position).getPoints());
         holder.tvGameType.setText(bidItems.get(position).getGemeSession());
+        if (bidItems.get(position).getGemeSession().equals("Open")){
+            holder.tvGameType.setTextColor(mContext.getResources().getColor(R.color.openColor));
+        }
+        else {
+            holder.tvGameType.setTextColor(mContext.getResources().getColor(R.color.closeColor));
+        }
         holder.btnDelete.setTag(position);
         holder.btnDelete.setOnClickListener(onClickListener);
         //  holder.tvGameType.setText(bidItems.get(position).setGemeSession(gameSession));

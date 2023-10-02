@@ -7,8 +7,9 @@
         <item name="colorPrimaryDark">@color/appColor</item>
         <item name="colorAccent">@color/appColor</item>
         <item name="drawerArrowStyle">@style/DrawerIcon</item>
+        <item name="android:statusBarColor">@color/secondaryColor</item>
 <!--        <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>-->
-<!--&lt;!&ndash;        <item name="android:statusBarColor">@color/appColorLight</item>&ndash;&gt;-->
+<!--&lt;!&ndash;       &ndash;&gt;-->
 <!--        &lt;!&ndash; specify shared element transitions &ndash;&gt;-->
 <!--        <item name="android:windowSharedElementEnterTransition" tools:ignore="NewApi">-->
 <!--            @transition/change_image_transform-->

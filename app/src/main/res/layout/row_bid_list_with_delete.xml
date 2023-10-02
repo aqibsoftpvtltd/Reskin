@@ -21,6 +21,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/mainLyt"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_width="match_parent"
@@ -28,10 +29,10 @@
                 android:layout_marginHorizontal="@dimen/_2sdp"
                 android:layout_marginVertical="@dimen/_4sdp"
                 android:paddingHorizontal="@dimen/_8sdp"
-                android:background="@drawable/card_bg_round_15_transparent"
-                android:elevation="@dimen/_2sdp"
+
+
                 android:gravity="center"
-                android:weightSum="4"
+                android:weightSum="3"
                 android:orientation="horizontal">
 
 
@@ -47,24 +48,33 @@
                         android:id="@+id/tvDigits"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_24sdp"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="center"
                         android:text="03"
                         android:includeFontPadding="false"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textSize="@dimen/_11sdp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_24sdp"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="center"
                         android:text="@string/bid"
+                        android:visibility="gone"
                         android:includeFontPadding="false"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/lightestGrey"
+                    android:layout_marginVertical="@dimen/_10sdp">
+
+                </View>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -78,29 +88,34 @@
                         android:id="@+id/tvPoints"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_24sdp"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="center"
                         android:text="03"
                         android:includeFontPadding="false"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textSize="@dimen/_11sdp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_24sdp"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansregular"
                         android:gravity="center"
                         android:text="@string/point"
+                        android:visibility="gone"
                         android:includeFontPadding="false"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 
                 </LinearLayout>
-
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/lightestGrey"
+                    android:layout_marginVertical="@dimen/_10sdp"/>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:gravity="center"
                     android:layout_height="@dimen/_50sdp">
 
@@ -109,47 +124,47 @@
                         android:id="@+id/tvGameType"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_24sdp"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="center"
-                        android:text="03"
+                        android:text="Open"
+                        android:layout_weight="1"
                         android:includeFontPadding="false"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textColor="@color/openColor"
+                        android:textSize="@dimen/_8sdp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_24sdp"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansregular"
                         android:gravity="center"
                         android:text="@string/game_type"
+                        android:visibility="gone"
                         android:includeFontPadding="false"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_height="@dimen/_50sdp">
-
 
                     <ImageView
                         android:id="@+id/btnDelete"
                         android:layout_width="@dimen/_26sdp"
                         android:layout_height="@dimen/_26sdp"
-                        android:src="@drawable/ic_cross"
-                        android:padding="@dimen/_8sdp"
-                        android:background="@drawable/rounded_solid_red" />
-
+                        android:src="@drawable/row_bid_list_delete_icon"
+                        />
 
                 </LinearLayout>
 
 
+
+
             </LinearLayout>
 
+            <View
+                android:layout_below="@id/mainLyt"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:background="@color/lightestGrey">
+
+            </View>
         </RelativeLayout>
 
 

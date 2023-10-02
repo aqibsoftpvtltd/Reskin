@@ -313,5 +313,8 @@
     <string name="done">Done</string>
     <string name="help_">Help?</string>
     <string name="net_banking">Net Banking</string>
+    <string name="add_points">Add Points</string>
+    <string name="bids">Bids:</string>
+    <string name="points_">Points:</string>
 
 </resources>

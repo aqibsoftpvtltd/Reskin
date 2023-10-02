@@ -15,6 +15,8 @@ import com.kasa77.ui.fragment.dashboard_games_fragment.jodi_games.*
 import com.kasa77.utils.AppPreference
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game.*
+import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 import kotlin.collections.ArrayList
 
 class MainGameFromListActivity : BaseActivity() {
@@ -35,8 +37,9 @@ class MainGameFromListActivity : BaseActivity() {
             providerResultData = intent.getParcelableExtra("PROVIDER")
             from = intent.extras!!.getString("FROM").toString()
             tvMenuTitle.text = providerResultData!!.providerName + " - " + from + " Board"
+            toolbarTitle.text = providerResultData!!.providerName + " - " + from + " Board"
         }
-        val backBtn: ImageView = findViewById(R.id.backbtn)
+
 
         backBtn.setOnClickListener {
             onBackPressed()
