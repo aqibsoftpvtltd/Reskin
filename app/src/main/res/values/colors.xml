@@ -88,4 +88,7 @@
     <color name="maroon">#AC2E2E</color>
     <color name="greenDark">#2EAC69</color>
     <color name="switchColor">#69CCC1</color>
+
+
+    <color name="secondaryColor">#1B1D21</color>
 </resources>

@@ -135,9 +135,14 @@ dependencies {
 
 //    country code
     implementation 'com.hbb20:ccp:2.6.0'
+//  bottom navigation
+    implementation 'com.github.simformsolutions:SSCustomBottomNavigation:3.6'
 
+    // imageSlider
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
 }
 apply plugin: 'com.google.gms.google-services'
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }

@@ -17,12 +17,16 @@ import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.kasa77.R
 import com.kasa77.adapter.NavigationItemAdapter
 import com.kasa77.chat.*
@@ -39,6 +43,7 @@ import com.kasa77.utils.*
 import com.google.gson.Gson
 import com.kasa77.interfaces.AdapterClickListener
 import com.kasa77.ui.activity.*
+import com.simform.custombottomnavigation.Model
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import kotlinx.android.synthetic.main.activity_navigation_main.*
@@ -46,6 +51,9 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.fragment_my_profile.view.*
 import kotlinx.android.synthetic.main.layout_content_home.*
+import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.navBtn
+import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -69,6 +77,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
     private var fragmentUtils: FragmentUtils? = null
 
     private var doubleBackToExitPressedOnce = false
+    val imageList = ArrayList<SlideModel>() // Create image list
 
     val mMessageReceiver = object : BroadcastReceiver() {
         override fun onReceive(contxt: Context?, intent: Intent?) {
@@ -135,7 +144,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
             val window = window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            window.statusBarColor = ContextCompat.getColor(this, R.color.primaryMain);
+            window.statusBarColor = ContextCompat.getColor(this, R.color.secondaryColor);
         }
 
         initSocketSetup()
@@ -151,15 +160,18 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        ivToggle.setOnClickListener { drawer_layout.openDrawer(Gravity.LEFT); }
-        cvKuberStarline.setOnClickListener{
+        navBtn.setOnClickListener { drawer_layout.openDrawer(Gravity.LEFT); }
+       /* cvKuberStarline.setOnClickListener{
             startActivity(Intent(mContext, StarlineDashboardActivity::class.java))
         }
         cvKuberJackpot.setOnClickListener{
             startActivity(Intent(mContext, JackpotDashBoardActivity::class.java))
-        }
+        }*/
 
-        tabWalletAmount.setOnClickListener(View.OnClickListener {
+        starline.setOnClickListener { startActivity(Intent(mContext, StarlineDashboardActivity::class.java)) }
+        jackpot.setOnClickListener { startActivity(Intent(mContext, JackpotDashBoardActivity::class.java)) }
+
+        tabWalletAmount.setOnClickListener({
             //            Helper(mContext).showNotification(this@NavigationMainActivity)
             userWalletCheck()
         })
@@ -198,11 +210,26 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                 }
         }
         init()
+        setBottomNavigationInNormalWay(savedInstanceState)
     }
 
 
     private fun init() {
+
+
+
+
+        imageList.add(SlideModel(R.drawable.slider_image,ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.slider_image,ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.slider_image,ScaleTypes.FIT))
+
+        val imageSlider = findViewById<ImageSlider>(R.id.imageSlider)
+        imageSlider.setImageList(imageList)
+
         navigationItemValue()
+        toolbarTitle.text ="Bet4x"
+        backBtn.visibility=View.GONE
+        navBtn.visibility=View.VISIBLE
         rvNavigationContent.layoutManager = LinearLayoutManager(this)
         navigationItemAdapter = NavigationItemAdapter(navModalList, AdapterClickListener { position, view ->
             Log.e("click", position.toString() + "")
@@ -354,6 +381,10 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
 
             }
         } )
+
+
+
+
         bottomNavigationView.setOnNavigationItemSelectedListener{ menuItem ->
             fragmentUtils = FragmentUtils(supportFragmentManager)
             when (menuItem.itemId) {
@@ -1216,5 +1247,117 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
             )
         }
         view.setTextColor(resources.getColor(color));
+    }
+
+
+    companion object {
+        private const val HOME = 0
+        private const val BID_HISTORY = 1
+        private const val NOTIFICATION = 2
+        private const val CHAT = 3
+
+    }
+
+    private fun setBottomNavigationInNormalWay(savedInstanceState: Bundle?) {
+
+        val activeIndex = savedInstanceState?.getInt("activeIndex") ?: HOME
+
+       bottomNavigation.apply {
+
+            // If you don't pass activeIndex then by pass 0 here or call setSelectedIndex function only
+            // setSelectedIndex()        // It will take 0 by default
+            setSelectedIndex(activeIndex)
+
+            add(
+                Model(
+                    icon = R.drawable.home,
+                    id = HOME,
+                    text = R.string.home,
+                )
+            )
+            add(
+                Model(
+                    icon = R.drawable.bid_history_unselected,
+                    id = BID_HISTORY,
+                    text = R.string.bid_history,
+                    count = R.string.empty_value
+                )
+            )
+           add(
+               Model(
+                   icon = R.drawable.notification,
+                   id = NOTIFICATION,
+                   text = R.string.notification,
+                   count = R.string.empty_value
+               )
+           )
+
+           add(
+               Model(
+                   icon = R.drawable.chat_support,
+                   id = CHAT,
+                   text = R.string.chat,
+                   count = R.string.empty_value
+               )
+           )
+
+           //setCount(NOTIFICATION, 5)
+
+           setOnShowListener {
+               val name = when (it.id) {
+                   HOME -> "Home"
+                   BID_HISTORY -> "Bid History"
+                   NOTIFICATION -> "Notifications"
+                   CHAT -> "Chat"
+                   else -> ""
+
+
+               }
+
+               if (name == "Home"){
+                   topMenu.visibility=View.VISIBLE
+                   bottomNavigation.circleColor=R.color.white
+
+                   gameTitle.text = resources.getString(R.string.app_name_full)
+                   tabHomePageView.visibility=View.VISIBLE
+                   gamedesc.visibility=View.VISIBLE
+                   fragmentUtils = FragmentUtils(supportFragmentManager)
+                   fragmentUtils?.replaceFragment(
+                       HomePageFragment(),
+                       Constant.LiveResultsFragment,
+                       R.id.home_frame
+                   )
+
+               }
+               else if(name == "Bid History"){
+                   topMenu.visibility=View.GONE
+                       gameTitle.text = "History"
+                       tabHomePageView.visibility=View.GONE
+                       gamedesc.visibility=View.GONE
+                       fragmentUtils?.replaceFragment(
+                           MyHistoryFragment(),
+                           Constant.MyHistoryFragment,
+                           R.id.home_frame
+                       )
+
+
+               }
+               else if (name == "Notifications"){
+                   topMenu.visibility=View.GONE
+                   gameTitle.text = "Funds"
+                   tabHomePageView.visibility=View.GONE
+                   gamedesc.visibility=View.GONE
+                   fragmentUtils?.replaceFragment(
+                       FundsFragment(),
+                       Constant.FundsFragment,
+                       R.id.home_frame)
+
+               }
+               else if(name.equals("Chat")){
+                   startActivity(Intent(mContext, ChatBoardActivity::class.java))
+
+               }
+           }
+       }
     }
 }

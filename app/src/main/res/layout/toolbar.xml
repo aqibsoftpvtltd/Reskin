@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/secondaryColor"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.5"
+
+            android:src="@drawable/baseline_arrow_back_24" />
+        <ImageView
+            android:id="@+id/navBtn"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_11sdp"
+            android:visibility="gone"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.5"
+
+            android:src="@drawable/navigation_icon" />
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center_horizontal|center"
+
+            android:layout_weight="3"
+            android:fontFamily="@font/dmsansbold"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp"
+            android:visibility="visible" />
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/cartLyt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_weight="0.7">
+
+            <ImageView
+                android:id="@+id/cart"
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/notification">
+
+            </ImageView>
+
+            <View
+                android:id="@+id/center"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true">
+
+            </View>
+
+            <TextView
+                android:id="@+id/notificationCount"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginLeft="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_toRightOf="@id/center"
+                android:background="@drawable/notification_badge"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_7sdp"
+                 />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/downloadBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_minus2sdp"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"
+            android:layout_weight="0.7">
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
