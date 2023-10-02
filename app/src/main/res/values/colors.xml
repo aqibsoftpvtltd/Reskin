@@ -97,4 +97,9 @@
     <color name="maroon">#AC2E2E</color>
     <color name="greenDark">#2EAC69</color>
     <color name="switchColor">#69CCC1</color>
+
+
+    <color name="secondaryColor">#1B1D21</color>
+    <color name="light_grey_textcolor">#80000000</color>
+    <color name="side_nav_icon_color">#50555C</color>
 </resources>

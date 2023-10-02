@@ -63,19 +63,21 @@ public class KuberDashboardGameAdapter extends RecyclerView.Adapter<KuberDashboa
         }
         holder.binding.tvBattingStatus.setText(""+result.displayText);
 
-        try {
+      /*  try {
             holder.binding.tvBattingStatus.setTextColor(Color.parseColor(result.colorCode));
         } catch (Exception e) {
             holder.binding.tvBattingStatus.setTextColor(ContextCompat.getColor(holder.binding.getRoot().getContext(),R.color.grayColor));
-        }
+        }*/
 
         if (result.openBidTime.equals("") || result.closeBidTime.equals("") || result.displayText.contains("Betting Is Closed For Today")) {
-            holder.binding.tabInnerPlayGame.setBackgroundResource(R.drawable.ractengle_gradian_round_edge_disabled);
-            holder.binding.ivPlayGame.setColorFilter(ContextCompat.getColor(holder.binding.getRoot().getContext(), R.color.gray_f), PorterDuff.Mode.MULTIPLY);
+           /* holder.binding.tabInnerPlayGame.setBackgroundResource(R.drawable.ractengle_gradian_round_edge_disabled);
+           holder.binding.ivPlayGame.setColorFilter(ContextCompat.getColor(holder.binding.getRoot().getContext(), R.color.gray_f), PorterDuff.Mode.MULTIPLY);*/
+            holder.binding.mainBg.setBackgroundResource(R.drawable.card_bg_white_border);
         }
         else{
-            holder.binding.tabInnerPlayGame.setBackgroundResource(R.drawable.ractengle_gradian_round_edge);
-            holder.binding.ivPlayGame.setColorFilter(ContextCompat.getColor(holder.binding.getRoot().getContext(), R.color.appColorLight),PorterDuff.Mode.MULTIPLY);
+            holder.binding.mainBg.setBackgroundResource(R.drawable.card_bg_orange_border);
+            /*holder.binding.tabInnerPlayGame.setBackgroundResource(R.drawable.ractengle_gradian_round_edge);
+            holder.binding.ivPlayGame.setColorFilter(ContextCompat.getColor(holder.binding.getRoot().getContext(), R.color.appColorLight),PorterDuff.Mode.MULTIPLY);*/
         }
         holder.binding.tabPlayGame.setOnClickListener(v -> {
             if (result.openBidTime.equals("") || result.closeBidTime.equals("") || result.displayText.contains("Betting Is Closed For Today")) {

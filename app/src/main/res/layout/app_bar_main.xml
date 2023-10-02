@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context=".ui.NavigationMainActivity">
 
     <LinearLayout
         android:background="@drawable/ractengle_gradian_bottom_round_edge"
         android:orientation="vertical"
         android:elevation="@dimen/_2sdp"
+        android:visibility="gone"
         android:layout_marginBottom="@dimen/_8sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -289,6 +291,10 @@
 
 
     </LinearLayout>
+
+    <include layout="@layout/toolbar">
+
+    </include>
 
 
 

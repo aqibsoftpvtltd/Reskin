@@ -4,28 +4,155 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-android:layout_weight="1"
+    android:layout_weight="1"
+    android:background="@color/secondaryColor"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/main_dashboard_bg">
+
+        <RelativeLayout
+            android:id="@+id/topMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_22sdp"
+            android:fontFamily="@font/dmsansbold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_28sdp">
+
+        </TextView>
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@id/welcome"
+            android:src="@drawable/hand_icon">
+
+        </ImageView>
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/imageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_110sdp"
+            android:layout_below="@id/welcome"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:iss_placeholder="@drawable/slider_image"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_centerHorizontal="true"
+            app:iss_auto_cycle="true"
+            app:iss_period="1000"
+            app:iss_delay="1000"
+            app:iss_no_dots="true"
+            app:iss_text_align="CENTER"/>
+
+        <TextView
+            android:id="@+id/playGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageSlider"
+            android:text="Play Games"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_22sdp"
+            android:fontFamily="@font/dmsansbold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp">
+
+        </TextView>
+
+        <LinearLayout
+            android:id="@+id/mainMenu"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_below="@id/playGame">
+
+            <ImageView
+                android:id="@+id/matka"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/matka_selected_orange">
+
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/starline"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/starline_unselected">
+
+            </ImageView>
+            <ImageView
+                android:id="@+id/jackpot"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/jackpot_unselected">
+
+            </ImageView>
+
+
+        </LinearLayout>
+
+        </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/home_frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_65sdp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topMenu"
+        android:layout_marginBottom="@dimen/_55sdp"
         />
     <FrameLayout
+        android:id="@+id/bottomLyt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
         >
+        <com.simform.custombottomnavigation.SSCustomBottomNavigation
+            android:id="@+id/bottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:ss_backgroundBottomColor="#1B1D21"
+            app:ss_circleColor="#ff6f00"
+            app:ss_waveHeight="7"
+            app:ss_countBackgroundColor="#ff6f00"
+            app:ss_countTextColor="#ffffff"
+
+            app:ss_defaultIconColor="#ffffff"
+            app:ss_iconTextColor="#ffffff"
+
+            app:ss_rippleColor="#2f424242"
+            app:ss_iconTextSize="12sp"
+            app:ss_selectedIconColor="#ff6f00"
+            app:ss_selectedIconTextColor="#ff6f00"
+            app:ss_shadowColor="#1f212121" />
 
         <!-- Content View (Your main content goes here) -->
 
         <!-- Bottom Navigation View -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:itemTextAppearanceInactive="@style/TextAppearance.AppCompat.Caption"
@@ -35,12 +162,14 @@ android:layout_weight="1"
             android:layout_gravity="bottom"
             app:itemIconTint="@android:color/white"
             app:itemTextColor="@color/white"
+
             android:outlineAmbientShadowColor="@color/transparent"
             android:outlineSpotShadowColor="@color/transparent"
             app:menu="@menu/bottom_menu" />
         <!-- Floating Action Button (FAB) -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabHome"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icf_home_active"
@@ -50,8 +179,14 @@ android:layout_weight="1"
             android:layout_gravity="bottom|center"
             android:layout_margin="@dimen/_20sdp"
             app:elevation="@dimen/_27sdp"
+
             android:layout_above="@id/bottomNavigationView"/>
 
-    </FrameLayout>
 
+
+
+
+
+    </FrameLayout>
+    </RelativeLayout>
 </RelativeLayout>
