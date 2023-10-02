@@ -4,9 +4,9 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+
     android:background="@color/white"
-    tools:openDrawer="start">
+    tools:openDrawer="left">
 
     <include
         layout="@layout/app_bar_main"
@@ -15,10 +15,11 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
+       android:layout_gravity="start"
+        android:layout_marginLeft="-65dp"
+        android:layout_marginStart="-65dp"
        >
         <include layout="@layout/layout_content_home" />
     </com.google.android.material.navigation.NavigationView>

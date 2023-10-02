@@ -219,9 +219,9 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
 
 
 
-        imageList.add(SlideModel(R.drawable.slider_image,ScaleTypes.FIT))
-        imageList.add(SlideModel(R.drawable.slider_image,ScaleTypes.FIT))
-        imageList.add(SlideModel(R.drawable.slider_image,ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.slider_image))
+        imageList.add(SlideModel(R.drawable.slider_image))
+        imageList.add(SlideModel(R.drawable.slider_image))
 
         val imageSlider = findViewById<ImageSlider>(R.id.imageSlider)
         imageSlider.setImageList(imageList)
@@ -230,13 +230,14 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
         toolbarTitle.text ="Bet4x"
         backBtn.visibility=View.GONE
         navBtn.visibility=View.VISIBLE
+
         rvNavigationContent.layoutManager = LinearLayoutManager(this)
         navigationItemAdapter = NavigationItemAdapter(navModalList, AdapterClickListener { position, view ->
             Log.e("click", position.toString() + "")
             fragmentUtils = FragmentUtils(supportFragmentManager)
             when (position as Int) {
                 0 -> {
-                    gameTitle.text = resources.getString(R.string.app_name_full)
+                  /*  gameTitle.text = resources.getString(R.string.app_name_full)
                     tabHomePageView.visibility=View.VISIBLE
                     gamedesc.visibility=View.VISIBLE
                     fragmentUtils?.replaceFragment(
@@ -244,35 +245,36 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                         Constant.LiveResultsFragment,
                         R.id.home_frame
                     )
+                    drawer_layout.closeDrawer(GravityCompat.START)*/
+                    topMenu.visibility=View.GONE
+                    toolbarTitle.text = "My Bids"
+                    fragmentUtils?.replaceFragment(MyHistoryFragment(), Constant.MyHistoryFragment, R.id.home_frame)
                     drawer_layout.closeDrawer(GravityCompat.START)
-//                changeDrawableColor(this@NavigationMainActivity, btn_home, R.color.white)
-//                changeDrawableColor(this@NavigationMainActivity, btn_passbook, R.color.text_bottom)
-//                changeDrawableColor(this@NavigationMainActivity, btn_fund, R.color.text_bottom)
-//                changeDrawableColor(this@NavigationMainActivity, btn_chat, R.color.text_bottom)
+
                 }
                 1 -> {
-//                    gameTitle.text = "Profile Details"
-//                    fragmentUtils?.replaceFragment(
-//                        MyProfileFragment(),
-//                        Constant.MyProfileFragment,
-//                        R.id.home_frame
-//                    )
-                    startActivity(Intent(mContext, BankDetailActivity::class.java))
+                    Toast.makeText(this,"Credit History",Toast.LENGTH_SHORT).show()
                     drawer_layout.closeDrawer(GravityCompat.START)
+                   /* startActivity(Intent(mContext, BankDetailActivity::class.java))
+                    drawer_layout.closeDrawer(GravityCompat.START)*/
                 }
                 2 -> {
-                    gameTitle.text = "MPIN"
+                  /*  gameTitle.text = "MPIN"
                     tabHomePageView.visibility=View.GONE
                     gamedesc.visibility=View.GONE
                     fragmentUtils?.replaceFragment(
                         GenerateMpinFragment(),
                         Constant.GenerateMpinFragment,
                         R.id.home_frame
-                    )
+                    )*/
+                    toolbarTitle.text = "Account Statements"
+                    topMenu.visibility=View.GONE
+                    fragmentUtils?.replaceFragment(AccountStatementFragment(), Constant.AccountStatementFragment, R.id.home_frame)
                     drawer_layout.closeDrawer(GravityCompat.START)
+
                 }
                 3 -> {
-                    gameTitle.text = "History"
+                  /*  gameTitle.text = "History"
                     tabHomePageView.visibility=View.GONE
                     gamedesc.visibility=View.GONE
                     fragmentUtils?.replaceFragment(
@@ -280,10 +282,14 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                         Constant.MyHistoryFragment,
                         R.id.home_frame
                     )
+                    drawer_layout.closeDrawer(GravityCompat.START)*/
+                    toolbarTitle.text = "Terms & Conditions"
+                    topMenu.visibility=View.GONE
+                    fragmentUtils?.replaceFragment(NoticeBoardFragment(), Constant.NoticeBoardFragment, R.id.home_frame)
                     drawer_layout.closeDrawer(GravityCompat.START)
                 }
                 4 -> {
-                    gameTitle.text = "Account Statements"
+                   /* gameTitle.text = "Account Statements"
                     tabHomePageView.visibility=View.GONE
                     gamedesc.visibility=View.GONE
                     fragmentUtils?.replaceFragment(
@@ -291,10 +297,15 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                         Constant.AccountStatementFragment,
                         R.id.home_frame
                     )
+                    drawer_layout.closeDrawer(GravityCompat.START)*/
+                    toolbarTitle.text = "Game Rates"
+                    topMenu.visibility=View.GONE
+                    fragmentUtils!!.replaceFragment(GameRatesFragment(), Constant.GameRatesFragment, R.id.home_frame)
                     drawer_layout.closeDrawer(GravityCompat.START)
                 }
+
                 5 -> {
-                    gameTitle.text = "Funds"
+                  /*  gameTitle.text = "Funds"
                     tabHomePageView.visibility=View.GONE
                     gamedesc.visibility=View.GONE
                     fragmentUtils?.replaceFragment(
@@ -302,15 +313,11 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                         Constant.FundsFragment,
                         R.id.home_frame
                     )
+                    drawer_layout.closeDrawer(GravityCompat.START)*/
+                    Toast.makeText(this,"FAQs",Toast.LENGTH_SHORT).show()
                     drawer_layout.closeDrawer(GravityCompat.START)
-//                    startActivity(Intent(this, AddFundNewActivity::class.java))
-
-//                changeDrawableColor(this@NavigationMainActivity, btn_home, R.color.text_bottom)
-//                changeDrawableColor(this@NavigationMainActivity, btn_passbook, R.color.text_bottom)
-//                changeDrawableColor(this@NavigationMainActivity, btn_fund, R.color.white)
-//                changeDrawableColor(this@NavigationMainActivity, btn_chat, R.color.text_bottom)
                 }
-                6 -> {
+               /* 6 -> {
                     gameTitle.text = "Game Rates"
                     tabHomePageView.visibility=View.GONE
                     gamedesc.visibility=View.GONE
@@ -376,15 +383,31 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                     doLogout()
                     drawer_layout.closeDrawer(GravityCompat.START)
                 }
-
+*/
 
 
             }
         } )
 
 
+        tvEdit.setOnClickListener { startActivity(Intent(mContext, BankDetailActivity::class.java))
+            drawer_layout.closeDrawer(GravityCompat.START) }
 
+        notificationLyt.setOnClickListener {
+            toolbarTitle.text = "Push Notifications"
+            topMenu.visibility=View.GONE
+            fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
+            drawer_layout.closeDrawer(GravityCompat.START) }
 
+        chatLyt.setOnClickListener {
+            startActivity(Intent(mContext, ChatBoardActivity::class.java))
+            drawer_layout.closeDrawer(GravityCompat.START)
+        }
+
+        logoutLyt.setOnClickListener { doLogout()
+            drawer_layout.closeDrawer(GravityCompat.START) }
+
+/*
         bottomNavigationView.setOnNavigationItemSelectedListener{ menuItem ->
             fragmentUtils = FragmentUtils(supportFragmentManager)
             when (menuItem.itemId) {
@@ -427,6 +450,8 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                 else -> false
             }
         }
+*/
+/*
         fabHome.setOnClickListener {
             gameTitle.text = resources.getString(R.string.app_name_full)
             tabHomePageView.visibility=View.VISIBLE
@@ -438,6 +463,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                 R.id.home_frame
             )
         }
+*/
         rvNavigationContent.adapter = navigationItemAdapter
         navigationItemAdapter!!.notifyDataSetChanged()
 
@@ -456,13 +482,15 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
         navBack.setOnClickListener(this)
 
 
-        navModalList.add(NavigationItemModal(R.drawable.menu_home, mContext.getString(R.string.home)))
-        navModalList.add(NavigationItemModal(R.drawable.menu_profile, mContext.getString(R.string.profile)))
-        navModalList.add(NavigationItemModal(R.drawable.menu_generatempin, mContext.getString(R.string.mpin)))
-        navModalList.add(NavigationItemModal(R.drawable.menu_history, mContext.getString(R.string.my_history)))
-        navModalList.add(NavigationItemModal(R.drawable.menu_accountstatement, mContext.getString(R.string.account_statement)))
-        navModalList.add(NavigationItemModal(R.drawable.menu_fund, mContext.getString(R.string.funds)))
-        navModalList.add(NavigationItemModal(R.drawable.menu_games_rate, mContext.getString(R.string.game_rates)))
+        navModalList.add(NavigationItemModal(R.drawable.my_bid_nav, "My Bids","View your Current and previous bids"))
+        navModalList.add(NavigationItemModal(R.drawable.credit_history_nav, "Credit History","Check all your deposits and winnings"))
+        navModalList.add(NavigationItemModal(R.drawable.account_statement_nav, "Account Statement","Check your account statement & balance"))
+        navModalList.add(NavigationItemModal(R.drawable.terms_and_conditions_nav, "Terms and Conditions","Read rules and terms and conditios"))
+        navModalList.add(NavigationItemModal(R.drawable.star_nav, "Game Rates","Get an idea of the pricing of the game"))
+        navModalList.add(NavigationItemModal(R.drawable.star_nav, "FAQs","Read how to play our games"))
+
+
+       /* navModalList.add(NavigationItemModal(R.drawable.menu_games_rate, mContext.getString(R.string.game_rates)))
         navModalList.add(NavigationItemModal(R.drawable.menu_how_to_play, mContext.getString(R.string.how_to_play)))
 //        navModalList.add(NavigationItemModal(R.drawable.menu_passbook, mContext.getString(R.string.passbook)))
 //        navModalList.add(NavigationItemModal(R.drawable.menu_chat, mContext.getString(R.string.chat)))
@@ -470,7 +498,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
 //        navModalList.add(NavigationItemModal(R.drawable.menu_notice,  mContext.getString(R.string.notice_board_rules)))
 //        navModalList.add(NavigationItemModal(R.drawable.idea,  mContext.getString(R.string.submit_your_ideas)))
 //        navModalList.add(NavigationItemModal(R.drawable.menu_setting,  mContext.getString(R.string.setting)))
-        navModalList.add(NavigationItemModal(R.drawable.menu_logout,  mContext.getString(R.string.logout)))
+        navModalList.add(NavigationItemModal(R.drawable.menu_logout,  mContext.getString(R.string.logout)))*/
 
     }
 
@@ -1311,51 +1339,28 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                    CHAT -> "Chat"
                    else -> ""
 
-
                }
 
-               if (name == "Home"){
-                   topMenu.visibility=View.VISIBLE
-                   bottomNavigation.circleColor=R.color.white
-
-                   gameTitle.text = resources.getString(R.string.app_name_full)
-                   tabHomePageView.visibility=View.VISIBLE
-                   gamedesc.visibility=View.VISIBLE
-                   fragmentUtils = FragmentUtils(supportFragmentManager)
-                   fragmentUtils?.replaceFragment(
-                       HomePageFragment(),
-                       Constant.LiveResultsFragment,
-                       R.id.home_frame
-                   )
-
-               }
-               else if(name == "Bid History"){
-                   topMenu.visibility=View.GONE
-                       gameTitle.text = "History"
-                       tabHomePageView.visibility=View.GONE
-                       gamedesc.visibility=View.GONE
-                       fragmentUtils?.replaceFragment(
-                           MyHistoryFragment(),
-                           Constant.MyHistoryFragment,
-                           R.id.home_frame
-                       )
-
-
-               }
-               else if (name == "Notifications"){
-                   topMenu.visibility=View.GONE
-                   gameTitle.text = "Funds"
-                   tabHomePageView.visibility=View.GONE
-                   gamedesc.visibility=View.GONE
-                   fragmentUtils?.replaceFragment(
-                       FundsFragment(),
-                       Constant.FundsFragment,
-                       R.id.home_frame)
-
-               }
-               else if(name.equals("Chat")){
-                   startActivity(Intent(mContext, ChatBoardActivity::class.java))
-
+               fragmentUtils = FragmentUtils(supportFragmentManager)
+               when (name) {
+                   "Home" -> {
+                       topMenu.visibility=View.VISIBLE
+                       toolbarTitle.text = resources.getString(R.string.app_name_full)
+                       fragmentUtils?.replaceFragment(HomePageFragment(), Constant.LiveResultsFragment, R.id.home_frame)
+                   }
+                   "Bid History" -> {
+                       topMenu.visibility=View.GONE
+                       toolbarTitle.text = "Bid History"
+                       fragmentUtils?.replaceFragment(MyHistoryFragment(), Constant.MyHistoryFragment, R.id.home_frame)
+                   }
+                   "Notifications" -> {
+                       topMenu.visibility=View.GONE
+                       toolbarTitle.text = "Push Notifications"
+                       fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
+                   }
+                   "Chat" -> {
+                       startActivity(Intent(mContext, ChatBoardActivity::class.java))
+                   }
                }
            }
        }

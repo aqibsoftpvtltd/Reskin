@@ -91,4 +91,6 @@
 
 
     <color name="secondaryColor">#1B1D21</color>
+    <color name="light_grey_textcolor">#80000000</color>
+    <color name="side_nav_icon_color">#50555C</color>
 </resources>

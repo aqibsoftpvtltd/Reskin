@@ -38,6 +38,7 @@ public class NavigationItemAdapter extends RecyclerView.Adapter<NavigationItemAd
         NavigationItemModal navModal = list.get(position);
 
         holder.binding.navName.setText(navModal.getName());
+        holder.binding.navDetails.setText(navModal.getDetails());
         holder.binding.navIcon.setImageDrawable(ContextCompat.getDrawable(holder.binding.getRoot().getContext(),navModal.getImage()));
 
         holder.bind(position,listener);
