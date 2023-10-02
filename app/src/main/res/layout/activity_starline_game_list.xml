@@ -10,13 +10,15 @@
 
 
     <include
-        android:id="@+id/toobar"
+        android:id="@+id/toobarstarline"
         layout="@layout/toolbar"/>
 
     <RelativeLayout
-        android:paddingHorizontal="@dimen/_15sdp"
+        android:id="@+id/lls"
+
         android:layout_width="match_parent"
         android:layout_height="@dimen/_42sdp">
+
 
         <LinearLayout
             android:layout_marginEnd="@dimen/_2sdp"
@@ -31,7 +33,7 @@
                 android:layout_width="@dimen/_26sdp"
                 android:layout_height="@dimen/_26sdp"
                 android:src="@drawable/bck_arrow"
-                android:padding="@dimen/_4sdp"
+               android:layout_marginStart="@dimen/_10sdp"
                 android:id="@+id/backbtn"
                 app:tint="@color/starline_textcolor_blck" />
 
@@ -53,14 +55,22 @@
         </LinearLayout>
 
 
+
+        <View
+            android:alpha="0.5"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/grayColor"/>
     </RelativeLayout>
 
 
     <LinearLayout
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="@dimen/_22sdp"
         android:background="@drawable/gamesitems_bg"
         android:gravity="center_horizontal"
         android:orientation="vertical">
@@ -73,6 +83,8 @@
             android:scrollbars="none"
             app:spanCount="2"
             android:background="@drawable/space_shape_line"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             tools:itemCount="17"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/game_dashboard_item_view" />

@@ -14,6 +14,7 @@ import com.kasa77.ui.fragment.jackpot_fragments.modal.Result
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game_list.rvGameDashboard
 import kotlinx.android.synthetic.main.activity_jackpot_game_list.tv_dashboard
+import kotlinx.android.synthetic.main.toolbar.view.*
 
 class JackpotGameListActivity : BaseActivity() {
 
@@ -29,6 +30,17 @@ class JackpotGameListActivity : BaseActivity() {
         tv_dashboard.text = "Jackpot Dashboard - "+gameProvider!!.providerName
         setupAdapter()
         val backBtn: ImageView = findViewById(R.id.backbtn)
+
+
+        val toolbar = findViewById<View>(R.id.toobarjckport)
+
+        toolbar.toolbarTitle.text ="Jackpot"
+        toolbar.backBtn.visibility=View.GONE
+        toolbar.navBtn.visibility=View.VISIBLE
+
+        toolbar.notificationCount.visibility = View.GONE
+
+        toolbar.cart.setBackgroundResource(R.drawable.wallet_icon)
 
         backBtn.setOnClickListener {
             onBackPressed()
@@ -56,10 +68,10 @@ class JackpotGameListActivity : BaseActivity() {
 
     private fun genrateList() {
         gameList.clear()
-        gameList.add(GameDashboardModel(GameTypeNames.JodiJackpot,R.drawable.ractengle_stroke_round_edge_dicegreen/*,R.drawable.ic_double_dice*/))
-        gameList.add(GameDashboardModel(GameTypeNames.RedBracketJackpot,R.drawable.ractengle_stroke_round_edge_groupred/*,R.drawable.ic_red_bracket*/))
-        gameList.add(GameDashboardModel(GameTypeNames.DigitBasedJackpot,R.drawable.ractengle_stroke_round_edge_panayellow/*,R.drawable.ic_odd_even*/))
-        gameList.add(GameDashboardModel(GameTypeNames.GroupJackpot,R.drawable.ractengle_stroke_round_edge_groupred/*,R.drawable.ic_group_jodi*/))
+        gameList.add(GameDashboardModel(GameTypeNames.JodiJackpot,R.drawable.jodi_jackpot_back/*,R.drawable.ic_double_dice*/))
+        gameList.add(GameDashboardModel(GameTypeNames.RedBracketJackpot,R.drawable.red_bracket_jackport_back/*,R.drawable.ic_red_bracket*/))
+        gameList.add(GameDashboardModel(GameTypeNames.DigitBasedJackpot,R.drawable.digit_based_jodi_jackpot_back/*,R.drawable.ic_odd_even*/))
+        gameList.add(GameDashboardModel(GameTypeNames.GroupJackpot,R.drawable.group_jodi_jackpot_back/*,R.drawable.ic_group_jodi*/))
     }
 
     private fun openActivity(from: String?) {

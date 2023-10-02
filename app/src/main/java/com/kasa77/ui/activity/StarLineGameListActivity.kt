@@ -34,7 +34,7 @@ class StarLineGameListActivity : BaseActivity() {
         setupAdapter()
         val backBtn: ImageView = findViewById(R.id.backbtn)
 
-        val toolbar = findViewById<View>(R.id.toolbar)
+        val toolbar = findViewById<View>(R.id.toobarstarline)
 
         toolbar.toolbarTitle.text ="Starline"
         toolbar.backBtn.visibility=View.GONE
