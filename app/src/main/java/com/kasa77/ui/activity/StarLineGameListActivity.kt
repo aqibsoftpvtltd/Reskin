@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kasa77.R
 import com.kasa77.adapter.GameDashboardAdapter
@@ -14,6 +15,8 @@ import com.kasa77.ui.fragment.startline_game_fragment.modal.Result
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game_list.rvGameDashboard
 import kotlinx.android.synthetic.main.activity_starline_game_list.*
+import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.toolbar.view.*
 
 class StarLineGameListActivity : BaseActivity() {
 
@@ -30,6 +33,17 @@ class StarLineGameListActivity : BaseActivity() {
 
         setupAdapter()
         val backBtn: ImageView = findViewById(R.id.backbtn)
+
+        val toolbar = findViewById<View>(R.id.toolbar)
+
+        toolbar.toolbarTitle.text ="Starline"
+        toolbar.backBtn.visibility=View.GONE
+        toolbar.navBtn.visibility=View.VISIBLE
+
+        toolbar.notificationCount.visibility = View.GONE
+
+        toolbar.cart.setBackgroundResource(R.drawable.wallet_icon)
+
 
         backBtn.setOnClickListener {
             onBackPressed()

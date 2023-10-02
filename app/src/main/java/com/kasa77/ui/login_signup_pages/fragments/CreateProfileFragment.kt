@@ -368,7 +368,7 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
                                            .dismiss()
                                    }
                                })
-                           Toast.makeText(mContext, "old", Toast.LENGTH_SHORT).show();
+                          // Toast.makeText(mContext, "old", Toast.LENGTH_SHORT).show();
                        }
                    } catch (e: Exception) {
                        dialogBoxMessage(e.toString())
