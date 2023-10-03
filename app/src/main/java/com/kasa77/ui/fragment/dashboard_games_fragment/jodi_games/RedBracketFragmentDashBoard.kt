@@ -59,7 +59,7 @@ class RedBracketFragmentDashBoard : Fragment(), View.OnClickListener {
     )
 
     private var tabTitleBracketCount: RelativeLayout? = null
-    private var tabBracketCount: RelativeLayout? = null
+
 
     private var cbBrackets: CheckBox? = null
     private var redBracketId = ""
@@ -117,17 +117,17 @@ class RedBracketFragmentDashBoard : Fragment(), View.OnClickListener {
         cbBrackets!!.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 tabTitleBracketCount!!.visibility = View.GONE
-                tabBracketCount!!.visibility = View.GONE
+
             } else {
                 tabTitleBracketCount!!.visibility = View.VISIBLE
-                tabBracketCount!!.visibility = View.VISIBLE
+
             }
         }
     }
 
 
     private fun initViews() {
-        tabAddBid = rootView!!.findViewById<FrameLayout>(R.id.tabAddBid)
+        tabAddBid = rootView!!.findViewById(R.id.tabAddBid)
         tvFinalSubmit = rootView!!.findViewById(R.id.tvFinalSubmit)
         actDigits = rootView!!.findViewById(R.id.actDigits)
         etPoints = rootView!!.findViewById(R.id.etPoints)
@@ -136,7 +136,7 @@ class RedBracketFragmentDashBoard : Fragment(), View.OnClickListener {
         tabGameDate= rootView!!.findViewById(R.id.tabGameDate)
         tvGameDate = rootView!!.findViewById(R.id.tvGameDate)
         cbBrackets = rootView!!.findViewById(R.id.cbBrackets)
-        tabBracketCount = rootView!!.findViewById(R.id.tabBracketCount)
+
         tabTitleBracketCount = rootView!!.findViewById(R.id.tabTitleBracketCount)
         tvTotalBids = rootView!!.findViewById(R.id.tvTotalBids)
         tvTotalPoints = rootView!!.findViewById(R.id.tvTotalPoints)
@@ -357,7 +357,7 @@ class RedBracketFragmentDashBoard : Fragment(), View.OnClickListener {
     private var gameTypeName = ""
     private var gameTypePrice = "0"
     private var tvFinalSubmit: TextView? = null
-    private var tabAddBid: FrameLayout? = null
+    private var tabAddBid: TextView? = null
     private var rootView: View? = null
     private var dbCnt = ""
     private var dbPnt = ""

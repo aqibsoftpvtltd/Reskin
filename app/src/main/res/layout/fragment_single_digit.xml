@@ -100,6 +100,7 @@
                         android:fontFamily="@font/dmsansmedium"
                         android:gravity="start|center_vertical"
                         android:text=""
+                        android:maxLines="1"
                         android:layout_toLeftOf="@id/ivGameSession"
                         android:hint="@string/game_type"
                         android:textAlignment="viewStart"
@@ -381,7 +382,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginBottom="@dimen/_12sdp"
+
             android:id="@+id/rvBidList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

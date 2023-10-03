@@ -135,8 +135,8 @@ class GroupJodiFragment_Jackpot : Fragment(), View.OnClickListener {
             false
         }
 
-        val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
-        tvPannaCount!!.text = GameTypeNames.JodiDigit
+      /*  val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
+        tvPannaCount!!.text = GameTypeNames.JodiDigit*/
 
 
     }

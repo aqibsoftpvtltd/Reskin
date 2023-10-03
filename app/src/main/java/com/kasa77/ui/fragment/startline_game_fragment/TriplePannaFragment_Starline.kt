@@ -223,12 +223,12 @@ tvGameSession!!.requestFocus()
         tabGameDate= rootView!!.findViewById(R.id.tabGameDate)
         tvGameSession = rootView!!.findViewById(R.id.tvGameSession)
         tvGameDate = rootView!!.findViewById(R.id.tvGameDate)
-        tvPannaCount = rootView!!.findViewById(R.id.tvPannaCount)
+      //  tvPannaCount = rootView!!.findViewById(R.id.tvPannaCount)
         tvTotalBids = rootView!!.findViewById(R.id.tvTotalBids)
         tvTotalPoints = rootView!!.findViewById(R.id.tvTotalPoints)
 
-        val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
-        tvPannaCount!!.text = GameTypeNames.TriplePana
+       /* val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
+        tvPannaCount!!.text = GameTypeNames.TriplePana*/
 
         tvGameDate!!.setText(DateFormatToDisplay().parseDateToddMMyyyy(providerResultData!!.gameDate))
         tvGameSession!!.setText(providerResultData!!.providerName)

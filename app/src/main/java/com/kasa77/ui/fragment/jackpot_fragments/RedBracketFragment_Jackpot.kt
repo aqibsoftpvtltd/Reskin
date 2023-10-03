@@ -48,7 +48,7 @@ class RedBracketFragment_Jackpot : Fragment(), View.OnClickListener {
     )
 
     private var tabTitleBracketCount: RelativeLayout? = null
-    private var tabBracketCount: RelativeLayout? = null
+  //  private var tabBracketCount: RelativeLayout? = null
     private var cbBrackets: CheckBox? = null
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -99,11 +99,11 @@ class RedBracketFragment_Jackpot : Fragment(), View.OnClickListener {
 
         cbBrackets!!.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                tabTitleBracketCount!!.visibility = View.GONE
-                tabBracketCount!!.visibility = View.GONE
+                tabTitleBracketCount!!.visibility = View.INVISIBLE
+              //  tabBracketCount!!.visibility = View.GONE
             } else {
                 tabTitleBracketCount!!.visibility = View.VISIBLE
-                tabBracketCount!!.visibility = View.VISIBLE
+              //  tabBracketCount!!.visibility = View.VISIBLE
             }
         }
     }
@@ -152,7 +152,7 @@ class RedBracketFragment_Jackpot : Fragment(), View.OnClickListener {
         tabGameDate= rootView!!.findViewById(R.id.tabGameDate)
         tvGameDate = rootView!!.findViewById(R.id.tvGameDate)
         cbBrackets = rootView!!.findViewById(R.id.cbBrackets)
-        tabBracketCount = rootView!!.findViewById(R.id.tabBracketCount)
+       // tabBracketCount = rootView!!.findViewById(R.id.tabBracketCount)
         tabTitleBracketCount = rootView!!.findViewById(R.id.tabTitleBracketCount)
         tvTotalBids = rootView!!.findViewById(R.id.tvTotalBids)
         tvTotalPoints = rootView!!.findViewById(R.id.tvTotalPoints)

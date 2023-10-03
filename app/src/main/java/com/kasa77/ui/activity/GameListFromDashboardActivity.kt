@@ -12,6 +12,8 @@ import com.kasa77.modal.GameDashboardModel
 import com.kasa77.modal.dashboard_gamelist.Result
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game_list.*
+import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 import kotlinx.android.synthetic.main.toolbar.view.*
 
 
@@ -30,17 +32,14 @@ class GameListFromDashboardActivity : BaseActivity() {
         if (getIntent() != null) {
 
             providerResultData = intent.getParcelableExtra("PROVIDER")
-            tv_dashboard.text = providerResultData!!.providerName + " DASHBOARD"
+            toolbarTitle.text = providerResultData!!.providerName + " DASHBOARD"
 
         }
         setupAdapter()
 
         val toolbar = findViewById<View>(R.id.toobarsridevi)
-        val backBtn: ImageView = findViewById(R.id.backbtn)
 
-        toolbar.toolbarTitle.text ="Sridevi"
-        toolbar.backBtn.visibility=View.GONE
-        toolbar.navBtn.visibility=View.VISIBLE
+
 
         toolbar.notificationCount.visibility = View.GONE
 

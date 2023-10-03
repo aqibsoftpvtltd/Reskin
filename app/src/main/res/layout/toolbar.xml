@@ -5,7 +5,7 @@
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="@dimen/_50sdp"
         android:background="@color/secondaryColor"
         android:gravity="center_vertical">
 
@@ -13,7 +13,7 @@
             android:id="@+id/backBtn"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="match_parent"
-            android:padding="@dimen/_10sdp"
+            android:padding="@dimen/_14sdp"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.5"
 
@@ -22,7 +22,7 @@
             android:id="@+id/navBtn"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="match_parent"
-            android:padding="@dimen/_11sdp"
+            android:padding="@dimen/_14sdp"
             android:visibility="gone"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.5"
@@ -34,7 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_30sdp"
             android:layout_gravity="center_horizontal|center"
-            android:autoSizeMaxTextSize="@dimen/_16sdp"
+            android:autoSizeMaxTextSize="@dimen/_14sdp"
             android:autoSizeMinTextSize="@dimen/_10sdp"
             android:autoSizeTextType="uniform"
             android:layout_weight="3"
@@ -60,8 +60,8 @@
 
             <ImageView
                 android:id="@+id/cart"
-                android:layout_width="@dimen/_17sdp"
-                android:layout_height="@dimen/_15sdp"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/notification">
 

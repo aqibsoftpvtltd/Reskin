@@ -255,7 +255,7 @@
                     android:id="@+id/etUserMpin"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="text"
+                    android:inputType="number"
 
                     android:textColorHint="@color/grayColor"
                     android:includeFontPadding="false"

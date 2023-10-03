@@ -408,7 +408,7 @@ class HalfSangamDigitsFragmentDashBoard : Fragment(), View.OnClickListener {
 
 
     private fun initViews() {
-        tabAddBid = rootView!!.findViewById<FrameLayout>(R.id.tabAddBid)
+        tabAddBid = rootView!!.findViewById(R.id.tabAddBid)
         tvFinalSubmit = rootView!!.findViewById(R.id.tvFinalSubmit)
         etPoints = rootView!!.findViewById(R.id.etPoints)
         rvBidList = rootView!!.findViewById(R.id.rvBidList)
@@ -730,7 +730,7 @@ class HalfSangamDigitsFragmentDashBoard : Fragment(), View.OnClickListener {
     private var gameTypeName = ""
     private var gameTypePrice = "0"
     private var tvFinalSubmit: TextView? = null
-    private var tabAddBid: FrameLayout? = null
+    private var tabAddBid: TextView? = null
     private var rootView: View? = null
     private var dbCnt = ""
     private var dbPnt = ""
