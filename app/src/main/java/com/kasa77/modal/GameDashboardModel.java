@@ -11,8 +11,8 @@ public class GameDashboardModel implements Serializable {
 
     public GameDashboardModel(String name, int background/*, int drawable*/) {
         this.name = name;
-   /*     this.background = background;*/
-        this.drawable = drawable;
+        this.background = background;
+       // this.drawable = drawable;
     }
 
     public String getName() {
@@ -23,19 +23,19 @@ public class GameDashboardModel implements Serializable {
         this.name = name;
     }
 
-   /* public int getBackground() {
+    public int getBackground() {
         return background;
     }
 
     public void setBackground(int background) {
         this.background = background;
-    }*/
+    }
 
-    public int getDrawable() {
+  /*  public int getDrawable() {
         return drawable;
     }
 
     public void setDrawable(int drawable) {
         this.drawable = drawable;
-    }
+    }*/
 }
