@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/backgroundWhite"
+    android:background="@drawable/main_dashboard_bg"
     android:orientation="vertical"
     tools:context=".ui.activity.StarlineGameActivity">
 
@@ -21,231 +21,185 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_12sdp"
-            android:layout_marginHorizontal="@dimen/_12sdp"
-            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="3">
 
 
             <RelativeLayout
                 android:layout_marginEnd="@dimen/_2sdp"
                 android:id="@+id/tabGameDate"
-                android:background="@drawable/dr_ractengle_less_round_ripple_effect"
+                android:background="@drawable/select_date_bg"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
+                android:layout_weight="1.2"
 
-                <RelativeLayout
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_34sdp"
-                    android:layout_marginHorizontal="@dimen/_2sdp"
-                    android:layout_marginVertical="@dimen/_4sdp"
-                    android:paddingHorizontal="@dimen/_15sdp"
-                    android:background="@drawable/card_bg_round_15_transparent"
-                    android:elevation="@dimen/_2sdp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/ivGameDate"
-                        android:layout_width="@dimen/_16sdp"
-                        android:layout_height="@dimen/_16sdp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_calandar_new"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        />
-
-                    <TextView
-                        android:id="@+id/tvGameDate"
-                        android:layout_toEndOf="@+id/ivGameDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:paddingHorizontal="@dimen/_6sdp"
-                        android:fontFamily="@font/glacial_regular"
-                        android:gravity="start|center_vertical"
-                        android:text=""
-                        android:hint="@string/select_date"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-
-
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_marginStart="@dimen/_2sdp"
-                android:id="@+id/tabGameSession"
-                android:background="@drawable/dr_ractengle_less_round_ripple_effect"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_34sdp"
-                    android:layout_marginHorizontal="@dimen/_2sdp"
-                    android:layout_marginVertical="@dimen/_4sdp"
-                    android:paddingHorizontal="@dimen/_15sdp"
-                    android:background="@drawable/card_bg_round_15_transparent"
-                    android:elevation="@dimen/_2sdp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tvGameSession"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        android:layout_toStartOf="@+id/ivGameSession"
-                        android:paddingHorizontal="@dimen/_6sdp"
-                        android:fontFamily="@font/glacial_regular"
-                        android:gravity="start|center_vertical"
-                        android:text=""
-                        android:hint="@string/game_type"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                    <ImageView
-                        android:id="@+id/ivGameSession"
-                        android:layout_width="@dimen/_16sdp"
-                        android:layout_height="@dimen/_16sdp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/arrow_back_white"
-                        app:tint="@color/black"
-                        android:padding="@dimen/_2sdp"
-                        android:rotation="270"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        />
-
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_32sdp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_marginHorizontal="@dimen/_12sdp"
-            android:weightSum="2">
-
-            <CheckBox
-                android:id="@+id/cbOddDigits"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/glacial_regular"
-                android:text="@string/add_odd_digits"
-                android:includeFontPadding="false"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp" />
-
-            <CheckBox
-                android:id="@+id/cbEvenDigits"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/glacial_regular"
-                android:text="@string/add_even_digits"
-                android:includeFontPadding="false"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginHorizontal="@dimen/_12sdp"
-            android:gravity="start|center_vertical"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-
-
-            <RelativeLayout
-                android:layout_marginStart="@dimen/_2sdp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvGameDate"
+
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_toLeftOf="@id/ivGameDate"
                     android:layout_centerVertical="true"
-                    android:paddingHorizontal="@dimen/_6sdp"
-                    android:fontFamily="@font/glacial_regular"
-                    android:gravity="start|center_vertical"
-                    android:text="@string/points"
+
+                    android:fontFamily="@font/dmsansmedium"
+                    android:gravity="center"
+                    android:text=""
                     android:hint="@string/select_date"
-                    android:textAlignment="viewStart"
+
                     android:textColor="@color/black"
                     android:textSize="@dimen/_11sdp" />
+
+                <ImageView
+                    android:id="@+id/ivGameDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/calendar_orange"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    />
+
+
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4">
+
+            </View>
+
+            <RelativeLayout
+                android:layout_marginStart="@dimen/_2sdp"
+                android:id="@+id/tabGameSession"
+                android:background="@drawable/select_gametype_bg"
+                android:layout_width="0dp"
+                android:layout_weight="1.4"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center|end"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:id="@+id/tvGameSession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:paddingHorizontal="@dimen/_6sdp"
+                    android:fontFamily="@font/dmsansmedium"
+                    android:gravity="start|center_vertical"
+                    android:text=""
+                    android:maxLines="1"
+                    android:layout_toLeftOf="@id/ivGameSession"
+                    android:hint="@string/game_type"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+                <ImageView
+                    android:id="@+id/ivGameSession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/down_arrow_orange"
+
+
+
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    />
+
+
 
             </RelativeLayout>
 
 
         </LinearLayout>
 
+
+
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_2sdp"
-            android:layout_marginHorizontal="@dimen/_12sdp"
-            android:gravity="start|center_vertical"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="3">
 
 
+            <RelativeLayout
+                android:id="@+id/enterDigitLyt"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_width="0dp"
+                android:layout_weight="1.2"
+
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <CheckBox
+                    android:id="@+id/cbOddDigits"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/dmsansmedium"
+                    android:text="@string/add_odd_digits"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8sdp" />
+
+                <CheckBox
+                    android:id="@+id/cbEvenDigits"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_below="@id/cbOddDigits"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/dmsansmedium"
+                    android:text="@string/add_even_digits"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8sdp" />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"/>
 
             <RelativeLayout
                 android:layout_marginStart="@dimen/_2sdp"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:layout_weight="1.4"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_gravity="center"
+                android:background="@drawable/points_bg"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_34sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_2sdp"
                     android:layout_marginVertical="@dimen/_4sdp"
                     android:paddingHorizontal="@dimen/_15sdp"
-                    android:background="@drawable/card_bg_round_15_transparent"
-                    android:elevation="@dimen/_2sdp"
+
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -258,7 +212,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:paddingHorizontal="@dimen/_6sdp"
-                        android:fontFamily="@font/glacial_regular"
+                        android:fontFamily="@font/dmsansmedium"
                         android:gravity="start|center_vertical"
                         android:text=""
                         android:imeOptions="actionDone"
@@ -280,54 +234,144 @@
 
         </LinearLayout>
 
-        <FrameLayout
+        <TextView
             android:id="@+id/tabAddBid"
-            android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+            android:background="@drawable/orange_button"
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginHorizontal="@dimen/_12sdp"
-            android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_34sdp">
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/dmsansbold"
+            android:gravity="center"
+            android:text="@string/add_points"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content">
+
+
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroundWhite"
+            android:orientation="vertical">
 
             <RelativeLayout
-                android:layout_gravity="center"
-                android:id="@+id/tabInnerAddBid"
-                android:background="@drawable/ractengle_gradian_round_edge"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:id="@+id/tabSelection"
                 android:paddingHorizontal="@dimen/_12sdp"
+                android:background="@drawable/dr_ractengle_less_round_ripple_effect"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <LinearLayout
+                    android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="@dimen/_14sdp"
-                        android:layout_height="@dimen/_14sdp"
-                        android:src="@drawable/ic_add_sign"
-                        app:tint="@color/white"
-                        />
+                    android:layout_marginHorizontal="@dimen/_2sdp"
+                    android:layout_marginVertical="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
 
 
-                    <TextView
-                        android:layout_marginStart="@dimen/_6sdp"
-                        android:id="@+id/tvAddBid"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/glacial_regular"
-                        android:text="@string/add_new"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_13sdp" />
+                    android:gravity="center"
+                    android:weightSum="3"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_height="@dimen/_50sdp">
+
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_24sdp"
+                            android:fontFamily="@font/dmsansbold"
+                            android:gravity="center"
+                            android:text="Digits"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/lightestGrey"
+                        android:layout_marginVertical="@dimen/_10sdp">
+
+                    </View>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_height="@dimen/_50sdp">
+
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_24sdp"
+                            android:fontFamily="@font/dmsansbold"
+                            android:gravity="center"
+                            android:text="Points"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/lightestGrey"
+                        android:layout_marginVertical="@dimen/_10sdp"/>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_height="@dimen/_50sdp">
+
+
+                        <TextView
+                            android:id="@+id/tvGameType"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_24sdp"
+                            android:fontFamily="@font/dmsansbold"
+                            android:gravity="center"
+                            android:text="Game Type"
+                            android:layout_weight="1"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+
+
+
+                    </LinearLayout>
+
+
+
 
                 </LinearLayout>
 
-
             </RelativeLayout>
-        </FrameLayout>
+
+
+        </LinearLayout>
 
 
 

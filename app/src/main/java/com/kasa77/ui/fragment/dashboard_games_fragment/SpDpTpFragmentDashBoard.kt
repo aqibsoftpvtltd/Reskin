@@ -166,7 +166,7 @@ class SpDpTpFragmentDashBoard : Fragment(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun initViews() {
-        tabAddBid = rootView!!.findViewById<FrameLayout>(R.id.tabAddBid)
+        tabAddBid = rootView!!.findViewById(R.id.tabAddBid)
         tvFinalSubmit = rootView!!.findViewById(R.id.tvFinalSubmit)
         etPoints = rootView!!.findViewById(R.id.etPoints)
         actDigits = rootView!!.findViewById(R.id.actDigits)
@@ -221,8 +221,8 @@ class SpDpTpFragmentDashBoard : Fragment(), View.OnClickListener {
             false
         }
 
-        val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
-        tvPannaCount!!.text = GameTypeNames.SPDPTPMOTOR
+      /*  val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
+        tvPannaCount!!.text = GameTypeNames.SPDPTPMOTOR*/
     }
 
 
@@ -767,7 +767,7 @@ tvGameSession!!.requestFocus()
     private var etPoints: EditText? = null
     private var rvBidList: RecyclerView? = null
     private var tvFinalSubmit: TextView? = null
-    private var tabAddBid: FrameLayout? = null
+    private var tabAddBid: TextView? = null
     private var rootView: View? = null
     private var dbCnt = ""
     private var dbPnt = ""

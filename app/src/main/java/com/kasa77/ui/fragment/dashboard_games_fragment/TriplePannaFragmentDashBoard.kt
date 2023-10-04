@@ -48,6 +48,7 @@ import com.takusemba.spotlight.Spotlight
 import com.takusemba.spotlight.Target
 import com.takusemba.spotlight.shape.RoundedRectangle
 import kotlinx.android.synthetic.main.dialog_view_toast_message.view.*
+import kotlinx.android.synthetic.main.fragment_single_pana.enterDigitLyt
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -118,7 +119,7 @@ class TriplePannaFragmentDashBoard : Fragment(), View.OnClickListener {
     }
 
     private fun initViews() {
-        tabAddBid = rootView!!.findViewById<FrameLayout>(R.id.tabAddBid)
+        tabAddBid = rootView!!.findViewById(R.id.tabAddBid)
         tvFinalSubmit = rootView!!.findViewById(R.id.tvFinalSubmit)
         actDigits = rootView!!.findViewById(R.id.actDigits)
         etPoints = rootView!!.findViewById(R.id.etPoints)
@@ -130,6 +131,8 @@ class TriplePannaFragmentDashBoard : Fragment(), View.OnClickListener {
         tvGameDate = rootView!!.findViewById(R.id.tvGameDate)
         tvTotalBids = rootView!!.findViewById(R.id.tvTotalBids)
         tvTotalPoints = rootView!!.findViewById(R.id.tvTotalPoints)
+
+        enterDigitLyt.setBackgroundResource(R.drawable.triple_pana_bg)
 
         tabGameSession!!.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
@@ -173,8 +176,8 @@ class TriplePannaFragmentDashBoard : Fragment(), View.OnClickListener {
             false
         }
 
-        val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
-        tvPannaCount!!.text = GameTypeNames.TriplePana
+       /* val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
+        tvPannaCount!!.text = GameTypeNames.TriplePana*/
 
 
     }
@@ -332,7 +335,7 @@ tvGameSession!!.requestFocus()
     private var gameTypeName = ""
     private var gameTypePrice = "0"
     private var tvFinalSubmit: TextView? = null
-    private var tabAddBid: FrameLayout? = null
+    private var tabAddBid: TextView? = null
     private var rootView: View? = null
     private var dbCnt = ""
     private var dbPnt = ""

@@ -138,7 +138,7 @@ class TwoDigitPanelFragmentDashBoard : Fragment(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun initViews() {
-        tabAddBid = rootView!!.findViewById<FrameLayout>(R.id.tabAddBid)
+        tabAddBid = rootView!!.findViewById(R.id.tabAddBid)
         tvFinalSubmit = rootView!!.findViewById(R.id.tvFinalSubmit)
         actDigits = rootView!!.findViewById(R.id.actDigits)
         etPoints = rootView!!.findViewById(R.id.etPoints)
@@ -193,9 +193,9 @@ class TwoDigitPanelFragmentDashBoard : Fragment(), View.OnClickListener {
             }
             false
         }
-
+/*
         val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
-        tvPannaCount!!.text = GameTypeNames.TDP
+        tvPannaCount!!.text = GameTypeNames.TDP*/
 
 
     }
@@ -606,7 +606,7 @@ class TwoDigitPanelFragmentDashBoard : Fragment(), View.OnClickListener {
     private var gameTypeName = ""
     private var gameTypePrice = "0"
     private var tvFinalSubmit: TextView? = null
-    private var tabAddBid: FrameLayout? = null
+    private var tabAddBid: TextView? = null
     private var rootView: View? = null
     private var dbCnt = ""
     private var dbPnt = ""

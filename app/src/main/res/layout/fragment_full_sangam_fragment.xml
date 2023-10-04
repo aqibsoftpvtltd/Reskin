@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundWhite"
+    android:background="@drawable/main_dashboard_bg"
     android:orientation="vertical"
     tools:context=".ui.activity.StarlineGameActivity">
 
@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+      <!--  <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_12sdp"
@@ -426,12 +426,374 @@
 
 
             </RelativeLayout>
-        </FrameLayout>
+        </FrameLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+
+            <RelativeLayout
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:id="@+id/tabGameDate"
+                android:background="@drawable/select_date_bg"
+                android:layout_width="0dp"
+                android:layout_weight="1.2"
+
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvGameDate"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toLeftOf="@id/ivGameDate"
+                    android:layout_centerVertical="true"
+
+                    android:fontFamily="@font/dmsansmedium"
+                    android:gravity="center"
+                    android:text=""
+                    android:hint="@string/select_date"
+
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp" />
+
+                <ImageView
+                    android:id="@+id/ivGameDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/calendar_orange"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    />
+
+
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4">
+
+            </View>
+
+            <RelativeLayout
+                android:layout_marginStart="@dimen/_2sdp"
+                android:id="@+id/tabGameSession"
+                android:background="@drawable/open_pana_bg"
+                android:layout_width="0dp"
+                android:layout_weight="1.4"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center|end"
+                android:orientation="vertical">
+            <RelativeLayout
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                android:paddingHorizontal="@dimen/_15sdp"
+                >
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/actOpenPanna"
+                    android:layout_alignParentStart="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+
+                    android:paddingHorizontal="@dimen/_6sdp"
+                    android:fontFamily="@font/dmsansmedium"
+                    android:gravity="start|center_vertical"
+                    android:text=""
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:background="@null"
+                    android:hint="@string/enter_pana"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp" />
+
+
+            </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+
+            <RelativeLayout
+                android:id="@+id/enterDigitLyt"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_width="0dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/close_pana_bg"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_2sdp"
+                    android:layout_marginVertical="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    >
+
+                    <AutoCompleteTextView
+                        android:id="@+id/actClosePanna"
+                        android:layout_alignParentStart="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:paddingHorizontal="@dimen/_6sdp"
+                        android:fontFamily="@font/dmsansmedium"
+                        android:gravity="start|center_vertical"
+                        android:text=""
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:background="@null"
+                        android:hint="@string/enter_pana"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+
+
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"/>
+
+            <RelativeLayout
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_width="0dp"
+                android:layout_weight="1.4"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/points_bg"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_2sdp"
+                    android:layout_marginVertical="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_15sdp"
+
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <EditText
+                        android:id="@+id/etPoints"
+                        android:layout_alignParentStart="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:paddingHorizontal="@dimen/_6sdp"
+                        android:fontFamily="@font/dmsansmedium"
+                        android:gravity="start|center_vertical"
+                        android:text=""
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:background="@null"
+                        android:hint="@string/enter_points"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tabAddBid"
+            android:background="@drawable/orange_button"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/dmsansbold"
+            android:gravity="center"
+            android:text="@string/add_points"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content">
+
+
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroundWhite"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_2sdp"
+                android:id="@+id/tabSelection"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:background="@drawable/dr_ractengle_less_round_ripple_effect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_2sdp"
+                    android:layout_marginVertical="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
+
+
+                    android:gravity="center"
+                    android:weightSum="3"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_height="@dimen/_50sdp">
+
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_24sdp"
+                            android:fontFamily="@font/dmsansbold"
+                            android:gravity="center"
+                            android:text="Digits"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/lightestGrey"
+                        android:layout_marginVertical="@dimen/_10sdp">
+
+                    </View>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_height="@dimen/_50sdp">
+
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_24sdp"
+                            android:fontFamily="@font/dmsansbold"
+                            android:gravity="center"
+                            android:text="Points"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/lightestGrey"
+                        android:layout_marginVertical="@dimen/_10sdp"/>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_height="@dimen/_50sdp">
+
+
+                        <TextView
+                            android:id="@+id/tvGameType"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_24sdp"
+                            android:fontFamily="@font/dmsansbold"
+                            android:gravity="center"
+                            android:text="Game Type"
+                            android:layout_weight="1"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
 
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginVertical="@dimen/_12sdp"
+
             android:id="@+id/rvBidList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

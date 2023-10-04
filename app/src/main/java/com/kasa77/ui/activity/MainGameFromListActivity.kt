@@ -52,39 +52,39 @@ class MainGameFromListActivity : BaseActivity() {
 
     private fun initFragment(from: String?) {
         when (from) {
-            "Single Digit" -> openFragment(SingleDigitFragmentDashBoard())
-            "Single Pana" -> openFragment(SinglePanaFragmentDashBoard())
-            "Double Pana" -> openFragment(DoublePannaFragmentDashBoard())
-            "Triple Pana" -> openFragment(TriplePannaFragmentDashBoard())
-            "SP Motor" -> openFragment(SPMotorFragmentDashBoard())
-            "DP Motor" -> openFragment(DPMotorFragmentDashBoard())
+            "Single Digit" -> openFragment(SingleDigitFragmentDashBoard()) //Done
+            "Single Pana" -> openFragment(SinglePanaFragmentDashBoard()) //Done
+            "Double Pana" -> openFragment(DoublePannaFragmentDashBoard()) //Done
+            "Triple Pana" -> openFragment(TriplePannaFragmentDashBoard()) //Done
+            "SP Motor" -> openFragment(SPMotorFragmentDashBoard()) //Done
+            "DP Motor" -> openFragment(DPMotorFragmentDashBoard()) //Done
             "SP DP TP" -> openFragment(SpDpTpFragmentDashBoard())
             "Two Digit Panel" -> {
-                openFragment(TwoDigitPanelFragmentDashBoard())
+                openFragment(TwoDigitPanelFragmentDashBoard()) //Done
             }
             "Odd Even" -> {
-                openFragment(OddEvenFragmentDashBoard())
+                openFragment(OddEvenFragmentDashBoard()) //Done
             }
             "Jodi Digits" -> {
-                openFragment(JodiDigitFragmentDashBoard())
+                openFragment(JodiDigitFragmentDashBoard()) //Done
             }
             "Half Sangam Digits" -> {
-                openFragment(HalfSangamDigitsFragmentDashBoard())
+                openFragment(HalfSangamDigitsFragmentDashBoard()) //Done
             }
             "Full Sangam Digits" -> {
-                openFragment(FullSangamDigitsFragmentDashBoard())
+                openFragment(FullSangamDigitsFragmentDashBoard()) //Done
             }
             "Red Bracket" -> {
-                openFragment(RedBracketFragmentDashBoard())
+                openFragment(RedBracketFragmentDashBoard()) //Done
             }
             "Group Jodi" -> {
-                openFragment(GroupJodiFragmentDashBoard())
+                openFragment(GroupJodiFragmentDashBoard()) //Done
             }
             "Digit Based Jodi" -> {
-                openFragment(DigitBasedJodiFragmentDashBoard())
+                openFragment(DigitBasedJodiFragmentDashBoard()) //Done
             }
             "Panel Group" -> {
-                openFragment(PanelGroupFragmentDashBoard())
+                openFragment(PanelGroupFragmentDashBoard()) //Done
             }
             "Choice Panna SP DP" -> {
                 openFragment(ChoicePannaSpDpFragmentDashBoard())

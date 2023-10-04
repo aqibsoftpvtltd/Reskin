@@ -47,6 +47,7 @@ import com.takusemba.spotlight.Spotlight
 import com.takusemba.spotlight.Target
 import com.takusemba.spotlight.shape.RoundedRectangle
 import kotlinx.android.synthetic.main.dialog_view_toast_message.view.*
+import kotlinx.android.synthetic.main.fragment_sp_motor.enterDigitLyt
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -405,6 +406,7 @@ class PanelGroupFragmentDashBoard : Fragment(), View.OnClickListener {
         tvTotalBids = rootView!!.findViewById(R.id.tvTotalBids)
         tvTotalPoints = rootView!!.findViewById(R.id.tvTotalPoints)
 
+        enterDigitLyt.setBackgroundResource(R.drawable.pana_bg)
         actDigits!!.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(3))
         tabGameSession!!.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
@@ -448,8 +450,8 @@ class PanelGroupFragmentDashBoard : Fragment(), View.OnClickListener {
             false
         }
 
-        val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
-        tvPannaCount!!.text = GameTypeNames.PANNA
+       /* val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
+        tvPannaCount!!.text = GameTypeNames.PANNA*/
     }
 
     private fun initPannaAutoComplete(digit: String): String {
