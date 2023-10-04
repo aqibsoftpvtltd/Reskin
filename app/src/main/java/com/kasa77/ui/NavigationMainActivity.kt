@@ -17,6 +17,8 @@ import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
@@ -25,8 +27,8 @@ import androidx.core.view.GravityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.ImageSlider
-import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
+import com.google.gson.Gson
 import com.kasa77.R
 import com.kasa77.adapter.NavigationItemAdapter
 import com.kasa77.chat.*
@@ -35,15 +37,13 @@ import com.kasa77.chat.model.MessageModal
 import com.kasa77.chat.model.OnReceiveNewMessage
 import com.kasa77.chat.ui.ChatBoardActivity
 import com.kasa77.constant.Constant
+import com.kasa77.interfaces.AdapterClickListener
 import com.kasa77.modal.NavigationItemModal
 import com.kasa77.retrofit_provider.AuthHeaderRetrofitService
 import com.kasa77.retrofit_provider.WebResponse
+import com.kasa77.ui.activity.*
 import com.kasa77.ui.fragment.*
 import com.kasa77.utils.*
-import com.google.gson.Gson
-import com.kasa77.interfaces.AdapterClickListener
-import com.kasa77.ui.activity.*
-import com.simform.custombottomnavigation.Model
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import kotlinx.android.synthetic.main.activity_navigation_main.*
@@ -51,9 +51,10 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.fragment_my_profile.view.*
 import kotlinx.android.synthetic.main.layout_content_home.*
-import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar.navBtn
 import kotlinx.android.synthetic.main.toolbar.toolbarTitle
+import kotlinx.android.synthetic.main.toolbar.view.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -210,7 +211,47 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                 }
         }
         init()
-        setBottomNavigationInNormalWay(savedInstanceState)
+        //setBottomNavigationInNormalWay(savedInstanceState)
+
+        val bottomback = findViewById<LinearLayout>(R.id.bottombar_back)
+        val image1 = findViewById<ImageView>(R.id.home_image1)
+        val image2 = findViewById<ImageView>(R.id.home_image2)
+        val image3 = findViewById<ImageView>(R.id.home_image3)
+        val image4 = findViewById<ImageView>(R.id.home_image4)
+
+        bottomback.setBackgroundResource(R.drawable.home_curve_bottom_background)
+
+        image1.setOnClickListener{
+         //   bottomback.setBackground(ContextCompat.getDrawable(this@NavigationMainActivity, R.drawable.home_curve_bottom_background))
+            bottomback.setBackgroundResource(R.drawable.home_curve_bottom_background)
+            topMenu.visibility=View.VISIBLE
+            toolbarTitle.text = resources.getString(R.string.app_name_full)
+            fragmentUtils?.replaceFragment(HomePageFragment(), Constant.LiveResultsFragment, R.id.home_frame)
+        }
+        image2.setOnClickListener{
+            bottomback.setBackgroundResource(R.drawable.bid_curve_bottom_background)
+           // bottomback.setBackground(ContextCompat.getDrawable(this@NavigationMainActivity, R.drawable.bid_curve_bottom_background))
+            topMenu.visibility=View.GONE
+            toolbarTitle.text = "Bid History"
+            fragmentUtils?.replaceFragment(MyHistoryFragment(), Constant.MyHistoryFragment, R.id.home_frame)
+        }
+        image3.setOnClickListener{
+            bottomback.setBackgroundResource(R.drawable.notification_curve_bottom_background)
+            topMenu.visibility=View.GONE
+          //  bottomback.setBackground(ContextCompat.getDrawable(this@NavigationMainActivity, R.drawable.notification_curve_bottom_background))
+            toolbarTitle.text = "Push Notifications"
+            fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
+        }
+        image4.setOnClickListener{
+            bottomback.setBackgroundResource(R.drawable.chat_curve_bottom_background)
+            //bottomback.setBackground(ContextCompat.getDrawable(this@NavigationMainActivity, R.drawable.chat_curve_bottom_background))
+            topMenu.visibility=View.GONE
+            //  bottomback.setBackground(ContextCompat.getDrawable(this@NavigationMainActivity, R.drawable.notification_curve_bottom_background))
+            toolbarTitle.text = "Support Chat"
+            fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
+            //bottomback.visibility = View.GONE
+           // startActivity(Intent(mContext, ChatBoardActivity::class.java))
+        }
     }
 
 
@@ -227,7 +268,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
         imageSlider.setImageList(imageList)
 
         navigationItemValue()
-        toolbarTitle.text ="Bet4x"
+       // toolbarTitle.text ="Bet4x"
         backBtn.visibility=View.GONE
         navBtn.visibility=View.VISIBLE
 
@@ -406,6 +447,10 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
 
         logoutLyt.setOnClickListener { doLogout()
             drawer_layout.closeDrawer(GravityCompat.START) }
+
+
+
+
 
 /*
         bottomNavigationView.setOnNavigationItemSelectedListener{ menuItem ->
@@ -1286,6 +1331,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
 
     }
 
+/*
     private fun setBottomNavigationInNormalWay(savedInstanceState: Bundle?) {
 
         val activeIndex = savedInstanceState?.getInt("activeIndex") ?: HOME
@@ -1365,4 +1411,5 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
            }
        }
     }
+*/
 }

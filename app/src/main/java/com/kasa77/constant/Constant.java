@@ -51,6 +51,8 @@ public class Constant {
     public static final String NewsFragment = "NewsFragment";
     @Nullable
     public static final String NotificationFragment = "NotificationFragment";
+
+    public static final String ChatFragments = "chatFragment";
     public static final String BroadCastFragment = "BroadCastFragment";
     public static final String ProfileNoteFragment = "ProfileNoteFragment";
     @Nullable
