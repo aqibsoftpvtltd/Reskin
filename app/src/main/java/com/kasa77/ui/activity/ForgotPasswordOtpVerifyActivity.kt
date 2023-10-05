@@ -273,7 +273,7 @@ class ForgotPasswordOtpVerifyActivity : AppCompatActivity(), View.OnClickListene
                             Alerts.AlertDialogWarning(
                                 mContext,
 
-                                jsonObject.getString("message")
+                                jsonObject.getString("message"),""
                             )
                         }
                     } catch (e: Exception) {

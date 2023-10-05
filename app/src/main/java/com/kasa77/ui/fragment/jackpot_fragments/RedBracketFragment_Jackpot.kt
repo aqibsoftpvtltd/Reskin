@@ -17,6 +17,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -135,7 +136,7 @@ class RedBracketFragment_Jackpot : Fragment(), View.OnClickListener {
 
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext,  ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext,  ksgModel.message,"green")
                         }
                     }
 
@@ -240,7 +241,7 @@ class RedBracketFragment_Jackpot : Fragment(), View.OnClickListener {
                 val message = "You don't have required bid amount please add fund."
                 dialogBoxMessage(message, "cancel")
             }else if (strGameSession.isEmpty()) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"green")
             } else if (providerResultData!!.gameDate.isEmpty()) {
                 dialogBoxMessage("Select Date", "cancel")
             } else {
@@ -288,7 +289,7 @@ class RedBracketFragment_Jackpot : Fragment(), View.OnClickListener {
                 val message = "You don't have required bid amount please add fund."
                 dialogBoxMessage(message, "cancel")
             } else if (strGameSession.isEmpty()) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"green")
             } else if (providerResultData!!.gameDate.isEmpty()) {
                 dialogBoxMessage("Select Date", "cancel")
             }else {
@@ -431,6 +432,12 @@ class RedBracketFragment_Jackpot : Fragment(), View.OnClickListener {
         val tvWalletAfterDeduct = dialog.findViewById<TextView>(R.id.tvWalletAfterDeduct)
         val tabSubmit = dialog.findViewById<RelativeLayout>(R.id.tabSubmit)
         val tabCancel = dialog.findViewById<RelativeLayout>(R.id.tabCancel)
+        val confirmBtn = dialog.findViewById<RelativeLayout>(R.id.confirmBtn)
+        confirmBtn.setBackgroundResource(R.drawable.green_confirm_button)
+        val cancelBtn = dialog.findViewById<RelativeLayout>(R.id.cancelBtn)
+        cancelBtn.setBackgroundResource(R.drawable.green_cancel_button)
+        val cancelText = dialog.findViewById<TextView>(R.id.tvCancel)
+        cancelText.setTextColor(ContextCompat.getColor(context!!, R.color.greenThemeColor))
         val walletBal = AppPreference.getIntegerPreference(mContext, Constant.USER_WALLET_BALANCE)
         tvCurrentTime.text =
             "Jackpot " + providerResultData!!.providerName + " " + DateFormatToDisplay().parseDateToddMMyyyy(
@@ -500,19 +507,19 @@ class RedBracketFragment_Jackpot : Fragment(), View.OnClickListener {
                                     Alerts.AlertDialogSuccessAutoClose(
                                         context,
                                         activity,
-                                        responseObject.getString("message")
+                                        responseObject.getString("message"),"green"
                                     )
                                 } else {
                                     Alerts.AlertDialogWarning(
                                         context,
 
-                                        responseObject.getString("message")
+                                        responseObject.getString("message"),"green"
                                     )
                                 }
                             }
 
                             override fun onFail(response: String?) {
-                                Alerts.AlertDialogWarning(context,  response)
+                                Alerts.AlertDialogWarning(context,  response,"green")
                             }
                         }
                     )
@@ -537,6 +544,7 @@ class RedBracketFragment_Jackpot : Fragment(), View.OnClickListener {
         alertDialog!!.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialogView.txtMessage.text = string
         val btnSubmit = dialogView.btnOk
+        btnSubmit.setBackgroundResource(R.drawable.green_confirm_button)
         btnSubmit.setOnClickListener {
             if (s == "submit") {
                 alertDialog.dismiss()

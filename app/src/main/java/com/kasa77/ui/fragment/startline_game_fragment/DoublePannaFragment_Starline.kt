@@ -15,6 +15,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -139,7 +140,7 @@ class DoublePannaFragment_Starline : Fragment(), View.OnClickListener {
                     val tCP = p0.toString()
                     if (tCP.isNotEmpty()) {
                         if (tCP.toInt() > GameConstantMessages.MaxPointValue) {
-                            Alerts.AlertDialogWarning(mContext,  GameConstantMessages.MaxPoint)
+                            Alerts.AlertDialogWarning(mContext,  GameConstantMessages.MaxPoint,"pink")
                         }
                     }
                 }
@@ -181,7 +182,7 @@ class DoublePannaFragment_Starline : Fragment(), View.OnClickListener {
         } else if (strGameSession.isEmpty()) {
             tvGameSession!!.error=GameConstantMessages.SelectGameType
 tvGameSession!!.requestFocus()
-            Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"pink")
         } else if (providerResultData!!.gameDate.isEmpty()) {
             dialogBoxMessage("Select Date", "cancel")
         } else {
@@ -424,6 +425,13 @@ tvGameSession!!.requestFocus()
         val tvWalletAfterDeduct = dialog.findViewById<TextView>(R.id.tvWalletAfterDeduct)
         val tabSubmit = dialog.findViewById<RelativeLayout>(R.id.tabSubmit)
         val tabCancel = dialog.findViewById<RelativeLayout>(R.id.tabCancel)
+        val confirmBtn = dialog.findViewById<RelativeLayout>(R.id.confirmBtn)
+        confirmBtn.setBackgroundResource(R.drawable.pink_confirm_button)
+        val cancelBtn = dialog.findViewById<RelativeLayout>(R.id.cancelBtn)
+        cancelBtn.setBackgroundResource(R.drawable.pink_cancel_button)
+        val cancelText = dialog.findViewById<TextView>(R.id.tvCancel)
+        cancelText.setTextColor(ContextCompat.getColor(context!!, R.color.pinkThemeColor))
+
         val walletBal = AppPreference.getIntegerPreference(mContext, Constant.USER_WALLET_BALANCE)
         tvCurrentTime.text =
             "Starline "+from + " " + providerResultData!!.providerName
@@ -491,19 +499,19 @@ tvGameSession!!.requestFocus()
                                 Alerts.AlertDialogSuccessAutoClose(
                                     context,
                                     activity,
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),"pink"
                                 )
                             } else {
                                 Alerts.AlertDialogWarning(
                                     context,
 
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),"pink"
                                 )
                             }
                         }
 
                         override fun onFail(response: String?) {
-                            Alerts.AlertDialogWarning(context, response)
+                            Alerts.AlertDialogWarning(context, response,"pink")
                         }
                     }
                 )
@@ -528,6 +536,7 @@ tvGameSession!!.requestFocus()
         alertDialog!!.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialogView.txtMessage.text = string
         val btnSubmit = dialogView.btnOk
+        btnSubmit.setBackgroundResource(R.drawable.pink_confirm_button)
         btnSubmit.setOnClickListener {
             if (s == "submit") {
                 alertDialog.dismiss()
@@ -561,12 +570,12 @@ tvGameSession!!.requestFocus()
                                 }
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext,  ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext,  ksgModel.message,"pink")
                         }
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.AlertDialogWarning(mContext,  "Server Error")
+                        Alerts.AlertDialogWarning(mContext,  "Server Error","pink")
                     }
                 })
         }

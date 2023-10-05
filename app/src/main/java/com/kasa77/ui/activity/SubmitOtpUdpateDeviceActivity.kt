@@ -251,7 +251,7 @@ class SubmitOtpUdpateDeviceActivity : AppCompatActivity() {
                             Alerts.AlertDialogWarning(
                                 this@SubmitOtpUdpateDeviceActivity,
                                 responseObject.getString("message")
-                            )
+                                ,"")
 
                         } else {
                             Alerts.show(

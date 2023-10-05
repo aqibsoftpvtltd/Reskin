@@ -474,7 +474,7 @@ class OnboardingActivity : AppCompatActivity() {
                                     this@OnboardingActivity,
                                     this@OnboardingActivity,
                                     "Application Is Under Maintainance\nPlease Comeback After Sometime\nThank You :)"
-                                )
+                                        ,"")
                             }
                         } catch (e: JSONException) {
                             e.printStackTrace()

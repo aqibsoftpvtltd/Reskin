@@ -179,7 +179,7 @@ class SinglePanaFragmentDashBoard : Fragment(), View.OnClickListener {
                     val tCP = p0.toString()
                     if (tCP.isNotEmpty()) {
                         if (tCP.toInt() > GameConstantMessages.MaxPointValue) {
-                            Alerts.AlertDialogWarning(mContext,  GameConstantMessages.MaxPoint)
+                            Alerts.AlertDialogWarning(mContext,  GameConstantMessages.MaxPoint,"")
                         }
                     }
                 }
@@ -609,7 +609,7 @@ class SinglePanaFragmentDashBoard : Fragment(), View.OnClickListener {
                         Alerts.AlertDialogWarning(
                             dialog.context,
 
-                            GameConstantMessages.BidClosedForDay
+                            GameConstantMessages.BidClosedForDay,""
                         )
                     } else {
                         dialog.dismiss()
@@ -627,7 +627,7 @@ class SinglePanaFragmentDashBoard : Fragment(), View.OnClickListener {
             dialog.show()
 
         } else {
-            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid,"")
         }
     }
 
@@ -840,19 +840,19 @@ class SinglePanaFragmentDashBoard : Fragment(), View.OnClickListener {
                             Alerts.AlertDialogSuccessAutoClose(
                                 context,
                                 activity,
-                                responseObject.getString("message")
+                                responseObject.getString("message"),""
                             )
                         } else {
                             Alerts.AlertDialogWarning(
                                 context,
 
-                                responseObject.getString("message")
+                                responseObject.getString("message"),""
                             )
                         }
                     }
 
                     override fun onFail(response: String?) {
-                        Alerts.AlertDialogWarning(context, response)
+                        Alerts.AlertDialogWarning(context, response,"")
                     }
                 }
             )
@@ -907,7 +907,7 @@ class SinglePanaFragmentDashBoard : Fragment(), View.OnClickListener {
                                 }
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext,  ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext,  ksgModel.message,"")
                         }
                     }
 

@@ -96,7 +96,7 @@ class DoublePannaFragmentDashBoard : Fragment(), View.OnClickListener {
                 dialogBitSubmit(GameTypeNames.DoublePana)
             } else {
                 val message = GameConstantMessages.AddBids
-                Alerts.AlertDialogWarning(context, message)
+                Alerts.AlertDialogWarning(context, message,"")
             }
         }
 
@@ -177,20 +177,20 @@ class DoublePannaFragmentDashBoard : Fragment(), View.OnClickListener {
             etPoints!!.error = GameConstantMessages.AddPoint
             etPoints!!.requestFocus()
         } else if (stPoints.startsWith("0")) {
-            Alerts.AlertDialogWarning(context, GameConstantMessages.NonZeroPoint)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.NonZeroPoint,"")
         } else if (stPoints.toInt() < GameConstantMessages.MinPointValue) {
             Alerts.AlertDialogWarning(
-                context, GameConstantMessages.MinPoint
+                context, GameConstantMessages.MinPoint,""
 
             )
         } else if (stPoints!!.toInt() > GameConstantMessages.MaxPointValue) {
             Alerts.AlertDialogWarning(
-                context, GameConstantMessages.MaxPoint
+                context, GameConstantMessages.MaxPoint,""
 
             )
         } else if (walletBal < stPoints.toInt()) {
             val message = GameConstantMessages.InvalidWalletAmount
-            Alerts.AlertDialogWarning(context, message)
+            Alerts.AlertDialogWarning(context, message,"")
         } else if (strGameSession.isEmpty()) {
             tvGameSession!!.error=GameConstantMessages.SelectGameType
 tvGameSession!!.requestFocus()
@@ -198,7 +198,7 @@ tvGameSession!!.requestFocus()
             spotLightEffect()
         } else if (selectedDateObject!!.date.isEmpty()) {
             Alerts.AlertDialogWarning(
-                context, GameConstantMessages.SelectGameDate
+                context, GameConstantMessages.SelectGameDate,""
 
             )
         } else {
@@ -262,7 +262,7 @@ tvGameSession!!.requestFocus()
                 etPoints!!.setText("")
                 actDigits!!.setText("")
                 bidAdapter!!.notifyDataSetChanged()
-                Alerts.AlertDialogWarning(context, GameConstantMessages.NoBidsFound)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.NoBidsFound,"")
 
             } else {
                 if (bidItems!!.size > 0) {
@@ -607,7 +607,7 @@ tvGameSession!!.requestFocus()
                         Alerts.AlertDialogWarning(
                             dialog.context,
 
-                            GameConstantMessages.BidClosedForDay
+                            GameConstantMessages.BidClosedForDay,""
                         )
                     } else {
                         dialog.dismiss()
@@ -625,7 +625,7 @@ tvGameSession!!.requestFocus()
             dialog.show()
 
         } else {
-            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid,"")
         }
     }
 
@@ -840,18 +840,18 @@ tvGameSession!!.requestFocus()
                             Alerts.AlertDialogSuccessAutoClose(
                                 context,
                                 activity,
-                                responseObject.getString("message")
+                                responseObject.getString("message"),""
                             )
                         } else {
                             Alerts.AlertDialogWarning(
                                 context,
-                                responseObject.getString("message")
+                                responseObject.getString("message"),""
                             )
                         }
                     }
 
                     override fun onFail(response: String?) {
-                        Alerts.AlertDialogWarning(context, response)
+                        Alerts.AlertDialogWarning(context, response,"")
                     }
                 }
             )
@@ -907,7 +907,7 @@ tvGameSession!!.requestFocus()
                                 }
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext, ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext, ksgModel.message,"")
                         }
                     }
 

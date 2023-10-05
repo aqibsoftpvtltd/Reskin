@@ -14,6 +14,7 @@ import android.widget.EditText
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -253,7 +254,7 @@ class JodiJackpotFragment_Jackpot : Fragment(), ItemOnclickListener,OnItemTextCh
                                 //     Alerts.show(mContext, "Size : ${gameTypeArray.size}")
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext, ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext, ksgModel.message,"green")
                         }
                     }
 
@@ -322,6 +323,12 @@ class JodiJackpotFragment_Jackpot : Fragment(), ItemOnclickListener,OnItemTextCh
         val tvWalletAfterDeduct = dialog.findViewById<TextView>(R.id.tvWalletAfterDeduct)
         val tabSubmit = dialog.findViewById<RelativeLayout>(R.id.tabSubmit)
         val tabCancel = dialog.findViewById<RelativeLayout>(R.id.tabCancel)
+        val confirmBtn = dialog.findViewById<RelativeLayout>(R.id.confirmBtn)
+        confirmBtn.setBackgroundResource(R.drawable.green_confirm_button)
+        val cancelBtn = dialog.findViewById<RelativeLayout>(R.id.cancelBtn)
+        cancelBtn.setBackgroundResource(R.drawable.green_cancel_button)
+        val cancelText = dialog.findViewById<TextView>(R.id.tvCancel)
+        cancelText.setTextColor(ContextCompat.getColor(context!!, R.color.greenThemeColor))
         val walletBal = AppPreference.getIntegerPreference(mContext, Constant.USER_WALLET_BALANCE)
         tvCurrentTime.text =
             "Jackpot " + providerResultData!!.providerName + " " + DateFormatToDisplay().parseDateToddMMyyyy(
@@ -414,18 +421,18 @@ class JodiJackpotFragment_Jackpot : Fragment(), ItemOnclickListener,OnItemTextCh
                                         Alerts.AlertDialogSuccessAutoClose(
                                             context,
                                             activity,
-                                            responseObject.getString("message")
+                                            responseObject.getString("message"),"green"
                                         )
                                     } else {
                                         Alerts.AlertDialogWarning(
                                             context,
-                                            responseObject.getString("message")
+                                            responseObject.getString("message"),"green"
                                         )
                                     }
                                 }
 
                                 override fun onFail(response: String?) {
-                                    Alerts.AlertDialogWarning(context, response)
+                                    Alerts.AlertDialogWarning(context, response,"green")
                                 }
                             }
                         )
@@ -451,6 +458,7 @@ class JodiJackpotFragment_Jackpot : Fragment(), ItemOnclickListener,OnItemTextCh
         alertDialog!!.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialogView.txtMessage.text = string
         val btnSubmit = dialogView.btnOk
+        btnSubmit.setBackgroundResource(R.drawable.green_confirm_button)
         btnSubmit.setOnClickListener {
             if (s == "submit") {
                 alertDialog.dismiss()

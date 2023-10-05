@@ -202,7 +202,7 @@ class PassbookActivity : BaseActivity(), PassBookAdapter.OnDropActionListner {
                         }
                         Alerts.AlertDialogWarning(
                             this@PassbookActivity,
-                            jsonresponse.optString("message")
+                            jsonresponse.optString("message"),""
                         )
                         if (skipValue != "1") {
                             recordlist.removeAt(recordlist.size - 1)

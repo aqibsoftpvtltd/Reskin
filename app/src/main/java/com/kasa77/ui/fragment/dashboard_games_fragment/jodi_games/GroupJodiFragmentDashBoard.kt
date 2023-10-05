@@ -181,7 +181,7 @@ class GroupJodiFragmentDashBoard : Fragment(), View.OnClickListener {
             val message = "You don't have required bid amount please add fund."
             dialogBoxMessage(message, "cancel")
         } else if (strGameSession.isEmpty()) {
-            Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"")
         } else if (selectedDateObject!!.date.isEmpty()) {
             dialogBoxMessage("Select Date", "cancel")
         } else {
@@ -432,7 +432,7 @@ class GroupJodiFragmentDashBoard : Fragment(), View.OnClickListener {
                         Alerts.AlertDialogWarning(
                             dialog.context,
 
-                            GameConstantMessages.BidClosedForDay
+                            GameConstantMessages.BidClosedForDay,""
                         )
                     } else {
                         dialog.dismiss()
@@ -447,7 +447,7 @@ class GroupJodiFragmentDashBoard : Fragment(), View.OnClickListener {
             dialog.show()
 
         } else {
-            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid,"")
         }
     }
 
@@ -572,19 +572,19 @@ class GroupJodiFragmentDashBoard : Fragment(), View.OnClickListener {
                                 Alerts.AlertDialogSuccessAutoClose(
                                     context,
                                     activity,
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                             } else {
                                 Alerts.AlertDialogWarning(
                                     context,
 
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                             }
                         }
 
                         override fun onFail(response: String?) {
-                            Alerts.AlertDialogWarning(context, response)
+                            Alerts.AlertDialogWarning(context, response,"")
                         }
                     }
                 )
@@ -640,7 +640,7 @@ class GroupJodiFragmentDashBoard : Fragment(), View.OnClickListener {
                                 }
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext,  ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext,  ksgModel.message,"")
                         }
                     }
 

@@ -156,13 +156,13 @@ class ChangeMpinActivity : AppCompatActivity(), View.OnClickListener {
 //                                    Alerts.show(this@ChangeMpinActivity,responseObject.getString("message"))
                                     Alerts.AlertDialogWarning(
                                         this@ChangeMpinActivity,
-                                        responseObject.getString("message")
+                                        responseObject.getString("message"),""
                                     )
                                 }
                             } catch (e: Exception) {
                                 Alerts.AlertDialogWarning(
                                     this@ChangeMpinActivity,
-                                    e.message
+                                    e.message,""
                                 )
                             }
                         }
@@ -170,7 +170,7 @@ class ChangeMpinActivity : AppCompatActivity(), View.OnClickListener {
                         override fun onResponseFailed(error: String?) {
                             Alerts.AlertDialogWarning(
                                 this@ChangeMpinActivity,
-                               error
+                               error,""
                             )
                         }
                     })

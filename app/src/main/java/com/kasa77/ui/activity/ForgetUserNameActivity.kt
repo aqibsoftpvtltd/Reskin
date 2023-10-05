@@ -87,17 +87,17 @@ class ForgetUserNameActivity : AppCompatActivity() {
 
                             if (jsonObject.getInt("status") == 1) {
 
-                                Alerts.AlertDialogSuccessAutoClose(this@ForgetUserNameActivity,this@ForgetUserNameActivity,jsonObject.getString("message"))
+                                Alerts.AlertDialogSuccessAutoClose(this@ForgetUserNameActivity,this@ForgetUserNameActivity,jsonObject.getString("message"),"")
                             } else {
-                                Alerts.AlertDialogWarning(this@ForgetUserNameActivity,jsonObject.getString("message"))
+                                Alerts.AlertDialogWarning(this@ForgetUserNameActivity,jsonObject.getString("message"),"")
 
                             }
                         } else {
-                            Alerts.AlertDialogWarning(this@ForgetUserNameActivity,jsonObject.getString("message"))
+                            Alerts.AlertDialogWarning(this@ForgetUserNameActivity,jsonObject.getString("message"),"")
 
                         }
                     } catch (e: Exception) {
-                        Alerts.AlertDialogWarning(this@ForgetUserNameActivity,e.message)
+                        Alerts.AlertDialogWarning(this@ForgetUserNameActivity,e.message,"")
 
                     }
                 }

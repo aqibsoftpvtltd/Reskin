@@ -195,7 +195,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                                 } else if (responseObject.getInt("status") == 2) {
                                     getDeviceChangeDetails(responseObject.toString());
                                 } else {
-                                    Alerts.AlertDialogWarning(mContext, responseObject.getString("message"))
+                                    Alerts.AlertDialogWarning(mContext, responseObject.getString("message"),"")
                                 }
 
                             } catch (e: Exception) {

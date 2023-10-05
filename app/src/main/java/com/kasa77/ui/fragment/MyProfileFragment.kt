@@ -307,7 +307,7 @@ class MyProfileFragment : Fragment() {
 //                            }
 
                         } else {
-                            Alerts.AlertDialogWarning(context, response.message);
+                            Alerts.AlertDialogWarning(context, response.message,"");
                         }
                     }
 
@@ -504,7 +504,7 @@ class MyProfileFragment : Fragment() {
                                 dashboardAdaper.notifyDataSetChanged()
                             }
                         } else {
-                            Alerts.AlertDialogWarning(context, responseBody.message)
+                            Alerts.AlertDialogWarning(context, responseBody.message,"")
                         }
 
                     }

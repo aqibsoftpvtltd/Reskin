@@ -360,14 +360,14 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
 
                                 if (alertDialog.isShowing)
                                     alertDialog.dismiss()
-                                Alerts.AlertDialogSuccessWithdraw(
+                                Alerts. AlertDialogSuccessWithdraw(
                                     this@FundsActivity,
                                     responseObject.getString("message")
                                 )
                             } else if (responseObject.getInt("status") == 0) {
                                 Alerts.AlertDialogWarning(
                                     this@FundsActivity,
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                             }
 //                            else
@@ -504,7 +504,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                             }
                             Alerts.AlertDialogWarning(
                                 this@FundsActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
                         }
                     }
@@ -624,7 +624,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                     if (response == null) {
                         Alerts.AlertDialogWarning(
                             this@FundsActivity,
-                            "Payment cancelled by user."
+                            "Payment cancelled by user.",""
                         )
                         Log.d(
                             "UPI",
@@ -671,7 +671,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                             } else {
                                 Alerts.AlertDialogWarning(
                                     this@FundsActivity,
-                                    "Transaction failed.Please try again"
+                                    "Transaction failed.Please try again",""
                                 )
                             }
                         } catch (e: java.lang.Exception) {
@@ -681,7 +681,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                             )
                             Alerts.AlertDialogWarning(
                                 this@FundsActivity,
-                                "Transaction failed.Please try again"
+                                "Transaction failed.Please try again",""
                             )
                         }
                     }
@@ -692,7 +692,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                     )
                     Alerts.AlertDialogWarning(
                         this@FundsActivity,
-                        "Payment cancelled by user."
+                        "Payment cancelled by user.",""
                     )
                 }
             }
@@ -703,17 +703,17 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                     if (response.equals("success", true)) {
                         Alerts.AlertDialogWarning(
                             this@FundsActivity,
-                            "Transaction Success.\nPoints Added To Your Wallet"
+                            "Transaction Success.\nPoints Added To Your Wallet",""
                         )
                     } else if (response.equals("failure", true)) {
                         Alerts.AlertDialogWarning(
                             this@FundsActivity,
-                            "Transaction failed.Please try again"
+                            "Transaction failed.Please try again",""
                         )
                     } else {
                         Alerts.AlertDialogWarning(
                             this@FundsActivity,
-                            "Transaction Cancelled By User"
+                            "Transaction Cancelled By User",""
                         )
                     }
                 } catch (e: Exception) {
@@ -857,7 +857,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                             } else {
                                 Alerts.AlertDialogWarning(
                                     this@FundsActivity,
-                                    jsonresponse.optString("message")
+                                    jsonresponse.optString("message"),""
                                 )
                             }
 
@@ -865,7 +865,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                         } else {
                             Alerts.AlertDialogWarning(
                                 this@FundsActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }
@@ -966,7 +966,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                                 Alerts.AlertDialogWarning(
                                     this@FundsActivity,
 
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                         } catch (e: Exception) {
                             e.printStackTrace()

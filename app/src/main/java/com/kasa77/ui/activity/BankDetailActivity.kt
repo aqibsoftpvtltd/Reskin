@@ -308,7 +308,7 @@ class BankDetailActivity : BaseActivity() {
                         }
 
                     } else {
-                        Alerts.AlertDialogWarning(this@BankDetailActivity, response.message);
+                        Alerts.AlertDialogWarning(this@BankDetailActivity, response.message,"")
                         ll_getbank.visibility = View.GONE
                         cv_updatebank.visibility = View.VISIBLE
                     }
@@ -345,7 +345,7 @@ class BankDetailActivity : BaseActivity() {
                         if (responseObject.getInt("status") == 1) {
                             addbankAPI()
                         }else{
-                            Alerts.AlertDialogWarning(this@BankDetailActivity, responseObject.getString("message"))
+                            Alerts.AlertDialogWarning(this@BankDetailActivity, responseObject.getString("message"),"")
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()

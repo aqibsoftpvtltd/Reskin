@@ -184,7 +184,7 @@ class HomePageFragment : Fragment(), View.OnClickListener {
                 i.data = Uri.parse(url)
                 startActivity(i)
             } catch (e: java.lang.Exception) {
-                Alerts.AlertDialogWarning(context, "Whatsapp app not installed in your phone!!!")
+                Alerts.AlertDialogWarning(context, "Whatsapp app not installed in your phone!!!","")
                 e.printStackTrace()
             }
 
@@ -198,7 +198,7 @@ class HomePageFragment : Fragment(), View.OnClickListener {
                 requireActivity().startActivity(callIntent)
             } catch (e: Exception) {
                 e.printStackTrace()
-                Alerts.AlertDialogWarning(context, "No Sim Card Found!!!")
+                Alerts.AlertDialogWarning(context, "No Sim Card Found!!!","")
 
             }
             alertDialog.dismiss()

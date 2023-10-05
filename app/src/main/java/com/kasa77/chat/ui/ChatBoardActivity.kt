@@ -477,7 +477,7 @@ import java.util.*
                     if (response == null) {
                         Alerts.AlertDialogWarning(
                             context,
-                            "Payment cancelled by user."
+                            "Payment cancelled by user.",""
                         )
                         Log.d(
                             "UPI",
@@ -535,7 +535,7 @@ import java.util.*
                             } else {
                                 Alerts.AlertDialogWarning(
                                     context,
-                                    "Transaction failed.Please try again"
+                                    "Transaction failed.Please try again",""
                                 )
                             }
                         } catch (e: java.lang.Exception) {
@@ -545,7 +545,7 @@ import java.util.*
                             )
                             Alerts.AlertDialogWarning(
                                 context,
-                                "Transaction failed.Please try again"
+                                "Transaction failed.Please try again",""
                             )
                         }
                     }
@@ -556,7 +556,7 @@ import java.util.*
                     )
                     Alerts.AlertDialogWarning(
                         context,
-                        "Payment cancelled by user."
+                        "Payment cancelled by user.",""
                     )
                 }
             }
@@ -566,17 +566,17 @@ import java.util.*
                 if (response.equals("success", true)) {
                     Alerts.AlertDialogWarning(
                         context,
-                        "Transaction Success.\nPoints Added To Your Wallet"
+                        "Transaction Success.\nPoints Added To Your Wallet",""
                     )
                 } else if (response.equals("failure", true)) {
                     Alerts.AlertDialogWarning(
                         context,
-                        "Transaction failed.Please try again"
+                        "Transaction failed.Please try again",""
                     )
                 } else {
                     Alerts.AlertDialogWarning(
                         context,
-                        "Transaction Cancelled By User"
+                        "Transaction Cancelled By User",""
                     )
                 }
 
@@ -1551,7 +1551,7 @@ import java.util.*
                                 Alerts.AlertDialogWarning(
                                     context,
 
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                         } catch (e: Exception) {
                             Log.e("ERROR", e.message.toString())
@@ -1724,7 +1724,7 @@ import java.util.*
                             } else {
                                 Alerts.AlertDialogWarning(
                                     context,
-                                    jsonresponse.optString("message")
+                                    jsonresponse.optString("message"),""
                                 )
                             }
 
@@ -1732,7 +1732,7 @@ import java.util.*
                         } else {
                             Alerts.AlertDialogWarning(
                                 context,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }

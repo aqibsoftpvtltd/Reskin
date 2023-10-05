@@ -318,7 +318,7 @@ class ChoicePannaSpDpFragmentDashBoard : Fragment(), View.OnClickListener {
                 dialogBitSubmit(GameTypeNames.ChoicePana)
             } else {
                 val message = GameConstantMessages.AddBids
-                Alerts.AlertDialogWarning(context, message)
+                Alerts.AlertDialogWarning(context, message,"")
             }
         }
 
@@ -386,18 +386,18 @@ class ChoicePannaSpDpFragmentDashBoard : Fragment(), View.OnClickListener {
 
         if (cbSp.isChecked || cbDp.isChecked || cbTp.isChecked) {
             if (leftDigits.isEmpty() && middleDigits.isEmpty() && rightDigits.isEmpty()) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.AddDigit)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.AddDigit,"")
             } else if (stPoints.isEmpty()) {
                 etPoints!!.error = GameConstantMessages.AddPoint
                 etPoints!!.requestFocus()
             } else if (stPoints.startsWith("0")) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.NonZeroPoint)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.NonZeroPoint,"")
             } else if (stPoints.toInt() < GameConstantMessages.MinPointValue) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.MinPoint)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.MinPoint,"")
             } else if (stPoints.toInt() > GameConstantMessages.MaxPointValue) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.MaxPoint)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.MaxPoint,"")
             } else if (walletBal < stPoints.toInt()) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.InvalidWalletAmount)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.InvalidWalletAmount,"")
             } else if (strGameSession.isEmpty()) {
                 tvGameSession!!.error=GameConstantMessages.SelectGameType
 
@@ -405,7 +405,7 @@ class ChoicePannaSpDpFragmentDashBoard : Fragment(), View.OnClickListener {
 //                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
                 spotLightEffect()
             } else if (selectedDateObject!!.date.isEmpty()) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameDate)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameDate,"")
             } else {
                 try {
                     generateChoicePanna(leftDigits, middleDigits, rightDigits, stPoints)
@@ -413,7 +413,7 @@ class ChoicePannaSpDpFragmentDashBoard : Fragment(), View.OnClickListener {
                 }
             }
         } else {
-            Alerts.AlertDialogWarning(context, "Please Select SP, DP or TP CheckBox")
+            Alerts.AlertDialogWarning(context, "Please Select SP, DP or TP CheckBox","")
         }
 
     }
@@ -1798,7 +1798,7 @@ class ChoicePannaSpDpFragmentDashBoard : Fragment(), View.OnClickListener {
             etLeftDigit!!.setText("")
             etRightDigit!!.setText("")
             bidAdapter!!.notifyDataSetChanged()
-            Alerts.AlertDialogWarning(context, GameConstantMessages.NoBidsFound)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.NoBidsFound,"")
         }
         bidAdapter!!.notifyDataSetChanged()
 
@@ -2043,7 +2043,7 @@ class ChoicePannaSpDpFragmentDashBoard : Fragment(), View.OnClickListener {
                         Alerts.AlertDialogWarning(
                             dialog.context,
 
-                            GameConstantMessages.BidClosedForDay
+                            GameConstantMessages.BidClosedForDay,""
                         )
                     } else {
                         dialog.dismiss()
@@ -2061,7 +2061,7 @@ class ChoicePannaSpDpFragmentDashBoard : Fragment(), View.OnClickListener {
             dialog.show()
 
         } else {
-            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid,"")
         }
     }
 
@@ -2238,7 +2238,7 @@ class ChoicePannaSpDpFragmentDashBoard : Fragment(), View.OnClickListener {
         if (walletBal < pntDeduct) {
             dialog.dismiss()
             val message = GameConstantMessages.InvalidWalletAmount
-            Alerts.AlertDialogWarning(context, message)
+            Alerts.AlertDialogWarning(context, message,"")
         } else {
             OnSubmitBidManager().submitBids(
                 requireContext(),
@@ -2276,19 +2276,19 @@ class ChoicePannaSpDpFragmentDashBoard : Fragment(), View.OnClickListener {
                             Alerts.AlertDialogSuccessAutoClose(
                                 context,
                                 activity,
-                                responseObject.getString("message")
+                                responseObject.getString("message"),""
                             )
                         } else {
                             Alerts.AlertDialogWarning(
                                 context,
 
-                                responseObject.getString("message")
+                                responseObject.getString("message"),""
                             )
                         }
                     }
 
                     override fun onFail(response: String?) {
-                        Alerts.AlertDialogWarning(context, response)
+                        Alerts.AlertDialogWarning(context, response,"")
                     }
                 }
             )
@@ -2330,7 +2330,7 @@ class ChoicePannaSpDpFragmentDashBoard : Fragment(), View.OnClickListener {
                                 }
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext, ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext, ksgModel.message,"")
                         }
                     }
 

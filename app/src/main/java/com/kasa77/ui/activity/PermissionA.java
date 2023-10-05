@@ -292,7 +292,7 @@ public class PermissionA extends AppCompatActivity {
                                     Alerts.AlertDialogFailAutoClose(
                                             binding.getRoot().getContext(),
                                             PermissionA.this,
-                                            "Application Is Under Maintenance\nPlease Come Back After Sometime\nThank You :)"
+                                            "Application Is Under Maintenance\nPlease Come Back After Sometime\nThank You :)",""
                                     );
                                 }
                             } catch (JSONException e) {

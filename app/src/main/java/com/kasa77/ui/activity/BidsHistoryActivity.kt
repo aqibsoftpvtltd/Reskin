@@ -366,7 +366,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                                 tvMessage.text = "No data found"
                                 Alerts.AlertDialogWarning(
                                     this@BidsHistoryActivity,
-                                    mainModal.message
+                                    mainModal.message,""
                                 )
                             }
                         } else {
@@ -438,7 +438,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                                 tvMessage.text = "No data found"
                                 Alerts.AlertDialogWarning(
                                     this@BidsHistoryActivity,
-                                    mainModal.message
+                                    mainModal.message,""
                                 )
 
                             }
@@ -501,7 +501,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                             }
                             Alerts.AlertDialogWarning(
                                 this@BidsHistoryActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }
@@ -560,7 +560,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                             }
                             Alerts.AlertDialogWarning(
                                 this@BidsHistoryActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }
@@ -619,7 +619,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                             }
                             Alerts.AlertDialogWarning(
                                 this@BidsHistoryActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }
@@ -678,7 +678,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                             }
                             Alerts.AlertDialogWarning(
                                 this@BidsHistoryActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }
@@ -739,7 +739,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                             }
                             Alerts.AlertDialogWarning(
                                 this@BidsHistoryActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }
@@ -800,7 +800,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                             }
                             Alerts.AlertDialogWarning(
                                 this@BidsHistoryActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }
@@ -931,7 +931,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                             }
                             Alerts.AlertDialogWarning(
                                 this@BidsHistoryActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }
@@ -996,7 +996,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                             }
                             Alerts.AlertDialogWarning(
                                 this@BidsHistoryActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }
@@ -1061,7 +1061,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                             }
                             Alerts.AlertDialogWarning(
                                 this@BidsHistoryActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }

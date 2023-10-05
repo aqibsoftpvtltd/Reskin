@@ -81,7 +81,7 @@ public class KuberDashboardGameAdapter extends RecyclerView.Adapter<KuberDashboa
         }
         holder.binding.tabPlayGame.setOnClickListener(v -> {
             if (result.openBidTime.equals("") || result.closeBidTime.equals("") || result.displayText.contains("Betting Is Closed For Today")) {
-                Alerts.AlertDialogWarning(holder.binding.getRoot().getContext(), "Betting Is Closed For Today");
+                Alerts.AlertDialogWarning(holder.binding.getRoot().getContext(), "Betting Is Closed For Today","");
             } else {
                 Intent intent = new Intent(holder.binding.getRoot().getContext(), GameListFromDashboardActivity.class);
                 intent.putExtra("PROVIDER", result);
