@@ -29,7 +29,7 @@
                    android:id="@+id/tv_date"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:fontFamily="@font/glacial_bold"
+                   android:fontFamily="@font/dmsansbold"
                    android:includeFontPadding="false"
                    android:text="10/10/2020"
                    android:textColor="@color/black"
@@ -42,7 +42,7 @@
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:includeFontPadding="false"
-                   android:fontFamily="@font/glacial_regular"
+                   android:fontFamily="@font/dmsansregular"
                    android:text="Monday"
                    android:textColor="@color/text_gray"
                    android:textSize="@dimen/_13sdp" />
@@ -64,7 +64,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:includeFontPadding="false"
-                   android:fontFamily="@font/glacial_regular"
+                   android:fontFamily="@font/dmsansregular"
                    android:text="Bet Closed"
                    android:textColor="@color/text_gray"
                    android:textSize="@dimen/_15sdp" />

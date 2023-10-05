@@ -3,6 +3,10 @@ package com.kasa77.ui.fragment.startline_game_fragment
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,6 +18,8 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,6 +39,10 @@ import com.kasa77.ui.fragment.OnSubmitBid
 import com.kasa77.ui.fragment.OnSubmitBidManager
 import com.kasa77.utils.*
 import kotlinx.android.synthetic.main.dialog_view_toast_message.view.*
+import kotlinx.android.synthetic.main.fragment_single_pana.ivGameDate
+import kotlinx.android.synthetic.main.fragment_single_pana.ivGameSession
+import kotlinx.android.synthetic.main.layout_bid_action_bottom_bar.submitBtn
+import kotlinx.android.synthetic.main.row_bid_list_with_delete.btnDelete
 import org.json.JSONObject
 import retrofit2.Response
 import kotlin.collections.ArrayList
@@ -112,6 +122,7 @@ class SinglePanaFragment_Starline : Fragment(), View.OnClickListener {
 
             }
         })
+     //   btnDelete.setImageResource(R.drawable.row_bid_list_delete_icon_pink)
     }
 
     private fun initAutoComplete(input: String) {
@@ -222,7 +233,7 @@ tvGameSession!!.requestFocus()
         } else if (providerResultData!!.gameDate.isEmpty()) {
             dialogBoxMessage("Game Date Error", "cancel")
         } else {
-            bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this)
+            bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this,"pink")
             rvBidList!!.layoutManager = LinearLayoutManager(mContext)
             rvBidList!!.adapter = bidAdapter
             bidAdapter!!.notifyDataSetChanged()
@@ -306,7 +317,7 @@ tvGameSession!!.requestFocus()
     }
 
     private fun initViews() {
-        tabAddBid = rootView!!.findViewById<FrameLayout>(R.id.tabAddBid)
+        tabAddBid = rootView!!.findViewById(R.id.tabAddBid)
         tvFinalSubmit = rootView!!.findViewById(R.id.tvFinalSubmit)
         actDigits = rootView!!.findViewById(R.id.actDigits)
         etPoints = rootView!!.findViewById(R.id.etPoints)
@@ -319,6 +330,13 @@ tvGameSession!!.requestFocus()
       //  tvPannaCount = rootView!!.findViewById(R.id.tvPannaCount)
         tvTotalBids = rootView!!.findViewById(R.id.tvTotalBids)
         tvTotalPoints = rootView!!.findViewById(R.id.tvTotalPoints)
+
+
+        ivGameDate.setImageResource(R.drawable.calendar_pink)
+        ivGameSession.setImageResource(R.drawable.down_arrow_pink)
+        tabAddBid!!.setBackgroundResource(R.drawable.pink_button)
+        submitBtn!!.setBackgroundResource(R.drawable.pink_button)
+
 
        /* val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
         tvPannaCount!!.text = GameTypeNames.SinglePana*/
@@ -382,7 +400,7 @@ tvGameSession!!.requestFocus()
     private var gameTypeName = ""
     private var gameTypePrice = "0"
     private var tvFinalSubmit: TextView? = null
-    private var tabAddBid: FrameLayout? = null
+    private var tabAddBid: TextView? = null
     private var rootView: View? = null
     private var dbCnt = ""
     private var dbPnt = ""

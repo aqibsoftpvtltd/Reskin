@@ -27,17 +27,17 @@
 
 
                 <ImageView
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_45sdp"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_90sdp"
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/ic_success_check" />
+                    android:src="@drawable/success_icon" />
 
                 <TextView
                     android:layout_marginVertical="@dimen/_12sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/glacial_regular"
+                    android:fontFamily="@font/dmsansmedium"
                     android:gravity="center"
                     android:text="Success!"
                     android:textColor="@color/black"

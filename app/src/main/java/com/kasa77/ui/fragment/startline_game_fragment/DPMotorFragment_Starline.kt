@@ -36,6 +36,10 @@ import com.kasa77.ui.fragment.OnSubmitBid
 import com.kasa77.ui.fragment.OnSubmitBidManager
 import com.kasa77.utils.*
 import kotlinx.android.synthetic.main.dialog_view_toast_message.view.*
+import kotlinx.android.synthetic.main.fragment_sp_motor.ivGameDate
+import kotlinx.android.synthetic.main.fragment_sp_motor.ivGameSession
+
+import kotlinx.android.synthetic.main.layout_bid_action_bottom_bar.submitBtn
 import org.json.JSONObject
 import retrofit2.Response
 import kotlin.collections.ArrayList
@@ -249,7 +253,7 @@ class DPMotorFragment_Starline : Fragment(), View.OnClickListener {
     }
 
     private fun initViews() {
-        tabAddBid = rootView!!.findViewById<FrameLayout>(R.id.tabAddBid)
+        tabAddBid = rootView!!.findViewById(R.id.tabAddBid)
         tvFinalSubmit = rootView!!.findViewById(R.id.tvFinalSubmit)
         actDigits = rootView!!.findViewById(R.id.actDigits)
         etPoints = rootView!!.findViewById(R.id.etPoints)
@@ -264,7 +268,11 @@ class DPMotorFragment_Starline : Fragment(), View.OnClickListener {
         tvTotalPoints = rootView!!.findViewById(R.id.tvTotalPoints)
         
         actDigits!!.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(10))
-        
+
+        ivGameDate.setImageResource(R.drawable.calendar_pink)
+        ivGameSession.setImageResource(R.drawable.down_arrow_pink)
+        tabAddBid!!.setBackgroundResource(R.drawable.pink_button)
+        submitBtn!!.setBackgroundResource(R.drawable.pink_button)
 
        /* val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
         tvPannaCount!!.text = GameTypeNames.DPMOTOR*/
@@ -378,7 +386,7 @@ tvGameSession!!.requestFocus()
     @SuppressLint("SetTextI18n")
     private fun generateDpMotor(stDigits: String, stPoints: String) {
         bidItems!!.clear()
-        bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this)
+        bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this,"pink")
         rvBidList!!.layoutManager = LinearLayoutManager(mContext)
         rvBidList!!.adapter = bidAdapter
         bidAdapter!!.notifyDataSetChanged()
@@ -457,7 +465,7 @@ tvGameSession!!.requestFocus()
     private var gameTypeName = ""
     private var gameTypePrice = "0"
     private var tvFinalSubmit: TextView? = null
-    private var tabAddBid: FrameLayout? = null
+    private var tabAddBid: TextView? = null
     private var rootView: View? = null
     private var dbCnt = ""
     private var dbPnt = ""

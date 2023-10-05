@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+<!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -132,4 +133,166 @@
 
 
     </LinearLayout>
+-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundWhite"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_2sdp"
+            android:id="@+id/tabSelection"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:background="@drawable/dr_ractengle_less_round_ripple_effect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/mainLyt"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                android:paddingHorizontal="@dimen/_8sdp"
+
+
+                android:gravity="center"
+                android:weightSum="3"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_height="@dimen/_50sdp">
+
+
+                    <TextView
+                        android:id="@+id/tvDigits"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_24sdp"
+                        android:fontFamily="@font/dmsansbold"
+                        android:gravity="center"
+                        android:text="03"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_24sdp"
+                        android:fontFamily="@font/dmsansbold"
+                        android:gravity="center"
+                        android:text="@string/bid"
+                        android:visibility="gone"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_height="@dimen/_50sdp">
+
+
+                    <EditText
+                        android:id="@+id/etPoints"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/point_bg_green"
+                        android:hint="@string/enter_points"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:includeFontPadding="false"
+                        android:paddingHorizontal="@dimen/_6sdp"
+                        android:fontFamily="@font/dmsansbold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_24sdp"
+                        android:fontFamily="@font/dmsansregular"
+                        android:gravity="center"
+                        android:text="@string/point"
+                        android:visibility="gone"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_height="@dimen/_50sdp">
+
+
+                    <TextView
+                        android:id="@+id/tvGameType"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_24sdp"
+                        android:fontFamily="@font/dmsansbold"
+                        android:gravity="center"
+                        android:text="Jodi"
+                        android:layout_weight="1"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/openColor"
+                        android:textSize="@dimen/_8sdp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_24sdp"
+                        android:fontFamily="@font/dmsansregular"
+                        android:gravity="center"
+                        android:text="@string/game_type"
+                        android:visibility="gone"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <ImageView
+                        android:id="@+id/btnDelete"
+                        android:layout_width="@dimen/_26sdp"
+                        android:layout_height="@dimen/_26sdp"
+                        android:src="@drawable/green_delete_button"
+                        />
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_below="@id/mainLyt"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:background="@color/lightestGrey">
+
+            </View>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
 </layout>

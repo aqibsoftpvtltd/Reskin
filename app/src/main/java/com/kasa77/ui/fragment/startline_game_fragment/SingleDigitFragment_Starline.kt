@@ -37,6 +37,10 @@ import com.kasa77.ui.fragment.OnSubmitBid
 import com.kasa77.ui.fragment.OnSubmitBidManager
 import com.kasa77.utils.*
 import kotlinx.android.synthetic.main.dialog_view_toast_message.view.*
+import kotlinx.android.synthetic.main.fragment_single_digit.ivGameDate
+import kotlinx.android.synthetic.main.fragment_single_digit.ivGameSession
+
+import kotlinx.android.synthetic.main.layout_bid_action_bottom_bar.submitBtn
 import org.json.JSONObject
 import retrofit2.Response
 import kotlin.collections.ArrayList
@@ -70,6 +74,10 @@ class SingleDigitFragment_Starline : Fragment(), View.OnClickListener {
         tvTotalBids = rootView!!.findViewById(R.id.tvTotalBids)
         tvTotalPoints = rootView!!.findViewById(R.id.tvTotalPoints)
 
+        ivGameDate.setImageResource(R.drawable.calendar_pink)
+        ivGameSession.setImageResource(R.drawable.down_arrow_pink)
+        tabAddBid!!.setBackgroundResource(R.drawable.pink_button)
+        submitBtn!!.setBackgroundResource(R.drawable.pink_button)
 
         tvGameDate!!.setText(DateFormatToDisplay().parseDateToddMMyyyy(providerResultData!!.gameDate))
         tvGameSession!!.setText(providerResultData!!.providerName)
@@ -157,7 +165,7 @@ tvGameSession!!.requestFocus()
             providerResultData!!.gameDate.isEmpty() -> dialogBoxMessage("Game Date Error", "cancel")
 
             else -> {
-                bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this)
+                bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this,"pink")
                 rvBidList!!.layoutManager = LinearLayoutManager(mContext)
                 rvBidList!!.adapter = bidAdapter
                 bidAdapter!!.notifyDataSetChanged()

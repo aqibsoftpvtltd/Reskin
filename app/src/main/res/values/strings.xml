@@ -317,5 +317,8 @@
     <string name="bids">Bids:</string>
     <string name="points_">Points:</string>
     <string name="enter_pana">Enter Pana</string>
+    <string name="confirm">Confirm</string>
+    <string name="balance_before_bid">Balance before bid</string>
+    <string name="balance_after_bid">Balance after bid</string>
 
 </resources>

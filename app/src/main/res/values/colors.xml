@@ -106,4 +106,7 @@
     <color name="side_nav_icon_color">#50555C</color>
     <color name="openColor">#08C118</color>
     <color name="closeColor">#D80027</color>
+    
+    <color name="pinkThemeColor">#FF3975</color>
+    <color name="greenThemeColor">#08C118</color>
 </resources>

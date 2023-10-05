@@ -38,6 +38,8 @@ import com.kasa77.ui.fragment.OnSubmitBid
 import com.kasa77.ui.fragment.OnSubmitBidManager
 import com.kasa77.utils.*
 import kotlinx.android.synthetic.main.dialog_view_toast_message.view.*
+import kotlinx.android.synthetic.main.fragment_digit_based_jodi.ivGameDate
+
 import kotlinx.android.synthetic.main.layout_bid_action_bottom_bar.*
 import org.json.JSONObject
 import retrofit2.Response
@@ -261,7 +263,7 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
     private fun initViews() {
         etLeftDigit = rootView!!.findViewById(R.id.etLeftDigit)
         etRightDigit = rootView!!.findViewById(R.id.etRightDigit)
-        tabAddBid = rootView!!.findViewById<FrameLayout>(R.id.tabAddBid)
+        tabAddBid = rootView!!.findViewById(R.id.tabAddBid)
         tvFinalSubmit = rootView!!.findViewById(R.id.tvFinalSubmit)
         etPoints = rootView!!.findViewById(R.id.etPoints)
         rvBidList = rootView!!.findViewById(R.id.rvBidList)
@@ -274,6 +276,9 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
         etLeftDigit!!.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(1))
         etRightDigit!!.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(1))
 
+        ivGameDate.setImageResource(R.drawable.calendar_green)
+        tabAddBid!!.setBackgroundResource(R.drawable.green_button)
+        submitBtn!!.setBackgroundResource(R.drawable.green_button)
 
         tvGameDate!!.setText(DateFormatToDisplay().parseDateToddMMyyyy(providerResultData!!.gameDate) + " (" + providerResultData!!.providerName + ")")
 
@@ -314,7 +319,7 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
     private fun createBid() {
         hideKeyboard()
         bidItems!!.clear()
-        bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this)
+        bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this,"green")
         rvBidList!!.layoutManager = LinearLayoutManager(mContext)
         rvBidList!!.adapter = bidAdapter
         bidAdapter!!.notifyDataSetChanged()
@@ -478,7 +483,7 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
     private var gameTypeName = ""
     private var gameTypePrice = "0"
     private var tvFinalSubmit: TextView? = null
-    private var tabAddBid: FrameLayout? = null
+    private var tabAddBid: TextView? = null
     private var rootView: View? = null
     private var dbCnt = ""
     private var dbPnt = ""

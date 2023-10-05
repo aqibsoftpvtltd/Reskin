@@ -32,6 +32,7 @@ import com.kasa77.ui.fragment.OnSubmitBid
 import com.kasa77.ui.fragment.OnSubmitBidManager
 import com.kasa77.utils.*
 import kotlinx.android.synthetic.main.dialog_view_toast_message.view.*
+import kotlinx.android.synthetic.main.layout_bid_action_bottom_bar.submitBtn
 import org.json.JSONObject
 import retrofit2.Response
 
@@ -116,6 +117,8 @@ class JodiJackpotFragment_Jackpot : Fragment(), ItemOnclickListener,OnItemTextCh
         tvGameDate!!.setText(DateFormatToDisplay().parseDateToddMMyyyy(providerResultData!!.gameDate) + " (" + providerResultData!!.providerName + ")")
         tvTotalBids = rootView!!.findViewById(R.id.tvTotalBids)
         tvTotalPoints = rootView!!.findViewById(R.id.tvTotalPoints)
+
+        submitBtn!!.setBackgroundResource(R.drawable.green_button)
 
 
 
