@@ -150,22 +150,73 @@
         <!-- Content View (Your main content goes here) -->
 
         <!-- Bottom Navigation View -->
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:itemTextAppearanceInactive="@style/TextAppearance.AppCompat.Caption"
-            app:itemTextAppearanceActive="@style/TextAppearance.AppCompat.Caption"
-            app:labelVisibilityMode="labeled"
-            android:background="@drawable/bottom_nav_background"
-            android:layout_gravity="bottom"
-            app:itemIconTint="@android:color/white"
-            app:itemTextColor="@color/white"
 
-            android:outlineAmbientShadowColor="@color/transparent"
-            android:outlineSpotShadowColor="@color/transparent"
-            app:menu="@menu/bottom_menu" />
+        <LinearLayout
+            android:id="@+id/bottombar_back"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_98sdp"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/_8sdp"
+            android:layout_gravity="bottom|center_horizontal|center"
+            android:background="@drawable/home_curve_bottom_background"
+            android:weightSum="4">
+
+            <ImageView
+                android:id="@+id/home_image1"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_with_background_circle"
+                android:layout_weight="0.7"
+                android:alpha="0"
+                android:layout_margin="25dp" />
+
+            <ImageView
+                android:id="@+id/home_image2"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_with_background_circle"
+                android:layout_weight="1"
+                android:alpha="0"
+                android:layout_margin="15dp" />
+
+            <ImageView
+                android:id="@+id/home_image3"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_with_background_circle"
+                android:layout_weight="1"
+                android:alpha="0"
+                android:layout_margin="10dp" />
+
+            <ImageView
+                android:id="@+id/home_image4"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_with_background_circle"
+                android:layout_weight="0.8"
+                android:alpha="0"
+                android:layout_margin="25dp" />
+
+        </LinearLayout>
+
+        <!--
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:itemTextAppearanceInactive="@style/TextAppearance.AppCompat.Caption"
+                    app:itemTextAppearanceActive="@style/TextAppearance.AppCompat.Caption"
+                    app:labelVisibilityMode="labeled"
+                    android:background="@drawable/bottom_nav_background"
+                    android:layout_gravity="bottom"
+                    app:itemIconTint="@android:color/white"
+                    app:itemTextColor="@color/white"
+
+                    android:outlineAmbientShadowColor="@color/transparent"
+                    android:outlineSpotShadowColor="@color/transparent"
+                    app:menu="@menu/bottom_menu" />
+        -->
         <!-- Floating Action Button (FAB) -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabHome"
@@ -178,9 +229,9 @@
             app:borderWidth="@dimen/_2sdp"
             android:layout_gravity="bottom|center"
             android:layout_margin="@dimen/_20sdp"
-            app:elevation="@dimen/_27sdp"
+            app:elevation="@dimen/_27sdp"/>
 
-            android:layout_above="@id/bottomNavigationView"/>
+          <!--  android:layout_above="@id/bottombar_back"-->
 
 
 

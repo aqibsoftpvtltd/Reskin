@@ -4,6 +4,7 @@ package com.kasa77.chat.ui
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Activity.RESULT_OK
 import android.app.Dialog
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -19,13 +20,16 @@ import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -83,9 +87,12 @@ import java.net.URISyntaxException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ChatBoardActivity : BaseActivity(), OnSocketListener {
+
+    class ChatBoardActivity : Fragment(), OnSocketListener {
+        private val baseActivity: BaseActivity = BaseActivity()
     private lateinit var containerView: View
-    private var recordingView: AudioRecordView? = null
+    //private var recordingView: AudioRecordView? = null
+        private lateinit var recordingView: AudioRecordView
     private lateinit var tv_add_fund: TextView
     private lateinit var tvUserStatus: TextView
     private lateinit var ll_loading1: LinearLayout
@@ -126,31 +133,46 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
     private var userLoginName = ""
     private val RECORD_AUDIO_PERMISSION_REQUEST_CODE = 101
 
-    @SuppressLint("MissingPermission")
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         EmojiManager.install(IosEmojiProvider())
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chatting)
-        userLoginId =
-            AppPreference.getStringPreference(this@ChatBoardActivity, Constant.USER_LOGIN_ID)
-        userLoginName =
-            AppPreference.getStringPreference(this@ChatBoardActivity, Constant.USER_LOGIN_USER_NAME)
+        //containerView = recordingView!!.setContainerView(R.layout.activity_chat_board)
 
+        containerView = inflater.inflate(R.layout.activity_chatting, container, false)
+      //  containerView = recordingView!!.setContainerView(R.layout.activity_chat_board)
+
+        userLoginId =
+            AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
+        userLoginName =
+            AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_USER_NAME)
 
         recordingView = AudioRecordView()
         // this is to make your layout the root of audio record view, root layout supposed to be empty..
         // this is to make your layout the root of audio record view, root layout supposed to be empty..
         // this is to make your layout the root of audio record view, root layout supposed to be empty..
-        recordingView!!.initView(findViewById<View>(R.id.layoutMain) as FrameLayout)
-        // this is to provide the container layout to the audio record view..
-        // this is to provide the container layout to the audio record view..
-        containerView = recordingView!!.setContainerView(R.layout.activity_chat_board)
+        //recordingView!!.initView(containerView.findViewById(R.id.layoutMain))
+        recordingView.initView(containerView.findViewById(R.id.layoutMain) as FrameLayout)
 
-        tv_add_fund = containerView!!.findViewById<TextView>(R.id.tv_add_fund)
-        tvUserStatus = containerView!!.findViewById<TextView>(R.id.tvUserStatus)
-        iv_call = containerView!!.findViewById<ImageView>(R.id.iv_call)
-        rvChatMessage = containerView!!.findViewById<RecyclerView>(R.id.rvChatMessage)
-        ll_loading1 = containerView!!.findViewById<LinearLayout>(R.id.ll_loading1)
+        containerView = inflater.inflate(R.layout.activity_chat_board, container, false)
+
+        tv_add_fund = containerView.findViewById(R.id.tv_add_fund)
+        tvUserStatus = containerView.findViewById(R.id.tvUserStatus)
+        iv_call = containerView.findViewById(R.id.iv_call)
+        rvChatMessage = containerView.findViewById(R.id.rvChatMessage)
+        ll_loading1 = containerView.findViewById(R.id.ll_loading1)
+
+    /*    userLoginId =
+            AppPreference.getStringPreference(context, Constant.USER_LOGIN_ID)
+        userLoginName =
+            AppPreference.getStringPreference(context, Constant.USER_LOGIN_USER_NAME)*/
+
+
+
+  /*      // this is to provide the container layout to the audio record view..
+        // this is to provide the container layout to the audio record view..
+        containerView = recordingView!!.setContainerView(R.layout.activity_chat_board)*/
 
 
         initMessageListing()
@@ -164,17 +186,15 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
         getUpiFromAdmin()
 
         iv_call.setOnClickListener {
-            val string = AppPreference.getStringPreference(this@ChatBoardActivity, "PHONE")
+            val string = AppPreference.getStringPreference(context, "PHONE")
 
 
-            val permissionCheck: Int =
-                ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
+            val permissionCheck: Int = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
+
 
             if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(
-                    this, arrayOf<String>(Manifest.permission.CALL_PHONE),
-                    123
-                )
+                requestPermissions(arrayOf(Manifest.permission.CALL_PHONE), 123)
+
             } else {
                 startActivity(
                     Intent(Intent.ACTION_CALL)
@@ -183,18 +203,22 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             }
 
         }
+
+        return containerView
     }
 
+
+    @SuppressLint("MissingSuperCall")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        super<Fragment>.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         when (requestCode) {
             123 -> if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                val string = AppPreference.getStringPreference(this@ChatBoardActivity, "PHONE")
+                val string = AppPreference.getStringPreference(context, "PHONE")
 
                 startActivity(
                     Intent(Intent.ACTION_CALL)
@@ -232,7 +256,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
 //        rlNav.setOnClickListener { onBackPressed() }
 
-        audioPath = this@ChatBoardActivity.externalCacheDir!!.absolutePath
+        audioPath = context?.externalCacheDir!!.absolutePath
 
         /****************************************
          * Manage Audio
@@ -245,7 +269,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
     private fun initMessageListing() {
 
-        dbHelper = DBHelper(this@ChatBoardActivity)
+        dbHelper = DBHelper(context)
         chatMessageList = dbHelper!!.getAllMessageFromDB()
         if (chatMessageList != null)
             if (chatMessageList.size > 0) {
@@ -273,7 +297,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             hideReplyLayout()
         }
 
-        val messageSwipeController = MessageSwipeController(this, object : SwipeControllerActions {
+        val messageSwipeController = MessageSwipeController(requireContext(), object : SwipeControllerActions {
             override fun showReplyUI(position: Int) {
                 showQuotedMessage(chatMessageList[position])
             }
@@ -282,9 +306,9 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
         val itemTouchHelper = ItemTouchHelper(messageSwipeController)
         itemTouchHelper.attachToRecyclerView(rvChatMessage)
 
-        chatAdapter = MessageModalAdapter(this@ChatBoardActivity, this, chatMessageList)
+        chatAdapter = MessageModalAdapter(context, this, chatMessageList)
         rvChatMessage.setHasFixedSize(true)
-        val layoutManager = LinearLayoutManager(this@ChatBoardActivity)
+        val layoutManager = LinearLayoutManager(context)
         layoutManager.stackFromEnd = true
         layoutManager.reverseLayout = false
         rvChatMessage.layoutManager = layoutManager
@@ -302,7 +326,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
         selectedMessageForReply = message;
         recordingView!!.messageView.requestFocus()
         val inputMethodManager =
-            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager?.showSoftInput(
             recordingView!!.messageView,
             InputMethodManager.SHOW_IMPLICIT
@@ -313,14 +337,14 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             recordingView!!.imageQuote.visibility = View.GONE
             if (!TextUtils.isEmpty(message.msgFile)) {
                 recordingView!!.imageQuote.visibility = View.VISIBLE
-                Glide.with(this@ChatBoardActivity)
+                Glide.with(Activity())
                     .load(message.msgFile)
                     .centerCrop()
                     .into(recordingView!!.imageQuote)
             }
         } else {
             recordingView!!.imageQuote.visibility = View.VISIBLE
-            Glide.with(this@ChatBoardActivity)
+            Glide.with(requireContext())
                 .load(ChatConstants.mediaBaseUrl + message.images)
                 .centerCrop()
                 .into(recordingView!!.imageQuote)
@@ -353,13 +377,13 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
     }
 
     private fun prepareImagePicker(): ImagePicker {
-        val imagePicker = ImagePicker(this)
+        val imagePicker = ImagePicker(activity)
         imagePicker.setImagePickerCallback(myImagePickerCallback)
         return imagePicker
     }
 
     private fun prepareCameraImagePicker(): CameraImagePicker {
-        val imagePicker = CameraImagePicker(this)
+        val imagePicker = CameraImagePicker(activity)
         imagePicker.setImagePickerCallback(myImagePickerCallback)
         return imagePicker
     }
@@ -373,7 +397,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             val path = chosenFile.originalPath
             val ext = chosenFile.fileExtensionFromMimeTypeWithoutDot
             if (ext == "jpeg" || ext == "jpg" || ext == "png") {
-                val intent = Intent(this@ChatBoardActivity, FullScreenImageActivity::class.java)
+                val intent = Intent(context, FullScreenImageActivity::class.java)
                 intent.putExtra("FROM", "create msg")
                 intent.putExtra("IMAGE_PATH", array);
                 startActivityForResult(intent, 211);
@@ -452,7 +476,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                     val response = data.getStringExtra("response")
                     if (response == null) {
                         Alerts.AlertDialogWarning(
-                            this@ChatBoardActivity,
+                            context,
                             "Payment cancelled by user."
                         )
                         Log.d(
@@ -488,7 +512,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                                     .equals("submitted")
                             ) {
 //                                Alerts.AlertDialogWarning(
-//                                    this@ChatBoardActivity,
+//                                    context,
 //                                    "Transaction is Pending. Please Contact with support if payment is deducted"
 //                                )
                                 autoPaymentApi(
@@ -500,7 +524,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                                     .equals("pending")
                             ) {
 //                                Alerts.AlertDialogWarning(
-//                                    this@ChatBoardActivity,
+//                                    context,
 //                                    "Transaction is Pending. Please Contact with support if payment is deducted"
 //                                )
                                 autoPaymentApi(
@@ -510,7 +534,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                                 )
                             } else {
                                 Alerts.AlertDialogWarning(
-                                    this@ChatBoardActivity,
+                                    context,
                                     "Transaction failed.Please try again"
                                 )
                             }
@@ -520,7 +544,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                                 e.message.toString()
                             )
                             Alerts.AlertDialogWarning(
-                                this@ChatBoardActivity,
+                                context,
                                 "Transaction failed.Please try again"
                             )
                         }
@@ -531,7 +555,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                         "Intent Data is null. User cancelled"
                     )
                     Alerts.AlertDialogWarning(
-                        this@ChatBoardActivity,
+                        context,
                         "Payment cancelled by user."
                     )
                 }
@@ -541,17 +565,17 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                 val response = data!!.getStringExtra("response")
                 if (response.equals("success", true)) {
                     Alerts.AlertDialogWarning(
-                        this@ChatBoardActivity,
+                        context,
                         "Transaction Success.\nPoints Added To Your Wallet"
                     )
                 } else if (response.equals("failure", true)) {
                     Alerts.AlertDialogWarning(
-                        this@ChatBoardActivity,
+                        context,
                         "Transaction failed.Please try again"
                     )
                 } else {
                     Alerts.AlertDialogWarning(
-                        this@ChatBoardActivity,
+                        context,
                         "Transaction Cancelled By User"
                     )
                 }
@@ -631,7 +655,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
     }
 
     private fun showToast(msg: String) {
-        Toast.makeText(this@ChatBoardActivity, msg, Toast.LENGTH_LONG).show()
+        Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
     }
 
     /*******************************************************
@@ -644,34 +668,37 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             // Check if the permission has been granted
             if (ContextCompat.checkSelfPermission(
-                    this@ChatBoardActivity,
+                    requireContext(),
                     Manifest.permission.READ_EXTERNAL_STORAGE
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 // If not granted, request the permission
-                ActivityCompat.requestPermissions(
-                    this@ChatBoardActivity,
+                requestPermissions(
                     arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                     RECORD_AUDIO_PERMISSION_REQUEST_CODE
                 )
+
                 return;
             }
         } else {
             if (ContextCompat.checkSelfPermission(
-                    this@ChatBoardActivity,
+                    requireContext(),
                     Manifest.permission.READ_EXTERNAL_STORAGE
                 ) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(
-                    this@ChatBoardActivity,
+                    requireContext(),
                     Manifest.permission.WRITE_EXTERNAL_STORAGE
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 // If not granted, request the permission
-                ActivityCompat.requestPermissions(
-                    this@ChatBoardActivity,
-                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                requestPermissions(
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ),
                     RECORD_AUDIO_PERMISSION_REQUEST_CODE
                 )
+
                 return;
             }
         }
@@ -681,7 +708,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             //            if (!isAttachOptionOpen) {
 //                isAttachOptionOpen = true
             AttachImageDialog.ImageChooserDialog(
-                this@ChatBoardActivity,
+                context,
                 "",
                 object : AttachImageDialog.OnChooseImageSource {
                     override fun onCamera() {
@@ -766,17 +793,18 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
     private val recordingViewListener = object : AudioRecordView.RecordingListener {
 
+        @SuppressLint("WrongConstant")
         override fun onRecordingStarted() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 // Check if the permission has been granted
                 if (ContextCompat.checkSelfPermission(
-                        this@ChatBoardActivity,
+                        requireContext(),
                         Manifest.permission.RECORD_AUDIO
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
                     // If not granted, request the permission
                     ActivityCompat.requestPermissions(
-                        this@ChatBoardActivity,
+                        requireActivity(),
                         arrayOf(Manifest.permission.RECORD_AUDIO),
                         RECORD_AUDIO_PERMISSION_REQUEST_CODE
                     )
@@ -822,10 +850,11 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 // Check if the permission has been granted
                 if (ContextCompat.checkSelfPermission(
-                        this@ChatBoardActivity,
+                        requireActivity(),
                         Manifest.permission.RECORD_AUDIO
                     ) != PackageManager.PERMISSION_GRANTED
-                ) {
+                )
+                {
                 return;
                 }
             }
@@ -892,7 +921,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     public override fun onPause() {
-        super.onPause()
+        super<Fragment>.onPause()
         try {
             chatAdapter!!.stopPlayer()
         } catch (e: Exception) {
@@ -907,7 +936,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
         jsonObject.put("status", "Offline")
         mSocket!!.emit("userOnlineStatus", jsonObject)
 
-        LocalBroadcastManager.getInstance(this)
+        LocalBroadcastManager.getInstance(requireContext())
             .unregisterReceiver(mMessageReceiver)
     }
 
@@ -925,9 +954,11 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             "productImage",
             currentCompressedImageFile!!.name, bodyProfilePicture
         )
-        if (cd!!.isNetworkAvailable) {
-            RetrofitServiceFileUpload.fileUploadResponse(this,
-                retrofitApiClientFile!!.uploadMediaFile(imageFilePart), object : WebResponse {
+        if (requireActivity() is BaseActivity) {
+            val baseActivity = requireActivity() as BaseActivity
+            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
+            RetrofitServiceFileUpload.fileUploadResponse(context,
+                baseActivity.retrofitApiClientFile!!.uploadMediaFile(imageFilePart), object : WebResponse {
                     override fun onResponseSuccess(result: Response<*>?) {
                         val mediaFileModel = result!!.body() as MediaFileModel
                         chatMessage.messFileUrl = mediaFileModel.filename
@@ -940,10 +971,10 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(mContext, error.toString())
+                        Alerts.serverError(requireContext(), error.toString())
                     }
                 })
-        }
+        }}
 
     }
 
@@ -955,9 +986,11 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             audioFile.name, bodyProfilePicture
         )
 
-        if (cd!!.isNetworkAvailable) {
+        if (requireActivity() is BaseActivity) {
+            val baseActivity = requireActivity() as BaseActivity
+            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
             RetrofitServiceFileUpload.fileUploadResponse(null,
-                retrofitApiClientFile!!.uploadMediaFile(imageFilePart), object : WebResponse {
+                baseActivity.retrofitApiClientFile!!.uploadMediaFile(imageFilePart), object : WebResponse {
                     override fun onResponseSuccess(result: Response<*>?) {
                         val mediaFileModel = result!!.body() as MediaFileModel
                         chatMessage.messFileUrl = mediaFileModel.filename
@@ -971,10 +1004,10 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(mContext, error.toString())
+                        Alerts.serverError(requireContext(), error.toString())
                     }
                 })
-        }
+        }}
 
     }
 
@@ -989,7 +1022,8 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
     //step socket for chat
     private fun initSocketSetup() {
         try {
-            mSocket = (application as? ChatApplication)?.getSocket()
+            val baseActivity = requireActivity() as BaseActivity
+            mSocket = (baseActivity.application as? ChatApplication)?.getSocket()
             if (mSocket!!.connected()) {
                 mSocket!!.on(ChatConstants.KEY_ADMIN_ONLINE_STATUS_RETURN, adminOnlineStatus)
                 //request current Admin status
@@ -1017,7 +1051,8 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
     }
 
     private val adminOnlineStatus = Emitter.Listener { args ->
-        runOnUiThread {
+        val baseActivity = requireActivity() as BaseActivity
+        baseActivity.runOnUiThread {
             try {
                 Log.e("SOCKET", "Getting current admin online status")
                 val onlineStatus = args[0] as String
@@ -1032,31 +1067,31 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
     }
 
 
+    @SuppressLint("MissingSuperCall")
     override fun onResume() {
-        super.onResume()
+        super<Fragment>.onResume()
         getUpiFromAdmin()
-        (application as? ChatApplication)?.onSocketListener = this@ChatBoardActivity
+        (requireActivity().application as? ChatApplication)?.onSocketListener = this
         ChatConstants.MY_ONLINE_STATUS = "Online"
         initSocketSetup()
-        LocalBroadcastManager.getInstance(this).registerReceiver(
-            (mMessageReceiver),
+        LocalBroadcastManager.getInstance(requireContext()).registerReceiver(
+            mMessageReceiver,
             IntentFilter("Notification")
-        );
-
+        )
     }
 
-
+    @SuppressLint("MissingSuperCall")
     override fun onDestroy() {
+        super<Fragment>.onDestroy()
         ChatConstants.MY_ONLINE_STATUS = "Offline"
         ChatConstants.CHAT_COUNTER = 0
         stopSocketConnections()
-        (application as? ChatApplication)?.onSocketListener = null
-        super.onDestroy()
-
+        (requireActivity().application as? ChatApplication)?.onSocketListener = null
     }
 
+
     override fun onReceiveMsg(msgData: MessageModal) {
-//        Toast.makeText(this@ChatBoardActivity, msgData, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, msgData, Toast.LENGTH_SHORT).show()
         if (msgData != null) {
             if (msgData.messType == 2) {
                 chatMessageList.add(msgData)
@@ -1072,13 +1107,13 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
     }
 
     override fun onDeleteUserMsg(msgData: String) {
-//        Toast.makeText(this@ChatBoardActivity, msgData, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, msgData, Toast.LENGTH_SHORT).show()
         chatMessageList.clear();
         chatAdapter!!.notifyDataSetChanged()
     }
 
     override fun onDeleteAllMsg(msgData: String) {
-//        Toast.makeText(this@ChatBoardActivity, msgData, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, msgData, Toast.LENGTH_SHORT).show()
         chatMessageList.clear();
         chatAdapter!!.notifyDataSetChanged()
     }
@@ -1132,7 +1167,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             (mObject).toString()
         )
         ChatRetrofitService.getServerResponse(
-            this@ChatBoardActivity,
+            context,
             null,
             ChatRetrofitService.getRetrofit()?.getOldMessages(body),
             object : WebResponse {
@@ -1200,13 +1235,13 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
                 override fun onResponseFailed(error: String?) {
                     Log.e("RESPINSE", error.toString())
-                    Alerts.serverError(this@ChatBoardActivity, error.toString())
+                    Alerts.serverError(context, error.toString())
                 }
             })
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
+    fun onBackPressed() {
+    //    super.onBackPressed()
         ChatConstants.CHAT_COUNTER = 0
     }
 
@@ -1244,7 +1279,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             startUpiBottomSheet(uri, appNames)
         else {
             Alerts.AlertDialogUPIApp(
-                this@ChatBoardActivity!!,
+                context!!,
                 "No UPI app found,\nPlease Download Google-Pay app to continue"
             )
         }
@@ -1256,7 +1291,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
              startActivityForResult(chooser, UPI_PAYMENT)
          } else {
              Toast.makeText(
-                 this@ChatBoardActivity,
+                 context,
                  "No UPI app found, please install one to continue",
                  Toast.LENGTH_SHORT
              ).show()
@@ -1281,7 +1316,8 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             }
 
             override fun onUpiAppSelected(data: ResolveInfo) {
-                selectedApp = data.loadLabel(packageManager).toString().toLowerCase()
+                val baseActivity = requireActivity() as BaseActivity
+                selectedApp = data.loadLabel(baseActivity.packageManager).toString().toLowerCase()
                 val paymentIntent = Intent(Intent.ACTION_VIEW)
                 paymentIntent.data = uri
                 paymentIntent.setPackage(data.activityInfo.packageName)
@@ -1289,7 +1325,8 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             }
         })
         upiBottomSheet.isCancelable = false
-        upiBottomSheet.show(supportFragmentManager, UpiBottomSheet::class.java.simpleName)
+        val baseActivity = requireActivity() as BaseActivity
+        upiBottomSheet.show(baseActivity.supportFragmentManager, UpiBottomSheet::class.java.simpleName)
     }
 
     internal val UPI_PAYMENT = 0
@@ -1325,9 +1362,11 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
     private fun getUpiFromAdmin() {
 
-        if (cd!!.isNetworkAvailable) {
-            val userLoginId = AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_ID)
-            val upiLastId = AppPreference.getStringPreference(mContext, Constant.UPI_LAST_ID)
+        if (requireActivity() is BaseActivity) {
+            val baseActivity = requireActivity() as BaseActivity
+            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
+            val userLoginId = AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
+            val upiLastId = AppPreference.getStringPreference(requireContext(), Constant.UPI_LAST_ID)
             val mObject = JSONObject()
             mObject.put("last_id", upiLastId)
 
@@ -1337,7 +1376,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
             )
             AuthHeaderRetrofitService.getServerResponse(
                 null,
-                retrofitApiClientAuth.getUPI(body),
+                baseActivity.retrofitApiClientAuth.getUPI(body),
                 object : WebResponse {
                     @SuppressLint("SetTextI18n")
                     override fun onResponseSuccess(result: Response<*>?) {
@@ -1348,15 +1387,15 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                         if (jsonresponse.optInt("status") == 1) {
                             val id = jsonresponse.optString("id")
                             adminUpiID = jsonresponse.optString("data")
-                            AppPreference.setStringPreference(mContext, Constant.UPI_LAST_ID, id)
+                            AppPreference.setStringPreference(requireContext(), Constant.UPI_LAST_ID, id)
                             AppPreference.setStringPreference(
-                                mContext,
+                                requireContext(),
                                 Constant.UPI_Name,
                                 adminUpiID
                             )
 //                            tv_add_fund.visibility = View.VISIBLE
                         } else {
-//                            Alerts.show(this@ChatBoardActivity, jsonresponse.optString("message"))
+//                            Alerts.show(context, jsonresponse.optString("message"))
 //                            tv_add_fund.visibility = View.GONE
                         }
 
@@ -1365,11 +1404,12 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
                     override fun onResponseFailed(error: String?) {
 //                        tv_add_fund.visibility = View.GONE
-                        Alerts.serverError(this@ChatBoardActivity, error.toString())
+                        Alerts.serverError(context, error.toString())
                     }
 
                 })
         }
+            }
     }
 
 
@@ -1380,16 +1420,18 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
         paymentStatus: String
     ) {
 
-        if (cd!!.isNetworkAvailable) {
-            val userLoginId = AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_ID)
+        if (requireActivity() is BaseActivity) {
+            val baseActivity = requireActivity() as BaseActivity
+            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
+            val userLoginId = AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
             val mObject = JSONObject()
             mObject.put("userId", userLoginId)
             mObject.put("transactiondId", transactiondId)
             mObject.put("reference_id", reference_id)
             mObject.put("amount", amount)
             mObject.put("transaction_mode", "UPI")
-            mObject.put("UPI_name", AppPreference.getStringPreference(mContext, Constant.UPI_Name))
-            mObject.put("UPI_id", AppPreference.getStringPreference(mContext, Constant.UPI_LAST_ID))
+            mObject.put("UPI_name", AppPreference.getStringPreference(requireContext(), Constant.UPI_Name))
+            mObject.put("UPI_id", AppPreference.getStringPreference(requireContext(), Constant.UPI_LAST_ID))
             mObject.put("payment_status", paymentStatus)
             mObject.put("app", selectedApp)
             val body = RequestBody.create(
@@ -1397,8 +1439,8 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                 (mObject).toString()
             )
             AuthHeaderRetrofitService.getServerResponse(
-                Dialog(this@ChatBoardActivity),
-                retrofitApiClientAuth.autoPaymentUpi(body),
+                Dialog(requireContext()),
+                baseActivity.retrofitApiClientAuth.autoPaymentUpi(body),
                 object : WebResponse {
                     @SuppressLint("SetTextI18n")
                     override fun onResponseSuccess(result: Response<*>?) {
@@ -1407,20 +1449,20 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                         Log.e("OnResponse", jsonresponse.toString())
                         fundrequestamount = ""
                         Alerts.AlertDialogSuccess(
-                            this@ChatBoardActivity,
+                            context,
                             jsonresponse.optString("message")
                         )
 
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(this@ChatBoardActivity, error.toString())
+                        Alerts.serverError(context, error.toString())
                         fundrequestamount = ""
                     }
 
                 }
             )
-        }
+        }}
     }
 
 //    private fun dialogBoxMessage(string: String, s: String) {
@@ -1451,7 +1493,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
 
     private fun dialogRequestFund() {
-        val dialogBuilder = mContext?.let { AlertDialog.Builder(it) }
+        val dialogBuilder = requireActivity().let { AlertDialog.Builder(it) }
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.dialog_request_fund, null)
         dialogBuilder?.setView(dialogView)
@@ -1485,13 +1527,15 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
         val userObject = JSONObject()
         userObject.put("amount", amount)
 
-        if (cd!!.isNetworkAvailable) {
+        if (requireActivity() is BaseActivity) {
+            val baseActivity = requireActivity() as BaseActivity
+            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
             val body = RequestBody.create(
                 "application/json; charset=utf-8".toMediaTypeOrNull(),
                 (userObject).toString()
             )
-            RetrofitService.getServerResponse(this,
-                Dialog(this), retrofitApiClient!!.getMinMaxFunding(body),
+            RetrofitService.getServerResponse(requireContext(),
+                Dialog(requireContext()), baseActivity.retrofitApiClient!!.getMinMaxFunding(body),
                 object : WebResponse {
                     override fun onResponseSuccess(result: Response<*>?) {
                         var msg: ResponseBody = result!!.body() as ResponseBody
@@ -1505,7 +1549,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
                             } else
                                 Alerts.AlertDialogWarning(
-                                    this@ChatBoardActivity,
+                                    context,
 
                                     responseObject.getString("message")
                                 )
@@ -1515,10 +1559,10 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(this@ChatBoardActivity, error.toString())
+                        Alerts.serverError(context, error.toString())
                     }
                 })
-        }
+        }}
     }
 
 
@@ -1536,10 +1580,11 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
     private fun notifyBroadcastMessage(oldBroadcastMessage: List<MessageModal>) {
         for (i in 0..oldBroadcastMessage.size - 1) {
-            runOnUiThread {
+            val baseActivity = requireActivity() as BaseActivity
+            baseActivity.runOnUiThread {
                 try {
                     val my_userid =
-                        AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_ID)
+                        AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
                     Log.e("SOCKET", "Receive Message")
                     Log.e("SOCKET", oldBroadcastMessage.get(i).id)
 //                    {"_id":"5e4d1f37e46d280018b3dfc5","message":"tsetsete","dateTime":"2020-02-19 05:12 pm","dateTimestamp":"1582112567"}
@@ -1622,10 +1667,12 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
     }
 
     private fun getPaymentMode(amount: String) {
-        if (cd!!.isNetworkAvailable) {
+        if (requireActivity() is BaseActivity) {
+            val baseActivity = requireActivity() as BaseActivity
+            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
             AuthHeaderRetrofitService.getServerResponse(
-                Dialog(this@ChatBoardActivity),
-                retrofitApiClientAuth.paymentMode,
+                Dialog(requireContext()),
+                baseActivity.retrofitApiClientAuth.paymentMode,
                 object : WebResponse {
                     @SuppressLint("SetTextI18n")
                     override fun onResponseSuccess(result: Response<*>?) {
@@ -1666,7 +1713,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                                             paymentMode.data.get(paymentTypes).redirectURL.toString()
                                         startActivityForResult(
                                             Intent(
-                                                this@ChatBoardActivity,
+                                                context,
                                                 NetBankingActivity::class.java
                                             ).putExtra("URL", url), 1000
                                         )
@@ -1676,7 +1723,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
                             } else {
                                 Alerts.AlertDialogWarning(
-                                    this@ChatBoardActivity,
+                                    context,
                                     jsonresponse.optString("message")
                                 )
                             }
@@ -1684,7 +1731,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
                         } else {
                             Alerts.AlertDialogWarning(
-                                this@ChatBoardActivity,
+                                context,
                                 jsonresponse.optString("message")
                             )
 
@@ -1692,18 +1739,18 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.show(this@ChatBoardActivity, "Server Error" + error!!)
+                        Alerts.show(context, "Server Error" + error!!)
                     }
 
                 })
-        }
+        }}
     }
 
     private fun dialogPaymentMode(
         paymentmode: PaymentMode,
         amount: String
     ) {
-        val dialogBuilder = mContext?.let { AlertDialog.Builder(it) }
+        val dialogBuilder = context?.let { AlertDialog.Builder(it) }
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.dialog_payment_mode, null)
         dialogBuilder?.setView(dialogView)
@@ -1742,7 +1789,7 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
         ll_netbanking.setOnClickListener {
             alertDialog.dismiss()
             startActivityForResult(
-                Intent(this@ChatBoardActivity, NetBankingActivity::class.java).putExtra(
+                Intent(context, NetBankingActivity::class.java).putExtra(
                     "URL",
                     url
                 ), 1000
@@ -1756,5 +1803,8 @@ class ChatBoardActivity : BaseActivity(), OnSocketListener {
 
         alertDialog.show()
     }
-
+        override fun onAttach(context: Context) {
+            super.onAttach(context)
+            // Now you can safely access the context (e.g., requireContext())
+        }
 }

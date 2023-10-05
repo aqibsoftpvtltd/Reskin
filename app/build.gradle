@@ -140,6 +140,8 @@ dependencies {
 
     // imageSlider
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
+
+    implementation 'com.tbuonomo:morph-bottom-navigation:1.0.1'
 }
 apply plugin: 'com.google.gms.google-services'
 repositories {

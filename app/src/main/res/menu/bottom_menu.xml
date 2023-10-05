@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_profile"
-        android:icon="@drawable/ic_user_name"
+        android:icon="@drawable/home_with_background_circle"
         android:title="Profile"/>
     <item
         android:id="@+id/nav_bidhistory"
