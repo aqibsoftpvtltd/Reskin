@@ -80,9 +80,15 @@ public class JackpotAdapter extends RecyclerView.Adapter<JackpotAdapter.ViewHold
 
 
         holder.binding.tabPlayGame.setOnClickListener(v -> {
-            Intent intent = new Intent(holder.binding.getRoot().getContext(), JackpotGameListActivity.class);
-            intent.putExtra("PROVIDER", resultList.get(position));
-            holder.binding.getRoot().getContext().startActivity(intent);
+            if (resultData.openBidTime.equals("") || resultData.closeBidTime.equals("") || resultData.displayText.contains("Betting Is Closed For Today")) {
+                Alerts.AlertDialogWarning(holder.binding.getRoot().getContext(), resultData.displayText,"green");
+            } else {
+                if (holder.binding.tabPlayGame.getVisibility() == View.VISIBLE) {
+                    Intent intent = new Intent(holder.binding.getRoot().getContext(), JackpotGameListActivity.class);
+                    intent.putExtra("PROVIDER", resultList.get(position));
+                    holder.binding.getRoot().getContext().startActivity(intent);
+                }
+            }
         });
 
         holder.binding.tabSelection.setOnClickListener(v -> {

@@ -24,6 +24,7 @@ import com.kasa77.ui.fragment.FilterBottomSheetFragment
 import com.kasa77.utils.*
 
 import kotlinx.android.synthetic.main.activity_history.*
+import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -68,7 +69,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
         init()
 
 
-        tabfilter.setOnClickListener {
+        tabFilter.setOnClickListener {
             val ft = getSupportFragmentManager().beginTransaction()
             val newFragment = FilterBottomSheetFragment.newInstance(caseValue)
             newFragment.show(ft, "dialog")
@@ -140,9 +141,9 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
         when (strFrom) {
             "starlineHistory" -> {
 
-                tabfilter.visibility = View.GONE
+                tabFilter.visibility = View.GONE
                 tabNext.visibility = View.GONE
-                tv_history_title.text = "Starline Result History"
+                toolbarTitle.text = "Starline Result History"
                 val dialog = DatePickerFragment()
                 dialog.show(supportFragmentManager, Constant.DIALOG_DATE)
                 btnSelectedDate.visibility = View.VISIBLE
@@ -156,9 +157,9 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
             }
             "starlineBidHistory" -> {
                 caseValue = "3"
-                tabfilter.visibility = View.VISIBLE
+                tabFilter.visibility = View.VISIBLE
                 tabNext.visibility = View.VISIBLE
-                tv_history_title.text = "Starline Bid History"
+                toolbarTitle.text = "Starline Bid History"
                 val recordlist: List<RecordsItem> = ArrayList()
                 bidHistoryPaginationAdapter =
                     BidHistoryPaginationAdapter(
@@ -170,9 +171,9 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
             }
             "jackpotHistory" -> {
                 caseValue = "2"
-                tabfilter.visibility = View.VISIBLE
+                tabFilter.visibility = View.VISIBLE
                 tabNext.visibility = View.VISIBLE
-                tv_history_title.text = "Jackpot Bid History"
+                toolbarTitle.text = "Jackpot Bid History"
                 val recordlist: List<RecordsItem> = ArrayList()
                 bidHistoryPaginationAdapter =
                     BidHistoryPaginationAdapter(
@@ -183,9 +184,9 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                 jackpotBidHistorypaginationApi("1")
             }
             "morningDashboardHistory" -> {
-                tabfilter.visibility = View.VISIBLE
+                tabFilter.visibility = View.VISIBLE
                 tabNext.visibility = View.VISIBLE
-                tv_history_title.text = "Bid History"
+                toolbarTitle.text = "Bid History"
                 caseValue = "1"
                 val recordlist: List<RecordsItem> = ArrayList()
                 bidHistoryPaginationAdapter =
@@ -197,9 +198,9 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
 
             }
             "fundRequestHistory" -> {
-                tabfilter.visibility = View.GONE
+                tabFilter.visibility = View.GONE
                 tabNext.visibility = View.VISIBLE
-                tv_history_title.text = "Fund Request History"
+                toolbarTitle.text = "Fund Request History"
                 val recordlist: List<com.kasa77.modal.fund_pagination.RecordsItem> =
                     ArrayList()
                 fundHistoryPaginationAdapter =
@@ -210,9 +211,9 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                 fundRequestHistorypaginationApi("1")
             }
             "creditHistory" -> {
-                tabfilter.visibility = View.GONE
+                tabFilter.visibility = View.GONE
                 tabNext.visibility = View.VISIBLE
-                tv_history_title.text = "Approved Credit History"
+                toolbarTitle.text = "Approved Credit History"
                 val recordlist: List<com.kasa77.modal.fund_pagination.RecordsItem> =
                     ArrayList()
                 fundHistoryPaginationAdapter =
@@ -222,9 +223,9 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                 creditRequestHistorypaginationApi("1")
             }
             "debitHistory" -> {
-                tabfilter.visibility = View.GONE
+                tabFilter.visibility = View.GONE
                 tabNext.visibility = View.VISIBLE
-                tv_history_title.text = "Approved Debit History"
+                toolbarTitle.text = "Approved Debit History"
                 val recordlist: List<com.kasa77.modal.fund_pagination.RecordsItem> =
                     ArrayList()
                 fundHistoryPaginationAdapter =
@@ -234,13 +235,14 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                 debitRequestHistorypaginationApi("1")
             }
             "andarBaharHistory" -> {
-                tabfilter.visibility = View.GONE
+                tabFilter.visibility = View.GONE
                 tabNext.visibility = View.GONE
-                tv_history_title.text = "Jackpot Result History"
+                toolbarTitle.text = "Jackpot Result History"
                 val dialog = DatePickerFragment()
                 dialog.show(supportFragmentManager, Constant.DIALOG_DATE)
                 //  dialog.isCancelable = false
                 btnSelectedDate.visibility = View.VISIBLE
+                dateFilter.visibility=View.VISIBLE
                 llDate.visibility = View.VISIBLE
                 tvText.visibility = View.VISIBLE
                 tvText.text = "Andar Bahar Result By Date "
@@ -256,6 +258,12 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
             dialog.show(supportFragmentManager, Constant.DIALOG_DATE)
             //  dialog.isCancelable = false
         }
+        dateFilter.setOnClickListener {
+            val dialog = DatePickerFragment()
+            dialog.show(supportFragmentManager, Constant.DIALOG_DATE)
+            //  dialog.isCancelable = false
+        }
+
     }
 
     override fun onBackPressed() {

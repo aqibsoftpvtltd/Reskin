@@ -3,21 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundWhite"
+    android:background="@drawable/main_dashboard_bg"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/tvDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:textColor="@color/black"
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:fontFamily="@font/dmsansbold"
+        android:text="Today">
+
+    </TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/notification_screen_bg"
+        android:layout_below="@+id/tvDay"
+        >
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingTop="20dp">
+        >
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:orientation="vertical">
             <TextView
                 android:id="@+id/tvMessage"
@@ -34,13 +54,18 @@
                 android:textSize="@dimen/text_20"
                 android:visibility="gone" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvNewsNotification"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/row_news" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNewsNotification"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/row_news" />
+
+
+
 
         </LinearLayout>
-    </LinearLayout>
 
+    </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>
