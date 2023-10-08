@@ -76,7 +76,7 @@ public class AudioRecordView  {
     public TextView txtQuotedUsername,txtQuotedMsg;
     public ImageView imageQuote,cancelButton;
     private View imageViewLockArrow, imageViewLock, imageViewMic, dustin, dustin_cover;
-    private ImageView imageViewAudio,imageViewStop, imageViewSend;
+    private ImageView imageViewAudio,imageViewStop, imageViewSend,greysendbtn;
     private View layoutAttachment, layoutDustin, layoutMessage, imageViewAttachment, imageViewEmoji;
     private View layoutSlideCancel, layoutLock, layoutEffect1, layoutEffect2;
     private EditText editTextMessage;
@@ -151,6 +151,7 @@ public class AudioRecordView  {
         imageViewAudio = view.findViewById(R.id.imageViewAudio);
         imageViewStop = view.findViewById(R.id.imageViewStop);
         imageViewSend = view.findViewById(R.id.imageViewSend);
+        greysendbtn = view.findViewById(R.id.send_btn_blck);
         imageViewLock = view.findViewById(R.id.imageViewLock);
         imageViewLockArrow = view.findViewById(R.id.imageViewLockArrow);
         layoutDustin = view.findViewById(R.id.layoutDustin);
@@ -462,6 +463,7 @@ public class AudioRecordView  {
                 if (s.toString().trim().isEmpty()) {
                     if (imageViewSend.getVisibility() != View.GONE) {
                         imageViewSend.setVisibility(View.GONE);
+                        greysendbtn.setVisibility(View.VISIBLE);
                         imageViewSend.animate().scaleX(0f).scaleY(0f).setDuration(100).setInterpolator(new LinearInterpolator()).start();
                     }
 
@@ -475,6 +477,7 @@ public class AudioRecordView  {
                 } else {
                     if (imageViewSend.getVisibility() != View.VISIBLE && !isLocked) {
                         imageViewSend.setVisibility(View.VISIBLE);
+                        greysendbtn.setVisibility(View.GONE);
                         imageViewSend.animate().scaleX(1f).scaleY(1f).setDuration(100).setInterpolator(new LinearInterpolator()).start();
                     }
 
@@ -596,7 +599,7 @@ public class AudioRecordView  {
 
     private void translateX(float x) {
 
-        if (isLayoutDirectionRightToLeft ? x > cancelOffset : x < -cancelOffset) {
+        if (isLayoutDirectionRightToLeft ? x < cancelOffset : x > -cancelOffset) {
             canceled();
             imageViewAudio.setTranslationX(0);
             layoutSlideCancel.setTranslationX(0);

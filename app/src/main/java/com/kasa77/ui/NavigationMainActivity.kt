@@ -250,7 +250,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
             toolbarTitle.text = "Support Chat"
             fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
             //bottomback.visibility = View.GONE
-           // startActivity(Intent(mContext, ChatBoardActivity::class.java))
+           // startActivity(Intent(mContext, ChatBoardActivity_old::class.java))
         }
     }
 

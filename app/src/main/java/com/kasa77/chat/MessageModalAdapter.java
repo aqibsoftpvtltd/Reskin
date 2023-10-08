@@ -62,7 +62,7 @@ public class MessageModalAdapter extends RecyclerView.Adapter<MessageModalAdapte
     private int playingPosition;
     private ChatViewHolder playingHolder;
 
-    private ChatBoardActivity fragment;
+    private ChatBoardActivity activity;
     /*type
     1 text
     2 image
@@ -70,9 +70,9 @@ public class MessageModalAdapter extends RecyclerView.Adapter<MessageModalAdapte
     4 audio*/
 
 
-    public MessageModalAdapter(Context mContext,ChatBoardActivity fragment,ArrayList<MessageModal> chatList) {
+    public MessageModalAdapter(Context mContext,ChatBoardActivity activity,ArrayList<MessageModal> chatList) {
         this.mContext = mContext;
-        this.fragment = fragment;
+        this.activity = activity;
         this.chatList = chatList;
         this.playingPosition = -1;
 
@@ -224,17 +224,17 @@ public class MessageModalAdapter extends RecyclerView.Adapter<MessageModalAdapte
                         holder.ivChatFile.setOnClickListener(v -> {
 
                             if (!TextUtils.isEmpty(chatList.get(hp).images)) {
-                                //ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(fragment, holder.ivChatFile, holder.ivChatFile.getTransitionName());
+                               // ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, holder.ivChatFile, holder.ivChatFile.getTransitionName());
 
                                 mContext.startActivity(new Intent(mContext, ViewImagesActivity.class)
                                         .putExtra("IMAGE_ID", chatList.get(hp).id)
-                                        .putExtra("IMAGE_PATH", ChatConstants.mediaBaseUrl + chatList.get(hp).images));
+                                        .putExtra("IMAGE_PATH", ChatConstants.mediaBaseUrl + chatList.get(hp).images)/*,options.toBundle()*/);
                             } else {
-                               // ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(fragment, holder.ivChatFile, holder.ivChatFile.getTransitionName());
+                              //  ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, holder.ivChatFile, holder.ivChatFile.getTransitionName());
 
                                 mContext.startActivity(new Intent(mContext, ViewImagesActivity.class)
                                         .putExtra("IMAGE_ID", chatList.get(hp).id)
-                                        .putExtra("IMAGE_PATH", chatList.get(hp).msgFile));
+                                        .putExtra("IMAGE_PATH", chatList.get(hp).msgFile)/*,options.toBundle()*/);
                             }
                         });
                     }
@@ -345,7 +345,7 @@ public class MessageModalAdapter extends RecyclerView.Adapter<MessageModalAdapte
                                 //                            .placeholder(R.drawable.image_placeholder)
                                 .into(holder.ivInChatFile);
                         holder.ivInChatFile.setOnClickListener(v -> {
-                          //  ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(fragment, holder.ivInChatFile, holder.ivInChatFile.getTransitionName());
+                            //ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, holder.ivInChatFile, holder.ivInChatFile.getTransitionName());
 
                             mContext.startActivity(new Intent(mContext, ViewImagesActivity.class)
                                     .putExtra("IMAGE_ID", chatList.get(hp).id)
@@ -378,7 +378,7 @@ public class MessageModalAdapter extends RecyclerView.Adapter<MessageModalAdapte
                             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                             @Override
                             public void onClick(View view) {
-                               // ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(fragment, holder.video_placeholder, holder.video_placeholder.getTransitionName());
+                              //  ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, holder.video_placeholder, holder.video_placeholder.getTransitionName());
 
                                 mContext.startActivity(new Intent(mContext, VideoPlayerActivity.class)
                                         .putExtra("VIDEO", chatList.get(hp).videos)/*,options.toBundle()*/);

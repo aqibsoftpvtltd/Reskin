@@ -2,9 +2,9 @@ package com.kasa77.chat.ui
 
 
 import android.Manifest
+import android.Manifest.permission
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.Activity.RESULT_OK
 import android.app.Dialog
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -20,16 +20,13 @@ import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -87,12 +84,8 @@ import java.net.URISyntaxException
 import java.text.SimpleDateFormat
 import java.util.*
 
-
-    class ChatBoardActivity : Fragment(), OnSocketListener {
-        private val baseActivity: BaseActivity = BaseActivity()
+class ChatBoardActivity_old : BaseActivity(), OnSocketListener {
     private lateinit var containerView: View
-        private lateinit var containerViews: View
-    //private var recordingView: AudioRecordView? = null
     private var recordingView: AudioRecordView? = null
     private lateinit var tv_add_fund: TextView
     private lateinit var tvUserStatus: TextView
@@ -134,47 +127,31 @@ import java.util.*
     private var userLoginName = ""
     private val RECORD_AUDIO_PERMISSION_REQUEST_CODE = 101
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    @SuppressLint("MissingPermission")
+    override fun onCreate(savedInstanceState: Bundle?) {
         EmojiManager.install(IosEmojiProvider())
-        //containerView = recordingView!!.setContainerView(R.layout.activity_chat_board)
-
-        containerViews = inflater.inflate(R.layout.activity_chatting, container, false)
-      //  containerView = recordingView!!.setContainerView(R.layout.activity_chat_board)
-
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_chatting)
         userLoginId =
-            AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
+            AppPreference.getStringPreference(this@ChatBoardActivity_old, Constant.USER_LOGIN_ID)
         userLoginName =
-            AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_USER_NAME)
-
-
+            AppPreference.getStringPreference(this@ChatBoardActivity_old, Constant.USER_LOGIN_USER_NAME)
 
 
         recordingView = AudioRecordView()
-        recordingView!!.initView(containerViews.findViewById(R.id.layoutMain) as FrameLayout)
+        // this is to make your layout the root of audio record view, root layout supposed to be empty..
+        // this is to make your layout the root of audio record view, root layout supposed to be empty..
+        // this is to make your layout the root of audio record view, root layout supposed to be empty..
+        recordingView!!.initView(findViewById<View>(R.id.layoutMain) as FrameLayout)
+        // this is to provide the container layout to the audio record view..
+        // this is to provide the container layout to the audio record view..
         containerView = recordingView!!.setContainerView(R.layout.activity_chat_board)
 
-
-
-
-        tv_add_fund = containerViews.findViewById(R.id.tv_add_fund)
-        tvUserStatus = containerViews.findViewById(R.id.tvUserStatus)
-        iv_call = containerViews.findViewById(R.id.iv_call)
-        rvChatMessage = containerViews.findViewById(R.id.rvChatMessage)
-        ll_loading1 = containerViews.findViewById(R.id.ll_loading1)
-
-    /*    userLoginId =
-            AppPreference.getStringPreference(context, Constant.USER_LOGIN_ID)
-        userLoginName =
-            AppPreference.getStringPreference(context, Constant.USER_LOGIN_USER_NAME)*/
-
-
-
-  /*      // this is to provide the container layout to the audio record view..
-        // this is to provide the container layout to the audio record view..
-        containerView = recordingView!!.setContainerView(R.layout.activity_chat_board)*/
+        tv_add_fund = containerView!!.findViewById<TextView>(R.id.tv_add_fund)
+        tvUserStatus = containerView!!.findViewById<TextView>(R.id.tvUserStatus)
+        iv_call = containerView!!.findViewById<ImageView>(R.id.iv_call)
+        rvChatMessage = containerView!!.findViewById<RecyclerView>(R.id.rvChatMessage)
+        ll_loading1 = containerView!!.findViewById<LinearLayout>(R.id.ll_loading1)
 
 
         initMessageListing()
@@ -188,15 +165,17 @@ import java.util.*
         getUpiFromAdmin()
 
         iv_call.setOnClickListener {
-            val string = AppPreference.getStringPreference(context, "PHONE")
+            val string = AppPreference.getStringPreference(this@ChatBoardActivity_old, "PHONE")
 
 
-            val permissionCheck: Int = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
-
+            val permissionCheck: Int =
+                ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
 
             if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(arrayOf(Manifest.permission.CALL_PHONE), 123)
-
+                ActivityCompat.requestPermissions(
+                    this, arrayOf<String>(Manifest.permission.CALL_PHONE),
+                    123
+                )
             } else {
                 startActivity(
                     Intent(Intent.ACTION_CALL)
@@ -205,22 +184,18 @@ import java.util.*
             }
 
         }
-
-        return containerViews
     }
 
-
-    @SuppressLint("MissingSuperCall")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        super<Fragment>.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         when (requestCode) {
             123 -> if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                val string = AppPreference.getStringPreference(context, "PHONE")
+                val string = AppPreference.getStringPreference(this@ChatBoardActivity_old, "PHONE")
 
                 startActivity(
                     Intent(Intent.ACTION_CALL)
@@ -236,101 +211,99 @@ import java.util.*
                 } else {
                     // The permission has been denied, handle this situation (e.g., show an explanation or disable audio-related features)
                 }
-             else -> {
-        }
+            else -> {
+            }
         }
     }
 
-        private fun initViews() {
-            // Uncomment the following lines if you want to handle click events in the fragment
-            /*
-            llPickCamera.setOnClickListener {
-                pickImageFromCamera()
-                isAttachOptionOpen = false
-            }
 
-            llPickGallery.setOnClickListener {
-                pickMultipleImages()
-                isAttachOptionOpen = false
-            }
+    private fun initViews() {
 
-            rlNav.setOnClickListener {
-                requireActivity().onBackPressed()
-            }
-            */
+        /*   llPickCamera.setOnClickListener {
+               pickImageFromCamera()
+               isAttachOptionOpen = false
 
-            audioPath = requireContext().externalCacheDir!!.absolutePath
+           }
 
-            /****************************************
-             * Manage Audio
-             ***************************************/
-            // You might want to initialize audio-related components here if necessary
-            // chatMessageList = dbHelper!!.getAllMessageFromDB()
+           llPickGallery.setOnClickListener {
+               pickMultipleImages()
+               isAttachOptionOpen = false
 
-            initRecordView()
-        }
+           }*/
+
+//        rlNav.setOnClickListener { onBackPressed() }
+
+        audioPath = this@ChatBoardActivity_old.externalCacheDir!!.absolutePath
+
+        /****************************************
+         * Manage Audio
+         ***************************************/
+//        chatMessageList = dbHelper!!.getAllMessageFromDB()
 
 
+        initRecordView()
+    }
 
+    private fun initMessageListing() {
 
-
-        private fun initMessageListing() {
-            dbHelper = DBHelper(requireContext()) // Use requireContext() to get the context of the fragment
-            chatMessageList = dbHelper!!.getAllMessageFromDB()
-
-            if (chatMessageList != null && chatMessageList.isNotEmpty()) {
-                for (i in 0 until chatMessageList.size) {
-                    if (chatMessageList[i].messType == 5) {
-                        broMessId = chatMessageList[i].id
+        dbHelper = DBHelper(this@ChatBoardActivity_old)
+        chatMessageList = dbHelper!!.getAllMessageFromDB()
+        if (chatMessageList != null)
+            if (chatMessageList.size > 0) {
+                for (i in 0..chatMessageList.size - 1) {
+                    if (chatMessageList.get(i).messType == 5) {
+                        broMessId = chatMessageList.get(i).id
                     } else {
-                        lastmessage_id = chatMessageList[i].id
+                        lastmessage_id = chatMessageList.get(i).id
                     }
                 }
             }
+//
 
-            // Uncomment the next line if needed
-             getUsersOldMessage()
-            // Otherwise, you can handle further logic here.
+//        if (!lastmessage_id.equals(""))
+        getUsersOldMessage()
+//        else
+//            finalizeMessageList()
+
+
+    }
+
+    private fun finalizeMessageList() {
+
+        recordingView!!.cancelButton.setOnClickListener {
+            hideReplyLayout()
         }
 
-
-        private fun finalizeMessageList() {
-            recordingView!!.cancelButton.setOnClickListener {
-                hideReplyLayout()
+        val messageSwipeController = MessageSwipeController(this, object : SwipeControllerActions {
+            override fun showReplyUI(position: Int) {
+                showQuotedMessage(chatMessageList[position])
             }
+        })
 
-            val messageSwipeController = MessageSwipeController(requireContext(), object : SwipeControllerActions {
-                override fun showReplyUI(position: Int) {
-                    showQuotedMessage(chatMessageList[position])
-                }
-            })
+        val itemTouchHelper = ItemTouchHelper(messageSwipeController)
+        itemTouchHelper.attachToRecyclerView(rvChatMessage)
 
-            val itemTouchHelper = ItemTouchHelper(messageSwipeController)
-            itemTouchHelper.attachToRecyclerView(rvChatMessage)
+       // chatAdapter = MessageModalAdapter(this@ChatBoardActivity_old, this, chatMessageList)
+        rvChatMessage.setHasFixedSize(true)
+        val layoutManager = LinearLayoutManager(this@ChatBoardActivity_old)
+        layoutManager.stackFromEnd = true
+        layoutManager.reverseLayout = false
+        rvChatMessage.layoutManager = layoutManager
+        rvChatMessage.adapter = chatAdapter
+        chatAdapter!!.notifyDataSetChanged()
 
-            chatAdapter = MessageModalAdapter(requireContext(), this, chatMessageList)
-
-
-            rvChatMessage.setHasFixedSize(true)
-            val layoutManager = LinearLayoutManager(requireContext())
-            layoutManager.stackFromEnd = true
-            layoutManager.reverseLayout = false
-            rvChatMessage.layoutManager = layoutManager
-            rvChatMessage.adapter = chatAdapter
-            chatAdapter!!.notifyDataSetChanged()
-
-            if (chatMessageList.size > 0) {
-                rvChatMessage.scrollToPosition(chatAdapter!!.itemCount - 1)
-            }
-
-            ll_loading1!!.visibility = View.GONE
+        if (chatMessageList.size > 0) {
+            rvChatMessage.scrollToPosition(chatAdapter!!.itemCount - 1)
         }
+
+        ll_loading1!!.visibility = View.GONE
+    }
 
     private fun showQuotedMessage(message: MessageModal) {
         selectedMessageForReply = message;
         recordingView!!.messageView.requestFocus()
         val inputMethodManager =
-            context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager?.showSoftInput(
             recordingView!!.messageView,
             InputMethodManager.SHOW_IMPLICIT
@@ -341,14 +314,14 @@ import java.util.*
             recordingView!!.imageQuote.visibility = View.GONE
             if (!TextUtils.isEmpty(message.msgFile)) {
                 recordingView!!.imageQuote.visibility = View.VISIBLE
-                Glide.with(Activity())
+                Glide.with(this@ChatBoardActivity_old)
                     .load(message.msgFile)
                     .centerCrop()
                     .into(recordingView!!.imageQuote)
             }
         } else {
             recordingView!!.imageQuote.visibility = View.VISIBLE
-            Glide.with(requireContext())
+            Glide.with(this@ChatBoardActivity_old)
                 .load(ChatConstants.mediaBaseUrl + message.images)
                 .centerCrop()
                 .into(recordingView!!.imageQuote)
@@ -381,13 +354,13 @@ import java.util.*
     }
 
     private fun prepareImagePicker(): ImagePicker {
-        val imagePicker = ImagePicker(activity)
+        val imagePicker = ImagePicker(this)
         imagePicker.setImagePickerCallback(myImagePickerCallback)
         return imagePicker
     }
 
     private fun prepareCameraImagePicker(): CameraImagePicker {
-        val imagePicker = CameraImagePicker(activity)
+        val imagePicker = CameraImagePicker(this)
         imagePicker.setImagePickerCallback(myImagePickerCallback)
         return imagePicker
     }
@@ -401,7 +374,7 @@ import java.util.*
             val path = chosenFile.originalPath
             val ext = chosenFile.fileExtensionFromMimeTypeWithoutDot
             if (ext == "jpeg" || ext == "jpg" || ext == "png") {
-                val intent = Intent(context, FullScreenImageActivity::class.java)
+                val intent = Intent(this@ChatBoardActivity_old, FullScreenImageActivity::class.java)
                 intent.putExtra("FROM", "create msg")
                 intent.putExtra("IMAGE_PATH", array);
                 startActivityForResult(intent, 211);
@@ -480,7 +453,7 @@ import java.util.*
                     val response = data.getStringExtra("response")
                     if (response == null) {
                         Alerts.AlertDialogWarning(
-                            context,
+                            this@ChatBoardActivity_old,
                             "Payment cancelled by user."
                         )
                         Log.d(
@@ -516,7 +489,7 @@ import java.util.*
                                     .equals("submitted")
                             ) {
 //                                Alerts.AlertDialogWarning(
-//                                    context,
+//                                    this@ChatBoardActivity_old,
 //                                    "Transaction is Pending. Please Contact with support if payment is deducted"
 //                                )
                                 autoPaymentApi(
@@ -528,7 +501,7 @@ import java.util.*
                                     .equals("pending")
                             ) {
 //                                Alerts.AlertDialogWarning(
-//                                    context,
+//                                    this@ChatBoardActivity_old,
 //                                    "Transaction is Pending. Please Contact with support if payment is deducted"
 //                                )
                                 autoPaymentApi(
@@ -538,7 +511,7 @@ import java.util.*
                                 )
                             } else {
                                 Alerts.AlertDialogWarning(
-                                    context,
+                                    this@ChatBoardActivity_old,
                                     "Transaction failed.Please try again"
                                 )
                             }
@@ -548,7 +521,7 @@ import java.util.*
                                 e.message.toString()
                             )
                             Alerts.AlertDialogWarning(
-                                context,
+                                this@ChatBoardActivity_old,
                                 "Transaction failed.Please try again"
                             )
                         }
@@ -559,7 +532,7 @@ import java.util.*
                         "Intent Data is null. User cancelled"
                     )
                     Alerts.AlertDialogWarning(
-                        context,
+                        this@ChatBoardActivity_old,
                         "Payment cancelled by user."
                     )
                 }
@@ -569,17 +542,17 @@ import java.util.*
                 val response = data!!.getStringExtra("response")
                 if (response.equals("success", true)) {
                     Alerts.AlertDialogWarning(
-                        context,
+                        this@ChatBoardActivity_old,
                         "Transaction Success.\nPoints Added To Your Wallet"
                     )
                 } else if (response.equals("failure", true)) {
                     Alerts.AlertDialogWarning(
-                        context,
+                        this@ChatBoardActivity_old,
                         "Transaction failed.Please try again"
                     )
                 } else {
                     Alerts.AlertDialogWarning(
-                        context,
+                        this@ChatBoardActivity_old,
                         "Transaction Cancelled By User"
                     )
                 }
@@ -659,7 +632,7 @@ import java.util.*
     }
 
     private fun showToast(msg: String) {
-        Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+        Toast.makeText(this@ChatBoardActivity_old, msg, Toast.LENGTH_LONG).show()
     }
 
     /*******************************************************
@@ -672,46 +645,44 @@ import java.util.*
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             // Check if the permission has been granted
             if (ContextCompat.checkSelfPermission(
-                    requireContext(),
+                    this@ChatBoardActivity_old,
                     Manifest.permission.READ_EXTERNAL_STORAGE
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 // If not granted, request the permission
-                requestPermissions(
+                ActivityCompat.requestPermissions(
+                    this@ChatBoardActivity_old,
                     arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                     RECORD_AUDIO_PERMISSION_REQUEST_CODE
                 )
-                return
+                return;
             }
         } else {
             if (ContextCompat.checkSelfPermission(
-                    requireContext(),
+                    this@ChatBoardActivity_old,
                     Manifest.permission.READ_EXTERNAL_STORAGE
                 ) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(
-                    requireContext(),
+                    this@ChatBoardActivity_old,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
-                // If not granted, request the permissions
-                requestPermissions(
-                    arrayOf(
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    ),
+                // If not granted, request the permission
+                ActivityCompat.requestPermissions(
+                    this@ChatBoardActivity_old,
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE),
                     RECORD_AUDIO_PERMISSION_REQUEST_CODE
                 )
-                return
+                return;
             }
         }
-
         recordingView!!.recordingListener = recordingViewListener
 
         recordingView!!.attachmentView.setOnClickListener {
             //            if (!isAttachOptionOpen) {
 //                isAttachOptionOpen = true
             AttachImageDialog.ImageChooserDialog(
-                context,
+                this@ChatBoardActivity_old,
                 "",
                 object : AttachImageDialog.OnChooseImageSource {
                     override fun onCamera() {
@@ -796,18 +767,17 @@ import java.util.*
 
     private val recordingViewListener = object : AudioRecordView.RecordingListener {
 
-        @SuppressLint("WrongConstant")
         override fun onRecordingStarted() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 // Check if the permission has been granted
                 if (ContextCompat.checkSelfPermission(
-                        requireContext(),
+                        this@ChatBoardActivity_old,
                         Manifest.permission.RECORD_AUDIO
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
                     // If not granted, request the permission
                     ActivityCompat.requestPermissions(
-                        requireActivity(),
+                        this@ChatBoardActivity_old,
                         arrayOf(Manifest.permission.RECORD_AUDIO),
                         RECORD_AUDIO_PERMISSION_REQUEST_CODE
                     )
@@ -853,12 +823,11 @@ import java.util.*
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 // Check if the permission has been granted
                 if (ContextCompat.checkSelfPermission(
-                        requireActivity(),
+                        this@ChatBoardActivity_old,
                         Manifest.permission.RECORD_AUDIO
                     ) != PackageManager.PERMISSION_GRANTED
-                )
-                {
-                return;
+                ) {
+                    return;
                 }
             }
             if (myAudioRecorder != null) {
@@ -922,7 +891,26 @@ import java.util.*
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    public override fun onPause() {
+        super.onPause()
+        try {
+            chatAdapter!!.stopPlayer()
+        } catch (e: Exception) {
+        }
+        if (myAudioRecorder != null) {
+            myAudioRecorder!!.release()
+            myAudioRecorder = null
+        }
 
+        val jsonObject = JSONObject()
+        jsonObject.put("userId", userLoginId)
+        jsonObject.put("status", "Offline")
+        mSocket!!.emit("userOnlineStatus", jsonObject)
+
+        LocalBroadcastManager.getInstance(this)
+            .unregisterReceiver(mMessageReceiver)
+    }
 
 
     private fun uploadImageToServer(
@@ -938,11 +926,9 @@ import java.util.*
             "productImage",
             currentCompressedImageFile!!.name, bodyProfilePicture
         )
-        if (requireActivity() is BaseActivity) {
-            val baseActivity = requireActivity() as BaseActivity
-            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
-            RetrofitServiceFileUpload.fileUploadResponse(context,
-                baseActivity.retrofitApiClientFile!!.uploadMediaFile(imageFilePart), object : WebResponse {
+        if (cd!!.isNetworkAvailable) {
+            RetrofitServiceFileUpload.fileUploadResponse(this,
+                retrofitApiClientFile!!.uploadMediaFile(imageFilePart), object : WebResponse {
                     override fun onResponseSuccess(result: Response<*>?) {
                         val mediaFileModel = result!!.body() as MediaFileModel
                         chatMessage.messFileUrl = mediaFileModel.filename
@@ -955,10 +941,10 @@ import java.util.*
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(requireContext(), error.toString())
+                        Alerts.serverError(mContext, error.toString())
                     }
                 })
-        }}
+        }
 
     }
 
@@ -970,11 +956,9 @@ import java.util.*
             audioFile.name, bodyProfilePicture
         )
 
-        if (requireActivity() is BaseActivity) {
-            val baseActivity = requireActivity() as BaseActivity
-            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
+        if (cd!!.isNetworkAvailable) {
             RetrofitServiceFileUpload.fileUploadResponse(null,
-                baseActivity.retrofitApiClientFile!!.uploadMediaFile(imageFilePart), object : WebResponse {
+                retrofitApiClientFile!!.uploadMediaFile(imageFilePart), object : WebResponse {
                     override fun onResponseSuccess(result: Response<*>?) {
                         val mediaFileModel = result!!.body() as MediaFileModel
                         chatMessage.messFileUrl = mediaFileModel.filename
@@ -988,10 +972,10 @@ import java.util.*
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(requireContext(), error.toString())
+                        Alerts.serverError(mContext, error.toString())
                     }
                 })
-        }}
+        }
 
     }
 
@@ -1006,21 +990,18 @@ import java.util.*
     //step socket for chat
     private fun initSocketSetup() {
         try {
-            val baseActivity = requireActivity() as BaseActivity
-            mSocket = (baseActivity.application as? ChatApplication)?.getSocket()
-            if (mSocket?.connected() == true) {
-                mSocket?.on(ChatConstants.KEY_ADMIN_ONLINE_STATUS_RETURN, adminOnlineStatus)
-                // Request current Admin status
-                val jsonObject = JSONObject()
-                jsonObject.put("userId", userLoginId)
-                mSocket?.emit(ChatConstants.KEY_ADMIN_ONLINE_STATUS, jsonObject)
+            mSocket = (application as? ChatApplication)?.getSocket()
+            if (mSocket!!.connected()) {
+                mSocket!!.on(ChatConstants.KEY_ADMIN_ONLINE_STATUS_RETURN, adminOnlineStatus)
+                //request current Admin status
+                mSocket!!.emit(ChatConstants.KEY_ADMIN_ONLINE_STATUS, userLoginId)
             }
         } catch (e: URISyntaxException) {
             e.printStackTrace()
-        } catch (e: JSONException) {
-            e.printStackTrace()
         }
+
     }
+
 
     private fun stopSocketConnections() {
         if (mSocket!!.connected()) {
@@ -1036,63 +1017,47 @@ import java.util.*
         mSocket!!.emit(ChatConstants.KEY_USER_ONLINE_STATUS_RETURN, jsonObject)
     }
 
-        private val adminOnlineStatus = Emitter.Listener { args ->
-            requireActivity().runOnUiThread {
-                try {
-                    Log.e("SOCKET", "Getting current admin online status")
-                    val onlineStatus = args[0] as String
-                    Log.e("SOCKET", "Getting current admin online status: $onlineStatus")
-                    // Admin is online
-                    tvUserStatus.visibility = View.VISIBLE
-                    tvUserStatus.text = onlineStatus
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
-        }
-        override fun onPause() {
-            super.onPause()
+    private val adminOnlineStatus = Emitter.Listener { args ->
+        runOnUiThread {
             try {
-                chatAdapter?.stopPlayer()
+                Log.e("SOCKET", "Getting current admin online status")
+                val onlineStatus = args[0] as String
+                Log.e("SOCKET", "Getting current admin online status" + onlineStatus)
+                //Admin is online
+                tvUserStatus.visibility = View.VISIBLE
+                tvUserStatus.text = onlineStatus;
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-            myAudioRecorder?.release()
-            myAudioRecorder = null
-
-            val jsonObject = JSONObject()
-            jsonObject.put("userId", userLoginId)
-            jsonObject.put("status", "Offline")
-            mSocket?.emit("userOnlineStatus", jsonObject)
-
-            LocalBroadcastManager.getInstance(requireContext())
-                .unregisterReceiver(mMessageReceiver)
         }
-
-        override fun onResume() {
-            super.onResume()
-            getUpiFromAdmin()
-            (requireActivity().application as? ChatApplication)?.onSocketListener = this
-            ChatConstants.MY_ONLINE_STATUS = "Online"
-            initSocketSetup()
-            LocalBroadcastManager.getInstance(requireContext()).registerReceiver(
-                mMessageReceiver,
-                IntentFilter("Notification")
-            )
-        }
-
-        override fun onDestroy() {
-            super.onDestroy()
-            ChatConstants.MY_ONLINE_STATUS = "Offline"
-            ChatConstants.CHAT_COUNTER = 0
-            stopSocketConnections()
-            (requireActivity().application as? ChatApplication)?.onSocketListener = null
-        }
+    }
 
 
+    override fun onResume() {
+        super.onResume()
+        getUpiFromAdmin()
+        (application as? ChatApplication)?.onSocketListener = this@ChatBoardActivity_old
+        ChatConstants.MY_ONLINE_STATUS = "Online"
+        initSocketSetup()
+        LocalBroadcastManager.getInstance(this).registerReceiver(
+            (mMessageReceiver),
+            IntentFilter("Notification")
+        );
 
-        override fun onReceiveMsg(msgData: MessageModal) {
-//        Toast.makeText(context, msgData, Toast.LENGTH_SHORT).show()
+    }
+
+
+    override fun onDestroy() {
+        ChatConstants.MY_ONLINE_STATUS = "Offline"
+        ChatConstants.CHAT_COUNTER = 0
+        stopSocketConnections()
+        (application as? ChatApplication)?.onSocketListener = null
+        super.onDestroy()
+
+    }
+
+    override fun onReceiveMsg(msgData: MessageModal) {
+//        Toast.makeText(this@ChatBoardActivity_old, msgData, Toast.LENGTH_SHORT).show()
         if (msgData != null) {
             if (msgData.messType == 2) {
                 chatMessageList.add(msgData)
@@ -1108,13 +1073,13 @@ import java.util.*
     }
 
     override fun onDeleteUserMsg(msgData: String) {
-//        Toast.makeText(context, msgData, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this@ChatBoardActivity_old, msgData, Toast.LENGTH_SHORT).show()
         chatMessageList.clear();
         chatAdapter!!.notifyDataSetChanged()
     }
 
     override fun onDeleteAllMsg(msgData: String) {
-//        Toast.makeText(context, msgData, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this@ChatBoardActivity_old, msgData, Toast.LENGTH_SHORT).show()
         chatMessageList.clear();
         chatAdapter!!.notifyDataSetChanged()
     }
@@ -1157,92 +1122,7 @@ import java.util.*
 
     }
 
-        private fun getUsersOldMessage() {
-            val mObject = JSONObject()
-            mObject.put("messId", lastmessage_id)
-            mObject.put("userId", userLoginId)
-            mObject.put("broMessId", broMessId)
 
-            val body = RequestBody.create(
-                "application/json; charset=utf-8".toMediaTypeOrNull(),
-                mObject.toString()
-            )
-
-            ChatRetrofitService.getServerResponse(
-                requireContext(),
-                null,
-                ChatRetrofitService.getRetrofit()?.getOldMessages(body),
-                object : WebResponse {
-                    @SuppressLint("SetTextI18n")
-                    override fun onResponseSuccess(result: Response<*>?) {
-                        val response = result?.body() as ResponseBody
-                        val jsonObject = JSONObject(response.string())
-                        val gson = Gson()
-                        val messageModallist = gson.fromJson(jsonObject.toString(), GetOldMessages::class.java)
-                        println("HELLOOO     : ${jsonObject.toString()}")
-
-                        if (jsonObject.getBoolean("status")) {
-                            for (msgData in messageModallist.messageList) {
-                                if (!msgData!!.images.isEmpty() && !msgData!!.androidMessage.isEmpty()) {
-                                    Log.e("SOCKET", "image+text message")
-                                    msgData.msgContentType = 3 // image+text message
-                                } else if (!msgData!!.images.isEmpty() && msgData!!.androidMessage.isEmpty() && msgData!!.audios.isEmpty()) {
-                                    Log.e("SOCKET", "image")
-                                    msgData.msgContentType = 2 // image
-                                } else if (msgData!!.images.isEmpty() && !msgData!!.androidMessage.isEmpty() && msgData!!.audios.isEmpty() && msgData!!.videos.isNullOrEmpty()) {
-                                    Log.e("SOCKET", "text message")
-                                    msgData.msgContentType = 1 // text
-                                } else if (msgData!!.images.isEmpty() && msgData!!.androidMessage.isEmpty() && !msgData!!.audios.isEmpty()) {
-                                    Log.e("SOCKET", "audio message")
-                                    msgData.msgContentType = 4 // audio
-                                } else if (!msgData!!.videos.isNullOrEmpty()) {
-                                    Log.e("SOCKET", "videos message")
-                                    msgData.msgContentType = 6 // videos
-                                }
-
-                                if (msgData.messStatus != 3) {
-                                    chatMessageList.add(msgData)
-                                    dbHelper!!.addMessageToDb(msgData)
-                                } else {
-                                    dbHelper!!.updateMessageInDbById(msgData)
-                                    for (i in 0 until chatMessageList.size) {
-                                        if (msgData.id.equals(chatMessageList[i].id)) {
-                                            chatMessageList[i] = msgData
-                                        }
-                                    }
-                                }
-                            }
-
-                            for (deletedmsgData in messageModallist.deleteMessageList) {
-                                for (i in 0 until chatMessageList.size) {
-                                    if (deletedmsgData.id.equals(chatMessageList[i].id)) {
-                                        chatMessageList[i].messStatus = 3
-                                        dbHelper!!.updateMessageInDbById(chatMessageList[i])
-                                    }
-                                }
-                            }
-
-                            if (messageModallist.allMessageListStatus) {
-                                chatMessageList.clear()
-                                dbHelper!!.deleteAllChatFromDb()
-                            }
-
-                            notifyBroadcastMessage(messageModallist.oldBroadcastMessage)
-                            finalizeMessageList()
-                        }
-                    }
-
-                    override fun onResponseFailed(error: String?) {
-                        Log.e("RESPINSE", error.toString())
-                        Alerts.serverError(requireContext(), error.toString())
-                    }
-                }
-            )
-        }
-
-
-
-/*
     private fun getUsersOldMessage() {
         val mObject = JSONObject()
         mObject.put("messId", lastmessage_id)
@@ -1253,7 +1133,7 @@ import java.util.*
             (mObject).toString()
         )
         ChatRetrofitService.getServerResponse(
-            context,
+            this@ChatBoardActivity_old,
             null,
             ChatRetrofitService.getRetrofit()?.getOldMessages(body),
             object : WebResponse {
@@ -1321,14 +1201,13 @@ import java.util.*
 
                 override fun onResponseFailed(error: String?) {
                     Log.e("RESPINSE", error.toString())
-                    Alerts.serverError(context, error.toString())
+                    Alerts.serverError(this@ChatBoardActivity_old, error.toString())
                 }
             })
     }
-*/
 
-    fun onBackPressed() {
-    //    super.onBackPressed()
+    override fun onBackPressed() {
+        super.onBackPressed()
         ChatConstants.CHAT_COUNTER = 0
     }
 
@@ -1366,7 +1245,7 @@ import java.util.*
             startUpiBottomSheet(uri, appNames)
         else {
             Alerts.AlertDialogUPIApp(
-                context!!,
+                this@ChatBoardActivity_old!!,
                 "No UPI app found,\nPlease Download Google-Pay app to continue"
             )
         }
@@ -1378,7 +1257,7 @@ import java.util.*
              startActivityForResult(chooser, UPI_PAYMENT)
          } else {
              Toast.makeText(
-                 context,
+                 this@ChatBoardActivity_old,
                  "No UPI app found, please install one to continue",
                  Toast.LENGTH_SHORT
              ).show()
@@ -1386,30 +1265,33 @@ import java.util.*
 
     }
 
-        private fun startUpiBottomSheet(uri: Uri, appNames: ArrayList<String>) {
-            val bundle = Bundle()
-            bundle.putString("uri", uri.toString())
-            bundle.putStringArrayList("ARG_UPI_APPS_LIST", appNames)
+    private fun startUpiBottomSheet(
+        uri: Uri,
+        appNames: ArrayList<String>
+    ) {
 
-            val upiBottomSheet = UpiBottomSheet()
-            upiBottomSheet.arguments = bundle
-            upiBottomSheet.setListener(object : UpiBottomSheet.OnUpiTypeSelectedListener {
-                override fun onUpiAppClosed() {
-                    // Handle app closed event if needed
-                }
+        val bundle = Bundle()
+        bundle.putString("uri", uri.toString())
+        bundle.putStringArrayList("ARG_UPI_APPS_LIST", appNames)
 
-                override fun onUpiAppSelected(data: ResolveInfo) {
-                    val selectedApp = data.loadLabel(requireContext().packageManager).toString().toLowerCase()
-                    val paymentIntent = Intent(Intent.ACTION_VIEW)
-                    paymentIntent.data = uri
-                    paymentIntent.setPackage(data.activityInfo.packageName)
-                    startActivityForResult(paymentIntent, UPI_PAYMENT)
-                }
-            })
-            upiBottomSheet.isCancelable = false
-            upiBottomSheet.show(childFragmentManager, UpiBottomSheet::class.java.simpleName)
-        }
+        val upiBottomSheet = UpiBottomSheet()
+        upiBottomSheet.arguments = bundle
+        upiBottomSheet.setListener(object : UpiBottomSheet.OnUpiTypeSelectedListener {
+            override fun onUpiAppClosed() {
 
+            }
+
+            override fun onUpiAppSelected(data: ResolveInfo) {
+                selectedApp = data.loadLabel(packageManager).toString().toLowerCase()
+                val paymentIntent = Intent(Intent.ACTION_VIEW)
+                paymentIntent.data = uri
+                paymentIntent.setPackage(data.activityInfo.packageName)
+                startActivityForResult(paymentIntent, UPI_PAYMENT)
+            }
+        })
+        upiBottomSheet.isCancelable = false
+        upiBottomSheet.show(supportFragmentManager, UpiBottomSheet::class.java.simpleName)
+    }
 
     internal val UPI_PAYMENT = 0
 
@@ -1442,14 +1324,11 @@ import java.util.*
         }
     }
 
-/*
     private fun getUpiFromAdmin() {
 
-        if (requireActivity() is BaseActivity) {
-            val baseActivity = requireActivity() as BaseActivity
-            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
-            val userLoginId = AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
-            val upiLastId = AppPreference.getStringPreference(requireContext(), Constant.UPI_LAST_ID)
+        if (cd!!.isNetworkAvailable) {
+            val userLoginId = AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_ID)
+            val upiLastId = AppPreference.getStringPreference(mContext, Constant.UPI_LAST_ID)
             val mObject = JSONObject()
             mObject.put("last_id", upiLastId)
 
@@ -1459,7 +1338,7 @@ import java.util.*
             )
             AuthHeaderRetrofitService.getServerResponse(
                 null,
-                baseActivity.retrofitApiClientAuth.getUPI(body),
+                retrofitApiClientAuth.getUPI(body),
                 object : WebResponse {
                     @SuppressLint("SetTextI18n")
                     override fun onResponseSuccess(result: Response<*>?) {
@@ -1470,15 +1349,15 @@ import java.util.*
                         if (jsonresponse.optInt("status") == 1) {
                             val id = jsonresponse.optString("id")
                             adminUpiID = jsonresponse.optString("data")
-                            AppPreference.setStringPreference(requireContext(), Constant.UPI_LAST_ID, id)
+                            AppPreference.setStringPreference(mContext, Constant.UPI_LAST_ID, id)
                             AppPreference.setStringPreference(
-                                requireContext(),
+                                mContext,
                                 Constant.UPI_Name,
                                 adminUpiID
                             )
 //                            tv_add_fund.visibility = View.VISIBLE
                         } else {
-//                            Alerts.show(context, jsonresponse.optString("message"))
+//                            Alerts.show(this@ChatBoardActivity_old, jsonresponse.optString("message"))
 //                            tv_add_fund.visibility = View.GONE
                         }
 
@@ -1487,80 +1366,31 @@ import java.util.*
 
                     override fun onResponseFailed(error: String?) {
 //                        tv_add_fund.visibility = View.GONE
-                        Alerts.serverError(context, error.toString())
+                        Alerts.serverError(this@ChatBoardActivity_old, error.toString())
                     }
 
                 })
         }
-            }
     }
-*/
 
 
-        private fun getUpiFromAdmin() {
-            val userLoginId = AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
-            val upiLastId = AppPreference.getStringPreference(requireContext(), Constant.UPI_LAST_ID)
-            val mObject = JSONObject()
-            mObject.put("last_id", upiLastId)
-
-            val body = RequestBody.create(
-                "application/json; charset=utf-8".toMediaTypeOrNull(),
-                mObject.toString()
-            )
-
-            AuthHeaderRetrofitService.getServerResponse(
-                null,
-                (requireActivity() as BaseActivity).retrofitApiClientAuth.getUPI(body),
-                object : WebResponse {
-                    @SuppressLint("SetTextI18n")
-                    override fun onResponseSuccess(result: Response<*>?) {
-                        val response = result?.body() as ResponseBody
-                        val jsonresponse = JSONObject(response.string())
-                        Log.e("OnResponse", jsonresponse.toString())
-
-                        if (jsonresponse.optInt("status") == 1) {
-                            val id = jsonresponse.optString("id")
-                            adminUpiID = jsonresponse.optString("data")
-                            AppPreference.setStringPreference(requireContext(), Constant.UPI_LAST_ID, id)
-                            AppPreference.setStringPreference(
-                                requireContext(),
-                                Constant.UPI_Name,
-                                adminUpiID
-                            )
-                            // You can update UI components within the fragment here
-                        } else {
-                            // Handle the case where the status is not 1 (e.g., show an error message)
-                        }
-                    }
-
-                    override fun onResponseFailed(error: String?) {
-                        // Handle the response failure (e.g., show an error message)
-                        Alerts.serverError(requireContext(), error.toString())
-                    }
-                }
-            )
-        }
-
-
-        private fun autoPaymentApi(
+    private fun autoPaymentApi(
         transactiondId: String,
         reference_id: String,
         amount: String,
         paymentStatus: String
     ) {
 
-        if (requireActivity() is BaseActivity) {
-            val baseActivity = requireActivity() as BaseActivity
-            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
-            val userLoginId = AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
+        if (cd!!.isNetworkAvailable) {
+            val userLoginId = AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_ID)
             val mObject = JSONObject()
             mObject.put("userId", userLoginId)
             mObject.put("transactiondId", transactiondId)
             mObject.put("reference_id", reference_id)
             mObject.put("amount", amount)
             mObject.put("transaction_mode", "UPI")
-            mObject.put("UPI_name", AppPreference.getStringPreference(requireContext(), Constant.UPI_Name))
-            mObject.put("UPI_id", AppPreference.getStringPreference(requireContext(), Constant.UPI_LAST_ID))
+            mObject.put("UPI_name", AppPreference.getStringPreference(mContext, Constant.UPI_Name))
+            mObject.put("UPI_id", AppPreference.getStringPreference(mContext, Constant.UPI_LAST_ID))
             mObject.put("payment_status", paymentStatus)
             mObject.put("app", selectedApp)
             val body = RequestBody.create(
@@ -1568,8 +1398,8 @@ import java.util.*
                 (mObject).toString()
             )
             AuthHeaderRetrofitService.getServerResponse(
-                Dialog(requireContext()),
-                baseActivity.retrofitApiClientAuth.autoPaymentUpi(body),
+                Dialog(this@ChatBoardActivity_old),
+                retrofitApiClientAuth.autoPaymentUpi(body),
                 object : WebResponse {
                     @SuppressLint("SetTextI18n")
                     override fun onResponseSuccess(result: Response<*>?) {
@@ -1578,20 +1408,20 @@ import java.util.*
                         Log.e("OnResponse", jsonresponse.toString())
                         fundrequestamount = ""
                         Alerts.AlertDialogSuccess(
-                            context,
+                            this@ChatBoardActivity_old,
                             jsonresponse.optString("message")
                         )
 
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(context, error.toString())
+                        Alerts.serverError(this@ChatBoardActivity_old, error.toString())
                         fundrequestamount = ""
                     }
 
                 }
             )
-        }}
+        }
     }
 
 //    private fun dialogBoxMessage(string: String, s: String) {
@@ -1622,7 +1452,7 @@ import java.util.*
 
 
     private fun dialogRequestFund() {
-        val dialogBuilder = requireActivity().let { AlertDialog.Builder(it) }
+        val dialogBuilder = mContext?.let { AlertDialog.Builder(it) }
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.dialog_request_fund, null)
         dialogBuilder?.setView(dialogView)
@@ -1656,15 +1486,13 @@ import java.util.*
         val userObject = JSONObject()
         userObject.put("amount", amount)
 
-        if (requireActivity() is BaseActivity) {
-            val baseActivity = requireActivity() as BaseActivity
-            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
+        if (cd!!.isNetworkAvailable) {
             val body = RequestBody.create(
                 "application/json; charset=utf-8".toMediaTypeOrNull(),
                 (userObject).toString()
             )
-            RetrofitService.getServerResponse(requireContext(),
-                Dialog(requireContext()), baseActivity.retrofitApiClient!!.getMinMaxFunding(body),
+            RetrofitService.getServerResponse(this,
+                Dialog(this), retrofitApiClient!!.getMinMaxFunding(body),
                 object : WebResponse {
                     override fun onResponseSuccess(result: Response<*>?) {
                         var msg: ResponseBody = result!!.body() as ResponseBody
@@ -1678,7 +1506,7 @@ import java.util.*
 
                             } else
                                 Alerts.AlertDialogWarning(
-                                    context,
+                                    this@ChatBoardActivity_old,
 
                                     responseObject.getString("message")
                                 )
@@ -1688,10 +1516,10 @@ import java.util.*
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(context, error.toString())
+                        Alerts.serverError(this@ChatBoardActivity_old, error.toString())
                     }
                 })
-        }}
+        }
     }
 
 
@@ -1709,11 +1537,10 @@ import java.util.*
 
     private fun notifyBroadcastMessage(oldBroadcastMessage: List<MessageModal>) {
         for (i in 0..oldBroadcastMessage.size - 1) {
-            val baseActivity = requireActivity() as BaseActivity
-            baseActivity.runOnUiThread {
+            runOnUiThread {
                 try {
                     val my_userid =
-                        AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
+                        AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_ID)
                     Log.e("SOCKET", "Receive Message")
                     Log.e("SOCKET", oldBroadcastMessage.get(i).id)
 //                    {"_id":"5e4d1f37e46d280018b3dfc5","message":"tsetsete","dateTime":"2020-02-19 05:12 pm","dateTimestamp":"1582112567"}
@@ -1796,12 +1623,10 @@ import java.util.*
     }
 
     private fun getPaymentMode(amount: String) {
-        if (requireActivity() is BaseActivity) {
-            val baseActivity = requireActivity() as BaseActivity
-            if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
+        if (cd!!.isNetworkAvailable) {
             AuthHeaderRetrofitService.getServerResponse(
-                Dialog(requireContext()),
-                baseActivity.retrofitApiClientAuth.paymentMode,
+                Dialog(this@ChatBoardActivity_old),
+                retrofitApiClientAuth.paymentMode,
                 object : WebResponse {
                     @SuppressLint("SetTextI18n")
                     override fun onResponseSuccess(result: Response<*>?) {
@@ -1842,7 +1667,7 @@ import java.util.*
                                             paymentMode.data.get(paymentTypes).redirectURL.toString()
                                         startActivityForResult(
                                             Intent(
-                                                context,
+                                                this@ChatBoardActivity_old,
                                                 NetBankingActivity::class.java
                                             ).putExtra("URL", url), 1000
                                         )
@@ -1852,7 +1677,7 @@ import java.util.*
 
                             } else {
                                 Alerts.AlertDialogWarning(
-                                    context,
+                                    this@ChatBoardActivity_old,
                                     jsonresponse.optString("message")
                                 )
                             }
@@ -1860,7 +1685,7 @@ import java.util.*
 
                         } else {
                             Alerts.AlertDialogWarning(
-                                context,
+                                this@ChatBoardActivity_old,
                                 jsonresponse.optString("message")
                             )
 
@@ -1868,18 +1693,18 @@ import java.util.*
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.show(context, "Server Error" + error!!)
+                        Alerts.show(this@ChatBoardActivity_old, "Server Error" + error!!)
                     }
 
                 })
-        }}
+        }
     }
 
     private fun dialogPaymentMode(
         paymentmode: PaymentMode,
         amount: String
     ) {
-        val dialogBuilder = context?.let { AlertDialog.Builder(it) }
+        val dialogBuilder = mContext?.let { AlertDialog.Builder(it) }
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.dialog_payment_mode, null)
         dialogBuilder?.setView(dialogView)
@@ -1918,7 +1743,7 @@ import java.util.*
         ll_netbanking.setOnClickListener {
             alertDialog.dismiss()
             startActivityForResult(
-                Intent(context, NetBankingActivity::class.java).putExtra(
+                Intent(this@ChatBoardActivity_old, NetBankingActivity::class.java).putExtra(
                     "URL",
                     url
                 ), 1000
@@ -1933,6 +1758,4 @@ import java.util.*
         alertDialog.show()
     }
 
-
-    }
-
+}
