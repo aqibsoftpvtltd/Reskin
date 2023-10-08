@@ -123,23 +123,6 @@
 
 
 
-    <TextView
-        android:id="@+id/tvText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@drawable/game_date_type_bg"
-        android:fontFamily="@font/glacial_bold"
-        android:padding="5dp"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        android:text="Starline game"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/new_colorAccent"
-        android:textSize="@dimen/text_18"
-        android:textStyle="bold"
-        android:visibility="gone" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -190,6 +173,7 @@
         android:orientation="vertical">
 
 
+<!--
         <LinearLayout
             android:paddingVertical="@dimen/_6sdp"
             android:id="@+id/llDate"
@@ -198,7 +182,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginHorizontal="@dimen/_15sdp"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -228,6 +212,7 @@
                 android:visibility="visible" />
 
         </LinearLayout>
+-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -257,6 +242,23 @@
                     android:textColor="@color/textPrimary"
                     android:textSize="@dimen/text_18"
                     android:visibility="gone" />
+                <TextView
+                    android:id="@+id/tvText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    android:fontFamily="@font/dmsansbold"
+                    android:padding="5dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"
+                    android:text="Starline game"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/new_colorAccent"
+                    android:textSize="@dimen/text_18"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
 
 
                 <androidx.recyclerview.widget.RecyclerView

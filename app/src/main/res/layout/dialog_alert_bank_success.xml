@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="25dp"
-    android:orientation="vertical"
-    app:cardCornerRadius="35dp">
+    android:layout_height="wrap_content">
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-android:padding="15dp"
+        android:background="@drawable/pop_up_bank"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:padding="15dp"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
@@ -20,19 +22,29 @@ android:padding="15dp"
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/regular"
+            android:fontFamily="@font/dmsansbold"
             android:gravity="center"
-
-            android:drawableLeft="@drawable/check_mark"
-            android:drawablePadding="10dp"
+            android:layout_marginTop="@dimen/_40sdp"
             android:layout_gravity="center_horizontal"
-            android:text="Successfully"
+            android:text="Bank Account Added Successfully"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_16" />
+            android:textSize="@dimen/_14sdp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dmsansbold"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_gravity="center_horizontal"
+            android:text="Now you can add or withdraw funds\nfrom this account"
+            android:textColor="@color/extra_light_grey_text_color"
+            android:textSize="@dimen/_10sdp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/space_15"
+            android:visibility="gone"
             android:gravity="center_vertical"
             android:background="@drawable/rounded_black_stroke"
             android:orientation="vertical"
@@ -209,6 +221,7 @@ android:padding="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
             android:orientation="horizontal"
             >
 
@@ -216,16 +229,16 @@ android:padding="15dp"
             <androidx.appcompat.widget.AppCompatButton
 
                 android:id="@+id/btn_ok"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:layout_margin="3dp"
 
-                android:background="@drawable/ractengle_gradian_round_edge"
+               android:background="@color/transparent"
                 android:fontFamily="@font/regular"
-                android:text="Save"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_14" />
+                android:text="GO BACK TO PAYMENT"
+                android:textAllCaps="true"
+                android:textColor="@color/appColor"
+                android:textSize="@dimen/_10sdp" />
 
 
 
@@ -234,4 +247,12 @@ android:padding="15dp"
     </LinearLayout>
 
 
-</androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/success_orange"
+        android:layout_centerHorizontal="true">
+
+    </ImageView>
+</RelativeLayout>

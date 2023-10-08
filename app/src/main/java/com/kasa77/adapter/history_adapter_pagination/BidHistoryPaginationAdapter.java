@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,10 +26,13 @@ public class BidHistoryPaginationAdapter extends RecyclerView.Adapter<BidHistory
 
     private Context mContext;
     private List<RecordsItem> recordsItems;
+    String color;
 
-    public BidHistoryPaginationAdapter(Context mContext, List<RecordsItem> recordsItems) {
+
+    public BidHistoryPaginationAdapter(Context mContext, List<RecordsItem> recordsItems,String color) {
         this.mContext = mContext;
         this.recordsItems = recordsItems;
+        this.color = color;
     }
 
     @NonNull
@@ -61,6 +65,16 @@ public class BidHistoryPaginationAdapter extends RecyclerView.Adapter<BidHistory
         RecordsItem datum = recordsItems.get(position);
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
+
+
+        if (color.equals("pink")){
+            holder.lytProviderName.setBackgroundColor(mContext.getResources().getColor(R.color.pinkThemeColor));
+            holder.tvWinStatus.setTextColor(mContext.getResources().getColor(R.color.pinkThemeColor));
+        }
+          if (color.equals("green")){
+            holder.lytProviderName.setBackgroundColor(mContext.getResources().getColor(R.color.greenThemeColor));
+            holder.tvWinStatus.setTextColor(mContext.getResources().getColor(R.color.greenThemeColor));
+        }
 
 
 
@@ -125,6 +139,7 @@ public class BidHistoryPaginationAdapter extends RecyclerView.Adapter<BidHistory
                 tvBidDigit, tvBidPoint,tv_bidtime;
 
         private ImageView imgStatus;
+        private LinearLayout lytProviderName;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -140,6 +155,7 @@ public class BidHistoryPaginationAdapter extends RecyclerView.Adapter<BidHistory
             tvBidId = itemView.findViewById(R.id.tvBidId);
             tvPlayFor = itemView.findViewById(R.id.tvPlayFor);
             tv_bidtime = itemView.findViewById(R.id.tv_bidtime);
+            lytProviderName = itemView.findViewById(R.id.lytProviderName);
         }
 
 

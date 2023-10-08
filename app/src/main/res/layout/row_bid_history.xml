@@ -18,6 +18,7 @@
 
 
         <LinearLayout
+            android:id="@+id/lytProviderName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_48sdp"
             android:background="@color/appColor"
@@ -46,53 +47,58 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginTop="@dimen/_15sdp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
+                    android:layout_weight="0.7"
+                    android:gravity="right"
                     android:lines="1"
-                    android:text="Play On"
-                    android:textColor="@color/text_gray"
-                    android:textSize="@dimen/text_12" />
+
+                    android:fontFamily="@font/dmsansbold"
+                    android:text="Game Date : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp" />
 
                 <TextView
                     android:id="@+id/tvGameDate"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+
                     android:fontFamily="@font/dmsansbold"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:lines="1"
                     android:text="Game Date"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_12" />
+                    android:textSize="@dimen/_14sdp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:orientation="vertical">
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center_horizontal"
+                    android:gravity="right"
                     android:lines="1"
-                    android:text="Play For"
-                    android:textColor="@color/text_gray"
-                    android:textSize="@dimen/text_12" />
+                    android:fontFamily="@font/dmsansbold"
+                    android:text="Game Date : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp" />
 
                 <TextView
                     android:id="@+id/tvPlayFor"
@@ -100,11 +106,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/dmsansbold"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:lines="1"
                     android:text="Game Date"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_12" />
+                    android:textSize="@dimen/_14sdp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -282,6 +288,7 @@
                 android:id="@+id/imgStatus"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
+                android:visibility="gone"
                 android:layout_gravity="center_vertical" />
 
         </LinearLayout>

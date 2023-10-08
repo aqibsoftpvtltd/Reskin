@@ -112,4 +112,6 @@
     <color name="light_grey_text_color">#8F92A1</color>
     <color name="extra_light_grey_text_color">#D9D9D9</color>
     <color name="notification_screen_bg">#C4C4C4</color>
+    <color name="wallet_grey_text_color">#979797
+    </color>
 </resources>

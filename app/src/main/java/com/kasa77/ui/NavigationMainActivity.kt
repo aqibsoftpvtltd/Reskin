@@ -274,6 +274,19 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
         backBtn.visibility=View.GONE
         navBtn.visibility=View.VISIBLE
 
+        cartLyt.setOnClickListener {
+            toolbarTitle.text = "Push Notifications"
+            topMenu.visibility=View.GONE
+            fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
+        }
+        navNotiLyt.setOnClickListener {
+            toolbarTitle.text = "Push Notifications"
+            topMenu.visibility=View.GONE
+            fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
+            drawer_layout.closeDrawer(GravityCompat.START)
+
+        }
+
         rvNavigationContent.layoutManager = LinearLayoutManager(this)
         navigationItemAdapter = NavigationItemAdapter(navModalList, AdapterClickListener { position, view ->
             Log.e("click", position.toString() + "")
@@ -296,7 +309,10 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
 
                 }
                 1 -> {
-                    Toast.makeText(this,"Credit History",Toast.LENGTH_SHORT).show()
+                    startActivity(
+                        Intent(mContext, BidsHistoryActivity::class.java)
+                            .putExtra("from", "creditHistory")
+                    )
                     drawer_layout.closeDrawer(GravityCompat.START)
                    /* startActivity(Intent(mContext, BankDetailActivity::class.java))
                     drawer_layout.closeDrawer(GravityCompat.START)*/

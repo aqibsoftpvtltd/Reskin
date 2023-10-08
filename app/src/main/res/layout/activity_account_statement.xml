@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/secondaryColor"
     android:orientation="vertical"
     tools:context=".ui.activity.AccountStatementActivity">
 
+<!--
     <LinearLayout
         android:background="@drawable/ractengle_gradian_bottom_round_edge"
         android:orientation="vertical"
@@ -74,10 +76,20 @@
 
 
     </LinearLayout>
+-->
+    <include layout="@layout/toolbar">
+
+    </include>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:background="@drawable/main_dashboard_bg"
+    android:layout_height="match_parent">
 
 
     <FrameLayout
+
         android:id="@+id/home_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+</LinearLayout>
 </LinearLayout>

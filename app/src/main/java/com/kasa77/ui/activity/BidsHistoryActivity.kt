@@ -24,6 +24,7 @@ import com.kasa77.ui.fragment.FilterBottomSheetFragment
 import com.kasa77.utils.*
 
 import kotlinx.android.synthetic.main.activity_history.*
+import kotlinx.android.synthetic.main.toolbar.backBtn
 import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
@@ -81,6 +82,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
         layoutManger = LinearLayoutManager(this@BidsHistoryActivity)
         rvHistory.layoutManager = layoutManger
 
+        backBtn.setOnClickListener { onBackClick() }
 
         tabNext.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
@@ -147,7 +149,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                 val dialog = DatePickerFragment()
                 dialog.show(supportFragmentManager, Constant.DIALOG_DATE)
                 btnSelectedDate.visibility = View.VISIBLE
-                llDate.visibility = View.VISIBLE
+               // llDate.visibility = View.VISIBLE
                 tvText.visibility = View.VISIBLE
                 tvText.text = "Starline Result By Date "
                 todayDate = todayDate()
@@ -160,10 +162,11 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                 tabFilter.visibility = View.VISIBLE
                 tabNext.visibility = View.VISIBLE
                 toolbarTitle.text = "Starline Bid History"
+                tabInnerNext.setBackgroundResource(R.drawable.pink_button)
                 val recordlist: List<RecordsItem> = ArrayList()
                 bidHistoryPaginationAdapter =
                     BidHistoryPaginationAdapter(
-                        this@BidsHistoryActivity, recordlist
+                        this@BidsHistoryActivity, recordlist,"pink"
 
                     )
                 rvHistory.adapter = bidHistoryPaginationAdapter
@@ -174,10 +177,11 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                 tabFilter.visibility = View.VISIBLE
                 tabNext.visibility = View.VISIBLE
                 toolbarTitle.text = "Jackpot Bid History"
+                tabInnerNext.setBackgroundResource(R.drawable.green_button)
                 val recordlist: List<RecordsItem> = ArrayList()
                 bidHistoryPaginationAdapter =
                     BidHistoryPaginationAdapter(
-                        this@BidsHistoryActivity, recordlist
+                        this@BidsHistoryActivity, recordlist,"green"
 
                     )
                 rvHistory.adapter = bidHistoryPaginationAdapter
@@ -186,12 +190,13 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
             "morningDashboardHistory" -> {
                 tabFilter.visibility = View.VISIBLE
                 tabNext.visibility = View.VISIBLE
+
                 toolbarTitle.text = "Bid History"
                 caseValue = "1"
                 val recordlist: List<RecordsItem> = ArrayList()
                 bidHistoryPaginationAdapter =
                     BidHistoryPaginationAdapter(
-                        this@BidsHistoryActivity, recordlist
+                        this@BidsHistoryActivity, recordlist,"orange"
                     )
                 rvHistory.adapter = bidHistoryPaginationAdapter
                 bidHistorypaginationApi("1")
@@ -243,7 +248,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                 //  dialog.isCancelable = false
                 btnSelectedDate.visibility = View.VISIBLE
                 dateFilter.visibility=View.VISIBLE
-                llDate.visibility = View.VISIBLE
+               // llDate.visibility = View.VISIBLE
                 tvText.visibility = View.VISIBLE
                 tvText.text = "Andar Bahar Result By Date "
                 todayDate = todayDate()
@@ -827,7 +832,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
         }
     }
 
-    fun onBackClick(view: View) {
+    fun onBackClick() {
         onBackPressed()
     }
 
