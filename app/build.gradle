@@ -126,7 +126,7 @@ dependencies {
     //demention
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
     // otp pinview
-    implementation 'com.chaos.view:pinview:1.4.3'
+  //  implementation 'com.chaos.view:pinview:1.4.3'
     //fresco loader
     implementation 'com.facebook.fresco:fresco:2.3.0'
 //    result
