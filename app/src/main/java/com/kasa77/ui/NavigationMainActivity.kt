@@ -241,7 +241,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
             bottomBack.setBackgroundResource(R.drawable.notification_curve_bottom_background)
             topMenu.visibility=View.GONE
           //  bottomBack.setBackground(ContextCompat.getDrawable(this@NavigationMainActivity, R.drawable.notification_curve_bottom_background))
-            toolbarTitle.text = "Push Notifications"
+            toolbarTitle.text = "Notifications"
            // fragmentUtils?.replaceFragment(FundsFragment(), Constant.FundsFragment, R.id.home_frame)
             fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
         }
@@ -278,12 +278,12 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
         navBtn.visibility=View.VISIBLE
 
         cartLyt.setOnClickListener {
-            toolbarTitle.text = "Push Notifications"
+            toolbarTitle.text = "Notifications"
             topMenu.visibility=View.GONE
             fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
         }
         navNotiLyt.setOnClickListener {
-            toolbarTitle.text = "Push Notifications"
+            toolbarTitle.text = "Notifications"
             topMenu.visibility=View.GONE
             fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
             drawer_layout.closeDrawer(GravityCompat.START)
@@ -458,7 +458,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
             drawer_layout.closeDrawer(GravityCompat.START) }
 
         notificationLyt.setOnClickListener {
-            toolbarTitle.text = "Push Notifications"
+            toolbarTitle.text = "Notifications"
             topMenu.visibility=View.GONE
             fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
             drawer_layout.closeDrawer(GravityCompat.START) }
@@ -1422,7 +1422,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                    }
                    "Notifications" -> {
                        topMenu.visibility=View.GONE
-                       toolbarTitle.text = "Push Notifications"
+                       toolbarTitle.text = "Notifications"
                        fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
                    }
                    "Chat" -> {
