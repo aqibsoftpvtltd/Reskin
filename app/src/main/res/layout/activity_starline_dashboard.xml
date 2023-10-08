@@ -9,8 +9,8 @@
     tools:context=".ui.activity.StarlineDashboardActivity">
 
 
+<!--
     <LinearLayout
-        android:background="@drawable/ractengle_gradian_bottom_round_edge"
         android:orientation="vertical"
         android:paddingBottom="@dimen/_15sdp"
         android:elevation="@dimen/_2sdp"
@@ -107,13 +107,15 @@
 
 
     </LinearLayout>
+-->
 
     <LinearLayout
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_4sdp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/background_admin"
+        android:layout_height="@dimen/_50sdp">
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/btnStarNotification"
@@ -122,6 +124,7 @@
             android:includeFontPadding="false"
             android:layout_gravity="end|center_vertical"
             android:checked="true"
+            android:visibility="gone"
             android:theme="@style/CustomSwitchStyle"
             app:switchPadding="@dimen/_4sdp"
             android:fontFamily="@font/glacial_regular"
@@ -130,7 +133,7 @@
             android:textSize="@dimen/_12sdp" />
 
         <RelativeLayout
-            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -156,7 +159,7 @@
                         android:text="@string/single_pana_"
                         android:textAlignment="viewStart"
                         android:textColor="@color/starline_textcolor_blck"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_11sdp" />
 
                     <TextView
                         android:layout_marginStart="@dimen/_4sdp"
@@ -169,7 +172,7 @@
                         android:text="1-100"
                         android:textAlignment="viewStart"
                         android:textColor="@color/starline_textcolor_pink"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
 
@@ -189,7 +192,7 @@
                         android:text="@string/triple_pana_"
                         android:textAlignment="viewStart"
                         android:textColor="@color/starline_textcolor_blck"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_11sdp" />
 
                     <TextView
                         android:minWidth="@dimen/_40sdp"
@@ -202,7 +205,7 @@
                         android:text="1-100"
                         android:textAlignment="viewStart"
                         android:textColor="@color/starline_textcolor_pink"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
 
@@ -214,6 +217,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_width="@dimen/_1sdp"
+                android:visibility="gone"
                 android:layout_height="@dimen/_30sdp"
                 android:background="@color/grayColor"/>
 
@@ -240,7 +244,7 @@
                         android:text="@string/double_pana_"
                         android:textAlignment="viewStart"
                         android:textColor="@color/starline_textcolor_blck"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_11sdp" />
 
                     <TextView
                         android:minWidth="@dimen/_40sdp"
@@ -253,7 +257,7 @@
                         android:text="1-100"
                         android:textAlignment="viewStart"
                         android:textColor="@color/starline_textcolor_pink"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
 
@@ -273,7 +277,7 @@
                         android:text="@string/single_digit_"
                         android:textAlignment="viewStart"
                         android:textColor="@color/starline_textcolor_blck"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_11sdp" />
 
                     <TextView
                         android:minWidth="@dimen/_40sdp"
@@ -286,7 +290,7 @@
                         android:text="1-100"
                         android:textAlignment="viewStart"
                         android:textColor="@color/starline_textcolor_pink"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
 
@@ -301,16 +305,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gamesitems_bg"
         android:orientation="vertical"
-        android:paddingVertical="@dimen/_15sdp">
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/space_shape_line"
+        android:paddingVertical="@dimen/_5sdp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvKsGameList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:baselineAligned="false"
-            android:background="@drawable/space_shape_line"
             android:scrollbars="none"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/row_starlinegame_list" />

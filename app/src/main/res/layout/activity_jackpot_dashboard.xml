@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".ui.activity.JackpotDashBoardActivity">
 
+<!--
     <LinearLayout
         android:background="@drawable/ractengle_gradian_bottom_round_edge"
         android:orientation="vertical"
@@ -106,13 +107,15 @@
 
 
     </LinearLayout>
+-->
 
     <LinearLayout
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_4sdp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:background="@drawable/background_admin"
+        android:layout_height="@dimen/_30sdp">
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/btnJackNotification"
@@ -121,6 +124,7 @@
             android:includeFontPadding="false"
             android:layout_gravity="end|center_vertical"
             android:checked="true"
+            android:visibility="gone"
             android:theme="@style/CustomSwitchStyle"
             app:switchPadding="@dimen/_4sdp"
             android:fontFamily="@font/glacial_regular"
@@ -130,7 +134,7 @@
 
 
         <LinearLayout
-            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_7sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -144,7 +148,7 @@
                 android:text="@string/jodi_"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:layout_marginStart="@dimen/_4sdp"
@@ -157,7 +161,7 @@
                 android:text="1-100"
                 android:textAlignment="viewStart"
                 android:textColor="@color/jackpot_textcolor_green"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_12sdp" />
 
         </LinearLayout>
 
@@ -172,7 +176,7 @@
         android:background="@drawable/gamesitems_bg"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingVertical="@dimen/_15sdp">
+        android:paddingVertical="@dimen/_5sdp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvJackpotGameList"

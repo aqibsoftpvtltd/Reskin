@@ -20,6 +20,8 @@ public class Constant {
     public static final String HowToPlayFragment = "HowToPlayFragment";
     public static final String FundsFragment = "FundsFragment";
     public static final String ChatFragment = "ChatFragment";
+    public static final String StarlineDashboarFragment = "StarlineDashboardFragment";
+    public static final String JackpotDashboarFragment = "JackpotDashboardFragment";
     public static final String AccountStatementFragment = "AccountStatementFragment";
     public static final String MyHistoryFragment = "MyHistoryFragment";
     public static final String GameRatesFragment = "GameRatesFragment";

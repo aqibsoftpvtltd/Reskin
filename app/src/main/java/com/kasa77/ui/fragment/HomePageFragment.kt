@@ -82,7 +82,8 @@ class HomePageFragment : Fragment(), View.OnClickListener {
             swipPage.isRefreshing = false
         }
         tabAdminSupport.setOnClickListener{
-            startActivity(Intent(mContext, ChatBoardActivity::class.java))
+           // startActivity(Intent(mContext, ChatBoardActivity::class.java))
+            fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
         }
         tabTalegramID.setOnClickListener{
 

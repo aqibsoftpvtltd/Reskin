@@ -5,108 +5,44 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:focusableInTouchMode="true"
     android:orientation="vertical"
+    android:background="@color/secondaryColor"
     tools:context=".chat.ui.ChatBoardActivity">
 
+
     <LinearLayout
-        android:background="@drawable/ractengle_gradian_bottom_round_edge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/scren_background_shape"
+        android:orientation="vertical">
+
+    <LinearLayout
+
         android:orientation="vertical"
         android:paddingBottom="@dimen/_15sdp"
         android:elevation="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_8sdp"
         android:layout_width="match_parent"
-        android:visibility="gone"
         android:layout_height="wrap_content">
 
+
         <RelativeLayout
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_42sdp">
-
-            <LinearLayout
-                android:layout_marginEnd="@dimen/_2sdp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:gravity="start|center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/iv_back"
-                    android:layout_width="@dimen/_26sdp"
-                    android:layout_height="@dimen/_26sdp"
-                    android:src="@drawable/arrow_back_white"
-                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
-                    android:padding="@dimen/_4sdp"
-                    android:onClick="onBackClick"
-                    app:tint="@color/white" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:includeFontPadding="false"
-                    android:text="@string/customer_support"
-                    android:gravity="start|center_vertical"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_15sdp"
-                    android:fontFamily="@font/glacial_bold" />
-
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:layout_marginEnd="@dimen/_2sdp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:gravity="end|center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-
-                <ImageView
-                    android:visibility="gone"
-                    android:id="@+id/iv_call"
-                    android:layout_width="@dimen/_26sdp"
-                    android:layout_height="@dimen/_26sdp"
-                    android:src="@drawable/phone_dialog"
-                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
-                    android:padding="@dimen/_4sdp"
-                    app:tint="@color/white" />
-
-                <TextView
-                    android:visibility="gone"
-                    android:id="@+id/tv_add_fund"
-                    android:layout_marginStart="@dimen/_4sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:includeFontPadding="false"
-                    android:text="@string/_add_fund"
-                    android:gravity="start|center_vertical"
-                    android:paddingVertical="@dimen/_4sdp"
-                    android:background="@drawable/dr_ractengle_solid_ripple_effect"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_13sdp"
-                    android:fontFamily="@font/glacial_regular" />
-
-            </LinearLayout>
-
-
+            android:layout_width="@dimen/_250sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/customer_support_message_chat"
+            android:layout_height="@dimen/_75sdp">
         </RelativeLayout>
 
 
+
         <RelativeLayout
-            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@drawable/background_admin"
             android:paddingHorizontal="@dimen/_15sdp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_height="@dimen/_70sdp">
 
             <FrameLayout
                 android:id="@+id/tabProfile"
@@ -120,13 +56,12 @@
                     android:id="@+id/ivProfile"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
-                    android:src="@drawable/ic_user_sec_placeholder"
-                    />
+                    android:src="@drawable/admin_box"/>
 
                 <ImageView
                     android:id="@+id/ivOnlineStatus"
                     android:layout_margin="@dimen/_2sdp"
-                    android:layout_gravity="end|top"
+                    android:layout_gravity="end|bottom"
                     android:layout_width="@dimen/_12sdp"
                     android:layout_height="@dimen/_12sdp"
                     android:src="@drawable/ic_online_status"
@@ -150,9 +85,9 @@
                     android:text="@string/admin"
                     android:gravity="start|center_vertical"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/white"
+                    android:textColor="@color/starline_textcolor_blck"
                     android:textSize="@dimen/_13sdp"
-                    android:fontFamily="@font/glacial_bold" />
+                    android:fontFamily="@font/dmsansbold" />
 
 
                 <TextView
@@ -162,10 +97,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
-                    android:text="@string/online"
+                    android:text="Active"
                     android:gravity="start|center_vertical"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/white"
+                    android:textColor="@color/white_colors"
                     android:textSize="@dimen/_11sdp"
                     android:fontFamily="@font/glacial_regular" />
 
@@ -250,4 +185,5 @@
 
     </FrameLayout>
 
+</LinearLayout>
 </LinearLayout>

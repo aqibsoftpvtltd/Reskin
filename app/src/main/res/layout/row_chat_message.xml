@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -11,6 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:orientation="vertical"
         android:visibility="visible">
 
@@ -20,10 +21,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_margin="@dimen/cardview_default_elevation"
-            android:background="@drawable/shape_outcoming_message"
-            android:elevation="@dimen/cardview_default_elevation"
-            android:minWidth="100dp"
             android:orientation="vertical">
 
 
@@ -31,12 +28,9 @@
                 android:id="@+id/reply_layout"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/reply_layout_bg"
-                android:minWidth="200dp"
-                android:padding="8dp"
-                android:elevation="2dp"
-                android:visibility="gone">
+                android:gravity="right"
+                android:visibility="gone"
+                android:layout_alignParentBottom="true">
 
                 <TextView
                     android:id="@+id/txtQuotedUsername"
@@ -63,7 +57,7 @@
                     android:fontFamily="@font/regular"
                     android:maxLines="2"
                     android:text="Hi hello how are you"
-                    android:textColor="@color/text_gray"
+                    android:textColor="@color/starline_textcolor_blck"
                     android:textSize="10sp" />
 
             </RelativeLayout>
@@ -73,6 +67,7 @@
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+
                 android:visibility="gone">
 
                 <com.vanniktech.emoji.EmojiTextView
@@ -85,11 +80,10 @@
                     android:autoLink="web"
                     android:fontFamily="@font/regular"
                     android:gravity="center_vertical"
-
                     android:text="Message"
-                    android:textColor="@color/white"
+                    android:textColor="@color/starline_textcolor_blck"
                     android:textColorLink="#253CB8"
-                    android:textSize="@dimen/text_14"
+                    android:textSize="@dimen/_12sdp"
                     app:emojiSize="26sp" />
 
                 <ProgressBar
@@ -134,7 +128,7 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/icf_play_button"
                         android:visibility="visible"
-                        app:tint="@color/white" />
+                        app:tint="@color/starline_textcolor_blck" />
 
 
                 </RelativeLayout>
@@ -146,8 +140,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="4dp"
                     android:layout_toRightOf="@+id/rlMediaAction"
-                    android:progressTint="@color/white"
-                    android:thumbTint="@color/white" />
+                    android:progressTint="@color/starline_textcolor_blck"
+                    android:thumbTint="@color/starline_textcolor_blck" />
 
 
                 <RelativeLayout
@@ -163,7 +157,7 @@
                         android:layout_marginLeft="56dp"
                         android:fontFamily="@font/regular"
                         android:text="00:08"
-                        android:textColor="@color/white"
+                        android:textColor="@color/starline_textcolor_blck"
                         android:textSize="10dp" />
 
 
@@ -182,7 +176,7 @@
                 android:gravity="center_vertical"
 
                 android:text="Message"
-                android:textColor="@color/white"
+                android:textColor="@color/starline_textcolor_blck"
                 android:textColorLink="#253CB8"
 
                 android:textSize="@dimen/text_14"
@@ -206,7 +200,6 @@
                 android:fontFamily="@font/regular"
                 android:gravity="center_vertical"
                 android:text="12:43 PM"
-
                 android:textSize="10sp" />
 
             <ImageView
@@ -215,6 +208,7 @@
                 android:layout_height="16dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="4dp"
+                android:visibility="gone"
                 android:layout_marginRight="8dp"
                 android:layout_toRightOf="@+id/tvMessageTime"
                 android:src="@drawable/icf_double_tick_indicator" />
@@ -229,6 +223,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@drawable/shape_outcoming_message"
         android:layout_marginRight="60dp"
         android:orientation="horizontal">
 
@@ -242,22 +238,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/cardview_default_elevation"
-                android:background="@drawable/shape_incoming_message"
-                android:minWidth="100dp"
 
+                android:minWidth="100dp"
                 android:orientation="vertical"
 
                 >
 
                 <RelativeLayout
-                    android:elevation="@dimen/cardview_default_elevation"
                     android:id="@+id/reply_layout_in"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/reply_layout_bg"
-
+                    android:elevation="@dimen/cardview_default_elevation"
                     android:minWidth="200dp"
                     android:padding="8dp"
                     android:visibility="gone">
@@ -308,7 +301,7 @@
                         android:fontFamily="@font/regular"
                         android:gravity="center_vertical"
                         android:text="Message"
-                        android:textColor="#0B2F5B"
+                        android:textColor="#fff"
                         android:textColorLink="#253CB8"
                         android:textSize="@dimen/text_14"
                         android:visibility="visible"
@@ -515,6 +508,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_toRightOf="@+id/tvInMessageTime"
                     android:src="@drawable/icf_double_tick_indicator"
+
                     android:visibility="gone" />
             </RelativeLayout>
         </LinearLayout>

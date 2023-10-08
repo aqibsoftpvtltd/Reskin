@@ -3,10 +3,10 @@
     <item android:right="0dp">
         <shape android:shape="rectangle">
             <corners
-                android:topLeftRadius="26dp"
-                android:topRightRadius="26dp"
-                android:bottomLeftRadius="26dp"
-                android:bottomRightRadius="6dp" /> <!-- Set the bottom right radius to 0dp -->
+                android:topLeftRadius="42dp"
+                android:topRightRadius="42dp"
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp" /> <!-- Set the bottom right radius to 0dp -->
             <padding
                 android:bottom="5dp"
                 android:left="5dp"
@@ -15,8 +15,8 @@
             <gradient
                 android:type="linear"
                 android:angle="180"
-                android:endColor="#FD6B22"
-                android:startColor="#FD6B22" />
+                android:endColor="#fff"
+                android:startColor="#fff" />
         </shape>
     </item>
 </layer-list>

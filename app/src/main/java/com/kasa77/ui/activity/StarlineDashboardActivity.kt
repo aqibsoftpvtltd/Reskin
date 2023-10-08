@@ -5,9 +5,12 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -30,46 +33,42 @@ import retrofit2.Response
 import java.util.*
 import kotlin.collections.ArrayList
 
-class StarlineDashboardActivity : BaseActivity() {
-
+class StarlineDashboardActivity : Fragment() {
     private var gameTypeArray: ArrayList<GameType> = ArrayList()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mContext= this
-        setContentView(R.layout.activity_starline_dashboard)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_starline_dashboard, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        // Initialize your views and set click listeners here
         loadGame()
         fetchStarlineGameId()
 
         btnStarNotification.isChecked =
-            AppPreference.getBooleanPreference(mContext, Constant.starLineNotification)
+            AppPreference.getBooleanPreference(requireContext(), Constant.starLineNotification)
+
         btnStarNotification.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 notificationOnOffApi(3, true)
-
             } else {
                 notificationOnOffApi(3, false)
             }
         }
-        tabViewHistory.setOnClickListener {
-            startActivity(
-                Intent(this, BidsHistoryActivity::class.java)
-                    .putExtra("from", "starlineBidHistory")
-            )
-        }
-        val backBtn: ImageView = findViewById(R.id.backbtn)
-
-        backBtn.setOnClickListener {
-            onBackPressed()
-        }
     }
 
+
+
     private fun loadGame() {
-        if (cd!!.isNetworkAvailable) {
+        val baseActivity = requireActivity() as BaseActivity
+        if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
             AuthHeaderRetrofitService.getServerResponse(
-                Dialog(this@StarlineDashboardActivity),
+                Dialog(requireContext()),
                 AuthHeaderRetrofitService.getRetrofit()
                 !!.getStarLineGameTimeList(),
                 object :
@@ -86,7 +85,7 @@ class StarlineDashboardActivity : BaseActivity() {
                         if (startLineTimeGames.status == 1) {
                             val resultarray = startLineTimeGames.result.values.toTypedArray();
                             val list = Arrays.asList(*resultarray)
-                            Helper(mContext).getSortedListStarline(list)
+                            Helper(requireContext()).getSortedListStarline(list)
 
 //                            val resId = R.anim.layout_animation_left_to_right
 //                            val animation: LayoutAnimationController =
@@ -97,10 +96,10 @@ class StarlineDashboardActivity : BaseActivity() {
 //                            rvKsGameList.layoutAnimation = animation
 
                             rvKsGameList!!.setHasFixedSize(true)
-                            rvKsGameList!!.layoutManager = LinearLayoutManager(mContext)
+                            rvKsGameList!!.layoutManager = LinearLayoutManager(requireContext())
                             val gameAdapter =
                                 StarLineTimeGameAdapter(list)
-                            rvKsGameList.layoutManager = LinearLayoutManager(mContext)
+                            rvKsGameList.layoutManager = LinearLayoutManager(requireContext())
                             rvKsGameList.adapter = gameAdapter
                             gameAdapter!!.notifyDataSetChanged()
                         }
@@ -116,10 +115,11 @@ class StarlineDashboardActivity : BaseActivity() {
 
 
     private fun fetchStarlineGameId() {
-        if (cd!!.isNetworkAvailable) {
+        val baseActivity = requireActivity() as BaseActivity
+        if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
             AuthHeaderRetrofitService.getKsGameTypeId(
-                Dialog(this@StarlineDashboardActivity),
-                retrofitApiClientAuth!!.kuberStarlineGameTypeId(),
+                Dialog(requireContext()),
+                baseActivity.retrofitApiClientAuth!!.kuberStarlineGameTypeId(),
                 object : WebResponse {
                     @SuppressLint("SetTextI18n")
                     override fun onResponseSuccess(result: Response<*>?) {
@@ -140,15 +140,16 @@ class StarlineDashboardActivity : BaseActivity() {
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(this@StarlineDashboardActivity, error.toString())
+                        Alerts.serverError(requireContext(), error.toString())
                     }
                 })
         }
     }
 
     private fun notificationOnOffApi(notificationId: Int, notificationOnOff: Boolean) {
-        if (cd!!.isNetworkAvailable) {
-            val userLoginId = AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_ID)
+        val baseActivity = requireActivity() as BaseActivity
+        if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
+            val userLoginId = AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
             val mObject = JSONObject()
             mObject.put("id", userLoginId)
             mObject.put("notificationId", notificationId)
@@ -158,8 +159,8 @@ class StarlineDashboardActivity : BaseActivity() {
                 (mObject).toString()
             )
             AuthHeaderRetrofitService.getServerResponse(
-                Dialog(this@StarlineDashboardActivity),
-                retrofitApiClientAuth!!.appNotificationOnOff(body),
+                Dialog(requireContext()),
+                baseActivity.retrofitApiClientAuth!!.appNotificationOnOff(body),
                 object : WebResponse {
                     override fun onResponseSuccess(result: retrofit2.Response<*>?) {
                         val mainModal: ResponseBody = result!!.body() as ResponseBody
@@ -167,7 +168,7 @@ class StarlineDashboardActivity : BaseActivity() {
                             val jsonObject = JSONObject(mainModal.string())
                             if (jsonObject.getInt("status") == 1) {
                                 AppPreference.setBooleanPreference(
-                                    mContext,
+                                    requireContext(),
                                     Constant.starLineNotification,
                                     notificationOnOff
                                 )
@@ -186,7 +187,7 @@ class StarlineDashboardActivity : BaseActivity() {
     }
 
     private fun dialogBoxMessage(string: String) {
-        val dialogBuilder = mContext?.let { AlertDialog.Builder(it) }
+        val dialogBuilder = requireContext().let { AlertDialog.Builder(it) }
         val inflater = this.layoutInflater
         val dialogView =
             inflater.inflate(R.layout.dialog_view_toast_message, null)
@@ -204,10 +205,6 @@ class StarlineDashboardActivity : BaseActivity() {
 
 
     fun onBackClick(view: View) {
-        onBackPressed()
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
+        requireActivity().onBackPressed()
     }
 }

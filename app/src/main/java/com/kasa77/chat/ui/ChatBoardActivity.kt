@@ -159,9 +159,9 @@ import java.util.*
 
 
 
-        tv_add_fund = containerViews.findViewById(R.id.tv_add_fund)
+       // tv_add_fund = containerViews.findViewById(R.id.tv_add_fund)
         tvUserStatus = containerViews.findViewById(R.id.tvUserStatus)
-        iv_call = containerViews.findViewById(R.id.iv_call)
+      //  iv_call = containerViews.findViewById(R.id.iv_call)
         rvChatMessage = containerViews.findViewById(R.id.rvChatMessage)
         ll_loading1 = containerViews.findViewById(R.id.ll_loading1)
 
@@ -179,14 +179,17 @@ import java.util.*
 
         initMessageListing()
         initViews()
+/*
         tv_add_fund!!.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 dialogRequestFund()
 
             }
         })
+*/
         getUpiFromAdmin()
 
+/*
         iv_call.setOnClickListener {
             val string = AppPreference.getStringPreference(context, "PHONE")
 
@@ -205,6 +208,7 @@ import java.util.*
             }
 
         }
+*/
 
         return containerViews
     }

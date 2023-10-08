@@ -5,9 +5,12 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -29,42 +32,30 @@ import retrofit2.Response
 import java.util.*
 import kotlin.collections.ArrayList
 
-class JackpotDashBoardActivity : BaseActivity() {
+   class JackpotDashBoardActivity : Fragment() {
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_jackpot_dashboard)
+       override fun onCreateView(
+           inflater: LayoutInflater, container: ViewGroup?,
+           savedInstanceState: Bundle?
+       ): View? {
+           return inflater.inflate(R.layout.activity_jackpot_dashboard, container, false)
+       }
 
+       override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+           super.onViewCreated(view, savedInstanceState)
 
+           btnJackNotification.isChecked =
+               AppPreference.getBooleanPreference(requireContext(), Constant.andarBaharNotification)
 
-
-
-
-        btnJackNotification.isChecked =
-            AppPreference.getBooleanPreference(mContext, Constant.andarBaharNotification)
-
-        btnJackNotification.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                notificationOnOffApi(4, true)
-
-            } else {
-                notificationOnOffApi(4, false)
-            }
-
-        }
-        tabViewHistory.setOnClickListener {
-            startActivity(
-                Intent(this, BidsHistoryActivity::class.java)
-                    .putExtra("from", "jackpotHistory")
-            )
-        }
-        val backBtn: ImageView = findViewById(R.id.backbtn)
-
-        backBtn.setOnClickListener {
-            onBackPressed()
-        }
-    }
+           btnJackNotification.setOnCheckedChangeListener { buttonView, isChecked ->
+               if (isChecked) {
+                   notificationOnOffApi(4, true)
+               } else {
+                   notificationOnOffApi(4, false)
+               }
+           }
+       }
 
     override fun onResume() {
         super.onResume()
@@ -73,10 +64,11 @@ class JackpotDashBoardActivity : BaseActivity() {
     }
 
     private fun loadGame() {
-        if (cd.isNetworkAvailable) {
+        val baseActivity = requireActivity() as BaseActivity
+        if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
             AuthHeaderRetrofitService.getServerResponse(
-                Dialog(this@JackpotDashBoardActivity),
-                retrofitApiClientAuth.kuberJackpotGameData(),
+                Dialog(requireContext()),
+                baseActivity.retrofitApiClientAuth.kuberJackpotGameData(),
                 object :
                     WebResponse {
                     override fun onResponseSuccess(result: Response<*>?) {
@@ -91,18 +83,18 @@ class JackpotDashBoardActivity : BaseActivity() {
                         if (jackpotGames.status == 1) {
                             val resultarray = jackpotGames.result.values.toTypedArray();
                             val list = Arrays.asList(*resultarray)
-                            Helper(mContext).getSortedListJackpot(list)
+                            Helper(requireContext()).getSortedListJackpot(list)
 
 //                            val resId = R.anim.layout_animation_left_to_right
 //                            val animation: LayoutAnimationController =
 //                                android.view.animation.AnimationUtils.loadLayoutAnimation(
-//                                    mContext,
+//                                    requireContext(),
 //                                    resId
 //                                )
 //                            rvJackpotGameList.layoutAnimation = animation
 
                             rvJackpotGameList!!.setHasFixedSize(true)
-                            rvJackpotGameList!!.layoutManager = GridLayoutManager(mContext,2)
+                            rvJackpotGameList!!.layoutManager = GridLayoutManager(requireContext(),2)
                             val gameAdapter =
                                 JackpotAdapter(
                                     list
@@ -116,7 +108,7 @@ class JackpotDashBoardActivity : BaseActivity() {
 
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(this@JackpotDashBoardActivity, error.toString())
+                        Alerts.serverError(requireContext(), error.toString())
 
                     }
                 })
@@ -127,21 +119,22 @@ class JackpotDashBoardActivity : BaseActivity() {
 
     private fun logOutUser(): Boolean {
         var isAvailable = true
-        val loginTime = AppPreference.getLongPreference(mContext, Constant.USER_LOGIN_TIME)
+        val loginTime = AppPreference.getLongPreference(requireContext(), Constant.USER_LOGIN_TIME)
         val currentTime = System.currentTimeMillis()
         val difference = currentTime - loginTime
         isAvailable = false
-        val logoutUser = LogoutUser(this@JackpotDashBoardActivity, this)
+        val logoutUser = LogoutUser(requireContext(), requireActivity())
         logoutUser.logout()
 
         return isAvailable
     }
 
     private fun fetchStarlineGameId() {
-        if (cd!!.isNetworkAvailable) {
+        val baseActivity = requireActivity() as BaseActivity
+        if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
             AuthHeaderRetrofitService.getJackpotGameTypeId(
-                Dialog(this@JackpotDashBoardActivity),
-                retrofitApiClientAuth!!.kuberJackpotGameTypeId(),
+                Dialog(requireContext()),
+                baseActivity.retrofitApiClientAuth!!.kuberJackpotGameTypeId(),
                 object : WebResponse {
                     @SuppressLint("SetTextI18n")
                     override fun onResponseSuccess(result: Response<*>?) {
@@ -162,7 +155,7 @@ class JackpotDashBoardActivity : BaseActivity() {
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(this@JackpotDashBoardActivity, error.toString())
+                        Alerts.serverError(requireContext(), error.toString())
 
                     }
                 })
@@ -170,7 +163,7 @@ class JackpotDashBoardActivity : BaseActivity() {
     }
 
     private fun dialogBoxMessage(string: String) {
-        val dialogBuilder = mContext?.let { AlertDialog.Builder(it) }
+        val dialogBuilder = requireContext()?.let { AlertDialog.Builder(it) }
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.dialog_view_toast_message, null)
         dialogBuilder?.setView(dialogView)
@@ -187,13 +180,11 @@ class JackpotDashBoardActivity : BaseActivity() {
     }
 
 
-    override fun onBackPressed() {
-        finish()
-    }
 
     private fun notificationOnOffApi(notificationId: Int, notificationOnOff: Boolean) {
-        if (cd!!.isNetworkAvailable) {
-            val userLoginId = AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_ID)
+        val baseActivity = requireActivity() as BaseActivity
+        if (baseActivity.cd != null && baseActivity.cd!!.isNetworkAvailable) {
+            val userLoginId = AppPreference.getStringPreference(requireContext(), Constant.USER_LOGIN_ID)
             val mObject = JSONObject()
             mObject.put("id", userLoginId)
             mObject.put("notificationId", notificationId)
@@ -203,8 +194,8 @@ class JackpotDashBoardActivity : BaseActivity() {
                 (mObject).toString()
             )
             AuthHeaderRetrofitService.getServerResponse(
-                Dialog(this@JackpotDashBoardActivity),
-                retrofitApiClientAuth!!.appNotificationOnOff(body),
+                Dialog(requireContext()),
+                baseActivity.retrofitApiClientAuth!!.appNotificationOnOff(body),
                 object : WebResponse {
                     override fun onResponseSuccess(result: retrofit2.Response<*>?) {
                         val mainModal: ResponseBody = result!!.body() as ResponseBody
@@ -212,7 +203,7 @@ class JackpotDashBoardActivity : BaseActivity() {
                             val jsonObject = JSONObject(mainModal.string())
                             if (jsonObject.getInt("status") == 1) {
                                 AppPreference.setBooleanPreference(
-                                    mContext,
+                                    requireContext(),
                                     Constant.andarBaharNotification,
                                     notificationOnOff
                                 )
@@ -223,15 +214,15 @@ class JackpotDashBoardActivity : BaseActivity() {
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.serverError(this@JackpotDashBoardActivity, error.toString())
+                        Alerts.serverError(requireContext(), error.toString())
                     }
 
                 })
         }
     }
 
-    fun onBackClick(view: View) {
-        onBackPressed()
-    }
+       fun onBackClick(view: View) {
+           requireActivity().onBackPressed()
+       }
 
 }
