@@ -242,8 +242,8 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
             topMenu.visibility=View.GONE
           //  bottomBack.setBackground(ContextCompat.getDrawable(this@NavigationMainActivity, R.drawable.notification_curve_bottom_background))
             toolbarTitle.text = "Push Notifications"
-            fragmentUtils?.replaceFragment(FundsFragment(), Constant.FundsFragment, R.id.home_frame)
-         //   fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
+           // fragmentUtils?.replaceFragment(FundsFragment(), Constant.FundsFragment, R.id.home_frame)
+            fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
         }
         image4.setOnClickListener{
             bottomBack.setBackgroundResource(R.drawable.chat_curve_bottom_background)
