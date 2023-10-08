@@ -17,6 +17,7 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,10 @@ import com.kasa77.ui.fragment.OnSubmitBid
 import com.kasa77.ui.fragment.OnSubmitBidManager
 import com.kasa77.utils.*
 import kotlinx.android.synthetic.main.dialog_view_toast_message.view.*
+import kotlinx.android.synthetic.main.fragment_sp_motor.ivGameDate
+import kotlinx.android.synthetic.main.fragment_sp_motor.ivGameSession
+
+import kotlinx.android.synthetic.main.layout_bid_action_bottom_bar.submitBtn
 import org.json.JSONObject
 import retrofit2.Response
 import kotlin.collections.ArrayList
@@ -249,7 +254,7 @@ class DPMotorFragment_Starline : Fragment(), View.OnClickListener {
     }
 
     private fun initViews() {
-        tabAddBid = rootView!!.findViewById<FrameLayout>(R.id.tabAddBid)
+        tabAddBid = rootView!!.findViewById(R.id.tabAddBid)
         tvFinalSubmit = rootView!!.findViewById(R.id.tvFinalSubmit)
         actDigits = rootView!!.findViewById(R.id.actDigits)
         etPoints = rootView!!.findViewById(R.id.etPoints)
@@ -264,7 +269,11 @@ class DPMotorFragment_Starline : Fragment(), View.OnClickListener {
         tvTotalPoints = rootView!!.findViewById(R.id.tvTotalPoints)
         
         actDigits!!.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(10))
-        
+
+        ivGameDate.setImageResource(R.drawable.calendar_pink)
+        ivGameSession.setImageResource(R.drawable.down_arrow_pink)
+        tabAddBid!!.setBackgroundResource(R.drawable.pink_button)
+        submitBtn!!.setBackgroundResource(R.drawable.pink_button)
 
        /* val tvPannaCount = rootView!!.findViewById<TextView>(R.id.tvPannaCount)
         tvPannaCount!!.text = GameTypeNames.DPMOTOR*/
@@ -288,7 +297,7 @@ class DPMotorFragment_Starline : Fragment(), View.OnClickListener {
                     val tCP = p0.toString()
                     if (tCP.isNotEmpty()) {
                         if (tCP.toInt() > GameConstantMessages.MaxPointValue) {
-                            Alerts.AlertDialogWarning(mContext,  GameConstantMessages.MaxPoint)
+                            Alerts.AlertDialogWarning(mContext,  GameConstantMessages.MaxPoint,"pink")
                         }
                     }
                 }
@@ -351,7 +360,7 @@ class DPMotorFragment_Starline : Fragment(), View.OnClickListener {
         } else if (strGameSession.isEmpty()) {
             tvGameSession!!.error=GameConstantMessages.SelectGameType
 tvGameSession!!.requestFocus()
-            Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"pink")
         } else if (providerResultData!!.gameDate.isEmpty()) {
             dialogBoxMessage("Select Date", "cancel")
         }else {
@@ -378,7 +387,7 @@ tvGameSession!!.requestFocus()
     @SuppressLint("SetTextI18n")
     private fun generateDpMotor(stDigits: String, stPoints: String) {
         bidItems!!.clear()
-        bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this)
+        bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this,"pink")
         rvBidList!!.layoutManager = LinearLayoutManager(mContext)
         rvBidList!!.adapter = bidAdapter
         bidAdapter!!.notifyDataSetChanged()
@@ -457,7 +466,7 @@ tvGameSession!!.requestFocus()
     private var gameTypeName = ""
     private var gameTypePrice = "0"
     private var tvFinalSubmit: TextView? = null
-    private var tabAddBid: FrameLayout? = null
+    private var tabAddBid: TextView? = null
     private var rootView: View? = null
     private var dbCnt = ""
     private var dbPnt = ""
@@ -493,7 +502,13 @@ tvGameSession!!.requestFocus()
         val tvWalletAfterDeduct = dialog.findViewById<TextView>(R.id.tvWalletAfterDeduct)
         val tabSubmit = dialog.findViewById<RelativeLayout>(R.id.tabSubmit)
         val tabCancel = dialog.findViewById<RelativeLayout>(R.id.tabCancel)
+        val confirmBtn = dialog.findViewById<RelativeLayout>(R.id.confirmBtn)
+        confirmBtn.setBackgroundResource(R.drawable.pink_confirm_button)
+        val cancelBtn = dialog.findViewById<RelativeLayout>(R.id.cancelBtn)
+        cancelBtn.setBackgroundResource(R.drawable.pink_cancel_button)
         val walletBal = AppPreference.getIntegerPreference(mContext, Constant.USER_WALLET_BALANCE)
+        val cancelText = dialog.findViewById<TextView>(R.id.tvCancel)
+        cancelText.setTextColor(ContextCompat.getColor(context!!, R.color.pinkThemeColor))
         tvCurrentTime.text =
             "Starline "+from + " " + providerResultData!!.providerName
 
@@ -560,19 +575,19 @@ tvGameSession!!.requestFocus()
                                 Alerts.AlertDialogSuccessAutoClose(
                                     context,
                                     activity,
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),"pink"
                                 )
                             } else {
                                 Alerts.AlertDialogWarning(
                                     context,
 
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),"pink"
                                 )
                             }
                         }
 
                         override fun onFail(response: String?) {
-                            Alerts.AlertDialogWarning(context, response)
+                            Alerts.AlertDialogWarning(context, response,"pink")
                         }
                     }
                 )
@@ -597,6 +612,7 @@ tvGameSession!!.requestFocus()
         alertDialog!!.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialogView.txtMessage.text = string
         val btnSubmit = dialogView.btnOk
+        btnSubmit.setBackgroundResource(R.drawable.pink_confirm_button)
         btnSubmit.setOnClickListener {
             if (s == "submit") {
                 alertDialog.dismiss()
@@ -630,12 +646,12 @@ tvGameSession!!.requestFocus()
                                 }
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext,  ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext,  ksgModel.message,"pink")
                         }
                     }
 
                     override fun onResponseFailed(error: String?) {
-                        Alerts.AlertDialogWarning(mContext,  "Server Error")
+                        Alerts.AlertDialogWarning(mContext,  "Server Error","pink")
                     }
                 })
         }

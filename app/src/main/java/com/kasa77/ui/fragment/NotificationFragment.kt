@@ -81,17 +81,20 @@ class NotificationFragment : Fragment() {
                                 dashboardAdaper.notifyDataSetChanged()
                             } else {
                                 tvMessage.visibility = View.VISIBLE
+                                tvDay.visibility =View.GONE
                                 tvMessage.text = responseBody.message
                             }
                         } else {
 
                             tvMessage.visibility = View.VISIBLE
+                            tvDay.visibility =View.GONE
                             tvMessage.text = responseBody.message.toString()
                         }
                     }
 
                     override fun onResponseFailed(error: String?) {
                         tvMessage.visibility = View.VISIBLE
+                        tvDay.visibility =View.GONE
                         tvMessage.text = error.toString()
                         Alerts.serverError(context, error.toString())
                     }

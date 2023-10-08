@@ -72,7 +72,7 @@ class SubmitOtpUdpateDeviceActivity : AppCompatActivity() {
         numbers.text = Html.fromHtml(uMobile)
 
         tabVerifyOtp.setOnClickListener {
-            if (getOldDeviceDetails != null && !TextUtils.isEmpty(etUserVerificationCode.text.toString()))
+            if (getOldDeviceDetails != null && !TextUtils.isEmpty(etUserVerificationCode.otp))
                 verifyOTP(getOldDeviceDetails!!)
             else {
                 Alerts.show(this@SubmitOtpUdpateDeviceActivity, "Please enter OTP")
@@ -206,7 +206,7 @@ class SubmitOtpUdpateDeviceActivity : AppCompatActivity() {
         requestNewDevice.olddeviceId = testModel.data.oldDeviceId
         requestNewDevice.oldDeviceName = testModel.data.oldDeviceName
         requestNewDevice.mobileNumber = testModel.data.mobileNumber
-        requestNewDevice.oTP = etUserVerificationCode.text.toString()
+        requestNewDevice.oTP = etUserVerificationCode.otp
         requestNewDevice.deviceId = testModel.data.newDeviceId
         requestNewDevice.deviceName = Helper.getDeviceName()
         requestNewDevice.firebaseToken = token
@@ -232,7 +232,7 @@ class SubmitOtpUdpateDeviceActivity : AppCompatActivity() {
 
                     override fun onResponseSuccess(result: Response<*>?) {
                         val response = result?.body() as ResponseBody
-                        print("RES : " + response.toString())
+                        print("RES : $response")
                         val responseObject = JSONObject(response.string())
                         if (responseObject.getInt("status") == 1) {
                             Alerts.show(
@@ -244,14 +244,14 @@ class SubmitOtpUdpateDeviceActivity : AppCompatActivity() {
                                     this@SubmitOtpUdpateDeviceActivity,
                                     ChangeMpinActivity::class.java
                                 )
-                                    .putExtra("otp", etUserVerificationCode.text.toString())
+                                    .putExtra("otp", etUserVerificationCode.otp)
                                     .putExtra("from", "forgotMpin")
                             )
                         } else if (responseObject.getInt("status") == 3) {
                             Alerts.AlertDialogWarning(
                                 this@SubmitOtpUdpateDeviceActivity,
                                 responseObject.getString("message")
-                            )
+                                ,"")
 
                         } else {
                             Alerts.show(

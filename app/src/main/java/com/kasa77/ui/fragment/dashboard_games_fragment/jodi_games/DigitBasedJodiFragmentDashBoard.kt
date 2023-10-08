@@ -272,7 +272,7 @@ class DigitBasedJodiFragmentDashBoard : Fragment(), View.OnClickListener {
                     val tCP = p0.toString()
                     if (tCP.isNotEmpty()) {
                         if (tCP.toInt() > GameConstantMessages.MaxPointValue) {
-                            Alerts.AlertDialogWarning(mContext,  GameConstantMessages.MaxPoint)
+                            Alerts.AlertDialogWarning(mContext,  GameConstantMessages.MaxPoint,"")
                         }
 
                     }
@@ -318,7 +318,7 @@ class DigitBasedJodiFragmentDashBoard : Fragment(), View.OnClickListener {
                 val message = "You don't have required bid amount please add fund."
                 dialogBoxMessage(message, "cancel")
             }else if (strGameSession.isEmpty()) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"")
             } else if (selectedDateObject!!.date.isEmpty()) {
                 dialogBoxMessage("Select Date", "cancel")
             } else {
@@ -371,7 +371,7 @@ class DigitBasedJodiFragmentDashBoard : Fragment(), View.OnClickListener {
                 etPoints!!.error = "Please Enter Point!!!"
                 etPoints!!.requestFocus()
             } else if (strGameSession.isEmpty()) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"")
             } else if (selectedDateObject!!.date.isEmpty()) {
                 dialogBoxMessage("Select Date", "cancel")
             } else if (stPoints!!.toInt() < GameConstantMessages.MinPointValue) {
@@ -554,7 +554,7 @@ class DigitBasedJodiFragmentDashBoard : Fragment(), View.OnClickListener {
                         Alerts.AlertDialogWarning(
                             dialog.context,
 
-                            GameConstantMessages.BidClosedForDay
+                            GameConstantMessages.BidClosedForDay,""
                         )
                     } else {
                         dialog.dismiss()
@@ -570,7 +570,7 @@ class DigitBasedJodiFragmentDashBoard : Fragment(), View.OnClickListener {
             dialog.show()
 
         } else {
-            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid,"")
         }
     }
     private fun resetBidTableOnChangeDateOrSession() {
@@ -703,19 +703,19 @@ class DigitBasedJodiFragmentDashBoard : Fragment(), View.OnClickListener {
                                 Alerts.AlertDialogSuccessAutoClose(
                                     context,
                                     activity,
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                             } else {
                                 Alerts.AlertDialogWarning(
                                     context,
 
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                             }
                         }
 
                         override fun onFail(response: String?) {
-                            Alerts.AlertDialogWarning(context, response)
+                            Alerts.AlertDialogWarning(context, response,"")
                         }
                     }
                 )
@@ -771,7 +771,7 @@ class DigitBasedJodiFragmentDashBoard : Fragment(), View.OnClickListener {
                                 }
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext, ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext, ksgModel.message,"")
                         }
                     }
 

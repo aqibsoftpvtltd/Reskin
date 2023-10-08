@@ -19,6 +19,7 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +39,8 @@ import com.kasa77.ui.fragment.OnSubmitBid
 import com.kasa77.ui.fragment.OnSubmitBidManager
 import com.kasa77.utils.*
 import kotlinx.android.synthetic.main.dialog_view_toast_message.view.*
+import kotlinx.android.synthetic.main.fragment_digit_based_jodi.ivGameDate
+
 import kotlinx.android.synthetic.main.layout_bid_action_bottom_bar.*
 import org.json.JSONObject
 import retrofit2.Response
@@ -261,7 +264,7 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
     private fun initViews() {
         etLeftDigit = rootView!!.findViewById(R.id.etLeftDigit)
         etRightDigit = rootView!!.findViewById(R.id.etRightDigit)
-        tabAddBid = rootView!!.findViewById<FrameLayout>(R.id.tabAddBid)
+        tabAddBid = rootView!!.findViewById(R.id.tabAddBid)
         tvFinalSubmit = rootView!!.findViewById(R.id.tvFinalSubmit)
         etPoints = rootView!!.findViewById(R.id.etPoints)
         rvBidList = rootView!!.findViewById(R.id.rvBidList)
@@ -274,6 +277,9 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
         etLeftDigit!!.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(1))
         etRightDigit!!.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(1))
 
+        ivGameDate.setImageResource(R.drawable.calendar_green)
+        tabAddBid!!.setBackgroundResource(R.drawable.green_button)
+        submitBtn!!.setBackgroundResource(R.drawable.green_button)
 
         tvGameDate!!.setText(DateFormatToDisplay().parseDateToddMMyyyy(providerResultData!!.gameDate) + " (" + providerResultData!!.providerName + ")")
 
@@ -314,7 +320,7 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
     private fun createBid() {
         hideKeyboard()
         bidItems!!.clear()
-        bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this)
+        bidAdapter = BidListToSubmitAdapter(mContext, bidItems, this,"green")
         rvBidList!!.layoutManager = LinearLayoutManager(mContext)
         rvBidList!!.adapter = bidAdapter
         bidAdapter!!.notifyDataSetChanged()
@@ -339,7 +345,7 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
                 val message = "You don't have required bid amount please add fund."
                 dialogBoxMessage(message, "cancel")
             } else if (strGameSession.isEmpty()) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"green")
             } else if (providerResultData!!.gameDate.isEmpty()) {
                 dialogBoxMessage("Select Date", "cancel")
             } else {
@@ -396,7 +402,7 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
                 val message = "You don't have required bid amount please add fund."
                 dialogBoxMessage(message, "cancel")
             } else if (strGameSession.isEmpty()) {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"green")
             } else if (providerResultData!!.gameDate.isEmpty()) {
                 dialogBoxMessage("Select Date", "cancel")
             } else {
@@ -478,7 +484,7 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
     private var gameTypeName = ""
     private var gameTypePrice = "0"
     private var tvFinalSubmit: TextView? = null
-    private var tabAddBid: FrameLayout? = null
+    private var tabAddBid: TextView? = null
     private var rootView: View? = null
     private var dbCnt = ""
     private var dbPnt = ""
@@ -514,9 +520,15 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
         val tvWalletAfterDeduct = dialog.findViewById<TextView>(R.id.tvWalletAfterDeduct)
         val tabSubmit = dialog.findViewById<RelativeLayout>(R.id.tabSubmit)
         val tabCancel = dialog.findViewById<RelativeLayout>(R.id.tabCancel)
+        val confirmBtn = dialog.findViewById<RelativeLayout>(R.id.confirmBtn)
+        confirmBtn.setBackgroundResource(R.drawable.green_confirm_button)
+        val cancelBtn = dialog.findViewById<RelativeLayout>(R.id.cancelBtn)
+        cancelBtn.setBackgroundResource(R.drawable.green_cancel_button)
+        val cancelText = dialog.findViewById<TextView>(R.id.tvCancel)
+        cancelText.setTextColor(ContextCompat.getColor(context!!, R.color.greenThemeColor))
         val walletBal = AppPreference.getIntegerPreference(mContext, Constant.USER_WALLET_BALANCE)
         tvCurrentTime.text =
-            "Jackpot " + providerResultData!!.providerName + " " + DateFormatToDisplay().parseDateToddMMyyyy(
+            "Jackpot " + providerResultData!!.providerName + " - " + DateFormatToDisplay().parseDateToddMMyyyy(
                 providerResultData!!.gameDate
             )
         tvTotalBid.text = dbCnt
@@ -584,19 +596,19 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
                                     Alerts.AlertDialogSuccessAutoClose(
                                         context,
                                         activity,
-                                        responseObject.getString("message")
+                                        responseObject.getString("message"),"green"
                                     )
                                 } else {
                                     Alerts.AlertDialogWarning(
                                         context,
 
-                                        responseObject.getString("message")
+                                        responseObject.getString("message"),"green"
                                     )
                                 }
                             }
 
                             override fun onFail(response: String?) {
-                                Alerts.AlertDialogWarning(context, response)
+                                Alerts.AlertDialogWarning(context, response,"green")
                             }
                         }
                     )
@@ -621,6 +633,7 @@ class DigitBasedJodiFragment_Jackpot : Fragment(), View.OnClickListener {
         alertDialog!!.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialogView.txtMessage.text = string
         val btnSubmit = dialogView.btnOk
+        btnSubmit.setBackgroundResource(R.drawable.green_confirm_button)
         btnSubmit.setOnClickListener {
             if (s == "submit") {
                 alertDialog.dismiss()

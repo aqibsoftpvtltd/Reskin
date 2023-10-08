@@ -10,8 +10,7 @@
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:layout_marginVertical="@dimen/_15sdp"
+        android:layout_height="@dimen/_50sdp"
         android:background="@color/secondaryColor"
         android:gravity="center_vertical">
 
@@ -19,7 +18,7 @@
             android:id="@+id/navBack"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="match_parent"
-            android:padding="@dimen/_10sdp"
+            android:padding="@dimen/_14sdp"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.5"
 
@@ -28,7 +27,7 @@
             android:id="@+id/navBtn"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="match_parent"
-            android:padding="@dimen/_11sdp"
+            android:padding="@dimen/_14sdp"
             android:visibility="gone"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.5"
@@ -36,17 +35,20 @@
             android:src="@drawable/navigation_icon" />
 
         <TextView
-            android:id="@+id/toolbarTitle"
+            android:id="@+id/navTitle"
             android:layout_width="0dp"
             android:layout_height="@dimen/_30sdp"
             android:layout_gravity="center_horizontal|center"
-
+            android:autoSizeMaxTextSize="@dimen/_14sdp"
+            android:autoSizeMinTextSize="@dimen/_10sdp"
+            android:autoSizeTextType="uniform"
             android:layout_weight="3"
+            android:maxLines="1"
             android:fontFamily="@font/dmsansbold"
             android:gravity="center_vertical|center|center_horizontal"
-            android:text="@string/app_name"
+            android:text="@string/profile"
             android:textColor="@color/white"
-            android:textSize="@dimen/_16sdp"
+
             android:visibility="visible" />
 
 
@@ -54,7 +56,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/cartLyt"
+            android:id="@+id/navNotiLyt"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
@@ -63,8 +65,8 @@
 
             <ImageView
                 android:id="@+id/cart"
-                android:layout_width="@dimen/_17sdp"
-                android:layout_height="@dimen/_15sdp"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/notification">
 
@@ -95,6 +97,20 @@
         </RelativeLayout>
 
 
+
+
+        <RelativeLayout
+            android:id="@+id/downloadBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_minus2sdp"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"
+            android:layout_weight="0.7">
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -239,7 +255,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/notificationLyt"
+                android:id="@+id/notiLyt"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_below="@id/notificationText"
                 android:paddingHorizontal="@dimen/_15sdp"
@@ -261,6 +277,7 @@
                     />
 
                 <LinearLayout
+                    android:id="@+id/notificationLyt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -299,18 +316,18 @@
 
 
                 </LinearLayout>
-                <ImageView
-                    android:id="@+id/rightArrow"
-                    android:layout_width="@dimen/_38sdp"
-                    android:layout_height="@dimen/_38sdp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/right_arrow_nav"
-
-                    android:padding="@dimen/_7sdp"
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/customSwitch"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    />
 
+                    app:track="@drawable/track"
+                    android:thumb="@drawable/thumb"
+                    android:checked="false"
+
+                    />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -325,7 +342,7 @@
 
             </RelativeLayout>
             <TextView
-                android:layout_below="@id/notificationLyt"
+                android:layout_below="@id/notiLyt"
                 android:id="@+id/moreText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

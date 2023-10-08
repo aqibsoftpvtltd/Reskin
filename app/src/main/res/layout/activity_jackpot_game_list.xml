@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundWhite"
+    android:background="@color/secondaryColor"
     android:orientation="vertical"
     tools:context=".ui.activity.JackpotGameListActivity">
 
@@ -12,6 +12,7 @@
         android:id="@+id/toobarjckport"
         layout="@layout/toolbar"/>
 
+<!--
     <RelativeLayout
         android:id="@+id/lls"
 
@@ -64,13 +65,14 @@
             android:layout_alignParentEnd="true"
             android:background="@color/grayColor"/>
     </RelativeLayout>
+-->
 
 
     <LinearLayout
-        android:layout_marginTop="@dimen/_10sdp"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gamesitems_bg"
+        android:background="@drawable/main_dashboard_bg"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -80,10 +82,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginVertical="@dimen/_15sdp"
             app:spanCount="2"
+
+            android:layout_marginHorizontal="@dimen/_22sdp"
             tools:itemCount="17"
+            android:paddingBottom="@dimen/_10sdp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/game_dashboard_item_view" />
 

@@ -371,7 +371,7 @@ class SplashActivity : AppCompatActivity() {
                                     this@SplashActivity,
                                     this@SplashActivity,
                                     "Application Is Under Maintainance\nPlease Comeback After Sometime\nThank You :)"
-                                )
+                                    ,"")
                             }
                         } catch (e: JSONException) {
                             e.printStackTrace()

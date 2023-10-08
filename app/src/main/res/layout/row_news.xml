@@ -21,55 +21,77 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_2sdp"
             android:layout_marginVertical="@dimen/_4sdp"
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:background="@drawable/card_bg_round_15_transparent"
+
+
             android:elevation="@dimen/_2sdp"
             android:gravity="center"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/not_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/notification_icon_with_bg"
+                android:layout_centerVertical="true">
+
+            </ImageView>
+
            <LinearLayout
                android:paddingVertical="@dimen/_12sdp"
-               android:layout_alignParentStart="true"
+
+               android:layout_toRightOf="@id/not_icon"
                android:layout_alignParentEnd="true"
                android:layout_alignParentTop="true"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
+               android:gravity="center_vertical"
+               android:layout_marginLeft="@dimen/_10sdp"
                android:orientation="vertical">
 
-               <TextView
-                   android:id="@+id/txtTitleNotification"
+               <LinearLayout
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:fontFamily="@font/glacial_bold"
-                   android:gravity="start|center_vertical"
-                   android:text="@string/title"
-                   android:textAlignment="viewStart"
-                   android:textColor="@color/black"
-                   android:textSize="@dimen/_13sdp" />
+                   >
+                   <TextView
+                       android:id="@+id/txtTitleNotification"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="@font/dmsansbold"
+                       android:gravity="start|center_vertical"
+                       android:text="@string/title"
+                       android:layout_weight="1"
+                       android:textAlignment="viewStart"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/_10sdp" />
+
+                   <TextView
+
+                       android:id="@+id/tv_time"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="@font/dmsansmedium"
+                       android:gravity="end"
+                       android:text="@string/time"
+                       android:layout_weight="1"
+
+                       android:textColor="@color/extra_light_grey_text_color"
+                       android:textSize="@dimen/_8sdp" />
+
+               </LinearLayout>
+
 
                <TextView
                    android:id="@+id/txtNewsDescription"
                    android:layout_marginTop="@dimen/_4sdp"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:fontFamily="@font/glacial_regular"
+                   android:fontFamily="@font/dmsansmedium"
                    android:gravity="start|center_vertical"
                    android:text="@string/descrition"
                    android:textAlignment="viewStart"
-                   android:textColor="@color/black"
-                   android:textSize="@dimen/_11sdp" />
+                   android:textColor="@color/light_grey_textcolor"
+                   android:textSize="@dimen/_10sdp" />
 
-               <TextView
-                   android:layout_marginTop="@dimen/_4sdp"
-                   android:id="@+id/tv_time"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:fontFamily="@font/glacial_regular"
-                   android:gravity="start|center_vertical"
-                   android:text="@string/time"
-                   android:textAlignment="viewStart"
-                   android:textColor="@color/grayColor"
-                   android:textSize="@dimen/_11sdp" />
 
            </LinearLayout>
 

@@ -294,7 +294,7 @@ class MpinLoginFragment : Fragment(), View.OnClickListener {
                                 startActivity(intent)
 //                                activity!!.finish()
                             } else {
-                                Alerts.AlertDialogWarning(mContext, responseObject.getString("message"))
+                                Alerts.AlertDialogWarning(mContext, responseObject.getString("message"),"")
                             }
 
                         } catch (e: Exception) {

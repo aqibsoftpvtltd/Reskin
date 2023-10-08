@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secondaryColor"
+    tools:context=".ui.fragment.FaqsFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_dashboard_bg">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       android:layout_above="@id/goToHomePageBtn"
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:textSize="@dimen/_32sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:fontFamily="@font/dmsansbold"
+            android:text="FAQ" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/wallet_grey_text_color"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/dmsansregular"
+            android:text="FInd important information and update about\nany recent changes and fees here." />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/extra_light_grey_text_color"
+            android:layout_marginTop="@dimen/_30sdp">
+
+        </View>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/appColor"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/dmsansbold"
+            android:text="General" />
+
+        <LinearLayout
+            android:id="@+id/one"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_20sdp">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_weight="1"
+
+                android:fontFamily="@font/dmsansmedium"
+                android:text="How to contact with riders  ?" />
+
+            <ImageView
+                android:id="@+id/oneArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/faqs_down_arrow">
+
+            </ImageView>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/oneDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/wallet_grey_text_color"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:fontFamily="@font/dmsansregular"
+            android:visibility="gone"
+            android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:background="@color/extra_light_grey_text_color"
+            android:layout_marginTop="@dimen/_20sdp">
+
+        </View>
+
+        <LinearLayout
+            android:id="@+id/two"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_weight="1"
+
+                android:fontFamily="@font/dmsansmedium"
+                android:text="How to change my selected furniture ?" />
+
+            <ImageView
+                android:id="@+id/twoArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/faqs_down_arrow">
+
+            </ImageView>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/twoDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/wallet_grey_text_color"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:fontFamily="@font/dmsansregular"
+            android:visibility="gone"
+            android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:background="@color/extra_light_grey_text_color"
+            android:layout_marginTop="@dimen/_20sdp">
+
+        </View>
+
+        <LinearLayout
+            android:id="@+id/three"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_weight="1"
+
+                android:fontFamily="@font/dmsansmedium"
+                android:text="What is cost of each item ?" />
+
+            <ImageView
+                android:id="@+id/threeArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/faqs_down_arrow">
+
+            </ImageView>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/threeDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/wallet_grey_text_color"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:fontFamily="@font/dmsansregular"
+            android:visibility="gone"
+            android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:background="@color/extra_light_grey_text_color"
+            android:layout_marginTop="@dimen/_20sdp">
+
+        </View>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/appColor"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:fontFamily="@font/dmsansbold"
+            android:text="Contact" />
+
+        <LinearLayout
+            android:id="@+id/four"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_weight="1"
+
+                android:fontFamily="@font/dmsansmedium"
+                android:text="What is the customer care number? "/>
+
+            <ImageView
+                android:id="@+id/fourArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/faqs_down_arrow">
+
+            </ImageView>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/fourDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/wallet_grey_text_color"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:fontFamily="@font/dmsansregular"
+            android:visibility="gone"
+            android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:background="@color/extra_light_grey_text_color"
+            android:layout_marginTop="@dimen/_20sdp">
+
+        </View>
+
+        <LinearLayout
+            android:id="@+id/five"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_weight="1"
+
+                android:fontFamily="@font/dmsansmedium"
+                android:text="Can I Cancel the order after one week?"/>
+
+            <ImageView
+                android:id="@+id/fiveArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/faqs_down_arrow">
+
+            </ImageView>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/fiveDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/wallet_grey_text_color"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:fontFamily="@font/dmsansregular"
+            android:visibility="gone"
+            android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:background="@color/extra_light_grey_text_color"
+            android:layout_marginTop="@dimen/_20sdp">
+
+        </View>
+
+
+        <LinearLayout
+            android:id="@+id/six"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_weight="1"
+
+                android:fontFamily="@font/dmsansmedium"
+                android:text="How to call any service now?"/>
+
+            <ImageView
+                android:id="@+id/sixArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/faqs_down_arrow">
+
+            </ImageView>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sixDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/wallet_grey_text_color"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:fontFamily="@font/dmsansregular"
+            android:visibility="gone"
+            android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:background="@color/extra_light_grey_text_color"
+            android:layout_marginTop="@dimen/_20sdp">
+
+        </View>
+
+    </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/goToHomePageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/go_to_home_page_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="@dimen/_20sdp">
+
+    </TextView>
+    </RelativeLayout>
+</RelativeLayout>

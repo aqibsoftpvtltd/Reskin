@@ -53,7 +53,7 @@
                             android:textAlignment="viewStart"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_13sdp"
-                            android:fontFamily="@font/glacial_regular" />
+                            android:fontFamily="@font/dmsansmedium" />
 
 
 
@@ -112,7 +112,7 @@
                             android:textAlignment="viewStart"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_13sdp"
-                            android:fontFamily="@font/glacial_regular" />
+                            android:fontFamily="@font/dmsansmedium" />
 
 
 
@@ -174,7 +174,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true"
-                            android:fontFamily="@font/glacial_regular"
+                            android:fontFamily="@font/dmsansmedium"
                             android:gravity="center"
                             android:text="@string/done"
                             android:textColor="@color/white"

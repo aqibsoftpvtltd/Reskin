@@ -506,7 +506,7 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
                         if (responseObject.getInt("status") == 0) {
 
                             Alerts.AlertDialogWarning(
-                                requireContext(), responseObject.getString("message")
+                                requireContext(), responseObject.getString("message"),""
                             )
 
                         } else {
@@ -893,7 +893,7 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
 //                                    activity!!.finish()
                                 } else {
                                     Alerts.AlertDialogWarning(
-                                        mContext, responseObject.getString("message")
+                                        mContext, responseObject.getString("message"),""
                                     )
                                 }
 

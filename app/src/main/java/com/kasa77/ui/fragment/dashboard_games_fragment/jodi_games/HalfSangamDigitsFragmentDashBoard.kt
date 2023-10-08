@@ -570,7 +570,7 @@ class HalfSangamDigitsFragmentDashBoard : Fragment(), View.OnClickListener {
                     actOpenDigit!!.requestFocus()
                 }
                 strGameSession.isEmpty() ->{
-                    Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)}
+                    Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"")}
                 selectedDateObject!!.date.isEmpty() -> dialogBoxMessage("Require Field", "cancel")
                 stPoints!!.toInt() < GameConstantMessages.MinPointValue -> dialogBoxMessage(GameConstantMessages.MinPoint, "")
                 stPoints!!.toInt() > GameConstantMessages.MaxPointValue -> dialogBoxMessage(
@@ -628,7 +628,7 @@ class HalfSangamDigitsFragmentDashBoard : Fragment(), View.OnClickListener {
                     dialogBoxMessage(message, "cancel")
                 }
                 strGameSession.isEmpty() ->{
-                    Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
+                    Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType,"")
                 }
                 selectedDateObject!!.date.isEmpty() -> dialogBoxMessage("Require Field", "cancel")
 
@@ -824,7 +824,7 @@ class HalfSangamDigitsFragmentDashBoard : Fragment(), View.OnClickListener {
                         Alerts.AlertDialogWarning(
                             dialog.context,
 
-                            GameConstantMessages.BidClosedForDay
+                            GameConstantMessages.BidClosedForDay,""
                         )
                     } else {
                         dialog.dismiss()
@@ -839,7 +839,7 @@ class HalfSangamDigitsFragmentDashBoard : Fragment(), View.OnClickListener {
             dialog.show()
 
         } else {
-            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid,"")
         }
     }
 
@@ -967,19 +967,19 @@ class HalfSangamDigitsFragmentDashBoard : Fragment(), View.OnClickListener {
                                 Alerts.AlertDialogSuccessAutoClose(
                                     context,
                                     activity,
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                             } else {
                                 Alerts.AlertDialogWarning(
                                     context,
 
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                             }
                         }
 
                         override fun onFail(response: String?) {
-                            Alerts.AlertDialogWarning(context, response)
+                            Alerts.AlertDialogWarning(context, response,"")
                         }
                     }
                 )
@@ -1035,7 +1035,7 @@ class HalfSangamDigitsFragmentDashBoard : Fragment(), View.OnClickListener {
                                 }
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext,  ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext,  ksgModel.message,"")
                         }
                     }
 

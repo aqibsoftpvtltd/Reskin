@@ -16,6 +16,10 @@ import com.kasa77.ui.fragment.jackpot_fragments.modal.Result
 import com.kasa77.utils.AppPreference
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game.*
+import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.cart
+import kotlinx.android.synthetic.main.toolbar.notificationCount
+import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class JackpotGameActivity : BaseActivity() {
@@ -32,12 +36,15 @@ class JackpotGameActivity : BaseActivity() {
         gameProvider = intent.getParcelableExtra("PROVIDER")
 
         tvMenuTitle.text = "Jackpot ${gameProvider!!.providerName} - ($from)"
+        toolbarTitle.text ="Jackpot ${gameProvider!!.providerName} - ($from)"
 
         val walletBal = AppPreference.getDoublePreference(mContext, Constant.USER_WALLET_BALANCE_FLOAT)
         tvWalletCount.text = walletBal.toString()
 
         initFragment(from)
-        val backBtn: ImageView = findViewById(R.id.backbtn)
+
+        notificationCount.visibility = View.GONE
+        cart.setBackgroundResource(R.drawable.wallet_icon)
 
         backBtn.setOnClickListener {
             onBackPressed()

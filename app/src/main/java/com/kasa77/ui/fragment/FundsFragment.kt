@@ -43,13 +43,11 @@ class FundsFragment : Fragment(),View.OnClickListener {
     }
     override fun onClick(p0: View?) {
         when(p0?.id){
-/*
             R.id.cvAddFund->{
-                startActivity(Intent(mContext,AddFundNewActivity::class.java))
-//                startActivity(Intent(mContext,FundsActivity::class.java)
-//                    .putExtra("from","addFund"))
+       //         startActivity(Intent(mContext,AddFundNewActivity::class.java))
+           startActivity(Intent(mContext,FundsActivity::class.java)
+                    .putExtra("from","addFund"))
             }
-*/
             R.id.cvWithdrawFund->{
                 startActivity(Intent(mContext,FundsActivity::class.java)
                     .putExtra("from","withdrawFund"))

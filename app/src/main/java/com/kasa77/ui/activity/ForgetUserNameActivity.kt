@@ -29,19 +29,17 @@ class ForgetUserNameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_forget_user_name)
         retrofitApiClient = RetrofitService.getRetrofit()
 
-        btnSubmit.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                val uMobile = etMobileNumber.text.toString()
+        tabLogin.setOnClickListener {
+            val uMobile = etMobileNumber.text.toString()
 
-                if (uMobile.isEmpty()) {
-                    Alerts.show(this@ForgetUserNameActivity, "Your Mobile should not be empty!")
-                } else if (uMobile.length < 10) {
-                    Alerts.show(this@ForgetUserNameActivity, "You entered a wrong Mobile Number!")
-                } else {
-                    forgotusername(uMobile)
-                }
+            if (uMobile.isEmpty()) {
+                Alerts.show(this@ForgetUserNameActivity, "Your Mobile should not be empty!")
+            } else if (uMobile.length < 10) {
+                Alerts.show(this@ForgetUserNameActivity, "You entered a wrong Mobile Number!")
+            } else {
+                forgotusername(uMobile)
             }
-        })
+        }
 
         /*bck_btn.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?)
@@ -87,17 +85,17 @@ class ForgetUserNameActivity : AppCompatActivity() {
 
                             if (jsonObject.getInt("status") == 1) {
 
-                                Alerts.AlertDialogSuccessAutoClose(this@ForgetUserNameActivity,this@ForgetUserNameActivity,jsonObject.getString("message"))
+                                Alerts.AlertDialogSuccessAutoClose(this@ForgetUserNameActivity,this@ForgetUserNameActivity,jsonObject.getString("message"),"")
                             } else {
-                                Alerts.AlertDialogWarning(this@ForgetUserNameActivity,jsonObject.getString("message"))
+                                Alerts.AlertDialogWarning(this@ForgetUserNameActivity,jsonObject.getString("message"),"")
 
                             }
                         } else {
-                            Alerts.AlertDialogWarning(this@ForgetUserNameActivity,jsonObject.getString("message"))
+                            Alerts.AlertDialogWarning(this@ForgetUserNameActivity,jsonObject.getString("message"),"")
 
                         }
                     } catch (e: Exception) {
-                        Alerts.AlertDialogWarning(this@ForgetUserNameActivity,e.message)
+                        Alerts.AlertDialogWarning(this@ForgetUserNameActivity,e.message,"")
 
                     }
                 }

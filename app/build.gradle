@@ -142,6 +142,8 @@ dependencies {
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
 
     implementation 'com.tbuonomo:morph-bottom-navigation:1.0.1'
+
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2'
 }
 apply plugin: 'com.google.gms.google-services'
 repositories {

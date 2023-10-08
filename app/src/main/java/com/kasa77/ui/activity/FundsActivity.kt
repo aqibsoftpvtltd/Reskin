@@ -41,6 +41,8 @@ import kotlinx.android.synthetic.main.dialog_view_toast_message.view.btnOk
 import kotlinx.android.synthetic.main.dialog_withdraw_request.view.*
 import kotlinx.android.synthetic.main.fragment_my_profile.view.*
 import kotlinx.android.synthetic.main.layout_content_home.*
+import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -70,9 +72,10 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
         val recordlist: List<com.kasa77.modal.fund_pagination.RecordsItem> = ArrayList()
         fundHistoryPaginationAdapter = FundHistoryPaginationAdapter(recordlist)
 
+        backBtn.setOnClickListener { onBackClick() }
 
-
-
+        UserName.text = AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_USER_NAME)
+        PhoneNumber.text = AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_MOBILE)
 
         strFrom = intent!!.getStringExtra("from").toString()
         layoutManger = LinearLayoutManager(this@FundsActivity)
@@ -95,6 +98,25 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                 }
             }
         });
+
+        hundered.setOnClickListener {
+            etRequestPoints.setText(hundered.text.toString())
+        }
+        fiveHundered.setOnClickListener {
+            etRequestPoints.setText(fiveHundered.text.toString())
+        }
+        twentyFiveHundered.setOnClickListener {
+            etRequestPoints.setText(twentyFiveHundered.text.toString())
+        }
+        thousand.setOnClickListener {
+            etRequestPoints.setText(thousand.text.toString())
+        }
+        fiveThousand.setOnClickListener {
+            etRequestPoints.setText(fiveThousand.text.toString())
+        }
+        tenThousand.setOnClickListener {
+            etRequestPoints.setText(tenThousand.text.toString())
+        }
 
     }
 
@@ -164,24 +186,24 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
         when (strFrom) {
             "addFund" -> {
                 getUpiFromAdmin()
-                tvTitle.text = mContext.getString(R.string.add_fund)
-                tvSubTitle.text = mContext.getString(R.string.add_fund_request)
+                toolbarTitle.text = mContext.getString(R.string.add_fund)
+                //tvSubTitle.text = mContext.getString(R.string.add_fund_request)
                 tabNote.visibility=View.GONE
                 tabTelegram.visibility=View.GONE
                 tabSelection.visibility=View.VISIBLE
                 tabHistoryFund.visibility=View.GONE
             }
             "withdrawFund" -> {
-                tvTitle.text = mContext.getString(R.string.withdraw_fund)
-                tvSubTitle.text = mContext.getString(R.string.total_payment)
-                tabNote.visibility=View.VISIBLE
-                tabTelegram.visibility=View.VISIBLE
+                toolbarTitle.text = mContext.getString(R.string.withdraw_fund)
+                //tvSubTitle.text = mContext.getString(R.string.total_payment)
+               // tabNote.visibility=View.VISIBLE
+              //  tabTelegram.visibility=View.VISIBLE
                 tabSelection.visibility=View.VISIBLE
                 tabHistoryFund.visibility=View.GONE
                 getWithdrawTextDetails();
             }
             "requestHistory" -> {
-                tvTitle.text = mContext.getString(R.string.fund_request_history)
+                toolbarTitle.text = mContext.getString(R.string.fund_request_history)
                 tabNote.visibility=View.GONE
                 tabTelegram.visibility=View.GONE
                 tabSelection.visibility=View.GONE
@@ -198,21 +220,21 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
 //COMMENTED CALL FEATURE
 //        llCall.setOnClickListener(this)
 
-        tabSendRequest.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                when (strFrom) {
-                    "addFund" -> {
-                        getMinMaxFundingAmount(etRequestPoints.text.toString().trim())
-                    }
-                    "withdrawFund" -> {
-                        validateWithdrawRequestNew(etRequestPoints.text.toString().trim())
-                    }
-                    "requestHistory" -> {
+        tabSendRequest.setOnClickListener {
+            when (strFrom) {
+                "addFund" -> {
+                    getMinMaxFundingAmount(etRequestPoints.text.toString().trim())
+                }
 
-                    }
+                "withdrawFund" -> {
+                    validateWithdrawRequestNew(etRequestPoints.text.toString().trim())
+                }
+
+                "requestHistory" -> {
+
                 }
             }
-        })
+        }
     }
 
     private fun getWithdrawTextDetails() {
@@ -360,14 +382,14 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
 
                                 if (alertDialog.isShowing)
                                     alertDialog.dismiss()
-                                Alerts.AlertDialogSuccessWithdraw(
+                                Alerts. AlertDialogSuccessWithdraw(
                                     this@FundsActivity,
                                     responseObject.getString("message")
                                 )
                             } else if (responseObject.getInt("status") == 0) {
                                 Alerts.AlertDialogWarning(
                                     this@FundsActivity,
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                             }
 //                            else
@@ -492,7 +514,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                                 jsonresponse.toString(),
                                 FundHistory::class.java)
 
-                            tvNext.text = "${mContext.getString(R.string.next)} (" + fundHistory!!.current + "/" + fundHistory!!.pages + ")"
+                            tabNext.text = "${mContext.getString(R.string.next)} (" + fundHistory!!.current + "/" + fundHistory!!.pages + ")"
 
                             fundHistoryPaginationAdapter!!.addItems(fundHistory!!.records);
 
@@ -504,7 +526,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                             }
                             Alerts.AlertDialogWarning(
                                 this@FundsActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
                         }
                     }
@@ -624,7 +646,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                     if (response == null) {
                         Alerts.AlertDialogWarning(
                             this@FundsActivity,
-                            "Payment cancelled by user."
+                            "Payment cancelled by user.",""
                         )
                         Log.d(
                             "UPI",
@@ -671,7 +693,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                             } else {
                                 Alerts.AlertDialogWarning(
                                     this@FundsActivity,
-                                    "Transaction failed.Please try again"
+                                    "Transaction failed.Please try again",""
                                 )
                             }
                         } catch (e: java.lang.Exception) {
@@ -681,7 +703,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                             )
                             Alerts.AlertDialogWarning(
                                 this@FundsActivity,
-                                "Transaction failed.Please try again"
+                                "Transaction failed.Please try again",""
                             )
                         }
                     }
@@ -692,7 +714,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                     )
                     Alerts.AlertDialogWarning(
                         this@FundsActivity,
-                        "Payment cancelled by user."
+                        "Payment cancelled by user.",""
                     )
                 }
             }
@@ -703,17 +725,17 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                     if (response.equals("success", true)) {
                         Alerts.AlertDialogWarning(
                             this@FundsActivity,
-                            "Transaction Success.\nPoints Added To Your Wallet"
+                            "Transaction Success.\nPoints Added To Your Wallet",""
                         )
                     } else if (response.equals("failure", true)) {
                         Alerts.AlertDialogWarning(
                             this@FundsActivity,
-                            "Transaction failed.Please try again"
+                            "Transaction failed.Please try again",""
                         )
                     } else {
                         Alerts.AlertDialogWarning(
                             this@FundsActivity,
-                            "Transaction Cancelled By User"
+                            "Transaction Cancelled By User",""
                         )
                     }
                 } catch (e: Exception) {
@@ -857,7 +879,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                             } else {
                                 Alerts.AlertDialogWarning(
                                     this@FundsActivity,
-                                    jsonresponse.optString("message")
+                                    jsonresponse.optString("message"),""
                                 )
                             }
 
@@ -865,7 +887,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                         } else {
                             Alerts.AlertDialogWarning(
                                 this@FundsActivity,
-                                jsonresponse.optString("message")
+                                jsonresponse.optString("message"),""
                             )
 
                         }
@@ -931,7 +953,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    fun onBackClick(view: View) {
+    fun onBackClick() {
         onBackPressed()
     }
 
@@ -966,7 +988,7 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
                                 Alerts.AlertDialogWarning(
                                     this@FundsActivity,
 
-                                    responseObject.getString("message")
+                                    responseObject.getString("message"),""
                                 )
                         } catch (e: Exception) {
                             e.printStackTrace()

@@ -39,7 +39,7 @@
                     android:id="@+id/txtMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/glacial_regular"
+                    android:fontFamily="@font/dmsansmedium"
                     android:gravity="center"
                     android:text="Session Expired\nPlease Logout To Continue"
                     android:textColor="@color/textPrimary"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundWhite"
+    android:background="@color/secondaryColor"
     android:orientation="vertical"
     tools:context=".ui.activity.BidsHistoryActivity">
 
@@ -13,6 +13,7 @@
         android:orientation="vertical"
         android:paddingBottom="@dimen/_15sdp"
         android:elevation="@dimen/_2sdp"
+        android:visibility="gone"
         android:layout_marginBottom="@dimen/_8sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -71,7 +72,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/tabfilter"
+
                     android:gravity="start|center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,159 +115,223 @@
 
     </LinearLayout>
 
+    <include layout="@layout/toolbar">
+
+    </include>
 
 
-    <TextView
-        android:id="@+id/tvText"
+
+
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@drawable/game_date_type_bg"
-        android:fontFamily="@font/glacial_bold"
-        android:padding="5dp"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        android:text="Starline game"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/new_colorAccent"
-        android:textSize="@dimen/text_18"
-        android:textStyle="bold"
-        android:visibility="gone" />
-
-    <LinearLayout
-        android:paddingVertical="@dimen/_6sdp"
-        android:id="@+id/llDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:visibility="visible">
-
+        android:layout_height="match_parent"
+        android:background="@drawable/main_dashboard_bg"
+        android:orientation="vertical">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:fontFamily="@font/glacial_regular"
-            android:text="@string/select_date"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_16" />
-
-        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSelectedDate"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="start"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/ractengle_gradian_round_edge"
-            android:fontFamily="@font/glacial_bold"
-            android:gravity="center_vertical"
-            android:paddingLeft="16dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:textColor="@color/black"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:fontFamily="@font/dmsansbold"
+            android:text="This Month">
 
-            android:paddingRight="16dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_16"
-            android:visibility="visible" />
+        </TextView>
+        <ImageView
+            android:id="@+id/dateFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/filter_one_bids_history"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:fontFamily="@font/dmsansbold">
 
-    </LinearLayout>
+        </ImageView>
+        <ImageView
+            android:id="@+id/tabFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
+            android:layout_toLeftOf="@id/dateFilter"
+            android:src="@drawable/filter_second"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:fontFamily="@font/dmsansbold">
 
+        </ImageView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gamesitems_bg"
-        android:elevation="@dimen/cardview_default_elevation"
-        android:gravity="center_horizontal"
+        android:layout_below="@id/btnSelectedDate"
+
+        android:layout_above="@+id/tabNext"
         android:orientation="vertical">
+
+
+<!--
+        <LinearLayout
+            android:paddingVertical="@dimen/_6sdp"
+            android:id="@+id/llDate"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/glacial_regular"
+                android:text="@string/select_date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/ractengle_gradian_round_edge"
+                android:fontFamily="@font/glacial_bold"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+
+                android:paddingRight="16dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:visibility="visible" />
+
+        </LinearLayout>
+-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/ll_loading"
-            android:layout_weight="1"
-            android:paddingVertical="@dimen/_12sdp"
+            android:background="@drawable/gamesitems_bg"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvMessage"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginHorizontal="@dimen/_15sdp"
-                android:fontFamily="@font/glacial_bold"
-                android:text="No Data found"
-                android:textAlignment="center"
-                android:textColor="@color/textPrimary"
-                android:textSize="@dimen/text_18"
-                android:visibility="gone" />
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvHistory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_above="@id/ll_loading"
                 android:layout_weight="1"
-                android:scrollbars="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/row_bid_history" />
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/tvMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:fontFamily="@font/glacial_bold"
+                    android:text="No Data found"
+                    android:textAlignment="center"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="@dimen/text_18"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/tvText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    android:fontFamily="@font/dmsansbold"
+                    android:padding="5dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"
+                    android:text="Starline game"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/new_colorAccent"
+                    android:textSize="@dimen/text_18"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/row_bid_history" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_loading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#80000000"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.rhl.avprogress.AVLoadingIndicatorView
+                    android:id="@+id/progress_loader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    app:indicatorName="BallPulseIndicator" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="30dp"
+                    android:layout_height="@dimen/space_30"
+                    android:visibility="gone"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txt_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/glacial_bold"
+                    android:text="Loading..."
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_14"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+
+
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_loading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#80000000"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:visibility="gone">
-
-            <com.rhl.avprogress.AVLoadingIndicatorView
-                android:id="@+id/progress_loader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center_horizontal"
-                app:indicatorName="BallPulseIndicator" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="30dp"
-                android:layout_height="@dimen/space_30"
-                android:visibility="gone"
-
-                />
-
-            <TextView
-                android:id="@+id/txt_loading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/glacial_bold"
-                android:text="Loading..."
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_14"
-                android:visibility="gone" />
-        </LinearLayout>
-
-
+    </LinearLayout>
         <FrameLayout
             android:id="@+id/tabNext"
-            android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_marginVertical="@dimen/_15sdp"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp">
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/dr_ractengle_round_edge_solid_ripple_effect">
 
             <RelativeLayout
-                android:layout_gravity="center"
                 android:id="@+id/tabInnerNext"
-                android:background="@drawable/ractengle_gradian_round_edge"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/orange_button">
 
 
                 <TextView
@@ -276,25 +341,15 @@
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/glacial_bold"
                     android:text="@string/next"
-                    android:textAllCaps="true"
+
                     android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
 
-                <ImageView
-                    android:layout_marginEnd="@dimen/_2sdp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_width="@dimen/_37sdp"
-                    android:layout_height="@dimen/_37sdp"
-                    android:src="@drawable/ic_arrow_round"
-                    android:padding="@dimen/_5sdp"
-                    android:background="@drawable/round_white"
-                    app:tint="@color/appColorLight"
-                    />
 
             </RelativeLayout>
         </FrameLayout>
 
+    </RelativeLayout>
 
-    </LinearLayout>
+
 </LinearLayout>

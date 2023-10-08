@@ -19,6 +19,7 @@ public class BidListToSubmitAdapter extends RecyclerView.Adapter<BidListToSubmit
     private Context mContext;
     private List<BidData> bidItems;
     private String gameSession;
+    String color="";
     private View.OnClickListener onClickListener;
 
     public BidListToSubmitAdapter(Context mContext, List<BidData> bidItem, View.OnClickListener onClickListener) {
@@ -26,6 +27,13 @@ public class BidListToSubmitAdapter extends RecyclerView.Adapter<BidListToSubmit
         this.bidItems = bidItem;
         this.gameSession = gameSession;
         this.onClickListener = onClickListener;
+    }
+    public BidListToSubmitAdapter(Context mContext, List<BidData> bidItem, View.OnClickListener onClickListener,String color) {
+        this.mContext = mContext;
+        this.bidItems = bidItem;
+        this.gameSession = gameSession;
+        this.onClickListener = onClickListener;
+        this.color = color;
     }
 
     @NonNull
@@ -41,15 +49,23 @@ public class BidListToSubmitAdapter extends RecyclerView.Adapter<BidListToSubmit
         holder.tvDigits.setText(bidItems.get(position).getDigits());
         holder.tvPoints.setText(bidItems.get(position).getPoints());
         holder.tvGameType.setText(bidItems.get(position).getGemeSession());
-        if (bidItems.get(position).getGemeSession().equals("Open")){
-            holder.tvGameType.setTextColor(mContext.getResources().getColor(R.color.openColor));
+        if (bidItems.get(position).getGemeSession().equals("Close")){
+
+            holder.tvGameType.setTextColor(mContext.getResources().getColor(R.color.closeColor));
         }
         else {
-            holder.tvGameType.setTextColor(mContext.getResources().getColor(R.color.closeColor));
+            holder.tvGameType.setTextColor(mContext.getResources().getColor(R.color.openColor));
         }
         holder.btnDelete.setTag(position);
         holder.btnDelete.setOnClickListener(onClickListener);
         //  holder.tvGameType.setText(bidItems.get(position).setGemeSession(gameSession));
+
+        if (color.equals("pink")){
+            holder.btnDelete.setImageResource(R.drawable.row_bid_list_delete_icon_pink);
+        } else if (color.equals("green")) {
+            holder.btnDelete.setImageResource(R.drawable.green_delete_button);
+
+        }
 
     }
 

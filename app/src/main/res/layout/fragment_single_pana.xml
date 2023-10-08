@@ -116,9 +116,6 @@
                     android:layout_marginRight="@dimen/_10sdp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/down_arrow_orange"
-
-
-
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     />

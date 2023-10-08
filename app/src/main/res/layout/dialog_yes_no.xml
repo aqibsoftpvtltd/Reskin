@@ -26,12 +26,12 @@
 
 
                 <ImageView
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_45sdp"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_90sdp"
                     android:layout_gravity="center"
                     android:layout_marginVertical="@dimen/_12sdp"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/failed" />
+                    android:src="@drawable/error_icon" />
 
                 <TextView
                     android:id="@+id/txtMessage"

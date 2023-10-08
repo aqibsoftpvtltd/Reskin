@@ -77,7 +77,7 @@ public class StarLineTimeGameAdapter extends RecyclerView.Adapter<StarLineTimeGa
 
         holder.binding.tabPlayGame.setOnClickListener(v -> {
             if (resultData.openBidTime.equals("") || resultData.closeBidTime.equals("") || resultData.displayText.contains("Betting Is Closed For Today")) {
-                Alerts.AlertDialogWarning(holder.binding.getRoot().getContext(), resultData.displayText);
+                Alerts.AlertDialogWarning(holder.binding.getRoot().getContext(), resultData.displayText,"pink");
             } else {
                 holder.binding.getRoot().getContext().startActivity(new Intent(holder.binding.getRoot().getContext(), StarLineGameListActivity.class).putExtra("PROVIDER", resultList.get(position)));
             }
@@ -85,7 +85,7 @@ public class StarLineTimeGameAdapter extends RecyclerView.Adapter<StarLineTimeGa
 
         holder.binding.tabSelection.setOnClickListener(v -> {
             if (resultData.openBidTime.equals("") || resultData.closeBidTime.equals("") || resultData.displayText.contains("Betting Is Closed For Today")) {
-                Alerts.AlertDialogWarning(holder.binding.getRoot().getContext(), resultData.displayText);
+                Alerts.AlertDialogWarning(holder.binding.getRoot().getContext(), resultData.displayText,"pink");
             } else {
                 holder.binding.getRoot().getContext().startActivity(new Intent(holder.binding.getRoot().getContext(), StarLineGameListActivity.class).putExtra("PROVIDER", resultList.get(position)));
             }

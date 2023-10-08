@@ -123,7 +123,7 @@ class AccountStatementFragment : Fragment() {
                                 tvMessage.visibility = View.VISIBLE
                                 tvMessage.text = jsonresponse.optString("message")
                             }
-                            Alerts.AlertDialogWarning(context,jsonresponse.optString("message"))
+                            Alerts.AlertDialogWarning(context,jsonresponse.optString("message"),"")
                         }
 
                     }

@@ -28,6 +28,8 @@ import kotlinx.android.synthetic.main.dialog_update_paytm_number.view.*
 import kotlinx.android.synthetic.main.dialog_withdraw_bank_confirmation.view.*
 import kotlinx.android.synthetic.main.dialog_withdraw_bank_confirmation.view.btn_cancel
 import kotlinx.android.synthetic.main.layout_content_home.*
+import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -49,7 +51,22 @@ class BankDetailActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bank_detail)
 
+        toolbarTitle.setText("Profile")
         profileDetailApi()
+
+        backBtn.setOnClickListener { onBackClick() }
+
+
+/*
+        dialogAlertSuccess(
+            "uAccountNo",
+            "uBankName",
+            "uIFSCode",
+            "",
+            ""
+        )
+*/
+
 
         etIFSCCode!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
@@ -112,7 +129,7 @@ class BankDetailActivity : BaseActivity() {
                         if (jsonObject.getInt("status") == 1) {
                             val data = jsonObject.getJSONObject("data")
                             val walletBalance: Double = data.getDouble("wallet_balance")
-                            tvWalletAmount1.text = Helper.getSuffix(""+walletBalance.toString())
+                          //  tvWalletAmount1.text = Helper.getSuffix(""+walletBalance.toString())
                             println("lagana pesa")
                             AppPreference.setIntegerPreference(
                                 mContext,
@@ -258,7 +275,7 @@ class BankDetailActivity : BaseActivity() {
         }
     }
 
-    fun onBackClick(view: View) {
+    fun onBackClick() {
         onBackPressed()
     }
 
@@ -308,7 +325,7 @@ class BankDetailActivity : BaseActivity() {
                         }
 
                     } else {
-                        Alerts.AlertDialogWarning(this@BankDetailActivity, response.message);
+                        Alerts.AlertDialogWarning(this@BankDetailActivity, response.message,"")
                         ll_getbank.visibility = View.GONE
                         cv_updatebank.visibility = View.VISIBLE
                     }
@@ -345,7 +362,7 @@ class BankDetailActivity : BaseActivity() {
                         if (responseObject.getInt("status") == 1) {
                             addbankAPI()
                         }else{
-                            Alerts.AlertDialogWarning(this@BankDetailActivity, responseObject.getString("message"))
+                            Alerts.AlertDialogWarning(this@BankDetailActivity, responseObject.getString("message"),"")
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
@@ -726,14 +743,12 @@ profileDetailApi()
                         val responseObject = JSONObject(response.string())
                         if (responseObject.getInt("status") == 1) {
                             if (responseObject.getInt("data") > 0) {
-                                tv_notification_counter1.visibility = View.VISIBLE
+                               // tv_notification_counter1.visibility = View.VISIBLE
                                 Constant.NotificationCounter =
                                     Constant.NotificationCounter + responseObject.getInt("data")
-                                tv_notification_counter1.text =
-                                    Constant.NotificationCounter.toString()
+                               // tv_notification_counter1.text = Constant.NotificationCounter.toString()
                                 if (responseObject.getInt("data") > 9) {
-                                    tv_notification_counter1.text =
-                                        "9+"
+                                   // tv_notification_counter1.text = "9+"
                                 }
 
                                 gameTitle.text = resources.getString(R.string.notification)

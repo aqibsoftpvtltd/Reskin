@@ -13,7 +13,10 @@ import com.kasa77.ui.fragment.GameTypeNames
 import com.kasa77.ui.fragment.jackpot_fragments.modal.Result
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game_list.rvGameDashboard
-import kotlinx.android.synthetic.main.activity_jackpot_game_list.tv_dashboard
+import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.cart
+import kotlinx.android.synthetic.main.toolbar.notificationCount
+import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 import kotlinx.android.synthetic.main.toolbar.view.*
 
 class JackpotGameListActivity : BaseActivity() {
@@ -27,20 +30,16 @@ class JackpotGameListActivity : BaseActivity() {
         setContentView(R.layout.activity_jackpot_game_list)
 
         gameProvider = intent.getParcelableExtra("PROVIDER")
-        tv_dashboard.text = "Jackpot Dashboard - "+gameProvider!!.providerName
+        toolbarTitle.text = "Jackpot Dashboard - "+gameProvider!!.providerName
+
         setupAdapter()
-        val backBtn: ImageView = findViewById(R.id.backbtn)
 
 
-        val toolbar = findViewById<View>(R.id.toobarjckport)
 
-        toolbar.toolbarTitle.text ="Jackpot"
-        toolbar.backBtn.visibility=View.GONE
-        toolbar.navBtn.visibility=View.VISIBLE
 
-        toolbar.notificationCount.visibility = View.GONE
+        notificationCount.visibility = View.GONE
 
-        toolbar.cart.setBackgroundResource(R.drawable.wallet_icon)
+        cart.setBackgroundResource(R.drawable.wallet_icon)
 
         backBtn.setOnClickListener {
             onBackPressed()

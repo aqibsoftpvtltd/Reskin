@@ -184,7 +184,7 @@ public class Alerts {
     }
 
 
-    public static void AlertDialogWarning(Context context, String message) {
+    public static void AlertDialogWarning(Context context, String message,String color) {
 
         if (dialog != null && dialog.isShowing()) {
             dialog.dismiss();
@@ -201,6 +201,11 @@ public class Alerts {
         TextView txtMessage = (TextView) dialog.findViewById(R.id.txtMessage);
         ImageView iv_close = (ImageView) dialog.findViewById(R.id.iv_close);
         Button btn_ok = (Button) dialog.findViewById(R.id.btn_ok);
+        if (color.equals("pink")){
+            btn_ok.setBackgroundResource(R.drawable.pink_confirm_button);
+        } else if (color.equals("green")) {
+            btn_ok.setBackgroundResource(R.drawable.green_confirm_button);
+        }
         txtMessage.setText(message + "");
 
         btn_ok.setOnClickListener(new View.OnClickListener() {
@@ -310,7 +315,7 @@ public class Alerts {
 
     }
 
-    public static void AlertDialogSuccessAutoClose(Context context, Activity activity, String message) {
+    public static void AlertDialogSuccessAutoClose(Context context, Activity activity, String message,String color) {
 
         if (dialog != null) {
             dialog.dismiss();
@@ -328,6 +333,11 @@ public class Alerts {
         TextView txtMessage = (TextView) dialog.findViewById(R.id.txtMessage);
         ImageView iv_close = (ImageView) dialog.findViewById(R.id.iv_close);
         Button btn_ok = (Button) dialog.findViewById(R.id.btn_ok);
+        if (color.equals("pink")){
+            btn_ok.setBackgroundResource(R.drawable.pink_confirm_button);
+        } else if (color.equals("green")) {
+            btn_ok.setBackgroundResource(R.drawable.green_confirm_button);
+        }
         txtMessage.setText(message + "");
 
         btn_ok.setOnClickListener(new View.OnClickListener() {
@@ -352,7 +362,7 @@ public class Alerts {
     }
 
 
-    public static void AlertDialogFailAutoClose(Context context, Activity activity, String message) {
+    public static void AlertDialogFailAutoClose(Context context, Activity activity, String message,String color) {
 
         if (dialog != null) {
             dialog.dismiss();
@@ -370,6 +380,11 @@ public class Alerts {
         TextView txtMessage = (TextView) dialog.findViewById(R.id.txtMessage);
         ImageView iv_close = (ImageView) dialog.findViewById(R.id.iv_close);
         Button btn_ok = (Button) dialog.findViewById(R.id.btn_ok);
+        if (color.equals("pink")){
+            btn_ok.setBackgroundResource(R.drawable.pink_confirm_button);
+        } else if (color.equals("green")) {
+            btn_ok.setBackgroundResource(R.drawable.green_confirm_button);
+        }
         txtMessage.setText(message + "");
 
         btn_ok.setOnClickListener(new View.OnClickListener() {

@@ -152,7 +152,7 @@
         <!-- Bottom Navigation View -->
 
         <LinearLayout
-            android:id="@+id/bottombar_back"
+            android:id="@+id/bottomBack"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_98sdp"
             android:orientation="horizontal"

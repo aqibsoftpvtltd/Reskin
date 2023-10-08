@@ -29,20 +29,17 @@ class StarLineGameListActivity : BaseActivity() {
         setContentView(R.layout.activity_starline_game_list)
 
         gameProvider = intent.getParcelableExtra("PROVIDER")
-        tv_dashboard.text = "Starline Dashboard - "+gameProvider!!.providerName
+
+        toolbarTitle.text = "Starline Dashboard - "+gameProvider!!.providerName
 
         setupAdapter()
-        val backBtn: ImageView = findViewById(R.id.backbtn)
 
-        val toolbar = findViewById<View>(R.id.toobarstarline)
 
-        toolbar.toolbarTitle.text ="Starline"
-        toolbar.backBtn.visibility=View.GONE
-        toolbar.navBtn.visibility=View.VISIBLE
 
-        toolbar.notificationCount.visibility = View.GONE
 
-        toolbar.cart.setBackgroundResource(R.drawable.wallet_icon)
+        notificationCount.visibility = View.GONE
+
+        cart.setBackgroundResource(R.drawable.wallet_icon)
 
 
         backBtn.setOnClickListener {

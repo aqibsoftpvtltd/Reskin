@@ -125,7 +125,7 @@ class SingleDigitFragmentDashBoard : Fragment(), View.OnClickListener {
                 dialogBitSubmit(GameTypeNames.SingleDigit)
             } else {
                 val message = GameConstantMessages.AddBids
-                Alerts.AlertDialogWarning(context, message)
+                Alerts.AlertDialogWarning(context, message,"")
             }
         }
 
@@ -148,19 +148,19 @@ class SingleDigitFragmentDashBoard : Fragment(), View.OnClickListener {
                 etPoints!!.requestFocus()
             }
             stPoints.startsWith("0") -> {
-                Alerts.AlertDialogWarning(context, GameConstantMessages.NonZeroPoint)
+                Alerts.AlertDialogWarning(context, GameConstantMessages.NonZeroPoint,"")
             }
             stPoints!!.toInt() < GameConstantMessages.MinPointValue -> Alerts.AlertDialogWarning(
-                context, GameConstantMessages.MinPoint
+                context, GameConstantMessages.MinPoint,""
 
             )
             stPoints!!.toInt() > GameConstantMessages.MaxPointValue -> Alerts.AlertDialogWarning(
-                context, GameConstantMessages.MaxPoint
+                context, GameConstantMessages.MaxPoint,""
 
             )
             walletBal < stDigits.toInt() -> {
                 val message = GameConstantMessages.InvalidWalletAmount
-                Alerts.AlertDialogWarning(context, message)
+                Alerts.AlertDialogWarning(context, message,"")
             }
             strGameSession.isEmpty() -> {
                 tvGameSession!!.error = GameConstantMessages.SelectGameType
@@ -169,7 +169,7 @@ class SingleDigitFragmentDashBoard : Fragment(), View.OnClickListener {
 //                Alerts.AlertDialogWarning(context, GameConstantMessages.SelectGameType)
             }
             selectedDateObject!!.date.isEmpty() -> Alerts.AlertDialogWarning(
-                context, GameConstantMessages.SelectGameDate
+                context, GameConstantMessages.SelectGameDate,""
 
             )
 
@@ -224,7 +224,7 @@ class SingleDigitFragmentDashBoard : Fragment(), View.OnClickListener {
                     etPoints!!.setText("")
                     actDigits!!.setText("")
                     bidAdapter!!.notifyDataSetChanged()
-                    Alerts.AlertDialogWarning(context, GameConstantMessages.NoBidsFound)
+                    Alerts.AlertDialogWarning(context, GameConstantMessages.NoBidsFound,"")
                 }
                 if (bidItems!!.size > 0) {
                     val bCnt = "${bidItems!!.size}"
@@ -475,7 +475,7 @@ class SingleDigitFragmentDashBoard : Fragment(), View.OnClickListener {
                         Alerts.AlertDialogWarning(
                             dialog.context,
 
-                            GameConstantMessages.BidClosedForDay
+                            GameConstantMessages.BidClosedForDay,""
                         )
                     } else {
                         dialog.dismiss()
@@ -493,7 +493,7 @@ class SingleDigitFragmentDashBoard : Fragment(), View.OnClickListener {
             dialog.show()
 
         } else {
-            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid)
+            Alerts.AlertDialogWarning(context, GameConstantMessages.NoDateForBid,"")
         }
     }
 
@@ -680,7 +680,7 @@ class SingleDigitFragmentDashBoard : Fragment(), View.OnClickListener {
         if (walletBal < pntDeduct) {
             dialog.dismiss()
             val message = GameConstantMessages.InvalidWalletAmount
-            Alerts.AlertDialogWarning(context, message)
+            Alerts.AlertDialogWarning(context, message,"")
         } else {
             OnSubmitBidManager().submitBids(
                 requireContext(),
@@ -716,18 +716,18 @@ class SingleDigitFragmentDashBoard : Fragment(), View.OnClickListener {
                             Alerts.AlertDialogSuccessAutoClose(
                                 context,
                                 activity,
-                                responseObject.getString("message")
+                                responseObject.getString("message"),""
                             )
                         } else {
                             Alerts.AlertDialogWarning(
                                 context,
-                                responseObject.getString("message")
+                                responseObject.getString("message"),""
                             )
                         }
                     }
 
                     override fun onFail(response: String?) {
-                        Alerts.AlertDialogWarning(context, response)
+                        Alerts.AlertDialogWarning(context, response,"")
                     }
                 }
             )
@@ -756,7 +756,7 @@ class SingleDigitFragmentDashBoard : Fragment(), View.OnClickListener {
                                 }
                             }
                         } else {
-                            Alerts.AlertDialogWarning(mContext, ksgModel.message)
+                            Alerts.AlertDialogWarning(mContext, ksgModel.message,"")
                         }
                     }
 

@@ -123,7 +123,7 @@ class ChangePasswordActivity : AppCompatActivity(), View.OnClickListener {
                                     Alerts.AlertDialogWarning(
                                         this@ChangePasswordActivity,
 
-                                        responseObject.getString("message")
+                                        responseObject.getString("message"),""
                                     )
                             } catch (e: Exception) {
                             }

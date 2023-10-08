@@ -19,6 +19,7 @@ import com.kasa77.retrofit_provider.*
 import com.kasa77.utils.Alerts
 import com.kasa77.utils.ConnectionDetector
 import com.kasa77.utils.Helper
+import `in`.aabhasjindal.otptextview.OTPListener
 //import com.brand_name.utils.sms_retriever.MySMSBroadcastReceiver
 //import com.google.android.gms.auth.api.Auth
 //import com.google.android.gms.auth.api.phone.SmsRetriever
@@ -75,8 +76,22 @@ class ForgotPasswordOtpVerifyActivity : AppCompatActivity(), View.OnClickListene
             mobile = intent.getStringExtra("mobileNumber").toString()
         }
 
-        etOTP.requestFocus()
+      //  etOTP.requestFocus()
 
+        etOTP.otpListener = object : OTPListener {
+            override fun onInteractionListener() {
+                // fired when user types something in the Otpbox
+            }
+
+            override fun onOTPComplete(otp: String) {
+                // fired when user has entered the OTP fully.
+                hideKeyboard()
+                submitOtp(otp)
+            }
+        }
+
+
+/*
         etOTP.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
@@ -96,6 +111,7 @@ class ForgotPasswordOtpVerifyActivity : AppCompatActivity(), View.OnClickListene
             }
 
         })
+*/
 
 
        /* mCredentialsApiClient = GoogleApiClient.Builder(this)
@@ -155,7 +171,7 @@ class ForgotPasswordOtpVerifyActivity : AppCompatActivity(), View.OnClickListene
     override fun onClick(p0: View?) {
         when (p0?.id) {
             R.id.tabOTPContinue -> {
-                val userCode = etOTP.text.toString()
+                val userCode = etOTP.otp
                 if (userCode.length!=6) {
                     Alerts.show(this, "Please enter a valid OTP")
                 } else {
@@ -273,7 +289,7 @@ class ForgotPasswordOtpVerifyActivity : AppCompatActivity(), View.OnClickListene
                             Alerts.AlertDialogWarning(
                                 mContext,
 
-                                jsonObject.getString("message")
+                                jsonObject.getString("message"),""
                             )
                         }
                     } catch (e: Exception) {
@@ -291,12 +307,13 @@ class ForgotPasswordOtpVerifyActivity : AppCompatActivity(), View.OnClickListene
         object : CountDownTimer(30000, 1000) {
             @SuppressLint("SetTextI18n")
             override fun onTick(millisUntilFinished: Long) {
-                tvResendOTP.text = getString(R.string.seconds_remaining_)+" " + millisUntilFinished / 1000
+                tvResendOTP.text = " " + millisUntilFinished / 1000
                 //here you can have your logic to set text to edittext
             }
 
             @SuppressLint("SetTextI18n")
             override fun onFinish() {
+                codeSent.visibility=View.GONE
                 tvResendOTP.text = getString(R.string.resend_otp)
             }
 
