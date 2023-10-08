@@ -756,7 +756,7 @@ class CreateProfileFragment : Fragment(), View.OnClickListener {
 
 
     private fun submitUser() {
-        uOTP = etOTP.text.toString()
+        uOTP = etOTP.otp
 
         firebaseToken = AppPreference.getStringPreference(mContext, Constant.FIREBASE_TOKEN)
 
