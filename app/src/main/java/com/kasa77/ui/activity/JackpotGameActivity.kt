@@ -17,6 +17,8 @@ import com.kasa77.utils.AppPreference
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game.*
 import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.cart
+import kotlinx.android.synthetic.main.toolbar.notificationCount
 import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
@@ -41,6 +43,8 @@ class JackpotGameActivity : BaseActivity() {
 
         initFragment(from)
 
+        notificationCount.visibility = View.GONE
+        cart.setBackgroundResource(R.drawable.wallet_icon)
 
         backBtn.setOnClickListener {
             onBackPressed()

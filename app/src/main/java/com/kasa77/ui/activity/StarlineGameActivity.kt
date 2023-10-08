@@ -14,6 +14,8 @@ import com.kasa77.utils.AppPreference
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game.*
 import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.cart
+import kotlinx.android.synthetic.main.toolbar.notificationCount
 import kotlinx.android.synthetic.main.toolbar.toolbarTitle
 
 class StarlineGameActivity : BaseActivity() {
@@ -40,6 +42,8 @@ class StarlineGameActivity : BaseActivity() {
         initFragment(from)
        // val backBtn: ImageView = findViewById(R.id.backbtn)
 
+        notificationCount.visibility = View.GONE
+        cart.setBackgroundResource(R.drawable.wallet_icon)
         backBtn.setOnClickListener {
             onBackPressed()
         }

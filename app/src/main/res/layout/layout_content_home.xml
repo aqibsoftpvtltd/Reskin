@@ -255,7 +255,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/notificationLyt"
+                android:id="@+id/notiLyt"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_below="@id/notificationText"
                 android:paddingHorizontal="@dimen/_15sdp"
@@ -277,6 +277,7 @@
                     />
 
                 <LinearLayout
+                    android:id="@+id/notificationLyt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -315,18 +316,18 @@
 
 
                 </LinearLayout>
-                <ImageView
-                    android:id="@+id/rightArrow"
-                    android:layout_width="@dimen/_38sdp"
-                    android:layout_height="@dimen/_38sdp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/right_arrow_nav"
-
-                    android:padding="@dimen/_7sdp"
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/customSwitch"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    />
 
+                    app:track="@drawable/track"
+                    android:thumb="@drawable/thumb"
+                    android:checked="false"
+
+                    />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -341,7 +342,7 @@
 
             </RelativeLayout>
             <TextView
-                android:layout_below="@id/notificationLyt"
+                android:layout_below="@id/notiLyt"
                 android:id="@+id/moreText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

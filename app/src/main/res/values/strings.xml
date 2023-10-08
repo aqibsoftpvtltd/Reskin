@@ -211,7 +211,7 @@
     <string name="by_creating_text">By creating an account, you agree to our</string>
     <string name="terms_and_condition_text">Term and Conditions</string>
 
-    <string name="seconds_remaining_">Seconds remaining:</string>
+    <string name="seconds_remaining_">Code Sent. Resend Code in:</string>
     <string name="please_enter_your_four_dight_mpin_to_login_to_your_account">Please enter your 4-dight MPIN to login to your account</string>
     <string name="username_and_password_login">Username and Password Login</string>
     <string name="forgot_mpin_">Forgot MPIN?</string>

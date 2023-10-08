@@ -23,6 +23,8 @@ public class Constant {
     public static final String AccountStatementFragment = "AccountStatementFragment";
     public static final String MyHistoryFragment = "MyHistoryFragment";
     public static final String GameRatesFragment = "GameRatesFragment";
+
+    public static final String FaqsFragment = "FaqsFragment";
     @Nullable
     public static final String IsMpinGenerate = "IsMpinGenerate";
 

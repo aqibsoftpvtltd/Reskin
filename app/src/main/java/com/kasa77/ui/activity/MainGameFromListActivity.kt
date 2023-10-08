@@ -3,6 +3,7 @@ package com.kasa77.ui.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.kasa77.R
@@ -16,7 +17,11 @@ import com.kasa77.utils.AppPreference
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game.*
 import kotlinx.android.synthetic.main.toolbar.backBtn
+import kotlinx.android.synthetic.main.toolbar.cart
+import kotlinx.android.synthetic.main.toolbar.notificationCount
 import kotlinx.android.synthetic.main.toolbar.toolbarTitle
+import kotlinx.android.synthetic.main.toolbar.view.cart
+import kotlinx.android.synthetic.main.toolbar.view.notificationCount
 import kotlin.collections.ArrayList
 
 class MainGameFromListActivity : BaseActivity() {
@@ -31,6 +36,7 @@ class MainGameFromListActivity : BaseActivity() {
         setContentView(R.layout.activity_dashboard_game)
 
         tvMenuTitle.isSelected = true
+
         val intent: Intent = intent
         if (getIntent() != null) {
 
@@ -40,6 +46,8 @@ class MainGameFromListActivity : BaseActivity() {
             toolbarTitle.text = providerResultData!!.providerName + " - " + from + " Board"
         }
 
+        notificationCount.visibility = View.GONE
+        cart.setBackgroundResource(R.drawable.wallet_icon)
 
         backBtn.setOnClickListener {
             onBackPressed()
