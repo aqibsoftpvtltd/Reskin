@@ -149,7 +149,7 @@
             android:textSize="@dimen/_12sdp"
             android:fontFamily="@font/dmsansregular" />
         <TextView
-android:id="@+id/timer_time"
+        android:id="@+id/timer_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
@@ -179,8 +179,4 @@ android:id="@+id/timer_time"
         android:visibility="gone"
         android:fontFamily="@font/dmsansbold" />
 
-
-
-
-
-</LinearLayout>
+    </LinearLayout>

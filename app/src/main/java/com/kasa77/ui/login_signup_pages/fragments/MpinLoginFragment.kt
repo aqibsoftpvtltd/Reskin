@@ -58,6 +58,7 @@ class MpinLoginFragment : Fragment(), View.OnClickListener {
         bindProgressButton(tvMpinSignIn)
         tabMpinSignIn.setOnClickListener(this)
         tabUsernameLogin.setOnClickListener(this)
+        forgotPassword.setOnClickListener (this)
 
         tvMpinSignIn.attachTextChangeAnimator()
 
@@ -99,7 +100,7 @@ class MpinLoginFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         when (p0!!.id) {
-            R.id.tabMpinSignIn -> {
+                R.id.tabMpinSignIn -> {
                 val userPin = etUserMpin.text.toString()
                 if (userPin.isEmpty() || userPin.length < 4) {
                     Alerts.show(mContext, "Please enter a valid MPIN")
@@ -117,6 +118,9 @@ class MpinLoginFragment : Fragment(), View.OnClickListener {
                     )
                     .addToBackStack(null)
                     .commit()
+            }
+            R.id.forgotPassword -> {
+                forgotPassword()
             }
         }
     }
