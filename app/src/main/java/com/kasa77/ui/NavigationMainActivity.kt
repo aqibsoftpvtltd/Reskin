@@ -36,6 +36,7 @@ import com.kasa77.chat.model.GetOldMessages
 import com.kasa77.chat.model.MessageModal
 import com.kasa77.chat.model.OnReceiveNewMessage
 import com.kasa77.chat.ui.ChatBoardActivity
+import com.kasa77.chat.ui.ChatBoardActivity_old
 import com.kasa77.constant.Constant
 import com.kasa77.interfaces.AdapterClickListener
 import com.kasa77.modal.NavigationItemModal
@@ -362,9 +363,9 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                 topMenu.visibility=View.GONE
                 //  bottomBack.setBackground(ContextCompat.getDrawable(this@NavigationMainActivity, R.drawable.notification_curve_bottom_background))
                 toolbarTitle.text = "Support Chat"
-                fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
+               // fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
                 //bottomBack.visibility = View.GONE
-                // startActivity(Intent(mContext, ChatBoardActivity::class.java))
+                startActivity(Intent(mContext, ChatBoardActivity_old::class.java))
             }
             else if(dashboardstring.equals("pink"))
             {
@@ -373,9 +374,9 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                 topMenu.visibility=View.GONE
                 //  bottomBack.setBackground(ContextCompat.getDrawable(this@NavigationMainActivity, R.drawable.notification_curve_bottom_background))
                 toolbarTitle.text = "Support Chat"
-                fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
+               // fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
                 //bottomBack.visibility = View.GONE
-                // startActivity(Intent(mContext, ChatBoardActivity::class.java))
+                startActivity(Intent(mContext, ChatBoardActivity_old::class.java))
             }
             else if(dashboardstring.equals("green"))
             {
@@ -384,9 +385,9 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                 topMenu.visibility=View.GONE
                 //  bottomBack.setBackground(ContextCompat.getDrawable(this@NavigationMainActivity, R.drawable.notification_curve_bottom_background))
                 toolbarTitle.text = "Support Chat"
-                fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
+                //fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
                 //bottomBack.visibility = View.GONE
-                // startActivity(Intent(mContext, ChatBoardActivity::class.java))
+                 startActivity(Intent(mContext, ChatBoardActivity_old::class.java))
             }
 
 

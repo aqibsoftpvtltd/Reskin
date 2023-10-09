@@ -25,7 +25,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -54,7 +53,7 @@ import com.kasa77.utils.Alerts
 import com.kasa77.utils.AppPreference
 import com.kasa77.utils.BaseActivity
 import com.kasa77.utils.UpiBottomSheet
-import com.kasa77.utils.view.AudioRecordView
+import com.kasa77.utils.view.AudioRecordView_old
 import com.kasa77.utils.view.PageTransformer
 import com.kbeanie.multipicker.api.CameraImagePicker
 import com.kbeanie.multipicker.api.ImagePicker
@@ -93,7 +92,7 @@ import java.util.*
     private lateinit var containerView: View
         private lateinit var containerViews: View
     //private var recordingView: AudioRecordView? = null
-    private var recordingView: AudioRecordView? = null
+    private var recordingView: AudioRecordView_old? = null
     private lateinit var tv_add_fund: TextView
     private lateinit var tvUserStatus: TextView
     private lateinit var ll_loading1: LinearLayout
@@ -152,7 +151,7 @@ import java.util.*
 
 
 
-        recordingView = AudioRecordView()
+        recordingView = AudioRecordView_old()
         recordingView!!.initView(containerViews.findViewById(R.id.layoutMain) as FrameLayout)
         containerView = recordingView!!.setContainerView(R.layout.activity_chat_board)
 
@@ -798,7 +797,7 @@ import java.util.*
             .build(recordingView!!.messageView)
     }
 
-    private val recordingViewListener = object : AudioRecordView.RecordingListener {
+    private val recordingViewListener = object : AudioRecordView_old.RecordingListener {
 
         @SuppressLint("WrongConstant")
         override fun onRecordingStarted() {
@@ -862,7 +861,7 @@ import java.util.*
                     ) != PackageManager.PERMISSION_GRANTED
                 )
                 {
-                return;
+                    return;
                 }
             }
             if (myAudioRecorder != null) {
