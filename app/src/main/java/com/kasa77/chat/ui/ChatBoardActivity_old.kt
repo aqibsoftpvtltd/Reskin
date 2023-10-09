@@ -786,8 +786,8 @@ import java.util.*
 
         }
 
-        emojiButton = recordingView!!.emojiView as ImageView
-        emojiButton!!.setOnClickListener { ignore -> emojiPopup!!.toggle() }
+        emojiButton = recordingView.emojiView as ImageView
+        emojiButton!!.setOnClickListener { emojiPopup!!.toggle() }
         setUpEmojiPopup()
 
     }
