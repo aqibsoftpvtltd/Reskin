@@ -7,9 +7,11 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kasa77.R
 import com.kasa77.adapter.GameDashboardAdapter
+import com.kasa77.constant.Constant
 import com.kasa77.interfaces.AdapterClickListener
 import com.kasa77.modal.GameDashboardModel
 import com.kasa77.modal.dashboard_gamelist.Result
+import com.kasa77.ui.fragment.FundsFragment
 import com.kasa77.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_dashboard_game_list.*
 import kotlinx.android.synthetic.main.toolbar.backBtn
@@ -43,7 +45,12 @@ class GameListFromDashboardActivity : BaseActivity() {
 
         toolbar.notificationCount.visibility = View.GONE
 
-        toolbar.cart.setBackgroundResource(R.drawable.wallet_icon)
+        toolbar.cart.setImageResource(R.drawable.wallet_icon)
+
+
+        toolbar.cart.setOnClickListener{
+            startActivity(Intent(mContext, FundActivity_new::class.java))
+        }
 
         backBtn.setOnClickListener {
             onBackPressed()

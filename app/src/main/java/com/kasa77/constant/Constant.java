@@ -49,6 +49,7 @@ public class Constant {
 
     public static final String LOGIN_AUTH_KEY = "loginAuthKey";
     public static final String IS_LOGIN = "isLogin";
+    public static final String IS_boarding = "isboarding";
     @Nullable
     public static final String LiveResultsFragment = "LiveResultsFragment";
     @Nullable

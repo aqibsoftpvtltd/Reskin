@@ -47,7 +47,12 @@ class MainGameFromListActivity : BaseActivity() {
         }
 
         notificationCount.visibility = View.GONE
-        cart.setBackgroundResource(R.drawable.wallet_icon)
+        cart.setImageResource(R.drawable.wallet_icon)
+
+
+        cart.setOnClickListener{
+            startActivity(Intent(mContext, FundActivity_new::class.java))
+        }
 
         backBtn.setOnClickListener {
             onBackPressed()

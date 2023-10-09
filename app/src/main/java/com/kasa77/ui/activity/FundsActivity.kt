@@ -43,6 +43,7 @@ import kotlinx.android.synthetic.main.fragment_my_profile.view.*
 import kotlinx.android.synthetic.main.layout_content_home.*
 import kotlinx.android.synthetic.main.toolbar.backBtn
 import kotlinx.android.synthetic.main.toolbar.toolbarTitle
+import kotlinx.android.synthetic.main.toolbar.view.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -73,6 +74,13 @@ class FundsActivity : BaseActivity(), View.OnClickListener {
         fundHistoryPaginationAdapter = FundHistoryPaginationAdapter(recordlist)
 
         backBtn.setOnClickListener { onBackClick() }
+
+
+       // val toolbar = findViewById<View>(R.id.toobarsridevi)
+
+       /* toolbar.*/cart.setOnClickListener{
+            startActivity(Intent(mContext, NotifcationActivity::class.java))
+        }
 
         UserName.text = AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_USER_NAME)
         PhoneNumber.text = AppPreference.getStringPreference(mContext, Constant.USER_LOGIN_MOBILE)

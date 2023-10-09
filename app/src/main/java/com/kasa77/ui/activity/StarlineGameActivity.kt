@@ -1,6 +1,7 @@
 package com.kasa77.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -43,7 +44,12 @@ class StarlineGameActivity : BaseActivity() {
        // val backBtn: ImageView = findViewById(R.id.backbtn)
 
         notificationCount.visibility = View.GONE
-        cart.setBackgroundResource(R.drawable.wallet_icon)
+        cart.setImageResource(R.drawable.wallet_icon)
+
+        cart.setOnClickListener{
+            startActivity(Intent(mContext, FundActivity_new::class.java))
+        }
+
         backBtn.setOnClickListener {
             onBackPressed()
         }

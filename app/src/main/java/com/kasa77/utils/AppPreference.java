@@ -95,6 +95,19 @@ public class AppPreference {
         return preferences.getBoolean(key, false);
     }
 
+    public static boolean getBooleanPreferenceonboarding(Context context, String key) {
+        SharedPreferences preferences = context.getSharedPreferences(APP_PREFENCE, Context.MODE_PRIVATE);
+        return preferences.getBoolean(key, false);
+    }
+
+
+    public static void setBooleanPreferenceonboarding(Context context, String key, boolean value) {
+        SharedPreferences preferences = context.getSharedPreferences(APP_PREFENCE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(key, value);
+        editor.apply();
+    }
+
     public static void clearAllPreferences(Context context) {
         SharedPreferences preferences = context.getSharedPreferences(APP_PREFENCE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();

@@ -1,5 +1,6 @@
 package com.kasa77.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.FragmentManager
@@ -8,8 +9,8 @@ import com.kasa77.constant.Constant
 import com.kasa77.ui.fragment.AccountStatementFragment
 import com.kasa77.utils.BaseActivity
 import com.kasa77.utils.FragmentUtils
-import kotlinx.android.synthetic.main.toolbar.backBtn
-import kotlinx.android.synthetic.main.toolbar.toolbarTitle
+import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.toolbar.view.*
 
 class AccountStatementActivity : BaseActivity() {
     private var fragmentUtils: FragmentUtils?=null
@@ -21,6 +22,12 @@ class AccountStatementActivity : BaseActivity() {
 
         toolbarTitle.text="Account Statements"
         backBtn.setOnClickListener { onBackClick() }
+
+       // val toolbar = findViewById<View>(R.id.toobarsridevi)
+
+        /*toolbar.*/cart.setOnClickListener{
+            startActivity(Intent(mContext, NotifcationActivity::class.java))
+        }
 
         fragmentManager = supportFragmentManager
         fragmentUtils = FragmentUtils(fragmentManager)

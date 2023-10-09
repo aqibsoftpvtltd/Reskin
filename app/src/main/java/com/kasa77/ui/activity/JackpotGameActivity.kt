@@ -1,6 +1,7 @@
 package com.kasa77.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.toolbar.backBtn
 import kotlinx.android.synthetic.main.toolbar.cart
 import kotlinx.android.synthetic.main.toolbar.notificationCount
 import kotlinx.android.synthetic.main.toolbar.toolbarTitle
+import kotlinx.android.synthetic.main.toolbar.view.*
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class JackpotGameActivity : BaseActivity() {
@@ -44,8 +46,11 @@ class JackpotGameActivity : BaseActivity() {
         initFragment(from)
 
         notificationCount.visibility = View.GONE
-        cart.setBackgroundResource(R.drawable.wallet_icon)
+        cart.setImageResource(R.drawable.wallet_icon)
 
+        cart.setOnClickListener{
+            startActivity(Intent(mContext, FundActivity_new::class.java))
+        }
         backBtn.setOnClickListener {
             onBackPressed()
         }

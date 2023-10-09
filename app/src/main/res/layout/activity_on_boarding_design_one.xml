@@ -8,7 +8,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-
+    <ProgressBar
+        android:id="@+id/progressBar_onboarding"
+        style="?android:attr/progressBarStyle"
+        android:theme="@style/CustomProgressBar"
+        android:layout_width="50dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:progressTint="@color/orange_new"
+        android:layout_height="50dp" />
     <LinearLayout
         android:id="@+id/layoutDots"
         android:layout_width="wrap_content"

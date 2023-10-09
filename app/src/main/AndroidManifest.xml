@@ -48,6 +48,20 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity
+            android:name="com.kasa77.ui.activity.FundActivity_new"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+
+        <activity
+            android:name="com.kasa77.ui.activity.NotifcationActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
         <activity
             android:name="com.kasa77.ui.activity.SumitIdeaActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"

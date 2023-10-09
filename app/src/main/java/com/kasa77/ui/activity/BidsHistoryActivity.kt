@@ -2,6 +2,7 @@ package com.kasa77.ui.activity
 
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -24,8 +25,8 @@ import com.kasa77.ui.fragment.FilterBottomSheetFragment
 import com.kasa77.utils.*
 
 import kotlinx.android.synthetic.main.activity_history.*
-import kotlinx.android.synthetic.main.toolbar.backBtn
-import kotlinx.android.synthetic.main.toolbar.toolbarTitle
+import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.toolbar.view.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -83,6 +84,12 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
         rvHistory.layoutManager = layoutManger
 
         backBtn.setOnClickListener { onBackClick() }
+
+       // val toolbar = findViewById<View>(R.id.toobarsridevi)
+
+        cart.setOnClickListener{
+            startActivity(Intent(mContext, NotifcationActivity::class.java))
+        }
 
         tabNext.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {

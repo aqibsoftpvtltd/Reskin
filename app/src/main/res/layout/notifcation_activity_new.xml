@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/secondaryColor"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/toobarsridevi"
+        layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toobarsridevi"
+        android:background="@drawable/scren_background_shape"
+        android:orientation="vertical">
+
+
+
+
+
+    <TextView
+        android:id="@+id/tvDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:textColor="@color/black"
+
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:fontFamily="@font/dmsansbold"
+        android:text="Today"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/notification_screen_bg"
+        android:layout_below="@+id/tvDay"
+        >
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/space_30"
+                    android:layout_marginRight="@dimen/space_30"
+                    android:elevation="5dp"
+                    android:fontFamily="@font/semibold"
+                    android:text="No Data Found"
+                    android:textAlignment="center"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="@dimen/text_20"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNewsNotification"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/row_news" />
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
+</RelativeLayout>

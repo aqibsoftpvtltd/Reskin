@@ -115,7 +115,8 @@
 
     </LinearLayout>
 
-    <include layout="@layout/toolbar">
+    <include
+        layout="@layout/toolbar">
 
     </include>
 

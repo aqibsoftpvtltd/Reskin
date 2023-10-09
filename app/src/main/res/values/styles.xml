@@ -19,6 +19,12 @@
 <!--        </item>-->
     </style>
 
+
+    <style name="CustomProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateTint">@color/orange_new</item>
+        <item name="android:progressTint">@color/orange_new</item>
+    </style>
+
     <style name="DefaultButtonStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

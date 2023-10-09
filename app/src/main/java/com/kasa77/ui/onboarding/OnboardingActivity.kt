@@ -1,12 +1,12 @@
 package com.kasa77.ui.onboarding
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -14,10 +14,9 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout
+import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.google.android.gms.tasks.OnCompleteListener
@@ -31,10 +30,8 @@ import com.kasa77.retrofit_provider.RetrofitService
 import com.kasa77.retrofit_provider.WebResponse
 import com.kasa77.ui.activity.PermissionA
 import com.kasa77.ui.login_signup_pages.LoginSignUpActivity
-import com.kasa77.utils.Alerts
-import com.kasa77.utils.AppPreference
-import com.kasa77.utils.ConnectionDetector
-import com.kasa77.utils.Helper
+import com.kasa77.utils.*
+import kotlinx.android.synthetic.main.activity_on_boarding_design_one.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -48,6 +45,8 @@ class OnboardingActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager
     private lateinit var btnNext: Button
     private lateinit var btnSkip: Button
+    private lateinit var progressbaronbord: ProgressBar
+
     private lateinit var onboardingPagerAdapter: OnboardingPagerAdapter
     private lateinit var dots: Array<ImageView>
     private var dialog: Dialog? = null
@@ -56,14 +55,43 @@ class OnboardingActivity : AppCompatActivity() {
     var cd: ConnectionDetector? = null
     var retrofitApiClient: RetrofitApiClient? = null
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hideNavigation()
+
+        if (AppPreference.getBooleanPreference(this, Constant.IS_boarding).equals(true))
+        {
+            cd = ConnectionDetector(this@OnboardingActivity)
+            retrofitApiClient = RetrofitService.getRetrofit()
+            FirebaseInstanceId.getInstance().instanceId
+                .addOnCompleteListener(OnCompleteListener { task ->
+                    if (!task.isSuccessful) {
+                        Log.w("FirebaseMessageService", "getInstanceId failed", task.exception)
+                        return@OnCompleteListener
+                    }
+
+                    token = task.result!!.token
+
+                    Log.e("FirebaseMessageService", token)
+                    if (AppPreference.getStringPreference(this, Constant.FIREBASE_TOKEN).isEmpty()) {
+                        AppPreference.setStringPreference(this, Constant.FIREBASE_TOKEN, token)
+                    }
+
+                    checkAndroidVersion()
+                })
+
+            //AppProgressDialog.show(dialog)
+//            progressBar_onboarding.visibility = View.VISIBLE
+        }
+        else
+        {
         setContentView(R.layout.activity_on_boarding_design_one)
 
         viewPager = findViewById(R.id.viewPager)
         btnNext = findViewById(R.id.btnNext)
         btnSkip = findViewById(R.id.btnSkip)
+        progressbaronbord = findViewById(R.id.progressBar_onboarding)
         val layoutDots = findViewById<LinearLayout>(R.id.layoutDots)
 
         onboardingPagerAdapter = OnboardingPagerAdapter(this)
@@ -112,6 +140,9 @@ class OnboardingActivity : AppCompatActivity() {
 
                                 checkAndroidVersion()
                             })
+
+                        /*AppProgressDialog.show(dialog)*/
+                        progressBar_onboarding.visibility = View.VISIBLE
                     }
 
                 }
@@ -167,17 +198,21 @@ class OnboardingActivity : AppCompatActivity() {
                     checkAndroidVersion()
                 })
 
+            //AppProgressDialog.show(dialog)
+            progressBar_onboarding.visibility = View.VISIBLE
         }
 
 
     }
+    }
 
     private fun init() {
 //        Handler().postDelayed({
-        if (AppPreference.getBooleanPreference(this, Constant.IS_LOGIN)) {
+        if (AppPreference.getBooleanPreference(this, Constant.IS_LOGIN))
+        {
             AppPreference.setBooleanPreference(this@OnboardingActivity, Constant.IS_LOGIN, false);
-
         }
+
         /*val intent=Intent(this, LoginSignUpActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
@@ -187,6 +222,17 @@ class OnboardingActivity : AppCompatActivity() {
         startActivity(intent)
         overridePendingTransition(0,0)
         finish()
+       // AppProgressDialog.hide(dialog)
+
+        if (AppPreference.getBooleanPreference(this, Constant.IS_boarding).equals(false))
+        {
+            progressBar_onboarding.visibility = View.GONE
+        }
+
+
+
+        AppPreference.setBooleanPreferenceonboarding(this@OnboardingActivity, Constant.IS_boarding, true);
+
 //        }, 2000)
     }
 
@@ -505,6 +551,10 @@ class OnboardingActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivityForResult(Intent(this, PermissionA::class.java), 108)
         },2000)
+
+        progressBar_onboarding.visibility = View.GONE
+
+        AppPreference.setBooleanPreferenceonboarding(this@OnboardingActivity, Constant.IS_boarding, true);
     }
 
 
