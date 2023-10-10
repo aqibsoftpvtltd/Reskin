@@ -7,7 +7,7 @@
     <string name="autopay_url">https://pay.autopay.co.in/api/</string>
     <string name="autopay_mid">dadf1c37-b47f-492d-a496-40b6154f7131</string>
     <string name="autopay_key">84e98f39-8c72-49ba-8e17-49b3530a81c7</string>
-    <bool name="is_right_to_left">false</bool>
+    <bool name="is_right_to_left">true</bool>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="how_to_play">How To Play</string>

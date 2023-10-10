@@ -75,7 +75,7 @@ public class AudioRecordView_old {
     public TextView txtQuotedUsername,txtQuotedMsg;
     public ImageView imageQuote,cancelButton;
     private View imageViewLockArrow, imageViewLock, imageViewMic, dustin, dustin_cover;
-    private ImageView imageViewAudio,imageViewStop, imageViewSend;
+    private ImageView imageViewAudio,imageViewStop, imageViewSend,imageViewSendDull;
     private View layoutAttachment, layoutDustin, layoutMessage, imageViewAttachment, imageViewEmoji;
     private View layoutSlideCancel, layoutLock, layoutEffect1, layoutEffect2;
     private EditText editTextMessage;
@@ -150,6 +150,7 @@ public class AudioRecordView_old {
         imageViewAudio = view.findViewById(R.id.imageViewAudio);
         imageViewStop = view.findViewById(R.id.imageViewStop);
         imageViewSend = view.findViewById(R.id.imageViewSend);
+        imageViewSendDull = view.findViewById(R.id.imageViewSendDull);
         imageViewLock = view.findViewById(R.id.imageViewLock);
         imageViewLockArrow = view.findViewById(R.id.imageViewLockArrow);
         layoutDustin = view.findViewById(R.id.layoutDustin);
@@ -461,6 +462,7 @@ public class AudioRecordView_old {
                 if (s.toString().trim().isEmpty()) {
                     if (imageViewSend.getVisibility() != View.GONE) {
                         imageViewSend.setVisibility(View.GONE);
+                    //    imageViewSendDull.setVisibility(View.VISIBLE);
                         imageViewSend.animate().scaleX(0f).scaleY(0f).setDuration(100).setInterpolator(new LinearInterpolator()).start();
                     }
 
@@ -516,53 +518,57 @@ public class AudioRecordView_old {
                         stopRecording(RecordingBehaviour.RELEASED);
                     }
 
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
+                }  else if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
+                if (stopTrackingAction) {
+                    return true;
+                }
 
-                    if (stopTrackingAction) {
-                        return true;
-                    }
+                UserBehaviour direction = UserBehaviour.NONE;
 
-                    UserBehaviour direction = UserBehaviour.NONE;
+                float motionX = Math.abs(firstX - motionEvent.getRawX());
+                float motionY = Math.abs(firstY - motionEvent.getRawY());
 
-                    float motionX = Math.abs(firstX - motionEvent.getRawX());
-                    float motionY = Math.abs(firstY - motionEvent.getRawY());
+                // Modify this part to adjust the x value for moving to the right
+                float x = motionEvent.getRawX() - firstX; // Calculate the difference
 
-                    if (isLayoutDirectionRightToLeft ? (motionX > directionOffset && lastX > firstX && lastY > firstY) : (motionX > directionOffset && lastX < firstX && lastY < firstY)) {
+                if (isLayoutDirectionRightToLeft ? (motionX > directionOffset && lastX > firstX && lastY > firstY) : (motionX > directionOffset && lastX < firstX && lastY < firstY)) {
 
-                        if (isLayoutDirectionRightToLeft ? (motionX > motionY && lastX > firstX) : (motionX > motionY && lastX < firstX)) {
-                            direction = UserBehaviour.CANCELING;
-
-                        } else if (motionY > motionX && lastY < firstY) {
-                            direction = UserBehaviour.LOCKING;
-                        }
-
-                    } else if (isLayoutDirectionRightToLeft ? (motionX > motionY && motionX > directionOffset && lastX > firstX) : (motionX > motionY && motionX > directionOffset && lastX < firstX)) {
+                    if (isLayoutDirectionRightToLeft ? (motionX > motionY && lastX > firstX) : (motionX > motionY && lastX < firstX)) {
                         direction = UserBehaviour.CANCELING;
-                    } else if (motionY > motionX && motionY > directionOffset && lastY < firstY) {
+
+                    } else if (motionY > motionX && lastY < firstY) {
                         direction = UserBehaviour.LOCKING;
                     }
 
-                    if (direction == UserBehaviour.CANCELING) {
-                        if (userBehaviour == UserBehaviour.NONE || motionEvent.getRawY() + imageViewAudio.getWidth() / 2 > firstY) {
-                            userBehaviour = UserBehaviour.CANCELING;
-                        }
+                } else if (isLayoutDirectionRightToLeft ? (motionX > motionY && motionX > directionOffset && lastX > firstX) : (motionX > motionY && motionX > directionOffset && lastX < firstX)) {
+                    direction = UserBehaviour.CANCELING;
+                } else if (motionY > motionX && motionY > directionOffset && lastY < firstY) {
+                    direction = UserBehaviour.LOCKING;
+                }
 
-                        if (userBehaviour == UserBehaviour.CANCELING) {
-                            translateX(-(firstX - motionEvent.getRawX()));
-                        }
-                    } else if (direction == UserBehaviour.LOCKING) {
-                        if (userBehaviour == UserBehaviour.NONE || motionEvent.getRawX() + imageViewAudio.getWidth() / 2 > firstX) {
-                            userBehaviour = UserBehaviour.LOCKING;
-                        }
-
-                        if (userBehaviour == UserBehaviour.LOCKING) {
-                            translateY(-(firstY - motionEvent.getRawY()));
-                        }
+                if (direction == UserBehaviour.CANCELING) {
+                    if (userBehaviour == UserBehaviour.NONE || motionEvent.getRawY() + imageViewAudio.getWidth() / 2 > firstY) {
+                        userBehaviour = UserBehaviour.CANCELING;
                     }
 
-                    lastX = motionEvent.getRawX();
-                    lastY = motionEvent.getRawY();
+                    if (userBehaviour == UserBehaviour.CANCELING) {
+                        translateX(x); // Use the modified x value here
+                    }
+                } else if (direction == UserBehaviour.LOCKING) {
+                    if (userBehaviour == UserBehaviour.NONE || motionEvent.getRawX() + imageViewAudio.getWidth() / 2 > firstX) {
+                        userBehaviour = UserBehaviour.LOCKING;
+                    }
+
+                    if (userBehaviour == UserBehaviour.LOCKING) {
+                        translateY(-(firstY - motionEvent.getRawY()));
+                    }
                 }
+
+                lastX = motionEvent.getRawX();
+                lastY = motionEvent.getRawY();
+            }
+
+
                 view.onTouchEvent(motionEvent);
                 return true;
             }
@@ -779,6 +785,8 @@ public class AudioRecordView_old {
                 if (isLayoutDirectionRightToLeft) {
                     displacement = dp * 40;
                 } else {
+
+
                     displacement = -dp * 40;
                 }
 
@@ -790,8 +798,12 @@ public class AudioRecordView_old {
                 dustin.animate().translationX(0).setDuration(350).setInterpolator(new DecelerateInterpolator()).setListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
+
+                        imageViewSendDull.setVisibility(View.GONE);
                         dustin.setVisibility(View.VISIBLE);
                         dustin_cover.setVisibility(View.VISIBLE);
+
+
                     }
 
                     @Override
@@ -829,7 +841,9 @@ public class AudioRecordView_old {
 
                                 if (isLayoutDirectionRightToLeft) {
                                     displacement = dp * 40;
+
                                 } else {
+
                                     displacement = -dp * 40;
                                 }
 
@@ -844,6 +858,9 @@ public class AudioRecordView_old {
                                     @Override
                                     public void onAnimationEnd(Animator animation) {
                                         editTextMessage.setVisibility(View.VISIBLE);
+                                        //dustin.setVisibility(View.GONE);
+                                       // dustin_cover.setVisibility(View.GONE);
+                                        imageViewSendDull.setVisibility(View.VISIBLE);
                                         editTextMessage.requestFocus();
                                     }
 

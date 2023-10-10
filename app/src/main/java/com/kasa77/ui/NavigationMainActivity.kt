@@ -18,8 +18,6 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -513,10 +511,8 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                         R.id.home_frame
                     )
                     drawer_layout.closeDrawer(GravityCompat.START)*/
-                    toolbarTitle.text = "FAQs"
-                    topMenu.visibility=View.GONE
-                    fragmentUtils!!.replaceFragment(FaqsFragment(), Constant.FaqsFragment, R.id.home_frame)
-                    drawer_layout.closeDrawer(GravityCompat.START)
+                    val intent = Intent(NavigationMainActivity@this,FaqsActivity::class.java)
+                    startActivity(intent)
                 }
                /* 6 -> {
                     gameTitle.text = "Game Rates"

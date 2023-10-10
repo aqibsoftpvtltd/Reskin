@@ -749,8 +749,8 @@ class ChatBoardActivity_old : BaseActivity(), OnSocketListener {
 
         }
 
-        emojiButton = recordingView.emojiView as ImageView
-        emojiButton!!.setOnClickListener { emojiPopup!!.toggle() }
+        emojiButton = recordingView!!.emojiView as ImageView
+        emojiButton!!.setOnClickListener { ignore -> emojiPopup!!.toggle() }
         setUpEmojiPopup()
 
     }
