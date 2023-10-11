@@ -250,7 +250,7 @@
                         android:text="@string/morning_dhan"
                         android:textAlignment="viewStart"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_14sdp" />
+                        android:textSize="@dimen/_12sdp" />
 
                     <TextView
                         android:id="@+id/tvGameResult"
@@ -261,7 +261,7 @@
                         android:text="123-35-4"
                         android:textAlignment="viewStart"
                         android:textColor="#D80027"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textSize="@dimen/_11sdp" />
 
 
                     <TextView
@@ -276,7 +276,7 @@
                         android:drawablePadding="@dimen/_5sdp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_8sdp" />
+                        android:textSize="@dimen/_7sdp" />
 
 
                 </LinearLayout>
@@ -358,7 +358,7 @@
                     android:layout_width="wrap_content"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical|end"
+                    android:gravity="center"
 
                     android:orientation="vertical">
 
@@ -375,7 +375,7 @@
                         android:text="Play Now"
 
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_8sdp" />
+                        android:textSize="@dimen/_7sdp" />
 
 
                 </LinearLayout>

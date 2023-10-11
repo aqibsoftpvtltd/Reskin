@@ -145,8 +145,8 @@
         <RelativeLayout
             android:layout_marginTop="@dimen/_2sdp"
             android:id="@+id/tabSelection"
-            android:paddingHorizontal="@dimen/_12sdp"
-            android:background="@drawable/dr_ractengle_less_round_ripple_effect"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

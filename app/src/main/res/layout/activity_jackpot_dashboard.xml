@@ -140,7 +140,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:minWidth="@dimen/_40sdp"
+                android:minWidth="@dimen/_30sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dmsansbold"
@@ -148,7 +148,7 @@
                 android:text="@string/jodi_"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_10sdp" />
 
             <TextView
                 android:layout_marginStart="@dimen/_4sdp"
@@ -161,7 +161,7 @@
                 android:text="1-100"
                 android:textAlignment="viewStart"
                 android:textColor="@color/jackpot_textcolor_green"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_9sdp" />
 
         </LinearLayout>
 

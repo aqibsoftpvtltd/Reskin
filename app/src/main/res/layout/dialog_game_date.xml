@@ -30,7 +30,7 @@
                     android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/ic_cross_check" />
+                    android:src="@drawable/error_icon" />
 
                 <TextView
                     android:layout_marginTop="@dimen/_22sdp"
@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/dmsansmedium"
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Taday date"
@@ -83,11 +83,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
-                                android:fontFamily="@font/glacial_regular"
+                                android:fontFamily="@font/dmsansbold"
                                 android:gravity="center"
                                 android:text="@string/ok"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_13sdp" />
+                                android:textSize="@dimen/_12sdp" />
                         </RelativeLayout>
 
                     </RelativeLayout>
@@ -120,11 +120,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
-                                android:fontFamily="@font/glacial_regular"
+                                android:fontFamily="@font/dmsansbold"
                                 android:gravity="center"
                                 android:text="@string/cancel"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_13sdp" />
+                                android:textSize="@dimen/_12sdp" />
 
                         </RelativeLayout>
 

@@ -18,6 +18,7 @@
         <RelativeLayout
             android:id="@+id/topMenu"
             android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_height="wrap_content">
 
             <TextView
@@ -29,12 +30,12 @@
                 android:layout_marginLeft="@dimen/_22sdp"
                 android:fontFamily="@font/dmsansbold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_24sdp">
+                android:textSize="@dimen/_22sdp">
 
             </TextView>
             <ImageView
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_toRightOf="@id/welcome"
@@ -45,7 +46,7 @@
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/imageSlider"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_110sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_below="@id/welcome"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:iss_placeholder="@drawable/slider_image"
@@ -63,18 +64,18 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imageSlider"
                 android:text="Play Games"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_22sdp"
                 android:fontFamily="@font/dmsansbold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp">
+                android:textSize="@dimen/_10sdp">
 
             </TextView>
 
             <LinearLayout
                 android:id="@+id/mainMenu"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_70sdp"
+                android:layout_height="@dimen/_65sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginHorizontal="@dimen/_22sdp"
                 android:layout_below="@id/playGame">
@@ -120,124 +121,367 @@
             android:layout_below="@id/topMenu"
             android:layout_marginBottom="@dimen/_55sdp"
             />
-        <FrameLayout
-            android:id="@+id/bottomLyt"
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_height="@dimen/_10sdp"
             android:layout_alignParentBottom="true"
+            android:background="@color/secondaryColor">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_bar_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            android:paddingHorizontal="@dimen/_35sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bottom_bar_bg"
+            android:orientation="horizontal"
+
+            android:weightSum="4">
+            <RelativeLayout
+                android:id="@+id/homeSmallLyt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="visible"
+                >
+
+                <ImageView
+                    android:id="@+id/homeUnselected"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/home">
+
+                </ImageView>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bidHistorySmallLyt"
+                android:layout_width="0dp"
+                android:visibility="visible"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:id="@+id/bidHistoryUnselected"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/bid_history_unselected">
+
+                </ImageView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/notificationSmallLyt"
+                android:layout_width="0dp"
+                android:visibility="visible"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:id="@+id/notificationsUnselected"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_centerHorizontal="true"
+
+                    android:layout_marginTop="@dimen/_17sdp"
+                    android:src="@drawable/notification_with_indicator">
+
+                </ImageView>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/chatSmallLyt"
+                android:layout_width="0dp"
+                android:visibility="visible"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:id="@+id/chatUnselected"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/chat_support">
+
+                </ImageView>
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+<!--
+        <RelativeLayout
+            android:id="@+id/circleLyt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/bottom_bar_lyt"
+            android:layout_marginBottom="@dimen/_minus30sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:visibility="visible"
             >
-            <com.simform.custombottomnavigation.SSCustomBottomNavigation
-                android:id="@+id/bottomNavigation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                app:ss_backgroundBottomColor="#1B1D21"
-                app:ss_circleColor="#ff6f00"
-                app:ss_waveHeight="7"
-                app:ss_countBackgroundColor="#ff6f00"
-                app:ss_countTextColor="#ffffff"
 
-                app:ss_defaultIconColor="#ffffff"
-                app:ss_iconTextColor="#ffffff"
+            <ImageView
 
-                app:ss_rippleColor="#2f424242"
-                app:ss_iconTextSize="12sp"
-                app:ss_selectedIconColor="#ff6f00"
-                app:ss_selectedIconTextColor="#ff6f00"
-                app:ss_shadowColor="#1f212121" />
-
-            <!-- Content View (Your main content goes here) -->
-
-            <!-- Bottom Navigation View -->
-
-            <LinearLayout
-                android:id="@+id/bottomBack"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_98sdp"
-                android:orientation="horizontal"
-                android:paddingEnd="@dimen/_8sdp"
-                android:layout_gravity="bottom|center_horizontal|center"
-                android:background="@drawable/home_curve_bottom_background"
-                android:weightSum="4">
-
-                <ImageView
-                    android:id="@+id/home_image1"
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/home_with_background_circle"
-                    android:layout_weight="0.7"
-                    android:alpha="0"
-                    android:layout_margin="25dp" />
-
-                <ImageView
-                    android:id="@+id/home_image2"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/home_with_background_circle"
-                    android:layout_weight="1"
-                    android:alpha="0"
-                    android:layout_margin="15dp" />
-
-                <ImageView
-                    android:id="@+id/home_image3"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/home_with_background_circle"
-                    android:layout_weight="1"
-                    android:alpha="0"
-                    android:layout_margin="10dp" />
-
-                <ImageView
-                    android:id="@+id/home_image4"
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/home_with_background_circle"
-                    android:layout_weight="0.8"
-                    android:alpha="0"
-                    android:layout_margin="25dp" />
-
-            </LinearLayout>
-
-            <!--
-                    <com.google.android.material.bottomnavigation.BottomNavigationView
-                        android:id="@+id/bottomNavigationView"
-                        android:visibility="gone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:itemTextAppearanceInactive="@style/TextAppearance.AppCompat.Caption"
-                        app:itemTextAppearanceActive="@style/TextAppearance.AppCompat.Caption"
-                        app:labelVisibilityMode="labeled"
-                        android:background="@drawable/bottom_nav_background"
-                        android:layout_gravity="bottom"
-                        app:itemIconTint="@android:color/white"
-                        app:itemTextColor="@color/white"
-
-                        android:outlineAmbientShadowColor="@color/transparent"
-                        android:outlineSpotShadowColor="@color/transparent"
-                        app:menu="@menu/bottom_menu" />
-            -->
-            <!-- Floating Action Button (FAB) -->
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fabHome"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icf_home_active"
-                android:tint="@color/appColor"
-                android:backgroundTint="@color/white"
-                app:borderWidth="@dimen/_2sdp"
-                android:layout_gravity="bottom|center"
-                android:layout_margin="@dimen/_20sdp"
-                app:elevation="@dimen/_27sdp"/>
+                android:src="@drawable/bottom_bar_curve"
+                >
 
-            <!--  android:layout_above="@id/bottombar_back"-->
+            </ImageView>
+
+        </RelativeLayout>
+-->
+
+        <LinearLayout
+            android:id="@+id/big_buttons_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_78sdp"
+            android:layout_alignParentBottom="true"
+            android:paddingHorizontal="@dimen/_25sdp"
+            android:orientation="horizontal"
+            android:weightSum="4">
+            <RelativeLayout
+                android:id="@+id/homeBigLyt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                android:layout_weight="1">
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bottom_bar_curve"
+                    >
+
+                </ImageView>
+<!--
+                <RelativeLayout
+                    android:id="@+id/homeSelectedLyt"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    android:background="@drawable/ractengle_gradian_round_edge"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+
+                        android:id="@+id/homeSelected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/home" />
+
+                </RelativeLayout>
+-->
+
+                <ImageView
+                    android:id="@+id/homeSelected"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:src="@drawable/home_selected" />
+
+                <TextView
+                    android:id="@+id/homeSelectedText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/homeSelected"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/dmsansbold"
+                    android:text="Home"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bidHistoryBigLyt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bottom_bar_curve" />
+<!--
+                <RelativeLayout
+                    android:id="@+id/bidHistorySelectedLyt"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    android:background="@drawable/ractengle_gradian_round_edge"
+                    android:layout_centerHorizontal="true">
+                    <ImageView
+
+                        android:id="@+id/bidHistorySelected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/bid_history_unselected" />
+
+                </RelativeLayout>
+-->
 
 
+                <ImageView
+                    android:id="@+id/bidHistorySelected"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:src="@drawable/bid_history_selected" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/bidHistorySelected"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/dmsansbold"
+                    android:text="Bid History"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp" />
+            </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/notificationsBigLyt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                android:layout_weight="1">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bottom_bar_curve" />
 
-        </FrameLayout>
+<!--
+                <RelativeLayout
+                    android:id="@+id/notificationsSelectedLyt"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    android:background="@drawable/ractengle_gradian_round_edge"
+                    android:layout_centerHorizontal="true">
+                    <ImageView
+
+                        android:id="@+id/notificationsSelected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+
+                        android:src="@drawable/notification" />
+
+                </RelativeLayout>
+-->
+
+                <ImageView
+                    android:id="@+id/notificationsSelected"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:src="@drawable/notification_selected" />
+
+                <TextView
+
+                    android:id="@+id/notificationSelectedText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/notificationsSelected"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/dmsansbold"
+                    android:text="Notification"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/chatBigLyt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bottom_bar_curve" />
+
+<!--
+                <RelativeLayout
+                    android:id="@+id/chatSelectedLyt"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    android:background="@drawable/ractengle_gradian_round_edge"
+                    android:layout_centerHorizontal="true">
+                    <ImageView
+
+                        android:id="@+id/chatSelected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/chat_support" />
+
+                </RelativeLayout>
+-->
+
+                                <ImageView
+                                    android:id="@+id/chatSelected"
+                                    android:layout_width="@dimen/_40sdp"
+                                    android:layout_height="@dimen/_40sdp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/chat_selected" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/chatSelected"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/dmsansbold"
+                    android:text="Chat"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp" />
+            </RelativeLayout>
+
+        </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

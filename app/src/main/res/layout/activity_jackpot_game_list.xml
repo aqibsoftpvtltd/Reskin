@@ -88,6 +88,7 @@
             android:layout_marginHorizontal="@dimen/_22sdp"
             tools:itemCount="17"
             android:paddingBottom="@dimen/_10sdp"
+            android:paddingTop="@dimen/_10sdp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/game_dashboard_item_view" />
 

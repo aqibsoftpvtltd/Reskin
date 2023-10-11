@@ -30,7 +30,7 @@
                 android:includeFontPadding="false"
                 android:text="@string/select_game_date"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_game_date_list"
@@ -77,11 +77,11 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:fontFamily="@font/dmsansmedium"
+                        android:fontFamily="@font/dmsansbold"
                         android:gravity="center"
                         android:text="@string/done"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
             </RelativeLayout>

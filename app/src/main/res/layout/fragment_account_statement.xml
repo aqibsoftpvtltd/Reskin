@@ -100,10 +100,11 @@
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/ractengle_gradian_round_edge"
-            android:fontFamily="@font/semibold"
+            android:fontFamily="@font/dmsansbold"
             android:text="Next"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_18"
+            android:textSize="@dimen/_12sdp"
             android:visibility="visible" />
     </LinearLayout>
 </RelativeLayout>

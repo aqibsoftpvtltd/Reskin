@@ -340,11 +340,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/glacial_bold"
-                    android:text="@string/next"
+                    android:fontFamily="@font/dmsansbold"
 
+                    android:text="@string/next"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_15sdp" />
+                    android:textSize="@dimen/_12sdp" />
 
 
             </RelativeLayout>

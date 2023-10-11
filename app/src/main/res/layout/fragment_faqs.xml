@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:layout_marginTop="@dimen/_22sdp"
-            android:textSize="@dimen/_32sdp"
+            android:textSize="@dimen/_28sdp"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:fontFamily="@font/dmsansbold"
             android:text="FAQ" />
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/wallet_grey_text_color"
-            android:textSize="@dimen/_12sdp"
+            android:textSize="@dimen/_11sdp"
             android:layout_marginHorizontal="@dimen/_22sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/dmsansregular"

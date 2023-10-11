@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/glacial_bold"
+                    android:fontFamily="@font/dmsansbold"
                     android:gravity="center"
 
                     android:text="We Have Found Your ID:"
@@ -53,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/glacial_regular"
+                    android:fontFamily="@font/dmsansregular"
                     android:gravity="center"
                     android:text="Brand_Name"
                     android:textColor="@color/new_colorAccent"
@@ -64,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/glacial_bold"
+                    android:fontFamily="@font/dmsansbold"
                     android:gravity="center"
                     android:text="With This Mobile Number Would You Like To Proceed"
                     android:textColor="@color/textPrimary"
@@ -78,14 +78,14 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/_22sdp"
                     android:background="@drawable/ractengle_gradian_round_edge"
-                    android:fontFamily="@font/glacial_bold"
+                    android:fontFamily="@font/dmsansbold"
                     android:minWidth="150dp"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:text="Proceed"
-                    android:textAllCaps="true"
+                    android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_16" />
+                    android:textSize="@dimen/_12sdp" />
 
 
             </LinearLayout>
@@ -94,11 +94,15 @@
                 android:id="@+id/iv_close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:padding="@dimen/_8sdp"
-                android:layout_margin="@dimen/_8sdp"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:padding="@dimen/_8sdp"
                 android:src="@drawable/close_dialog" />
 
 

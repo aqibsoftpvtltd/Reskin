@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tvMonth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         android:fontFamily="@font/dmsansbold">
 
     </ImageView>
-
+-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -50,7 +50,7 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/notification_screen_bg"
         android:overScrollMode="never"
-        android:layout_below="@id/tvMonth"
+
         android:paddingVertical="@dimen/_22sdp"
         android:scrollbars="none">
 
@@ -496,13 +496,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_22sdp"
+                android:layout_marginHorizontal="@dimen/_30sdp"
 
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_130sdp"
+                    android:layout_height="@dimen/_120sdp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -510,7 +510,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
 
-                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:layout_marginHorizontal="@dimen/_7sdp"
 
                         android:layout_weight="1"
                         android:background="@drawable/dr_ractengle_less_round_ripple_effect">
@@ -549,7 +549,7 @@
                         android:id="@+id/cvFundRequestHistoryH"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
+                         android:layout_marginHorizontal="@dimen/_7sdp"
                         android:layout_weight="1"
                         android:background="@drawable/dr_ractengle_less_round_ripple_effect"
                         android:orientation="horizontal">
@@ -615,7 +615,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_130sdp"
+                    android:layout_height="@dimen/_120sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:orientation="horizontal">
 
@@ -623,7 +623,7 @@
                         android:id="@+id/cvStarlineBidHistory"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
+                         android:layout_marginHorizontal="@dimen/_7sdp"
                         android:layout_weight="1"
 
 
@@ -663,7 +663,7 @@
                         android:id="@+id/cvStarlineHistory"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
+                         android:layout_marginHorizontal="@dimen/_7sdp"
                         android:layout_weight="1"
                         android:background="@drawable/dr_ractengle_less_round_ripple_effect"
                         android:orientation="horizontal">
@@ -729,7 +729,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_130sdp"
+                    android:layout_height="@dimen/_120sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:orientation="horizontal">
 
@@ -738,7 +738,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
 
-                        android:layout_marginHorizontal="@dimen/_5sdp"
+                         android:layout_marginHorizontal="@dimen/_7sdp"
                         android:layout_weight="1"
 
                         android:background="@drawable/dr_ractengle_less_round_ripple_effect">
@@ -777,7 +777,7 @@
                         android:id="@+id/cvAndarBaharHistory"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
+                         android:layout_marginHorizontal="@dimen/_7sdp"
                         android:layout_weight="1"
                         android:background="@drawable/dr_ractengle_less_round_ripple_effect"
                         android:orientation="horizontal">
@@ -844,7 +844,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_130sdp"
+                    android:layout_height="@dimen/_120sdp"
                     android:layout_marginVertical="@dimen/_30sdp"
 
                     android:orientation="horizontal">
@@ -853,7 +853,7 @@
                         android:id="@+id/cvApprovedCreditHistory"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
+                         android:layout_marginHorizontal="@dimen/_7sdp"
                         android:layout_weight="1"
 
 
@@ -893,7 +893,7 @@
                         android:id="@+id/cvDebitHistory"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
+                         android:layout_marginHorizontal="@dimen/_7sdp"
                         android:layout_weight="1"
                         android:background="@drawable/dr_ractengle_less_round_ripple_effect"
                         android:orientation="horizontal">

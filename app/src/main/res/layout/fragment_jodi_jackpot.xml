@@ -88,7 +88,7 @@
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingLeft="15dp"
-            android:paddingTop="20dp"
+
             android:elevation="@dimen/cardview_default_elevation"
             android:paddingRight="15dp">
 
@@ -102,7 +102,8 @@
                 <RelativeLayout
                     android:layout_marginTop="@dimen/_2sdp"
                     android:id="@+id/tabSelection"
-                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
                     android:background="@drawable/dr_ractengle_less_round_ripple_effect"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

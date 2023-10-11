@@ -110,7 +110,6 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/dmsansbold"
             android:gravity="center"
-            android:background="@drawable/dr_ractengle_solid_ripple_effect"
             android:text="@string/submit"
             android:includeFontPadding="false"
             android:textColor="@color/white"
