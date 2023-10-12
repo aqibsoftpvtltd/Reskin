@@ -277,6 +277,8 @@ public class MessageModalAdapter extends RecyclerView.Adapter<MessageModalAdapte
                     }
                 }
             } else  if (chatList.get(hp).messType == 2 || chatList.get(hp).messType == 5){
+
+                holder.tvInMessageTime.setVisibility(View.VISIBLE);
                 holder.tvInMessageTime.setText(getChatTime(chatList.get(hp).dateTime));
                 holder.llContainerOutgoingMessages.setVisibility(View.GONE);
                 holder.llContainerIncomingMessages.setVisibility(View.VISIBLE);

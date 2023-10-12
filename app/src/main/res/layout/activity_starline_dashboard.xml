@@ -309,9 +309,7 @@
         android:layout_marginLeft="@dimen/_5sdp"
         android:layout_marginRight="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-
-        android:paddingVertical="@dimen/_5sdp">
+        android:paddingVertical="@dimen/_3sdp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvKsGameList"

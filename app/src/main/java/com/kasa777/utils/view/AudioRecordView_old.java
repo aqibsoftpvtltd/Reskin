@@ -143,7 +143,7 @@ public class AudioRecordView_old {
         imageViewAttachment = view.findViewById(R.id.imageViewAttachment);
 
         imageViewEmoji = view.findViewById(R.id.imageViewEmoji);
-        editTextMessage = view.findViewById(R.id.editTextMessage);
+        editTextMessage = view.findViewById(R.id.editTextMessages);
 
 
 

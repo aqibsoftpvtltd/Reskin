@@ -814,16 +814,15 @@ class ChatBoardActivity_old : BaseActivity(), OnSocketListener {
     private fun setUpEmojiPopup() {
         emojiPopup = EmojiPopup.Builder.fromRootView(recordingView!!.emojiView)
             .setOnEmojiBackspaceClickListener { ignore -> Log.d("TAG", "Clicked on Backspace") }
-            .setOnEmojiClickListener { ignore, ignore2 -> Log.d("ATG", "Clicked on emoji") }
-            .setOnEmojiPopupShownListener { emojiButton!!.setImageResource(R.drawable.icf_keyboard_key) }
+            .setOnEmojiClickListener { ignore, ignore2 -> emojiPopup?.dismiss() }
+            /* .setOnEmojiPopupShownListener { emojiButton!!.setImageResource(R.drawable.icf_keyboard_key) }*/
             .setOnSoftKeyboardOpenListener { ignore -> Log.d("TAG", "Opened soft keyboard") }
-            .setOnEmojiPopupDismissListener { emojiButton!!.setImageResource(R.drawable.icf_happy_emoji) }
+            /* .setOnEmojiPopupDismissListener { emojiButton!!.setImageResource(R.drawable.icf_happy_emoji) }*/
             .setOnSoftKeyboardCloseListener { Log.d("TAG", "Closed soft keyboard") }
             .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
             .setPageTransformer(PageTransformer())
             .build(recordingView!!.messageView)
     }
-
     private val recordingViewListener = object : AudioRecordView_old.RecordingListener {
 
         override fun onRecordingStarted() {
