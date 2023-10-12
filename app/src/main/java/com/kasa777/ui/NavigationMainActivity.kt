@@ -1228,9 +1228,9 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                 "orange" -> {
                     topMenu.visibility = View.VISIBLE
                     toolbarTitle.text = resources.getString(R.string.app_name_full)
+                    fragmentUtils?.replaceFragment(HomePageFragment(), Constant.LiveResultsFragment, R.id.home_frame)
 
-
-                    if (currentIndex < previousIndex) {
+                  /*  if (currentIndex < previousIndex) {
                         fragmentUtils?.replaceFragment(HomePageFragment(), Constant.LiveResultsFragment, R.id.home_frame,"left")
                         previousIndex=currentIndex
                     }
@@ -1242,16 +1242,16 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                     else{
                         fragmentUtils?.replaceFragment(HomePageFragment(), Constant.LiveResultsFragment, R.id.home_frame)
 
-                    }
+                    }*/
 
                 }
 
                 "pink" -> {
                     topMenu.visibility = View.VISIBLE
                     toolbarTitle.text = resources.getString(R.string.app_name_full)
+                    fragmentUtils?.replaceFragment(StarlineDashboardActivity(), Constant.LiveResultsFragment, R.id.home_frame)
 
-
-                    if (currentIndex < previousIndex) {
+                  /*  if (currentIndex < previousIndex) {
                         fragmentUtils?.replaceFragment(StarlineDashboardActivity(), Constant.LiveResultsFragment, R.id.home_frame,"left")
                         previousIndex=currentIndex
                     }
@@ -1263,19 +1263,15 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                     else{
                         fragmentUtils?.replaceFragment(StarlineDashboardActivity(), Constant.LiveResultsFragment, R.id.home_frame)
 
-                    }
+                    }*/
                 }
 
                 "green" -> {
                     topMenu.visibility = View.VISIBLE
                     toolbarTitle.text = resources.getString(R.string.app_name_full)
-                    fragmentUtils?.replaceFragment(
-                        JackpotDashBoardActivity(),
-                        Constant.LiveResultsFragment,
-                        R.id.home_frame
-                    )
+                    fragmentUtils?.replaceFragment(JackpotDashBoardActivity(), Constant.LiveResultsFragment, R.id.home_frame)
 
-                    if (currentIndex < previousIndex) {
+                  /*  if (currentIndex < previousIndex) {
                         fragmentUtils?.replaceFragment(JackpotDashBoardActivity(), Constant.LiveResultsFragment, R.id.home_frame,"left")
                         previousIndex=currentIndex
                     }
@@ -1287,7 +1283,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                     else{
                         fragmentUtils?.replaceFragment(JackpotDashBoardActivity(), Constant.LiveResultsFragment, R.id.home_frame)
 
-                    }
+                    }*/
 
 
                 }
@@ -1313,10 +1309,10 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
 
             topMenu.visibility = View.GONE
             toolbarTitle.text = "Bid History"
-
+            fragmentUtils?.replaceFragment(MyHistoryFragment(), Constant.MyHistoryFragment, R.id.home_frame)
             currentIndex = 2
 
-            if (currentIndex < previousIndex) {
+           /* if (currentIndex < previousIndex) {
                 fragmentUtils?.replaceFragment(MyHistoryFragment(), Constant.MyHistoryFragment, R.id.home_frame,"left")
                 previousIndex=currentIndex
             }
@@ -1328,7 +1324,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
             else{
                 fragmentUtils?.replaceFragment(MyHistoryFragment(), Constant.MyHistoryFragment, R.id.home_frame)
 
-            }
+            }*/
 
             homeBigLyt.visibility = View.INVISIBLE
             bidHistoryBigLyt.visibility = View.VISIBLE
@@ -1345,16 +1341,14 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
 
         private fun bottomNavNotificationSelected() {
 
-
-
             currentIndex = 3
 
             when (dashboardstring) {
                 "orange" -> {
                     topMenu.visibility = View.GONE
                     toolbarTitle.text = "Notifications"
-
-                    if (currentIndex < previousIndex) {
+                    fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
+                  /*  if (currentIndex < previousIndex) {
                         fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame,"left")
                         previousIndex=currentIndex
                     }
@@ -1366,15 +1360,15 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                     else{
                         fragmentUtils?.replaceFragment(NotificationFragment(), Constant.NotificationFragment, R.id.home_frame)
 
-                    }
+                    }*/
                 }
 
                 "pink" -> {
                     topMenu.visibility = View.GONE
                     toolbarTitle.text = "Wallet"
+                    fragmentUtils?.replaceFragment(FundsFragment(), Constant.FundsFragment, R.id.home_frame)
 
-
-                    if (currentIndex < previousIndex) {
+                   /* if (currentIndex < previousIndex) {
                         fragmentUtils?.replaceFragment(FundsFragment(), Constant.FundsFragment, R.id.home_frame,"left")
                         previousIndex=currentIndex
                     }
@@ -1386,7 +1380,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                     else{
                         fragmentUtils?.replaceFragment(FundsFragment(), Constant.FundsFragment, R.id.home_frame)
 
-                    }
+                    }*/
 
                 }
 
@@ -1394,7 +1388,8 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
 
                     topMenu.visibility = View.GONE
                     toolbarTitle.text = "Wallet"
-                    if (currentIndex < previousIndex) {
+                    fragmentUtils?.replaceFragment(FundsFragment(), Constant.FundsFragment, R.id.home_frame)
+                   /* if (currentIndex < previousIndex) {
                         fragmentUtils?.replaceFragment(FundsFragment(), Constant.FundsFragment, R.id.home_frame,"left")
                         previousIndex=currentIndex
                     }
@@ -1405,7 +1400,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                     else{
                         fragmentUtils?.replaceFragment(FundsFragment(), Constant.FundsFragment, R.id.home_frame)
 
-                    }
+                    }*/
 
                 }
             }
@@ -1423,17 +1418,13 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
 
         private fun bottomNavChatSelected() {
 
-
-
-
-
             topMenu.visibility = View.GONE
             toolbarTitle.text = "Support Chat"
-
+            fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
             currentIndex = 4
 
 
-            if (currentIndex < previousIndex) {
+           /* if (currentIndex < previousIndex) {
                 fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame,"left")
                 previousIndex=currentIndex
             }
@@ -1445,7 +1436,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
             else{
                 fragmentUtils?.replaceFragment(ChatBoardActivity(), Constant.ChatFragment, R.id.home_frame)
 
-            }
+            }*/
 
             homeBigLyt.visibility = View.INVISIBLE
             bidHistoryBigLyt.visibility = View.INVISIBLE

@@ -29,7 +29,7 @@ public class FragmentUtils {
             fragmentTransaction.setCustomAnimations(R.anim.enter,0);
         }
         else {
-            Log.d("okokok","thek hai");
+
             fragmentTransaction.setCustomAnimations(R.anim.exit, 0);
         }
 
