@@ -156,6 +156,54 @@ class ChatBoardActivity_old : BaseActivity(), OnSocketListener {
         ll_loading1 = containerView!!.findViewById<LinearLayout>(R.id.ll_loading1)
 
 
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // Check if the permission has been granted
+            if (ContextCompat.checkSelfPermission(
+                    this@ChatBoardActivity_old,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // If not granted, request the permission
+                ActivityCompat.requestPermissions(
+                    this@ChatBoardActivity_old,
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.RECORD_AUDIO
+                    ),
+                    RECORD_AUDIO_PERMISSION_REQUEST_CODE
+                )
+                /*  return;*/
+            }
+        }
+
+        else {
+            if (ContextCompat.checkSelfPermission(
+                    this@ChatBoardActivity_old,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(
+                    this@ChatBoardActivity_old,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // If not granted, request the permission
+                ActivityCompat.requestPermissions(
+                    this@ChatBoardActivity_old,
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.RECORD_AUDIO
+                    ),
+                    RECORD_AUDIO_PERMISSION_REQUEST_CODE
+                )
+                /*      return;*/
+            }
+        }
+
+
+
+
         initMessageListing()
         initViews()
         getUpiFromAdmin()

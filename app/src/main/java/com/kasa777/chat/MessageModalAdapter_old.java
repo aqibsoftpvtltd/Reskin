@@ -37,7 +37,6 @@ import com.kasa777.chat.model.MessageModal;
 import com.kasa777.chat.ui.ChatBoardActivity;
 import com.kasa777.chat.ui.VideoPlayerActivity;
 import com.kasa777.chat.ui.ViewImagesActivity;
-import com.kasa777.chat.ui.ChatBoardActivity_old;
 
 import org.jetbrains.annotations.NotNull;
 

@@ -14,7 +14,7 @@ android {
         versionName "2.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-        archivesBaseName = "Brand_Name-${new Date().format('dd-MM-yyyy-HH-mm')}"
+        archivesBaseName = "Bet4x-${new Date().format('dd-MM-yyyy')}"
         vectorDrawables.useSupportLibrary = true
     }
 

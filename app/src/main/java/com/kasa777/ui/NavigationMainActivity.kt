@@ -20,7 +20,6 @@ import android.view.WindowManager
 
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -39,7 +38,6 @@ import com.kasa777.chat.model.OnReceiveNewMessage
 import com.kasa777.chat.ui.ChatBoardActivity
 import com.kasa777.chat.ui.ChatBoardActivity_old
 import com.kasa777.constant.Constant
-import com.kasa777.interfaces.AdapterClickListener
 import com.kasa777.modal.NavigationItemModal
 import com.kasa777.retrofit_provider.AuthHeaderRetrofitService
 import com.kasa777.retrofit_provider.WebResponse

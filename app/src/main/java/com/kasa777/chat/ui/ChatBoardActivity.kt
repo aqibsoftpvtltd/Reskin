@@ -164,6 +164,67 @@ import java.util.*
         rvChatMessage = containerViews.findViewById(R.id.rvChatMessage)
         ll_loading1 = containerViews.findViewById(R.id.ll_loading1)
 
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // Check if the permission has been granted
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // If not granted, request the permission
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.RECORD_AUDIO
+                    ),
+                    RECORD_AUDIO_PERMISSION_REQUEST_CODE
+                )
+                /*  return;*/
+            }
+        }
+
+        else {
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // If not granted, request the permission
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.RECORD_AUDIO
+                    ),
+                    RECORD_AUDIO_PERMISSION_REQUEST_CODE
+                )
+                /*      return;*/
+            }
+        }
+
+            /*   if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.RECORD_AUDIO
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // If not granted, request the permission
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(Manifest.permission.RECORD_AUDIO),
+                    RECORD_AUDIO_PERMISSION_REQUEST_CODE
+                )
+                return;
+
+
+
+            }*/
     /*    userLoginId =
             AppPreference.getStringPreference(context, Constant.USER_LOGIN_ID)
         userLoginName =
@@ -364,61 +425,236 @@ import java.util.*
         recordingView!!.reply_layout.visibility = View.GONE
     }
 
-    /*********************************************************
-     * Used to return images from your phone's storage
-     *********************************************************/
-    private fun pickMultipleImages() {
-        imagePicker = prepareImagePicker()
-        imagePicker!!.allowMultiple()
-        imagePicker!!.pickImage()
-        pickerType = Picker.PICK_IMAGE_DEVICE
-    }
 
-    /*******************************************************
-     * Used to return single image using your phone's camera
-     *******************************************************/
-    private fun pickImageFromCamera() {
-        cameraImagePicker = prepareCameraImagePicker()
-        pickerPath = cameraImagePicker!!.pickImage()
-        pickerType = Picker.PICK_IMAGE_CAMERA
-    }
+        private fun pickMultipleImages() {
+            imagePicker = prepareImagePicker()
+            imagePicker!!.allowMultiple()
+            imagePicker!!.pickImage()
+            pickerType = Picker.PICK_IMAGE_DEVICE
+        }
 
-    private fun prepareImagePicker(): ImagePicker {
-        val imagePicker = ImagePicker(activity)
-        imagePicker.setImagePickerCallback(myImagePickerCallback)
-        return imagePicker
-    }
+        /*******************************************************
+         * Used to return single image using your phone's camera
+         *******************************************************/
+        private fun pickImageFromCamera() {
+            cameraImagePicker = prepareCameraImagePicker()
+            pickerPath = cameraImagePicker!!.pickImage()
+            pickerType = Picker.PICK_IMAGE_CAMERA
+        }
 
-    private fun prepareCameraImagePicker(): CameraImagePicker {
-        val imagePicker = CameraImagePicker(activity)
-        imagePicker.setImagePickerCallback(myImagePickerCallback)
-        return imagePicker
-    }
+        private fun prepareImagePicker(): ImagePicker {
+            val imagePicker = ImagePicker(this)
+            imagePicker.setImagePickerCallback(myImagePickerCallback)
+            return imagePicker
+        }
 
-    private val myImagePickerCallback = object : ImagePickerCallback {
-        override fun onImagesChosen(images: List<ChosenImage>?) {
-            val array = ArrayList<ChosenImage>(images!!.size)
-            array.addAll(images)
+        private fun prepareCameraImagePicker(): CameraImagePicker {
+            val imagePicker = CameraImagePicker(this)
+            imagePicker.setImagePickerCallback(myImagePickerCallback)
+            return imagePicker
+        }
+
+        private val myImagePickerCallback = object : ImagePickerCallback {
+            override fun onImagesChosen(images: List<ChosenImage>?) {
+                val array = ArrayList<ChosenImage>(images!!.size)
+                array.addAll(images)
 //            currentCompressedImageFile = null
-            val chosenFile = images!![0] as ChosenFile
-            val path = chosenFile.originalPath
-            val ext = chosenFile.fileExtensionFromMimeTypeWithoutDot
-            if (ext == "jpeg" || ext == "jpg" || ext == "png") {
-                val intent = Intent(context, FullScreenImageActivity::class.java)
-                intent.putExtra("FROM", "create msg")
-                intent.putExtra("IMAGE_PATH", array);
-                startActivityForResult(intent, 211);
-            } else {
-                showToast("Wrong file selected")
+                val chosenFile = images!![0] as ChosenFile
+                val path = chosenFile.originalPath
+                val ext = chosenFile.fileExtensionFromMimeTypeWithoutDot
+                if (ext == "jpeg" || ext == "jpg" || ext == "png") {
+                    val intent = Intent(requireContext(), FullScreenImageActivity::class.java)
+                    intent.putExtra("FROM", "create msg")
+                    intent.putExtra("IMAGE_PATH", array);
+                    startActivityForResult(intent, 211);
+                } else {
+                    showToast("Wrong file selected")
+                }
+            }
+
+            override fun onError(message: String?) {
+
             }
         }
 
-        override fun onError(message: String?) {
 
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data)
+            if (resultCode == RESULT_OK) {
+                if (requestCode == Picker.PICK_IMAGE_CAMERA || requestCode == Picker.PICK_IMAGE_DEVICE) {
+                    var imagePickerImpl: ImagePickerImpl? = null
+                    if (pickerType == Picker.PICK_IMAGE_DEVICE) {
+                        if (imagePicker == null) {
+                            imagePicker = prepareImagePicker()
+                        }
+                        imagePickerImpl = imagePicker
+                    } else if (pickerType == Picker.PICK_IMAGE_CAMERA) {
+                        if (cameraImagePicker == null) {
+                            cameraImagePicker = prepareCameraImagePicker()
+                            cameraImagePicker!!.reinitialize(pickerPath)
+                        }
+                        imagePickerImpl = cameraImagePicker
+                    }
+                    imagePickerImpl!!.submit(data)
+                } else if (requestCode == 211) {
+
+                    if (resultCode == Activity.RESULT_OK) {
+
+                        try {
+                            val typedMsg = data!!.getStringExtra("result").toString();
+                            val compressedPath = data!!.getStringArrayListExtra("compressImagePath");
+                            prepareImageToSend(typedMsg, compressedPath)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+                    }
+                    if (resultCode == Activity.RESULT_CANCELED) {
+
+                    }
+
+                }
+            }
+
+            when (requestCode) {
+                UPI_PAYMENT -> /*if (Activity.RESULT_OK == resultCode || resultCode == 11) {
+                if (data != null) {
+                    val trxt = data.getStringExtra("response")
+                    Log.d("UPI", "onActivityResult: $trxt")
+                    val dataList = java.util.ArrayList<String>()
+                    dataList.add(trxt)
+                    upiPaymentDataOperation(dataList)
+                } else {
+                    Log.d("UPI", "onActivityResult: " + "Return data is null")
+                    val dataList = java.util.ArrayList<String>()
+                    dataList.add("nothing")
+                    upiPaymentDataOperation(dataList)
+                }
+            } else {
+                Log.d(
+                    "UPI",
+                    "onActivityResult: " + "Return data is null"
+                ) //when user simply back without payment
+                val dataList = java.util.ArrayList<String>()
+                dataList.add("nothing")
+                upiPaymentDataOperation(dataList)
+            }*/ {
+                    if (data != null) {
+                        // Get Response from activity intent
+                        val response = data.getStringExtra("response")
+                        if (response == null) {
+                            Alerts.AlertDialogWarning(
+                                requireContext(),
+                                "Payment cancelled by user.",""
+                            )
+                            Log.d(
+                                "UPI",
+                                "Response is null"
+                            )
+                        } else {
+                            val transactionDetails =
+                                getTransactionDetails(response)
+
+                            // Transaction Completed
+                            Log.d("UPI", transactionDetails.toString())
+                            //Update Listener onTransactionCompleted()
+//                        callbackTransactionComplete(transactionDetails)
+
+                            //Check if success, submitted or failed
+                            try {
+                                if (transactionDetails!!.status!!.toLowerCase().equals("success")) {
+                                    if (transactionDetails.approvalRefNo != null) {
+                                        autoPaymentApi(
+                                            transactionDetails.approvalRefNo!!,
+                                            transactionDetails.approvalRefNo!!,
+                                            fundrequestamount!!, "Approved"
+                                        )
+                                    } else {
+                                        autoPaymentApi(
+                                            transactionDetails.transactionRefId!!,
+                                            transactionDetails.transactionRefId!!,
+                                            fundrequestamount!!, "Approved"
+                                        )
+                                    }
+                                } else if (transactionDetails.status!!.toLowerCase()
+                                        .equals("submitted")
+                                ) {
+//                                Alerts.AlertDialogWarning(
+//                                    this@ChatBoardActivity_old,
+//                                    "Transaction is Pending. Please Contact with support if payment is deducted"
+//                                )
+                                    autoPaymentApi(
+                                        transactionDetails.transactionRefId!!,
+                                        transactionDetails.transactionRefId!!,
+                                        fundrequestamount!!, "submitted"
+                                    )
+                                } else if (transactionDetails.status!!.toLowerCase()
+                                        .equals("pending")
+                                ) {
+//                                Alerts.AlertDialogWarning(
+//                                    this@ChatBoardActivity_old,
+//                                    "Transaction is Pending. Please Contact with support if payment is deducted"
+//                                )
+                                    autoPaymentApi(
+                                        transactionDetails.transactionRefId!!,
+                                        transactionDetails.transactionRefId!!,
+                                        fundrequestamount!!, "pending"
+                                    )
+                                } else {
+                                    Alerts.AlertDialogWarning(
+                                        requireContext(),
+                                        "Transaction failed.Please try again",""
+                                    )
+                                }
+                            } catch (e: java.lang.Exception) {
+                                Log.e(
+                                    "UPI",
+                                    e.message.toString()
+                                )
+                                Alerts.AlertDialogWarning(
+                                    requireContext(),
+                                    "Transaction failed.Please try again",""
+                                )
+                            }
+                        }
+                    } else {
+                        Log.e(
+                            "UPI",
+                            "Intent Data is null. User cancelled"
+                        )
+                        Alerts.AlertDialogWarning(
+                            requireContext(),
+                            "Payment cancelled by user.",""
+                        )
+                    }
+                }
+
+                1000 -> {
+                    val response = data!!.getStringExtra("response")
+                    if (response.equals("success", true)) {
+                        Alerts.AlertDialogWarning(
+                            requireContext(),
+                            "Transaction Success.\nPoints Added To Your Wallet",""
+                        )
+                    } else if (response.equals("failure", true)) {
+                        Alerts.AlertDialogWarning(
+                            requireContext(),
+                            "Transaction failed.Please try again",""
+                        )
+                    } else {
+                        Alerts.AlertDialogWarning(
+                            requireContext(),
+                            "Transaction Cancelled By User",""
+                        )
+                    }
+
+
+                }
+            }
         }
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+/*
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {
             if (requestCode == Picker.PICK_IMAGE_CAMERA || requestCode == Picker.PICK_IMAGE_DEVICE) {
@@ -456,7 +692,8 @@ import java.util.*
         }
 
         when (requestCode) {
-            UPI_PAYMENT -> /*if (Activity.RESULT_OK == resultCode || resultCode == 11) {
+            UPI_PAYMENT -> */
+/*if (Activity.RESULT_OK == resultCode || resultCode == 11) {
                 if (data != null) {
                     val trxt = data.getStringExtra("response")
                     Log.d("UPI", "onActivityResult: $trxt")
@@ -477,7 +714,8 @@ import java.util.*
                 val dataList = java.util.ArrayList<String>()
                 dataList.add("nothing")
                 upiPaymentDataOperation(dataList)
-            }*/ {
+            }*//*
+ {
                 if (data != null) {
                     // Get Response from activity intent
                     val response = data.getStringExtra("response")
@@ -591,6 +829,7 @@ import java.util.*
             }
         }
     }
+*/
 
     private fun getQueryString(url: String): Map<String, String>? {
         val params = url.split("&").toTypedArray()

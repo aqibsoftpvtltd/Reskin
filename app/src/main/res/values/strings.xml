@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">RATAN777</string>
-    <string name="app_name_full">RATAN777 GAMES</string>
+    <string name="app_name">Bet4x</string>
+    <string name="app_name_full">Bet4x GAMES</string>
     <string name="app_desc">Play game and earn money</string>
     <!--    <string name="youtube_api_key">AIzaSyDd3yXo5Ml8TAJp7DFPSnu7LIzleYrALa8</string>-->
     <string name="youtube_api_key">AIzaSyASO4qXp86ueqd8jfb77VT95IDK0z8i2gA</string>
@@ -11,8 +11,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="how_to_play">How To Play</string>
-    <string name="how_to_play_desc">Simply Download Our Application from Play Store. Register with your Mobile Number, Username and Email Id with RATAN777. Login into the Application using username and password. Select The Main type then the Game type then Select your favourite number and play the game.</string>
-    <string name="kuberapp">RATAN777</string>
+    <string name="how_to_play_desc">Simply Download Our Application from Play Store. Register with your Mobile Number, Username and Email Id with Bet4x. Login into the Application using username and password. Select The Main type then the Game type then Select your favourite number and play the game.</string>
+    <string name="kuberapp">Bet4x</string>
     <string name="password">Password</string>
     <string name="login_with_mpin">Login With Mpin </string>
     <string name="or">Or</string>
@@ -70,7 +70,7 @@
     <string name="single_digit_1_10">* Single Digit :– 1–10</string>
     <string name="history">History</string>
     <string name="single_pana_1_160">* Single Pana :– 1–160</string>
-    <string name="kuber_starline_notification">RATAN777 Notification</string>
+    <string name="kuber_starline_notification">Bet4x Notification</string>
     <string name="_10_00_am">10:00 AM</string>
     <string name="_179_7">179-7</string>
     <string name="_09_08_2019">09-08 -2019</string>
@@ -114,7 +114,7 @@
     <string name="request_amount">Fund Amount</string>
     <string name="jackpot_bid_history">Jackpot History</string>
     <string name="fund_request_history">Fund Request\nHistory</string>
-    <string name="starline_history">RATAN777 Result History</string>
+    <string name="starline_history">Bet4x Result History</string>
     <string name="approved_credit_history">Approved Credit History</string>
     <string name="andar_bahar_history">Jackpot Result History</string>
     <string name="kuber_starline">Starline</string>
@@ -173,7 +173,7 @@
     <string name="description">Description</string>
     <string name="date">Date</string>
     <string name="type">Type</string>
-    <string name="brand_online_support_panel">RATAN777 Support</string>
+    <string name="brand_online_support_panel">Bet4x Support</string>
     <string name="confirm_account_number">Confirm account number</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -181,11 +181,11 @@
     <string name="hello_user_">Seems you are new here,\nLet’s set up your profile.</string>
 
     <string name="call_permission">Call Permission</string>
-    <string name="call_permission_description">This permission is required for Calling to RATAN777 Customer Support.</string>
+    <string name="call_permission_description">This permission is required for Calling to Bet4x Customer Support.</string>
     <string name="storage_permission">Storage Permission</string>
-    <string name="storage_permission_description">This permission is required for Sharing Images to RATAN777 Customer Support.</string>
+    <string name="storage_permission_description">This permission is required for Sharing Images to Bet4x Customer Support.</string>
     <string name="record_permission">Record Permission</string>
-    <string name="record_permission_description">This permission is required for Sending Audio Messages to RATAN777 Customer Support.</string>
+    <string name="record_permission_description">This permission is required for Sending Audio Messages to Bet4x Customer Support.</string>
     <string name="allow_permission">Allow Permission</string>
     <string name="close">Close</string>
     <string name="mpin_login">MPIN Login</string>

@@ -74,7 +74,11 @@ public class ChosenFile implements Parcelable {
         dest.writeString(mimeType);
         dest.writeLong(size);
         dest.writeString(extension);
-        dest.writeLong(createdAt.getTime());
+        if (createdAt != null) {
+            dest.writeLong(createdAt.getTime());
+        } else {
+            dest.writeLong(0); // or any default value you prefer
+        }
         dest.writeString(type);
         dest.writeString(displayName);
         dest.writeInt(success ? 1 : 0);
@@ -82,6 +86,7 @@ public class ChosenFile implements Parcelable {
         dest.writeInt(requestId);
         dest.writeString(tempFile);
     }
+
 
     public static final Creator<ChosenFile> CREATOR = new Creator<ChosenFile>() {
         @Override

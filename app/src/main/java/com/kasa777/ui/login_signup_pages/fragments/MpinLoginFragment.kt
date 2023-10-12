@@ -30,7 +30,6 @@ import com.kasa777.ui.activity.ForgotPasswordOtpVerifyActivity
 import com.kasa777.utils.*
 import kotlinx.android.synthetic.main.fragment_login_page.*
 import kotlinx.android.synthetic.main.mpin_login_fragment.*
-import kotlinx.android.synthetic.main.mpin_login_fragment.tabSignup
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
