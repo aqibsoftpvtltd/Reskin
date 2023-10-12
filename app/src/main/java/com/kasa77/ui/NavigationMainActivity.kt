@@ -17,7 +17,6 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -704,20 +703,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
                 Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
                 this.doubleBackToExitPressedOnce = true
             } else {
-                topMenu.visibility = View.VISIBLE
-                // bottomBack.setBackgroundResource(R.drawable.home_curve_bottom_background)
-                gameTitle.text = resources.getString(R.string.app_name_full)
-                tabHomePageView.visibility = View.VISIBLE
-                gamedesc.visibility = View.VISIBLE
-                fragmentUtils?.replaceFragment(
-                    HomePageFragment(),
-                    Constant.LiveResultsFragment,
-                    R.id.home_frame
-                )
-//                changeDrawableColor(this@NavigationMainActivity, btn_home, R.color.white)
-//                changeDrawableColor(this@NavigationMainActivity, btn_passbook, R.color.text_bottom)
-//                changeDrawableColor(this@NavigationMainActivity, btn_fund, R.color.text_bottom)
-//                changeDrawableColor(this@NavigationMainActivity, btn_chat, R.color.text_bottom)
+                bottomNavHomeSelected()
             }
 
 
@@ -730,7 +716,7 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
     private fun initSocketSetup() {
         try {
             dbHelper = DBHelper(mContext)
-            mSocket = (application as? ChatApplication)?.getSocket()
+            mSocket = (application as? ChatApplication)?.socket
             manageChatCounter()
             getuserOldMessageCounterOnly()
             getNotificationCounter()
@@ -1314,11 +1300,6 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
             R.id.home_frame
         )
 
-//
-//      changeDrawableColor(this@NavigationMainActivity, btn_home, R.color.white)
-//      changeDrawableColor(this@NavigationMainActivity, btn_passbook, R.color.text_bottom)
-//      changeDrawableColor(this@NavigationMainActivity, btn_fund, R.color.text_bottom)
-//      changeDrawableColor(this@NavigationMainActivity, btn_chat, R.color.text_bottom)
 
     }
 
@@ -1365,10 +1346,12 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
     private fun bottomNavHomeSelected() {
 
         homeBigLyt.visibility = View.VISIBLE
+       // fadeIn(homeBigLyt)
         bidHistoryBigLyt.visibility = View.INVISIBLE
         notificationsBigLyt.visibility = View.INVISIBLE
         chatBigLyt.visibility = View.INVISIBLE
 
+      //  fadeOut(homeSmallLyt)
         homeSmallLyt.visibility = View.INVISIBLE
         bidHistorySmallLyt.visibility = View.VISIBLE
         notificationSmallLyt.visibility = View.VISIBLE
@@ -1606,6 +1589,20 @@ public class NavigationMainActivity : BaseActivity(), View.OnClickListener,
         bidHistorySelected.setImageResource(R.drawable.bid_history_selected_green);
         notificationsSelected.setImageResource(R.drawable.wallet_selected_green);
         chatSelected.setImageResource(R.drawable.chat_selected_green);
+    }
+
+
+    private fun fadeIn(view: View) {
+
+        val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+        view.startAnimation(fadeInAnimation)
+        view.visibility = View.VISIBLE
+    }
+
+    private fun fadeOut(view: View) {
+        val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+        view.startAnimation(fadeOutAnimation)
+        view.visibility = View.INVISIBLE // Make the view invisible
     }
 
 }
