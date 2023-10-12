@@ -113,7 +113,7 @@
     <string name="name">Full Name</string>
     <string name="request_amount">Fund Amount</string>
     <string name="jackpot_bid_history">Jackpot History</string>
-    <string name="fund_request_history">Fund Request History</string>
+    <string name="fund_request_history">Fund Request\nHistory</string>
     <string name="starline_history">RATAN777 Result History</string>
     <string name="approved_credit_history">Approved Credit History</string>
     <string name="andar_bahar_history">Jackpot Result History</string>
@@ -222,7 +222,7 @@
     <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="my_history">My History</string>
-    <string name="account_statement">Account Statement</string>
+    <string name="account_statement">Account\nStatement</string>
     <string name="funds">Funds</string>
     <string name="otp_verification">OTP Verification</string>
     <string name="customer_support">Customer Support</string>
@@ -240,7 +240,7 @@
     <string name="add_funds">Add Funds</string>
     <string name="withdraw_funds">Withdraw Funds</string>
     <string name="account_statements">Account Statements</string>
-    <string name="add_bank_details_">Add Bank Details</string>
+    <string name="add_bank_details_">Add Bank\nDetails</string>
     <string name="title">Title</string>
     <string name="descrition">Description</string>
     <string name="time">Time</string>
@@ -266,7 +266,7 @@
     <string name="dashboard">Dashboard</string>
     <string name="note_">Note:</string>
     <string name="add_fund">Add Fund</string>
-    <string name="withdraw_fund">Withdraw Fund</string>
+    <string name="withdraw_fund">Withdraw\nFunds</string>
     <string name="total_payment">Total Payment</string>
     <string name="for_withdraw_related_querys">For Withdraw Related Query\'s</string>
     <string name="telegram_us_">Telegram us...</string>

@@ -28,9 +28,10 @@
 
             <ImageView
                 android:layout_marginVertical="@dimen/_12sdp"
-                android:layout_width="@dimen/_45sdp"
-                android:layout_height="@dimen/_45sdp"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
                 android:layout_gravity="center"
+                android:padding="@dimen/_5sdp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/error_icon" />
 
@@ -96,8 +97,7 @@
                 android:padding="@dimen/_8sdp"
                 android:layout_margin="@dimen/_8sdp"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/close_dialog" />
+                android:layout_alignParentTop="true" />
 
         </RelativeLayout>
 

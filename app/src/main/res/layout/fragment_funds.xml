@@ -26,18 +26,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="2"
-
             android:orientation="horizontal">
             <RelativeLayout
                 android:id="@+id/cvAddFund"
                 android:background="@drawable/dr_ractengle_less_round_ripple_effect"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                >
+                android:layout_height="wrap_content">
 
 
                 <RelativeLayout
@@ -46,12 +41,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_2sdp"
-                    android:layout_marginVertical="@dimen/_4sdp"
-                    android:paddingHorizontal="@dimen/_15sdp"
                     android:background="@drawable/add_funds_icon"
-                    android:elevation="@dimen/_2sdp"
-                    android:gravity="center"
                     android:orientation="vertical">
 
 
@@ -64,9 +54,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:fontFamily="@font/dmsansmedium"
-
-
+                    android:fontFamily="@font/dmsansbold"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/add_funds"
                     android:textAlignment="center"
                     android:textColor="@color/black"
@@ -80,10 +69,7 @@
                 android:background="@drawable/dr_ractengle_less_round_ripple_effect"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingHorizontal="@dimen/_15sdp">
+                android:layout_height="wrap_content">
 
                 <RelativeLayout
                     android:id="@+id/rvWithDrawFunds"
@@ -91,12 +77,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_2sdp"
-                    android:layout_marginVertical="@dimen/_4sdp"
-                    android:paddingHorizontal="@dimen/_15sdp"
                     android:background="@drawable/withdraw_funds_icon"
-                    android:elevation="@dimen/_2sdp"
-                    android:gravity="center"
                     android:orientation="vertical">
 
 
@@ -109,7 +90,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:fontFamily="@font/dmsansmedium"
+                    android:fontFamily="@font/dmsansbold"
+                    android:layout_marginTop="@dimen/_10sdp"
 
 
                     android:text="@string/withdraw_fund"
@@ -138,10 +120,7 @@
                 android:background="@drawable/dr_ractengle_less_round_ripple_effect"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingHorizontal="@dimen/_15sdp">
+                android:layout_height="wrap_content">
 
                 <RelativeLayout
                     android:id="@+id/rvFundsRequestHistory"
@@ -149,12 +128,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_2sdp"
-                    android:layout_marginVertical="@dimen/_4sdp"
-                    android:paddingHorizontal="@dimen/_15sdp"
                     android:background="@drawable/funds_request_history_icon"
-                    android:elevation="@dimen/_2sdp"
-                    android:gravity="center"
                     android:orientation="vertical">
 
 
@@ -167,9 +141,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:fontFamily="@font/dmsansmedium"
-
-
+                    android:fontFamily="@font/dmsansbold"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/fund_request_history"
                     android:textAlignment="center"
                     android:textColor="@color/black"
@@ -184,10 +157,7 @@
                 android:background="@drawable/dr_ractengle_less_round_ripple_effect"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingHorizontal="@dimen/_15sdp">
+                android:layout_height="wrap_content">
 
                 <RelativeLayout
                     android:id="@+id/rvAccountStatemnt"
@@ -195,12 +165,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_2sdp"
-                    android:layout_marginVertical="@dimen/_4sdp"
-                    android:paddingHorizontal="@dimen/_15sdp"
                     android:background="@drawable/account_statements_icon"
-                    android:elevation="@dimen/_2sdp"
-                    android:gravity="center"
                     android:orientation="vertical">
 
 
@@ -213,10 +178,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:fontFamily="@font/dmsansmedium"
-
-
+                    android:fontFamily="@font/dmsansbold"
                     android:text="@string/account_statement"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_9sdp" />
@@ -236,11 +200,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-
                 android:layout_weight="1"
                 android:background="@drawable/dr_ractengle_less_round_ripple_effect"
-                android:orientation="vertical"
-                android:paddingHorizontal="@dimen/_15sdp">
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:id="@+id/rvAddBankDetails"
@@ -248,12 +210,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_2sdp"
-                    android:layout_marginVertical="@dimen/_4sdp"
-                    android:paddingHorizontal="@dimen/_15sdp"
                     android:background="@drawable/add_bank_details_icon"
-                    android:elevation="@dimen/_2sdp"
-                    android:gravity="center"
                     android:orientation="vertical">
 
 
@@ -265,11 +222,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/rvAddBankDetails"
-
-
-                    android:fontFamily="@font/dmsansmedium"
-
-
+                    android:fontFamily="@font/dmsansbold"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/add_bank_details_"
                     android:textAlignment="center"
                     android:textColor="@color/black"

@@ -9,6 +9,11 @@
     android:background="@color/secondaryColor"
     tools:context=".chat.ui.ChatBoardActivity">
 
+    <include
+        android:id="@+id/toolbar_chat"
+        android:visibility="gone"
+        layout="@layout/toolbar"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -496,37 +496,39 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_30sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
 
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:id="@+id/cvMorningDashboardHistory"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginHorizontal="@dimen/_7sdp"
-
-                        android:layout_weight="1"
                         android:background="@drawable/dr_ractengle_less_round_ripple_effect">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
 
-                            android:background="@drawable/bid_history_item_bg"
+                        <LinearLayout
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_126sdp"
+                            android:background="@drawable/white_corener_8"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/bid_history_item_icon_orange">
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:backgroundTint="@color/orange_bid_history_icons"
+                                android:src="@drawable/bid_history_item_icon_orange"
+
+
+                                android:background="@drawable/circle_white">
 
                             </ImageView>
 
@@ -547,61 +549,35 @@
 
                     <LinearLayout
                         android:id="@+id/cvFundRequestHistoryH"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                         android:layout_marginHorizontal="@dimen/_7sdp"
-                        android:layout_weight="1"
-                        android:background="@drawable/dr_ractengle_less_round_ripple_effect"
-                        android:orientation="horizontal">
+                        android:layout_marginHorizontal="@dimen/_7sdp"
+                        android:background="@drawable/dr_ractengle_less_round_ripple_effect">
+
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-
-                            android:background="@drawable/bid_history_item_bg"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_126sdp"
+                            android:background="@drawable/white_corener_8"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/result_history_item_icon_orange">
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:backgroundTint="@color/orange_bid_history_icons"
+                                android:src="@drawable/result_history_item_icon_orange"
+
+
+                                android:background="@drawable/circle_white">
 
                             </ImageView>
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:fontFamily="@font/dmsansmedium"
-                                android:text="Funds Request History"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_9sdp">
-
-                            </TextView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@drawable/bid_history_item_bg"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/result_history_item_icon_orange">
-
-                            </ImageView>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_10sdp"
-                                android:fontFamily="@font/dmsansmedium"
-                                android:text="Result History"
+                                android:text="Fund Request History"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_9sdp">
 
@@ -615,32 +591,34 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:id="@+id/cvStarlineBidHistory"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                         android:layout_marginHorizontal="@dimen/_7sdp"
-                        android:layout_weight="1"
-
-
+                        android:layout_marginHorizontal="@dimen/_7sdp"
                         android:background="@drawable/dr_ractengle_less_round_ripple_effect">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
 
-                            android:background="@drawable/bid_history_item_bg"
+                        <LinearLayout
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_126sdp"
+                            android:background="@drawable/white_corener_8"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/bid_history_item_icon_pink">
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:backgroundTint="@color/pink_bid_history_icons"
+                                android:src="@drawable/bid_history_item_icon_orange"
+
+
+                                android:background="@drawable/circle_white">
 
                             </ImageView>
 
@@ -661,25 +639,27 @@
 
                     <LinearLayout
                         android:id="@+id/cvStarlineHistory"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                         android:layout_marginHorizontal="@dimen/_7sdp"
-                        android:layout_weight="1"
-                        android:background="@drawable/dr_ractengle_less_round_ripple_effect"
-                        android:orientation="horizontal">
+                        android:layout_marginHorizontal="@dimen/_7sdp"
+                        android:background="@drawable/dr_ractengle_less_round_ripple_effect">
+
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-
-                            android:background="@drawable/bid_history_item_bg"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_126sdp"
+                            android:background="@drawable/white_corener_8"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/result_history_item_icon_pink">
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:backgroundTint="@color/pink_bid_history_icons"
+                                android:src="@drawable/result_history_item_icon_orange"
+
+
+                                android:background="@drawable/circle_white">
 
                             </ImageView>
 
@@ -695,32 +675,6 @@
                             </TextView>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@drawable/bid_history_item_bg"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/result_history_item_icon_orange">
-
-                            </ImageView>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_10sdp"
-                                android:fontFamily="@font/dmsansmedium"
-                                android:text="Result History"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_9sdp">
-
-                            </TextView>
-                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -729,32 +683,34 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:id="@+id/cvJackpotHistory"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                         android:layout_marginHorizontal="@dimen/_7sdp"
-                        android:layout_weight="1"
-
+                        android:layout_marginHorizontal="@dimen/_7sdp"
                         android:background="@drawable/dr_ractengle_less_round_ripple_effect">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
 
-                            android:background="@drawable/bid_history_item_bg"
+                        <LinearLayout
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_126sdp"
+                            android:background="@drawable/white_corener_8"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/bid_history_item_icon_green">
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:backgroundTint="@color/green_bid_history_icons"
+                                android:src="@drawable/bid_history_item_icon_orange"
+
+
+                                android:background="@drawable/circle_white">
 
                             </ImageView>
 
@@ -775,27 +731,30 @@
 
                     <LinearLayout
                         android:id="@+id/cvAndarBaharHistory"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                         android:layout_marginHorizontal="@dimen/_7sdp"
-                        android:layout_weight="1"
-                        android:background="@drawable/dr_ractengle_less_round_ripple_effect"
-                        android:orientation="horizontal">
+                        android:layout_marginHorizontal="@dimen/_7sdp"
+                        android:background="@drawable/dr_ractengle_less_round_ripple_effect">
+
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-
-                            android:background="@drawable/bid_history_item_bg"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_126sdp"
+                            android:background="@drawable/white_corener_8"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/result_history_item_icon_green">
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:backgroundTint="@color/green_bid_history_icons"
+                                android:src="@drawable/result_history_item_icon_orange"
+
+
+                                android:background="@drawable/circle_white">
 
                             </ImageView>
+
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -809,32 +768,6 @@
                             </TextView>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@drawable/bid_history_item_bg"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/result_history_item_icon_orange">
-
-                            </ImageView>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_10sdp"
-                                android:fontFamily="@font/dmsansmedium"
-                                android:text="Result History"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_9sdp">
-
-                            </TextView>
-                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -844,33 +777,34 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_30sdp"
-
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:id="@+id/cvApprovedCreditHistory"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                         android:layout_marginHorizontal="@dimen/_7sdp"
-                        android:layout_weight="1"
-
-
+                        android:layout_marginHorizontal="@dimen/_7sdp"
                         android:background="@drawable/dr_ractengle_less_round_ripple_effect">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
 
-                            android:background="@drawable/bid_history_item_bg"
+                        <LinearLayout
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_126sdp"
+                            android:background="@drawable/white_corener_8"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/result_history_item_icon_orange">
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:backgroundTint="@color/green_bid_history_icons"
+                                android:src="@drawable/bid_history_item_icon_orange"
+
+
+                                android:background="@drawable/circle_white">
 
                             </ImageView>
 
@@ -891,25 +825,27 @@
 
                     <LinearLayout
                         android:id="@+id/cvDebitHistory"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                         android:layout_marginHorizontal="@dimen/_7sdp"
-                        android:layout_weight="1"
-                        android:background="@drawable/dr_ractengle_less_round_ripple_effect"
-                        android:orientation="horizontal">
+                        android:layout_marginHorizontal="@dimen/_7sdp"
+                        android:background="@drawable/dr_ractengle_less_round_ripple_effect">
+
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-
-                            android:background="@drawable/bid_history_item_bg"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_126sdp"
+                            android:background="@drawable/white_corener_8"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/result_history_item_icon_orange">
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:backgroundTint="@color/green_bid_history_icons"
+                                android:src="@drawable/result_history_item_icon_orange"
+
+
+                                android:background="@drawable/circle_white">
 
                             </ImageView>
 
@@ -925,32 +861,6 @@
                             </TextView>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@drawable/bid_history_item_bg"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/result_history_item_icon_orange">
-
-                            </ImageView>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_10sdp"
-                                android:fontFamily="@font/dmsansmedium"
-                                android:text="Result History"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_9sdp">
-
-                            </TextView>
-                        </LinearLayout>
 
                     </LinearLayout>
 

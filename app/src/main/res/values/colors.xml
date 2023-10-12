@@ -117,4 +117,7 @@
     <color name="notification_screen_bg">#C4C4C4</color>
     <color name="wallet_grey_text_color">#979797
     </color>
+    <color name="orange_bid_history_icons">#1CFD6B22</color>
+    <color name="pink_bid_history_icons">#1CFF3975</color>
+    <color name="green_bid_history_icons">#1C08C118</color>
 </resources>

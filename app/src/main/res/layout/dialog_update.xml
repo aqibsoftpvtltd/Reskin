@@ -30,6 +30,7 @@
                     android:layout_height="@dimen/_100sdp"
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
+                    android:padding="@dimen/_5sdp"
                     android:src="@drawable/app_logo" />
 
                 <TextView
@@ -108,8 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:padding="10dp"
-                android:src="@drawable/close_dialog" />
+                android:padding="10dp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

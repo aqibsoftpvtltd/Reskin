@@ -31,6 +31,7 @@
                     android:layout_gravity="center"
                     android:layout_marginVertical="@dimen/_12sdp"
                     android:adjustViewBounds="true"
+                    android:padding="@dimen/_5sdp"
                     android:src="@drawable/error_icon" />
 
                 <TextView

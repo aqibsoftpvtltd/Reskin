@@ -28,10 +28,11 @@
 
                 <ImageView
                     android:layout_marginTop="@dimen/_12sdp"
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_45sdp"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
+                    android:padding="@dimen/_5sdp"
                     android:src="@drawable/time_out" />
 
                 <TextView

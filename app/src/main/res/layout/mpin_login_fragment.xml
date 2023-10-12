@@ -364,8 +364,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:fontFamily="@font/dmsansbold"
 
+                        android:fontFamily="@font/dmsansbold"
                         android:text="Continue with Username"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
@@ -401,6 +401,7 @@
 
 
                 <TextView
+                    android:id="@+id/mpinsignup"
                     android:layout_marginStart="@dimen/_4sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

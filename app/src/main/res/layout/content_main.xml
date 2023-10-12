@@ -137,7 +137,7 @@
             android:layout_height="@dimen/_55sdp"
             android:paddingHorizontal="@dimen/_35sdp"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/bottom_bar_bg"
+            android:background="@color/secondaryColor"
             android:orientation="horizontal"
 
             android:weightSum="4">
