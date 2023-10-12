@@ -518,12 +518,11 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
-                            android:background="@drawable/bid_history_item_bg"
+                            android:background="@drawable/bidhistory_icon_back"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <ImageView
+                          <!--  <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/bid_history_item_icon_orange">
@@ -539,7 +538,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_9sdp">
 
-                            </TextView>
+                            </TextView>-->
                         </LinearLayout>
 
 
@@ -558,11 +557,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
-                            android:background="@drawable/bid_history_item_bg"
+                            android:background="@drawable/resulthistory_icon_back"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <ImageView
+                          <!--  <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/result_history_item_icon_orange">
@@ -578,7 +577,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_9sdp">
 
-                            </TextView>
+                            </TextView>-->
                         </LinearLayout>
 
                         <LinearLayout
@@ -624,20 +623,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                          android:layout_marginHorizontal="@dimen/_7sdp"
-                        android:layout_weight="1"
-
-
-                        android:background="@drawable/dr_ractengle_less_round_ripple_effect">
+                        android:layout_weight="1">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
-                            android:background="@drawable/bid_history_item_bg"
+                            android:background="@drawable/starlinehistory_icon_back"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <ImageView
+                           <!-- <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/bid_history_item_icon_pink">
@@ -653,7 +648,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_9sdp">
 
-                            </TextView>
+                            </TextView>-->
                         </LinearLayout>
 
 
@@ -672,11 +667,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
-                            android:background="@drawable/bid_history_item_bg"
+                            android:background="@drawable/starline_resulthistory_icon_back"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <ImageView
+                        <!--    <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/result_history_item_icon_pink">
@@ -692,7 +687,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_9sdp">
 
-                            </TextView>
+                            </TextView>-->
                         </LinearLayout>
 
                         <LinearLayout
@@ -747,11 +742,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
-                            android:background="@drawable/bid_history_item_bg"
+                            android:background="@drawable/jackpot_bidhistory_icon_back"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <ImageView
+                           <!-- <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/bid_history_item_icon_green">
@@ -767,7 +762,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_9sdp">
 
-                            </TextView>
+                            </TextView>-->
                         </LinearLayout>
 
 
@@ -786,11 +781,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
-                            android:background="@drawable/bid_history_item_bg"
+                            android:background="@drawable/jackpot_result_history_icon_back"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <ImageView
+                            <!--<ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/result_history_item_icon_green">
@@ -806,7 +801,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_9sdp">
 
-                            </TextView>
+                            </TextView>-->
                         </LinearLayout>
 
                         <LinearLayout
@@ -862,12 +857,11 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
-                            android:background="@drawable/bid_history_item_bg"
+                            android:background="@drawable/approved_credit_history_back"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <ImageView
+                           <!-- <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/result_history_item_icon_orange">
@@ -883,7 +877,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_9sdp">
 
-                            </TextView>
+                            </TextView>-->
                         </LinearLayout>
 
 
@@ -901,12 +895,11 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
-                            android:background="@drawable/bid_history_item_bg"
+                            android:background="@drawable/approved_debit_history_back"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <ImageView
+                         <!--   <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/result_history_item_icon_orange">
@@ -922,7 +915,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_9sdp">
 
-                            </TextView>
+                            </TextView>-->
                         </LinearLayout>
 
                         <LinearLayout

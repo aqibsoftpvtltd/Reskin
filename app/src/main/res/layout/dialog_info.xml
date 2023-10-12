@@ -222,8 +222,7 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
                 android:layout_marginBottom="@dimen/_8sdp"
-                android:padding="@dimen/_8sdp"
-                android:src="@drawable/close_dialog" />
+                android:padding="@dimen/_8sdp" />
 
         </RelativeLayout>
 
