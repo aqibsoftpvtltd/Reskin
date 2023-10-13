@@ -10,8 +10,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/shape_outcoming_message"
+        android:layout_marginBottom="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_10sdp"
+        android:minHeight="60dp"
+        android:gravity="center"
         android:orientation="vertical"
         android:visibility="visible">
 
@@ -29,6 +32,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:gravity="right"
+
                 android:visibility="gone"
                 android:layout_alignParentBottom="true">
 
@@ -57,7 +61,7 @@
                     android:fontFamily="@font/regular"
                     android:maxLines="2"
                     android:text="Hi hello how are you"
-                    android:textColor="@color/starline_textcolor_blck"
+                    android:textColor="@color/white"
                     android:textSize="10sp" />
 
             </RelativeLayout>
@@ -74,14 +78,14 @@
                     android:id="@+id/tvImgMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="@dimen/_10sdp"
                     android:autoLink="web"
                     android:fontFamily="@font/regular"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:text="Message"
-                    android:textColor="@color/starline_textcolor_blck"
+                    android:textColor="@color/white"
                     android:textColorLink="#253CB8"
                     android:textSize="@dimen/_12sdp"
                     app:emojiSize="26sp" />
@@ -99,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
                     android:layout_below="@id/tvImgMessage"
-                    android:background="@drawable/shape_bg_image"
+
                     android:scaleType="fitCenter"
                     android:transitionName="robot"
 
@@ -128,7 +132,7 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/icf_play_button"
                         android:visibility="visible"
-                        app:tint="@color/starline_textcolor_blck" />
+                        app:tint="@color/white" />
 
 
                 </RelativeLayout>
@@ -141,7 +145,7 @@
                     android:layout_marginLeft="4dp"
                     android:layout_toRightOf="@+id/rlMediaAction"
                     android:progressTint="@color/starline_textcolor_blck"
-                    android:thumbTint="@color/starline_textcolor_blck" />
+                    android:thumbTint="@color/white" />
 
 
                 <RelativeLayout
@@ -157,7 +161,7 @@
                         android:layout_marginLeft="56dp"
                         android:fontFamily="@font/regular"
                         android:text="00:08"
-                        android:textColor="@color/starline_textcolor_blck"
+                        android:textColor="@color/white"
                         android:textSize="10dp" />
 
 
@@ -173,10 +177,10 @@
                 android:layout_marginRight="5dp"
                 android:autoLink="web"
                 android:fontFamily="@font/regular"
-                android:gravity="center_vertical"
-
+                android:gravity="center"
+android:layout_gravity="center"
                 android:text="Message"
-                android:textColor="@color/starline_textcolor_blck"
+                android:textColor="@color/white"
                 android:textColorLink="#253CB8"
 
                 android:textSize="@dimen/text_14"
@@ -185,35 +189,42 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_below="@+id/llContainerOutgoingMessages"
+        android:layout_gravity="right">
+
+        <TextView
+            android:id="@+id/tvMessageTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right">
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/regular"
+            android:gravity="center_vertical"
+            android:text="12:43 PM"
+            android:textSize="10sp" />
 
-            <TextView
-                android:id="@+id/tvMessageTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:fontFamily="@font/regular"
-                android:gravity="center_vertical"
-                android:text="12:43 PM"
-                android:textSize="10sp" />
+        <ImageView
+            android:id="@+id/ivMessageStatus"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            android:layout_marginRight="8dp"
+            android:layout_toRightOf="@+id/tvMessageTime"
+            android:src="@drawable/icf_double_tick_indicator" />
+    </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/ivMessageStatus"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="4dp"
-                android:visibility="gone"
-                android:layout_marginRight="8dp"
-                android:layout_toRightOf="@+id/tvMessageTime"
-                android:src="@drawable/icf_double_tick_indicator" />
-        </RelativeLayout>
-    </LinearLayout>
+
 
 
     <LinearLayout
@@ -224,8 +235,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:background="@drawable/shape_outcoming_message"
+        android:background="@drawable/shape_admin_message"
         android:layout_marginRight="60dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
 
@@ -294,16 +306,16 @@
                         android:id="@+id/tvInImgMessage"
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
-
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:autoLink="web"
                         android:fontFamily="@font/regular"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:text="Message"
-                        android:textColor="#fff"
+                        android:textColor="#000"
                         android:textColorLink="#253CB8"
-                        android:textSize="@dimen/text_14"
+                        android:textSize="12dp"
                         android:visibility="visible"
                         app:emojiSize="26sp" />
 
@@ -319,7 +331,7 @@
                         android:layout_width="280dp"
                         android:layout_height="280dp"
                         android:layout_below="@id/tvInImgMessage"
-                        android:background="@drawable/shape_bg_image"
+
                         android:scaleType="fitCenter"
                         android:transitionName="robot"
                         android:visibility="visible" />
@@ -414,7 +426,8 @@
                     android:fontFamily="@font/regular"
                     android:gravity="center_vertical"
                     android:text="Message"
-                    android:textColor="#0B2F5B"
+                    android:layout_gravity="center"
+                    android:textColor="@color/starline_textcolor_blck"
                     android:textColorLink="#253CB8"
                     android:textSize="@dimen/text_14"
 
@@ -441,7 +454,7 @@
                         android:fontFamily="@font/semibold"
                         android:gravity="center_vertical"
                         android:text="Message"
-                        android:textColor="#0B2F5B"
+                        android:textColor="@color/starline_textcolor_blck"
                         android:textColorLink="#253CB8"
                         android:textSize="@dimen/text_14"
                         android:visibility="visible"
@@ -480,39 +493,42 @@
 
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right">
-
-                <TextView
-                    android:id="@+id/tvInMessageTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/regular"
-                    android:gravity="center_vertical|end"
-
-                    android:text="12:43 PM"
-                    android:textSize="@dimen/text_10" />
-
-                <ImageView
-                    android:id="@+id/ivMessStatusTick"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_toRightOf="@+id/tvInMessageTime"
-                    android:src="@drawable/icf_double_tick_indicator"
-
-                    android:visibility="gone" />
-            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_below="@+id/llContainerIncomingMessages"
+        android:layout_gravity="left">
+
+        <TextView
+            android:id="@+id/tvInMessageTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/regular"
+            android:gravity="center_vertical|end"
+android:visibility="gone"
+            android:text="12:43 PM"
+            android:textSize="@dimen/text_10" />
+
+        <ImageView
+            android:id="@+id/ivMessStatusTick"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:layout_toRightOf="@+id/tvInMessageTime"
+            android:src="@drawable/icf_double_tick_indicator"
+
+            android:visibility="gone" />
+    </RelativeLayout>
 
 
 </RelativeLayout>

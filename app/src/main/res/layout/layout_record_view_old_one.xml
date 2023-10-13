@@ -127,10 +127,11 @@
                 <FrameLayout
                     android:id="@+id/layoutMessage"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_46sdp"
-                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
                     android:layout_gravity="bottom|start"
                     android:minHeight="@dimen/_46sdp"
+                    android:padding="@dimen/_2sdp"
                     android:layout_marginEnd="@dimen/_50sdp"
                     android:layout_marginStart="@dimen/_80sdp">
 
@@ -139,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
-
+                        android:background="@drawable/background_chat"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -163,7 +164,7 @@
 
 
                             <EditText
-                                android:id="@+id/editTextMessage"
+                                android:id="@+id/editTextMessages"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
@@ -180,9 +181,10 @@
                                 android:id="@+id/imageViewEmoji"
                                 android:layout_width="@dimen/_40sdp"
                                 android:layout_height="@dimen/_40sdp"
-                                android:layout_gravity="bottom"
                                 android:layout_marginStart="@dimen/_4sdp"
                                 android:padding="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
 
                                 android:src="@drawable/smile_emoji" />
 
@@ -391,7 +393,7 @@
         android:src="@drawable/ic_stop_white"
         android:layout_marginStart="@dimen/_40sdp"
         android:padding="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_32sdp"
+        android:layout_marginBottom="@dimen/_30sdp"
         android:background="@drawable/send_message_white_bg"
         app:tint="@color/black"
         />
@@ -404,7 +406,7 @@
         android:layout_height="@dimen/_42sdp"
         android:layout_marginEnd="@dimen/_5sdp"
         android:src="@drawable/ic_send"
-        android:layout_marginBottom="@dimen/_32sdp"
+        android:layout_marginBottom="@dimen/_30sdp"
         android:background="@drawable/send_message_white_bg"
         android:padding="@dimen/_10sdp"
 
