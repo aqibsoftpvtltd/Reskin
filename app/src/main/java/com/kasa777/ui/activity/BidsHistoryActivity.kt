@@ -157,7 +157,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                 dialog.show(supportFragmentManager, Constant.DIALOG_DATE)
                 btnSelectedDate.visibility = View.VISIBLE
                // llDate.visibility = View.VISIBLE
-                tvText.visibility = View.VISIBLE
+                //tvText.visibility = View.VISIBLE
                 tvText.text = "Starline Result By Date "
                 todayDate = todayDate()
                 btnSelectedDate.text = todayDate
@@ -256,7 +256,7 @@ class BidsHistoryActivity : BaseActivity(), View.OnClickListener,
                 btnSelectedDate.visibility = View.VISIBLE
                 dateFilter.visibility=View.VISIBLE
                // llDate.visibility = View.VISIBLE
-                tvText.visibility = View.VISIBLE
+                //tvText.visibility = View.VISIBLE
                 tvText.text = "Andar Bahar Result By Date "
                 todayDate = todayDate()
                 btnSelectedDate.text = todayDate

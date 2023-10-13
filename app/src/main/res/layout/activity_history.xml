@@ -259,7 +259,7 @@
                     android:textColor="@color/new_colorAccent"
                     android:textSize="@dimen/text_18"
                     android:textStyle="bold"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
