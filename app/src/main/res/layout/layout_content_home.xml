@@ -134,14 +134,14 @@
             android:id="@+id/profilePicCard"
             android:layout_width="@dimen/_65sdp"
             android:layout_height="@dimen/_65sdp"
-
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_centerHorizontal="true"
             app:cardCornerRadius="@dimen/_20sdp">
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/ivProfile"
-                android:layout_width="@dimen/_65sdp"
-                android:layout_height="@dimen/_65sdp"
-                app:placeholderImage="@drawable/ic_user_round_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:placeholderImage="@drawable/baseline_person_outline_24"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 />
@@ -519,6 +519,25 @@
                 </View>
 
             </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/appVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="App Version 1.0"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:textSize="@dimen/_8sdp"
+                android:fontFamily="@font/dmsansbold"
+                android:layout_below="@id/logoutLyt"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="textEnd"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:textColor="@color/black"
+                >
+
+            </TextView>
 
         </RelativeLayout>
 
